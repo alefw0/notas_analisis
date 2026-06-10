@@ -1,0 +1,47 @@
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{lema}{Lema}[chapter]
+\newtheorem{corolario}{Corolario}[chapter]
+\newtheorem{afirmacion}{Afirmacion}[chapter]
+\theoremstyle{remark}
+\newtheorem{remark}{Observacion}[chapter]
+\theoremstyle{definition}
+\newtheorem{definicion}{Definicion}[chapter]
+\newtheorem{example}{Ejemplo}[chapter]
+
+\newtcolorbox{dem}{
+    empty, % Quita los fondos y bordes por defecto
+    title={\textit{Demostración.}},
+    attach boxed title to top left,
+    boxed title style={empty, size=minimal},
+    coltitle=black, % Color del texto del título
+    fonttitle=\bfseries,
+    borderline west={2pt}{0pt}{gray!40}, % Barra izquierda gris de 2pt
+    left=10pt, % Espacio entre la barra y el texto
+    top=4pt, bottom=4pt,
+    before skip=\medskipamount,
+    after skip=\medskipamount,
+    parbox=false, % Permite espaciado matemático normal
+    after upper={\unskip\hfill $\blacksquare$} % Añade el cuadrito al final
+}
+
+\renewenvironment{proof}{
+\par\noindent\textbf{Demostracion:}\par\ignorespaces
+}{
+\hfill$\blacksquare$ \par\medskip
+}
+
+\newenvironment{prueba}{
+\par\noindent\textbf{Prueba:}\par\ignorespaces
+}{
+\hfill$\square$ \par\medskip
+}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ene}{\mathbb{N}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}

@@ -1,0 +1,76 @@
+\section{Conjuntos abiertos y cerrados}
+A lo largo de esta sección $(X,d)$ denotará un espacio métrico, a menos que se diga otra cosa.
+\begin{definicion}
+    Sea $A\subseteq X$.
+    \begin{enumerate}
+        \item Un punto interior de $A$ en $X$, es un punto $a\in X$ para el cual existe un $\varepsilon>0$ con $B_X(a, \varepsilon) \subseteq A$.
+        \item Decimos que $A$ es abierto en $X$ (o simplemente abierto si no hay lugar a confusiones), si todo $a\in A$, es punto interior de $A$ en $X$.
+        \item Si $U\subseteq X$ es un abierto y $a\in U$, decimos que $U$ es una vecindad de $a$.
+        \item Decimos que $A$ es cerrado en $X$, si $X-A$ es abierto en $X$.
+       
+    \end{enumerate}
+\end{definicion}
+    Es importante anotar que la propiedad de ser cerrado en $X$ \textbf{no} es la negación de ser abierto en $X$. Por ejemplo : $\emptyset$ es abierto en $X$ pues la afirmación $(\forall x)(x\in \emptyset \Rightarrow (\exists \varepsilon>0 )(B_X(x,\varepsilon)\subseteq \emptyset)$ es verdadera. Además $X$ es abierto ya que por definición de bola, $B_X(a,\varepsilon)\subseteq X$, para todo $a\in X$ y $\varepsilon>0$. Pero  $X$ también es cerrado ya que $X-X=\emptyset$ el cual es abierto. Similarmente $\emptyset$ es cerrado. En conclusión, $X$ es abierto y cerrado en $X$, así como $\emptyset$.
+   
+    \begin{teorema}
+    Las bolas en $X$ son conjuntos abiertos.
+    \end{teorema}
+    \begin{proof}
+    Sea $B(p, r)$ una bola en $X$, veamos que éste es un conjunto abierto.  Sea $a\in B(p, r).$ Entonces $d(p,a)<r$. Sea $\varepsilon=r-d(p,a)$, el cual es un número positivo. Veamos que $B(a,\varepsilon)\subseteq B(p,r).$ Sea $x\in B(a,\varepsilon).$ Entonces $d(a,x)<\varepsilon.$ Por tanto
+    $$d(p,x)\leq d(p,a)+d(a,x)<d(p,a)+\varepsilon=r.$$
+Esto es, $x\in B(p,r)$.
+\end{proof}
+
+\begin{example}
+Si $(X,d)$ es el espacio métrico discreto, entonces todos sus subconjuntos son abiertos. Este hecho se ve fácilmente ya que como vimos antes $B(a,1)=\{a\}$, para todo $a\in X$. En consecuencia, todo subconjunto de $X$ también es cerrado en $X$.
+\end{example}
+
+\begin{example}
+Sea $A=[0,1)$ el intervalo semiabierto en $\R$ con la métrica euclidiana. Entonces $A$ no es abierto en $\R$. Veamos que  $0$ no es punto interior de $A$. En realidad, para todo $\varepsilon >0$, $B(0,\varepsilon )=(-\varepsilon, \varepsilon) \not \subseteq [0,1).$
+\end{example}
+
+\begin{teorema}\label{uni-inter-ab}
+Sea $\mathcal{C}$ una colección de abiertos de $X$. Entonces
+\begin{enumerate}
+    \item $U:=\bigcup_{A\in \mathcal{C}}A$, es abierto en $X$.
+    \item Si $\mathcal{C}$ es una colección finita, entonces $V:=\bigcap_{A\in \mathcal{C}}A$ es abierto en $X$.
+\end{enumerate}
+\end{teorema}
+\begin{proof}
+\begin{enumerate}
+    \item Sea $x\in U$. Entonces existe un $A\in \mathcal{C}$ tal que $x\in A$. Como $A$ es abierto, existe un $\varepsilon>0$ tal que $x\in B(x, \varepsilon) \subseteq A \subseteq U.$ Luego $U $ es abierto.
+    \item Sea $x\in V$. Entonces  $x\in A $ para todo $A\in \mathcal{C}.$ Para $A\in \mathcal{C}$, sea $\varepsilon_A >0$, tal que $B(x, \varepsilon_A)\subseteq A$. Como $\mathcal{C}$ es finito, existe $\varepsilon:=\min\{\varepsilon_A: \ \ A\in \mathcal{C} \}>0.$ Veamos que $B(x, \varepsilon)\subseteq V.$ Sean $z\in B(x, \varepsilon)$ y $A\in \mathcal{C}$. Entonces $d(z,x)\leq \varepsilon \leq \varepsilon_A$. Luego  $z\in B(x, \varepsilon_A)\subseteq A$. Es decir,  $z\in A$, para todo $A\in \mathcal{C}$; o sea $z\in V$.
+\end{enumerate}
+\end{proof}
+
+\begin{example}
+Sea $a\in \R$. Afirmamos que los intervalos abiertos $(-\infty, a)$ y $(a, \infty)$, son conjuntos abiertos en $\R$. En realidad
+\[(-\infty , a) = \bigcup_{n=1}^\infty (-n, a ) \quad \text{y }\quad (a, \infty ) = \bigcup_{n=1}^\infty ( a, n ) .\]
+Como cada intervalo de la forma $(-n,a)$ y $(a,n)$ es un abierto, entonces por el Teorema anterior se tiene una prueba de esta afirmación.
+\end{example}
+
+El siguiente ejemplo nos demuestra que si quitamos la condición de finitud de la colección $\mathcal{C}$ en la segunda afirmación del Teorema anterior el resultado puede fallar.
+\begin{example}
+Sea $\mathcal{C}= \left\{ B(0, \frac{1}{n})\subseteq \R: \ \ n\in \ene\right\}$. Entonces, $\bigcap_{A\in \mathcal{C}}A=\{0\}$, el cual no es abierto, ya que $0$ no es punto interior de $\{0\}.$
+\end{example}
+
+\begin{teorema}\label{ab-cerr-subesp}
+Sean $B\subseteq  A\subseteq X$. Entonces
+\begin{enumerate}
+    \item $B$ es abierto en $A$ si y sólo si existe un abierto $U$ en $X$ tal que $B=A\cap U$.
+    \item  $B$ es cerrado en $A$ si y sólo si existe un cerrado $C$ en $X$ tal que $B=A\cap C$.
+\end{enumerate}
+\end{teorema}
+\begin{proof}
+\begin{enumerate}
+    \item $(\implies)$. Como $B$ es abierto en $A$, entonces $B=\{x\in B: \text{existe $\varepsilon_x >0$ tal que $B_A(x, \varepsilon_x)\subseteq B$}\}$. Es decir
+\[B=\bigcup_{x\in {B}}B_A(x, \varepsilon_x).\]
+Como $B_A(x, \varepsilon_x) =A \cap B_X(x, \varepsilon_x).$ Entonces
+\[B=\bigcup_{x\in B}B_A(x, \varepsilon_x) =\bigcup_{x\in B} \left( A \cap B_X(x, \varepsilon_x)\right)=A \bigcap  \left( \bigcup_{x\in B} B_X(x, \varepsilon_x)\right).\]
+Tomando $U:=\bigcup_{x\in B} B_X(x, \varepsilon_x)$, el cual es abierto en $X$ por el Teorema $\ref{uni-inter-ab}$, tenemos que $B=A\cap U$.\\
+Recíprocamente, si $B=A\cap U$ y $x\in B$, entonces $x\in U$. Como $U$ es abierto en $X$, existe un $\varepsilon>0$ tal que $B(x, \varepsilon)\subseteq U$. Luego $B_A(x, \varepsilon)=A\cap  B(x, \varepsilon) \subseteq A\cap U=B$. Por tanto $x$ es punto interior de $B$. Lo cual prueba que $B$ es abierto en $A$.
+\item $B$ es cerrado en $A$ si y sólo si $A-B$ es abierto en $A$ si y sólo si existe un $U$ abierto en $X$ tal que $A-B=A\cap U$ si y sólo si $B=A\cap (X-U)$ si y sólo si $B=A\cap C$ con $C$ cerrado en $X$.
+\end{enumerate}
+
+
+\end{proof}

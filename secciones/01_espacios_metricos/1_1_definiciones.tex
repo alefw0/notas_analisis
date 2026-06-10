@@ -1,0 +1,210 @@
+\section{Definiciones, bolas y sucesiones}
+\begin{definicion}\textbf{(Espacio métrico)}
+Sean $X$ un conjunto no vacío y $d:X \times X \to \mathbb{R}$ una función. Entonces $d$ se llama una métrica en $X$ si satisface las siguientes condiciones para todo $x,y,z\in X$:
+\begin{enumerate}
+    \item $d(x,y)\geq 0$.
+    \item $d(x,y)= 0$ si y sólo si $x=y$.
+    \item $d(x,y)=d(y,x).$
+    \item $d(x,y)\leq d(x,z)+d(z,y).$ Esta propiedad se conoce como desigualdad triangular.
+\end{enumerate}
+La pareja $(X,d)$ se llama un espacio métrico.
+\end{definicion}
+\begin{remark}
+Si $(X,d)$ es un espacio métrico, entonces para todo $\alpha >0$, $(X,\alpha d)$ también es un espacio métrico.
+\end{remark}
+\begin{example}
+Sea $X\ne \emptyset$. Definamos $d:X\times X \to \mathbb{R}$ como $d(x,y):= \left\{ \begin{array}{rcl}
+    1 & \text{si} & x\neq y \\
+     0 & \text{si} & x= y
+\end{array} \right. .$ Entonces $d$ es una métrica en $X$ (llamada la métrica discreta en $X$).
+\end{example}
+En efecto, sean $x,y,z \in X$. Por la definición esta función toma sólo los valores 0 o 1, por tanto $d(x,y)\geq 0$. Además también por la definición se ve inmediatamente la condición 2. Ahora,  $x\neq y$ si y sólo si $y\neq x$. En consecuencia $d(x,y)=d(y,x)$. Finalmente veamos que esta función satisface la desigualdad triangular. Si $y=z$ entonces (i) si $x=y$, tenemos $d(x,y)=0\leq 0+0=d(x,z)+d(z,y)$. (ii)
+Por otro lado, si $x\neq y$, entonces $x\neq z$ y por tanto $d(x,y)=1\leq 1+0 =d(x,z)+d(z,y)$.  Supongamos ahora que $y\neq z$. Entonces $d(x,y)\leq 1 = 0+1 \leq d(x,z)+d(z,y).$
+
+\begin{example}\textbf{(La métrica Euclidiana)}
+\begin{enumerate}
+    \item Definamos $d: \mathbb{R}\times \mathbb{R} \to \mathbb{R}$ como $d(x,y):= |x-y|.$ Entonces $d$ es una métrica en $\mathbb{R}$.
+    \item En general si $n$ es cualquier  entero positivo, definamos $d: \mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}$ como \linebreak $d(\x,\y):= \|\x-\y \|=\left( (x_1-y_1)^2+\cdots + (x_n-y_n)^2\right)^{\frac{1}2},$ donde $\x=(x_1, \dots ,x_n)$ y $\y=(y_1, \dots ,y_n)$. Entonces $d$ es una métrica en $\mathbb{R}^n$.
+\end{enumerate}
+\end{example}
+Obsérvese que las propiedades 1, 2 y 3
+ son inmediatas de la definición. Veamos la desigualdad triangular. Sean $\x=(x_1, \dots ,x_n)$, $\y=(y_1, \dots ,y_n)$ y $\z=(z_1, \dots ,z_n)$. Probemos primero que si $a_1, \dots , a_n$ y $b_1, \dots , b_n$ son números reales, entonces
+\begin{equation}\label{trian-eucli-1}
+     \sum_{i=1}^na_ib_i \leq \left( \sum_{i=1}^na_i^2\right)^{\frac{1}{2}}\left( \sum_{i=1}^nb_i^2\right)^{\frac{1}{2}} .
+ \end{equation}
+De hecho, para todo $t\in \mathbb{R}$
+\[0\leq \sum_{i=1}^n \left(b_i+ta_i\right)^2=\sum_{i=1}^n \left(b_i^2+2a_ib_it+a_i^2t^2\right)=\sum_{i=1}^n b_i^2+ \left(\sum_{i=1}^n 2a_ib_i\right)t+\left(\sum_{i=1}^n a_i^2\right)t^2.\]
+Como esta función polinómica en $t$ es no negativa, tenemos que
+
+\[\left(\sum_{i=1}^n 2a_ib_i\right)^2-4\left(\sum_{i=1}^n b_i^2\right)\left(\sum_{i=1}^n a_i^2\right) \leq 0,\]
+de lo cual se sigue la desigualdad \eqref{trian-eucli-1}. Regresando a lo que queremos probar, tenemos aplicando \eqref{trian-eucli-1} con $a_i=x_i-z_i$ y $b_i=z_i-y_i$ que
+
+\begin{align*}
+    \left(d(\x, \y)\right)^2& =\sum_{i=1}^n(x_i-y_i)^2 \\
+    & \leq \sum_{i=1}^n((x_i-z_i)+(z_i-y_i))^2\\
+    & =\sum_{i=1}^n(x_i-z_i)^2+2(x_i-z_i)(z_i-y_i)+(z_i-y_i)^2 \\
+    & = \sum_{i=1}^n(x_i-z_i)^2 +2\sum_{i=1}^n(x_i-z_i)(z_i-y_i)+\sum_{i=1}^n(z_i-y_i)^2 \\
+    & \leq \sum_{i=1}^n(x_i-z_i)^2 +2\left(\sum_{i=1}^n(x_i-z_i)^2\right)^\frac{1}{2}\left(\sum_{i=1}^n(z_i-y_i)^2\right)^\frac{1}{2}+\sum_{i=1}^n(z_i-y_i)^2 \\
+    & =  \left(\left(\sum_{i=1}^n(x_i-z_i)^2\right)^\frac{1}{2}+\left(\sum_{i=1}^n(z_i-y_i)^2\right)^\frac{1}{2}\right)^2\\
+    & =\left(d(\x, \z)+d(\z, \y)\right)^2.
+\end{align*}
+De esto se sigue la desigualdad.
+\begin{definicion}Sea $X\neq \emptyset$. \begin{enumerate}
+    \item Una sucesión en $X$ es una función $\x:\ene \to X$, usualmente denotada como $\left\{ x_n \right\}_{n=0}^\infty $ o  $\left\{ x_n \right\} .$ También se puede considerar como sucesión a una función cuyo dominio es $\left\{ k, k+1, \dots\right\} \subset \ene$  y se denotará  $\left\{ x_n \right\}_{n=k}^\infty $.
+    \item Sea $X=\mathbb{R}$. Decimos que la sucesión es acotada si existe un real $M$ tal que $|x_n|\leq M$, para todo $n \in \ene.$
+    \item Denotemos por $B(\ene)$ al conjunto de todas las sucesiones acotadas en $\mathbb{R}$.
+\end{enumerate}
+\end{definicion}
+
+
+\begin{example}
+La función $d:B(\ene)\times B(\ene) \to \mathbb{R}$, definida por $d(\x , \y):=\sup\left\{ |x_n-y_n|: \ \ n\in \ene \right\},$ donde $\x=\left\{x_n \right\}$ y $\y=\left\{y_n \right\}$, es una métrica en $B(\ene).$
+\end{example}
+\begin{proof}
+Sean $\x=\{x_n\}$, $\y=\{y_n\}$ y $\z=\{z_n\}$ sucesiones en $B(\ene)$. Notemos que esta función está bien definida. En efecto, existen reales $M_1$ y $M_2$ tales que  $|x_n|\leq M_1$ y $|y_n|\leq M_2$ para todo $n$. Luego $|x_n-y_n|\leq |x_n|+|y_n|\leq M_1+M_2$, para todo $n$. En consecuencia, el conjunto $\{|x_n-y_n|:\ \ n\in \ene\}$ es acotado y por tanto el supremo existe en $\R$.
+\begin{enumerate}
+    \item Claramente $d(\x, \y) \geq 0$.  
+    \item Además $d(\x, \y)=0$ si y sólo si $|x_n-y_n|=0$ para todo $n\in \ene$; es decir ; $\x=\y$.
+    \item Como $|x_n-y_n|=|y_n-x_n|$ entonces $d(\x, \y)=d(\y, \x)$.  
+    \item Finalmente como para todo $n$ \[|x_n-y_n|\leq |x_n-z_n|+|z_n-y_n|\leq d(\x, \z)+ d(\z,\y),\]
+    entonces $ d(\x, \y)\leq d(\x, \z)+ d(\z,\y).$
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+Sean $(X,d)$ un espacio métrico y $A$ un subconjunto no vacío de $X$. Entonces la restricción \linebreak $d_A:A\times A \to \R$ (es decir, $d_A(a,b)=d(a,b)$ para todo $a,b\in A$) es úna métrica en $A$. Decimos que $(A, d_A)$ es el subespacio métrico de $(X,d)$ generado por $A$.
+\end{remark}
+
+
+\begin{definicion}
+    Sean $(X,d)$ un espacio métrico, $p\in X$ y $\varepsilon$ un real positivo.
+    \begin{enumerate}
+        \item La bola en $X$ de centro $p$ y radio $\varepsilon$ (o $\varepsilon-$bola de centro $p$) se define como
+    $$B_X(p,\varepsilon):=\left\{x\in X:\ \ d(p,x)<\varepsilon \right\}.$$
+    Cuando no haya lugar a confusiones se omite, en esta notación, el espacio métrico y se escribe simplememnte $B(p, \varepsilon)$. Otra notación para este conjunto es $B_\varepsilon (p)$.
+    \item La esfera de centro $p$ y radio $\varepsilon$ es
+    $$S_X(p,\varepsilon):=\left\{x\in X:\ \ d(p,x)=\varepsilon \right\}.$$
+    Una notación alternativa para este conjunto es $S_\varepsilon (p)$.
+    \end{enumerate}
+    \end{definicion}
+    \begin{remark}
+    En topología se denota $S^{n-1}$ a la esfera en $\R^{n}$ de centro $\textbf{0}=(0,\dots, 0)$ y radio $1$, con la métrica Euclidiana. Es decir
+    $$S^{n-1}=\left\{\x\in \R^n:\ \ \|\x\|=1 \right\}.$$
+    \end{remark}
+   
+    \begin{example}
+    \begin{enumerate}
+        \item Sea $X\neq \emptyset$ y $d$ la métrica discreta en $X$. Sea $p\in X$. Entonces la bola de centro $p$ y radio 1 es:
+        $$B_X(p,1)=\left\{x\in X:\ \ d(p,x)<1 \right\}=\left\{x\in X:\ \ d(p,x)=0 \right\}=\left\{x\in X:\ \ x=p \right\}=\left\{p \right\}.$$
+        Por otro lado, como para todo $x\in X$ $d(p,x)\leq 1<2$, entonces la bola de centro $p$ y radio 2 es:
+        $$B_X(p,2)=\left\{x\in X:\ \ d(p,x)<2 \right\}=X.$$
+        \item En $\R$ con la métrica euclidiana  tenemos que
+        $$B(0, \varepsilon)=\left\{x\in \R:\ \ |x|<\varepsilon \right\}=\left\{x\in \R:\ \ -\varepsilon <x < \varepsilon \right\}=(-\varepsilon, \varepsilon).$$
+        \item Sea $ \R^+= \left\{ x\in \R: \ \ x\geq 0 \right\}.$ Entonces la $\varepsilon-$ bola de centro cero, en el subespacio métrico $\R^+$, con la métrica euclidiana es:
+        $$B_{\R^+}(0, \varepsilon)=\left\{x\in \R^+:\ \ |x|<\varepsilon \right\}=\left\{x\in \R^+:\ \ x < \varepsilon \right\}=[0, \varepsilon).$$
+        \item Sea $\R^2$ con la métrica euclidiana. $\textbf{0}=(0,0)\in \R^2$. Entonces
+        $$B(\textbf{0}, 1)=\left\{(x,y) \in \R^2:\ \ |(x,y)-(0,0)|<1 \right\}=\left\{(x,y) \in \R^2:\ \ \sqrt{x^2+y^2}<1 \right\}=\left\{(x,y) \in \R^2:\ \ x^2+y^2<1 \right\}.$$
+    \end{enumerate}
+    \end{example}
+    \begin{definicion}
+        Sean $(X,d)$ un espacio métrico, $\left\{ x_n \right\}$ una sucesión en $X$ y $x\in X$. Decimos que $\left\{ x_n \right\}$ converge a $x$ si para todo $\varepsilon >0,$ existe un natural $N=N(\varepsilon)$, tal que $d(x, x_n)<\varepsilon$ para todo $n\geq N$.
+    \end{definicion}
+   
+    \begin{remark}
+    Una sucesión $\left\{ x_n \right\}$ converge a lo sumo a un punto. \\
+    En efecto, sean $x,y\in X$ tales que  $\left\{ x_n \right\}$ converge tanto a $x$ como a $y$. Sea $\varepsilon >0$. \\
+    Como $\frac{\varepsilon}2$ es positivo, entonces por la definición, existe un entero positivo $N_1$ tal que $d(x, x_n)<\frac{\varepsilon}2$ para todo $n\geq N_1$.\\
+    También, existe un entero positivo $N_2$ tal que $d(y, x_n)<\frac{\varepsilon}2$ para todo $n\geq N_2$. Supongamos sin pérdida de generalidad que $N_1 \geq N_2$. Entonces en particular
+    $d(x, x_{N_1})<\frac{\varepsilon}2$ y $d(y, x_{N_1})<\frac{\varepsilon}2$. Luego, de la desigualdad triangular se tiene
+    $$d(x,y)\leq d(x,x_{N_1})+d(x_{N_1},y)<\frac{\varepsilon}2+\frac{\varepsilon}2={\varepsilon}.$$
+    En resumen, se tiene que $d(x,y)<\varepsilon$ ,para todo $\varepsilon>0$. Esto es, $d(x,y)=0$. O sea $x=y$.
+    \end{remark}
+
+En la definición anterior $x$ también se dice \textbf{un límite de la sucesión} pero por la observación anterior acerca de la unicidad de éste, $x$ se llama \textbf{el límite de la sucesión}. También se escribe $$\lim_{n\to \infty}x_n=x \qquad \text{o} \qquad x_n\to x \ \ \text{cuando} \ \ n\to \infty .$$   Si existe un $x\in X$ tal que $\lim_{n\to \infty}x_n=x$, se dice que $\left\{x_n \right\}$ converge en $X$, de lo contrario se dice que la sucesión diverge.
+
+ \begin{example}
+ Sea $\left\{x_n \right\}$ la sucesión definida por $x_n=\frac{n}{n+\sqrt{n}},$ para todo entero positivo $n$. Se puede observar que en este cociente, las mayores potencias del numerador y el denominador son iguales, así que intuitivamente la sucesión converge en $\R$ a 1 como lo probaremos a continuación:\\
+ Sea $\varepsilon>0.$ Tenemos que probar la existencia de un natural $N$ tal que $|x_n-1|<\varepsilon,$ para todo $n\geq N$. Con el fin de descubrir que tan grande debe ser $N$, estimemos $|x_n-1|$. En efecto
+ \begin{equation}\label{xn-con-1}
+     \left| \frac{n}{n+\sqrt{n}}-1 \right| = \left| \frac{-\sqrt{n}}{n+\sqrt{n}}\right|=\frac{\sqrt{n}}{n+\sqrt{n}}=\frac{1}{\sqrt{n}+1} .
+ \end{equation}
+Ahora bien, como $ \varepsilon ^2$ es positivo, por la propiedad arquimedeana existe un entero positivo $N$ tal que $\frac{1}N < \varepsilon^2$. De donde $\frac{1}{\sqrt{N}}<\varepsilon.$ Por tanto, si $n\geq N$, entonces $\sqrt{n}+1 \geq \sqrt{N}$ y por ende $\frac{1}{\sqrt{n}+1}\leq \frac{1}{\sqrt{N}}<\varepsilon.$ De esto y la ecuación  \eqref{xn-con-1} se sigue que para todo $n\geq N$, $$\left| \frac{n}{n+\sqrt{n}}-1 \right| <\varepsilon.$$
+ \end{example}
+
+
+
+\begin{definicion}
+    Sea $(X,d)$ un espacio métrico.
+    \begin{enumerate}
+        \item Decimos que un subconjunto $A$ de $X$ es acotado en $X$, si existen un $p\in X$ y un real $r>0$ tal que $A\subseteq B_X(p, r).$
+        \item Sean  $Y\neq \emptyset$ un conjunto y $f$ una función de $Y$ en $X$. Decimos $f$ es acotada, si $f[Y]$ (la imagen directa de $Y$ bajo $f$) es un conjunto acotado en $X$.
+    \end{enumerate}
+\end{definicion}
+
+\begin{remark}
+Si $A\subseteq X$ es acotado, entonces para todo $q\in X$, existe un real positivo $R$ tal que $A\subseteq B_X(q,R).$ En realidad, si $A\subseteq B(p, r)$, definimos $R:=d(p,q)+r.$ Entonces para todo $x\in A$, $d(q,x)\leq d(q,p)+d(p,x)\leq d(q,p)+r=R.$
+\end{remark}
+
+\begin{teorema}
+Sea $(X,d)$ un espacio métrico. Entonces toda sucesión convergente en $X$ es acotada.
+\end{teorema}
+\begin{proof}
+Sea $\{x_n\}$ una sucesión convergente en $X$ y sea $x$ su límite. Existe un entero positivo $N$ tal que para todo $n\geq N$, $d(x_n, x)<1.$ Sea $M=\max\{d(x_1,  x), \dots , d(x_{N-1},  x), \, 1\}.$ Entonces para todo $n\in \ene$, $x_n\in B(x, M).$
+\end{proof}
+
+El recíproco de la afirmación anterior es falso. Como contraejemplo tómemos la sucesión $\{(-1)^n\}$. Si fuera convergente, entonces existirían un $x\in \R$ y un natural $N$ tal que $|x_n-x|<\frac{1}{4}$. En particular $|(-1)^{2k}-x|=|1-x|<\frac{1}{4}$, es decir $\frac{3}4<x<\frac{5}4$. Pero también $|(-1)^{2k+1}-x|=|-1-x|<\frac{1}{4}$, o sea $-\frac{5}4<x<-\frac{3}4$, lo cual es absurdo.
+\begin{definicion}
+Sea $\{a_n\}_{n\in\mathbb{N}}$ una sucesión.  
+Se llama \emph{subsucesión} de $(a_n)$ a toda sucesión de la forma
+\[
+\{a_{n_k}\}_{k\in\mathbb{N}}
+\]
+donde $\{n_k\}_{k\in\mathbb{N}}$ es una sucesión estrictamente creciente de números naturales, es decir,
+\[
+n_1 < n_2 < n_3 < \cdots
+\]
+\end{definicion}
+\begin{example}
+    Considere la sucesión $\{a_n\}$ definida por
+\[
+a_n = n.
+\]
+Si tomamos $n_k = 2k$, se obtiene la subsucesión
+\[
+a_{n_k} = a_{2k} = 2k,
+\]
+que corresponde a la subsucesión de los términos pares:
+\[
+2, 4, 6, 8, \dots
+\]
+\end{example}
+
+\begin{teorema}
+    Si $(X,d)$ es un espacio m\'etrico y $\left\{x_n\right\}$ es una sucesi\'on en $X$ convergente a $x$, entonces cada subsucesi\'on de $\left\{x_n\right\}$ converge a $x$.
+\end{teorema}
+\begin{proof}
+    Sea $(X,d)$ un espacio métrico y $\{x_n\}$ una sucesión en $X$ tal que
+\[
+x_n \xrightarrow[n\to\infty]{} x.
+\]
+Por definición de convergencia, se tiene que
+\[
+\forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ tal que } d(x_n,x) < \varepsilon
+\quad \text{para todo } n \ge N.
+\]
+
+Sea $\{x_{n_k}\}$ una subsucesión de $\{x_n\}$.  
+Como la sucesión de índices $\{n_k\}$ es estrictamente creciente, existe $k_0 \in \mathbb{N}$ tal que $k_0\ge N$.Dado que $n_k\ge k$ tenemos que
+\[
+n_k \ge N \quad \text{para todo } k \ge k_0.
+\]
+
+Por lo tanto, para todo $k \ge k_0$ se cumple
+$d(x_{n_k}, x) < \varepsilon.$
+
+
+Luego
+\[
+x_{n_k} \xrightarrow[k\to\infty]{} x.
+\]
+\end{proof}

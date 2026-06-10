@@ -1,0 +1,115 @@
+\section{Puntos de acumulacion y clausura}
+
+\begin{definicion}\textbf{(Punto de acumulación)}
+Sea $A\subseteq X$.
+\begin{enumerate}
+    \item Un punto $a\in X$ se dice punto de acumulación de $A$ si
+    \[
+    \left(B_X(a,\varepsilon)-\{a\}\right)\cap A\neq \emptyset,
+    \quad \text{para todo } \varepsilon>0.
+    \]
+    Denotamos por $A'$ al conjunto de puntos de acumulación de $A$ en $X$, es decir
+    \[
+    A'=\left\{a\in X:\ \text{$a$ es punto de acumulación de $A$}\right\}.
+    \]
+    \item Si $a\in X$ y $a\notin A'$, entonces $a$ se dice un punto aislado de $A$. En otras palabras, $a$ es un punto aislado de $A$ si existe $\varepsilon>0$ tal que
+    \[
+    \left(B_X(a,\varepsilon)-\{a\}\right)\cap A=\emptyset.
+    \]
+    Por tanto,
+    \[
+    B_X(a,\varepsilon)\cap A=\{a\},\ \text{si } a\in A,
+    \]
+    y
+    \[
+    B_X(a,\varepsilon)\cap A=\emptyset,\ \text{si } a\notin A.
+    \]
+\end{enumerate}
+\end{definicion}
+
+\begin{example}
+Sea $A=(0,1)$. Entonces $A'=[0,1]$ (así que no necesariamente $A'\subseteq A$).
+\end{example}
+En efecto, veamos que $A'\subseteq [0,1]$. Sea $x\notin [0,1]$, entonces $x<0$ o $x>1$. En el primer caso, como $(-\infty,0)$ es abierto, existe $\varepsilon_1>0$ tal que $B(x,\varepsilon_1)\subseteq (-\infty,0)\subseteq \R-A$. En el segundo caso, como $(1,\infty)$ es abierto, existe $\varepsilon_2>0$ tal que $B(x,\varepsilon_2)\subseteq (1,\infty)\subseteq \R-A$. En ambos casos $B(x,\varepsilon_i)\cap A=\emptyset$. Esto es, $x\notin A'$. \\
+Ahora veamos que $[0,1]\subseteq A'$. Sea $x\in[0,1]$. Entonces para todo $\varepsilon>0$, $B(x,\varepsilon)\cap A=(x-\varepsilon, x+\varepsilon)\cap A$ tiene infinitos puntos y, en consecuencia, $(B(x,\varepsilon)-\{x\})\cap A\neq \emptyset$. Luego $x\in A'$.
+
+\begin{teorema}
+Sea $A\subseteq X$. Entonces $A$ es cerrado si y sólo si $A'\subseteq A$.
+\end{teorema}
+\begin{proof}
+Supongamos que $A$ es cerrado. Sea $a\in A'$; veamos que $a\in A$. Razonando por contradicción, supongamos que $a\notin A$. Como $X-A$ es abierto y $a\in X-A$, existe $\varepsilon>0$ tal que $B(a,\varepsilon)\subseteq X-A$. Luego $B(a,\varepsilon)\cap A=\emptyset$. Como $(B(a,\varepsilon)-\{a\})\cap A\subseteq B(a,\varepsilon)\cap A$, entonces $(B(a,\varepsilon)-\{a\})\cap A=\emptyset$. Luego $a\notin A'$, contradicción.\\
+Supongamos ahora que $A'\subseteq A$. Veamos que $A$ es cerrado, es decir, que $X-A$ es abierto. Sea $a\in X-A$. Luego $a\notin A'$. Por tanto existe $\varepsilon>0$ tal que $(B(a,\varepsilon)-\{a\})\cap A=\emptyset$. Entonces $B(a,\varepsilon)-\{a\}\subseteq X-A$. Como $a\in X-A$, de la anterior contención se sigue que $B(a,\varepsilon)=(B(a,\varepsilon)-\{a\})\cup\{a\}\subseteq X-A$. Esto prueba que $X-A$ es abierto o, equivalentemente, que $A$ es cerrado.
+\end{proof}
+
+\begin{teorema}\label{teo-acum1}
+Sean $A\subseteq X$ y $p\in X$. Entonces las siguientes afirmaciones son equivalentes.
+\begin{enumerate}
+    \item $p\in A'$.
+    \item Toda vecindad de $p$ contiene infinitos puntos de $A$.
+    \item Existe una sucesión $\{x_n\}\subseteq A$ cuyo rango es un conjunto infinito, que converge a $p$.
+\end{enumerate}
+\end{teorema}
+\begin{proof}
+Veamos que 1. implica 2. Supongamos por el contrario que existe una vecindad de $p$, $U$, que contiene sólo finitos puntos de $A$. Digamos que $A\cap U=\{a_1,\dots,a_N\}$. Como $U$ es abierto, existe $\varepsilon'>0$ tal que $B(p,\varepsilon')\subseteq U$. Sea
+\[
+0<\varepsilon=\min\{\varepsilon',\, d(p,a_1),\dots,d(p,a_N)\}.
+\]
+Como $p\in A'$, existe $x\in (B(p,\varepsilon)-\{p\})\cap A\subseteq A\cap U$. Por tanto $x=a_i$ para algún $i\in\{1,\dots,N\}$. Luego $d(p,a_i)=d(p,x)<\varepsilon$, contradicción porque $\varepsilon\le d(p,a_i)$.\\
+
+Probemos ahora que 2. implica 3. Para $n\in\ene$, como $B(p,1/n)\cap A$ es infinito, escogemos $x_n\in B(p,1/n)\cap A$ de modo que $x_n\neq x_{n-1}$ (para $n\ge2$). Con esto la sucesión $\{x_n\}$ tiene rango infinito y $\lim_{n\to\infty}x_n=p$. En efecto, dado $\varepsilon>0$, existe $N$ tal que $1/N<\varepsilon$. Luego si $n\ge N$, entonces
+\[
+d(p,x_n)<\frac{1}{n}\le\frac{1}{N}<\varepsilon.
+\]
+
+Finalmente, veamos que 3. implica 1. Sea $\varepsilon>0$. Como $x_n\to p$ cuando $n\to\infty$, existe $N\in\ene$ tal que $x_n\in B(p,\varepsilon)$ para todo $n\ge N$. Como $\{x_N,x_{N+1},\dots\}$ es infinito, alguno de esos términos es distinto de $p$. Luego
+\[
+\left(B(p,\varepsilon)-\{p\}\right)\cap A\neq\emptyset.
+\]
+Por tanto $p\in A'$.
+\end{proof}
+
+\begin{definicion}
+Sean $p\in X$ y $r>0$. Entonces
+\[
+\overline{B_X}(p,r):=\left\{x\in X:\ d(p,x)\le r\right\},
+\]
+se llama la bola cerrada con centro $p$ y radio $r$.
+\end{definicion}
+
+\begin{teorema}
+Toda bola cerrada en $X$ es un conjunto cerrado en $X$.
+\end{teorema}
+\begin{proof}
+Veamos que $X-\overline{B_X}(p,r)$ es abierto. Sea $x\in X-\overline{B_X}(p,r)$. Sea $\varepsilon:=d(p,x)-r>0$. Veamos que $B_X(x,\varepsilon)\subseteq X-\overline{B_X}(p,r)$. Sea $y\in B_X(x,\varepsilon)$. Entonces $d(x,y)<\varepsilon=d(p,x)-r$, es decir,
+\[
+d(p,x)-d(x,y)>r.
+\]
+Por desigualdad triangular, $d(p,y)\ge d(p,x)-d(x,y)>r$. Luego $y\in X-\overline{B_X}(p,r)$.
+\end{proof}
+
+\begin{teorema}
+Sea $F\subseteq X$. Entonces las siguientes afirmaciones son equivalentes.
+\begin{enumerate}
+    \item $F$ es cerrado en $X$.
+    \item Si $\{x_n\}$ es una sucesión en $F$ que converge a $x\in X$, entonces $x\in F$.
+\end{enumerate}
+\end{teorema}
+\begin{proof}
+Probemos que 1. implica 2. Sea $\{x_n\}$ una sucesión en $F$ que converge a $x\in X$. Supongamos que $x\in X-F$. Como $X-F$ es abierto, existe $\varepsilon>0$ tal que $B(x,\varepsilon)\subseteq X-F$. Por convergencia, existe $n$ tal que $x_n\in B(x,\varepsilon)\subseteq X-F$. Luego $x_n\notin F$, contradicción.\\
+Probemos ahora que 2. implica 1. Probaremos que $F'\subseteq F$. Sea $x\in F'$. Por el Teorema \ref{teo-acum1} existe una sucesión en $F$, de rango infinito, tal que $x_n\to x$. Por hipótesis, $x\in F$. Por tanto $F$ es cerrado.
+\end{proof}
+
+\begin{teorema}
+Sea $\mathcal{C}$ una colección de cerrados en $X$. Entonces
+\begin{enumerate}
+    \item $F:=\bigcap_{A\in \mathcal{C}}A$ es cerrado en $X$.
+    \item Si $\mathcal{C}$ es finita, entonces $G:=\bigcup_{A\in \mathcal{C}}A$ es cerrado en $X$.
+\end{enumerate}
+\end{teorema}
+\begin{proof}
+Como $X-F=\bigcup_{A\in\mathcal{C}}(X-A)$ y $X-G=\bigcap_{A\in\mathcal{C}}(X-A)$, el resultado se sigue del Teorema \ref{uni-inter-ab}.
+\end{proof}
+
+\begin{lema}\label{claus-suces}
+Sea $A\subseteq X$. Entonces $x\in \overline{A}$ si y sólo si existe una sucesión $\{x_n\}$ en $A$ tal que $x_n\to x$.
+\end{lema}

@@ -1,0 +1,88 @@
+\section{Conexidad}
+
+ 
+ \begin{definicion}
+ Decimos que $X$ es conexo si los únicos subconjuntos que son abiertos y cerrados a la vez son $\emptyset$ y $X$. De lo contrario decimos que $X$ es disconexo. Sea $A\subseteq X$. Decimos que $A$ es un conjunto conexo si el subespacio $(A,\, d_A)$ es conexo.
+ \end{definicion}
+
+\begin{example}
+Sea $(X,d)$ el espacio métrico discreto y supongamos que $X$ tiene más de un punto. Entonces $X$ es disconexo.
+\end{example}
+
+\begin{example}
+Sea $A=\R-\{0\}$. Entonces $A$ es disconexo. En efecto $U=(-\infty , 0)$ es abierto en $A$ ya que \linebreak $U=(-\infty , 0) \cap A$ y $(-\infty , 0)$ es abierto en $\R$. Por una razón similar $V=(0, \infty)$
+ es abierto en $A$. Además  $U$ también es cerrado en $A$ ya que $A- U=V$, el cual es abierto en $A$. Tenemos entonces que $U$ es abierto y cerrado, y claramente no es vacío ni todo el espacio. Por consiguiente $A$ es disconexo.
+ \end{example}
+
+\begin{definicion}
+Una separación de $X$ es un par de subconjuntos $A, B \subseteq X$, abiertos no vacíos y disjuntos, tales que $X=A\cup B$.
+\end{definicion}
+
+\begin{teorema}
+$X$ es disconexo si y sólo si existe una separación de $X$.
+\end{teorema}
+\begin{proof}
+Supongamos que $X$ es disconexo. Luego existe un subconjunto $A$ de $X$, $A\neq \emptyset$, $A\neq X$ que es abierto y cerrado. Sea $B=X-A$. Entonces $A$ y $B$ son disjuntos y $X=A\cup B$. Además $B\neq \emptyset$ ya que $A\neq X$. Como $A $ es cerrado, entonces $B$ es abierto. Así que $A,B$ es una separación de $X$.\\
+Recíprocamente supongamos que existe una separación de $X$, digamos $A,B$. Entonces $A$ es cerrado ya que $A=X-B$ y $B$ es abierto. Con lo cual $A$ es abierto y cerrado. Como $B\neq \emptyset$ entonces $A \neq X$. Luego $X$ es disconexo.
+\end{proof}
+
+\begin{corolario}
+Sea $A\subseteq X$. Entonces $A$ es disconexo si y sólo si existen abiertos disjuntos en $X$, $A_1, A_2$, tales que $A=(A\cap A_1)\cup (A\cap A_2)$, con $A\cap A_1\neq \emptyset$ y $A\cap A_2\neq \emptyset$.
+\end{corolario}
+
+\begin{remark}
+El conjunto vacío es conexo.
+\end{remark}
+
+\begin{definicion}
+Sea $I\subset \R$ un subconjunto no vacío. Decimos que $I$ es un intervalo si para todo $a,b\in I$, con $a<b$, $a\leq c\leq b$ implica $c\in I$.
+\end{definicion}
+
+\begin{teorema}\label{conx-int-R}
+Sea $\emptyset \neq I\subseteq \R$. Entonces $I$ es conexo si y sólo si $I$ es un intervalo.
+\end{teorema}
+\begin{proof}
+$\Rightarrow$  Probemos el contrarrecíproco. Supongamos que existen $a,b \in I$ y $a\leq c\leq b$ tal que $c\notin I$. Luego $a<c<b$. Sea $A_1:=(-\infty, c) $ y $A_2:=( c, \infty) $. Entonces $A_1$ y $A_2$ son abiertos, disjuntos y claramente $I=I\cap A_1 \cup I\cap A_2$. Además $I\cap A_1\neq \emptyset$ y $I\cap A_2\neq \emptyset$. En vista del corolario anterior, $I$ es disconexo.\\
+$\Leftarrow$ Razonando por el absurdo, supongamos que $I$ es un intervalo y que es disconexo. Sean $A_1, A_2$, abiertos, disjuntos en $\R$ tales que $I=(I\cap A_1 )\cup  (I \cap A_2)$, con $ I\cap A_1 \neq \emptyset$ y $ I\cap A_2 \neq \emptyset$. Sean $a_1 \in I\cap A_1$ y $a_2 \in I\cap A_2$. Sin pérdida de generalidad, supongamos que $a_1 <a_2$. Sea \[D:=\left\{ x\in A_1 \cap I : \ \ x<a_2\right\}.\]
+Claramente $D$ es no vacío y acotado superiormente. Sea $c:=\sup D$. Nótese que $a_1 \leq c\leq a_2 .$ Dado que $I$ es un intervalo, entonces $c\in I.$ Por consiguiente $c\in A_1$ o $c\in A_2$. Tenemos entonces dos casos, a saber:
+\begin{enumerate}
+    \item $c\in A_1$. Existe un $\varepsilon >0$ tal que $(c-\varepsilon, \, c+\varepsilon) \subseteq A_1$. Como $c<a_2$ ya que  $c\in A_1$, entonces podemos escoger $0<\varepsilon_1 <\varepsilon$ con la condición de que $c+\varepsilon_1 <a_2$. Como $c,a_2\in I$, entonces $c+\varepsilon_1 \in I$ y en consecuencia
+    \[ c+\varepsilon_1 \in I \cap  (c-\varepsilon, \, c+\varepsilon) \subseteq I\cap A_1.\]
+    Esto es, $c+\varepsilon_1 \in D$. Absurdo, pues $c=\sup D$.
+    \item $c\in A_2$. Luego $a_1 <c.$ Existe un $\varepsilon >0 $ tal que $a_1 <c-\varepsilon <c$. Por tanto $(c-\varepsilon , c]\subseteq I$. Como $A_2$ es abierto en $\R$, existe un $0<\varepsilon_2 <\varepsilon$ tal que $(c-\varepsilon_2, c+\varepsilon_2)\subseteq A_2$. Luego $(c-\varepsilon_2, c) \subseteq I\cap A_2$. Esto es absurdo ya que como $c=\sup D$, existiría un $x\in A_1$, con $x\in (c-\varepsilon_2, c) \subseteq A_2.$
+\end{enumerate}
+\end{proof}
+
+
+\begin{teorema}
+Supongamos que $X$ tiene una separación $A,B$. Sea $D\subseteq X$ conexo. Entonces $D\subseteq A$ o $D\subseteq B$.
+\end{teorema}
+
+\begin{proof}
+Razonando por el absurdo, supongamos que $D \not \subseteq A$ y $D \not \subseteq B$. Luego $D\cap A \neq \emptyset$ y $D\cap B \neq \emptyset$. Además $D=(D\cap A)\cup (D\cap B)$. Luego $D$ es disconexo. Absurdo.
+\end{proof}
+
+\begin{corolario}
+Sean $A$ un subconjunto conexo de $X$ y $A\subseteq D \subseteq \overline{A}.$ Entonces $D$ es conexo. En particular $\overline{A}$ es conexo.
+\end{corolario}
+
+\begin{proof}
+Razonando por el absurdo, supongamos que $D$ es disconexo. Sean $B_1$, $B_2$ abiertos en $X$ y disjuntos tales que $D=(D\cap B_1)\cup (D\cap B_2)$ con $D\cap B_i \neq \emptyset$, $i=1,2$. Luego $D\cap B_1, D\cap B_2$ es una separación de $D$. Dado que $A$ es conexo, por el teorema anterior $A\subseteq D\cap B_1$ o $A\subseteq D\cap B_2$. Supongamos sin pérdida de generalidad que $A\subseteq D\cap B_1$. Sea $x\in D\cap B_2$. Como $B_2$ es abierto, existe un $\varepsilon>0$ tal que $B(x,\varepsilon)\subseteq B_2$. Por otro lado, como $x\in D\cap B_2\subseteq \overline{A}$, existe un $y\in B(x,\varepsilon)\cap A$. Luego $y\in B_1\cap B_2$, absurdo.
+\end{proof}
+
+\begin{afirmacion}
+Sean $A$ y $B$  subconjuntos conexos de $X$ tales que $A \cap B \neq \emptyset$. Entonces $C=A\cup B $ es conexo.
+\end{afirmacion}
+\begin{prueba}
+Supongamos por el contrario que $C$ es disconexo. Sea $A_1, A_2$ una separación de $C$.  Como $A$ es conexo, por el teorema anterior $A$ es subconjunto de alguno de los $A_i$. Supongamos sin pérdida de generalidad que $A\subseteq A_1$. En este caso, como $B$ es conexo, por la misma razón  $B \subseteq A_i$, para algún $i=1,2$. Pero si $B\subseteq A_1$, entonces $C\subseteq A_1$, con lo cual $A_2= \emptyset$. Por tanto $B \subseteq A_2.$ Así tendríamos $A\cap B \subseteq A_1 \cap A_2=\emptyset$. Esto es absurdo pues por hipótesis $A\cap B \neq \emptyset.$
+\end{prueba}
+La anterior proposición se puede generalizar de la siguiente manera.
+
+\begin{afirmacion}\label{inte-conex-R}
+Sea $\mathcal{T}$ una familia de subconjuntos conexos de $X$ tal que $\bigcap \mathcal{T} \neq \emptyset$. Entonces $A=\bigcup \mathcal{T} $ es conexo.
+\end{afirmacion}
+\begin{prueba}
+ Supongamos que $A$ fuera disconexo. Sean $A_1, A_2$ una separación de $A$. Sea $U\in \mathcal{T}$ un elemento fijo. Como $U$ es conexo, entonces podemos suponer que $U\subseteq A_1$. Afirmamos que existe un $V\in \mathcal{T}-\{U\}$ tal que $V\subseteq A_2$. Ya que si para todo  $V\in \mathcal{T}-\{U\}$, $V \subseteq A_1$, entonces $A \subseteq A_1$ y en consecuencia $A_2 = \emptyset$, absurdo. Tenemos entonces $U\cap V \subseteq A_1 \cap A_2=\emptyset$.  Absurdo ya que la intersección de $\mathcal{T}$ es no vacía.
+ \end{prueba}
+
+ 

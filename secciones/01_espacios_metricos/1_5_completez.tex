@@ -1,0 +1,92 @@
+\section{Completez. Teorema de Bolzano-Weirstrass}
+
+A lo largo de esta sección $(X,d)$ denotará un espacio métrico.
+Comenzamos estableciendo unas propiedades básicas acerca de sucesiones en $\R$.
+
+\begin{teorema}\label{pro-basi-suces}
+Sean $\{x_n\}$ y $\{y_n\}$ sucesiones en $\R$ convergentes a $x$ y $y$ respectivamente. Entonces
+\begin{enumerate}
+    \item $\{x_n+y_n\}$ converge a $x+y$.
+    \item Si $k\in \R$, entonces $\{k x_n\}$ converge a $kx$.
+    \item Si existe un $M$ tal que $x_n \leq y_n$ para todo $n\geq M$, entonces $x\leq y$.  
+        \item $\{x_ny_n\}$ converge a $xy$.
+\end{enumerate}
+\end{teorema}
+\begin{proof}
+\begin{enumerate}
+    \item Este resultado se sigue de la definición, teniendo en cuenta que para todo $n$
+    \[|(x_n+y_n)-(x+y)|\leq|x_n-x|+|y_n-y|.\]
+    \item Sea $k\in \R$. Si $k=0$, entonces $\{k x_n\}$ es la sucesión constante $0$, la cual claramente converge a $0=kx$. Por otro lado, si $k\neq 0$. Sea $\varepsilon >0$. Como $\frac{\varepsilon}{|k|}>0$, existe un $N$ tal que $|x_n-x|<\frac{\varepsilon}{|k|}$ para todo $n\geq N$. Por tanto, si $n\geq N$, tenemos
+    \[|kx_n-kx|=|k||x_n-x|\leq |k|\frac{\varepsilon}{|k|}=\varepsilon.\]
+    \item Supongamos por el contrario que $y<x$. Sea $\varepsilon=\frac{x-y}{2}>0.$ Luego existe un $n>M$ tal que $|x_n-x|<\varepsilon$ y  $|y_n-y|<\varepsilon$. De donde,
+    $x-x_n<\varepsilon$ y $y_n-y<\varepsilon$. Luego $\frac{x+y}{2}=x-\varepsilon<x_n$ y $y_n<\varepsilon+y=\frac{x+y}{2}$. Por tanto $y_n<x_n$, para algún $n>M$. Absurdo.
+    \item Como $\{x_n\}$ es convergente, entonces es acotada. Luego existe un $C$ tal que $|x_n|\leq C$ para todo $n\in  \ene.$
+    \begin{align*}
+    |x_ny_n-xy|& =|x_ny_n-x_ny-xy+x_ny| \\
+    & = |x_n(y_n-y)+y(x_n-x)| \\
+    & \leq |x_n(y_n-y)|+|y(x_n-x)|\\
+    &=|x_n||y_n-y|+|y||x_n-x|\\
+    &\leq C|y_n-y|+|y||x_n-x|.
+    \end{align*}
+        De los pasos anteriores $\lim_{n\to \infty}C|y_n-y|+|y||x_n-x|=0 .$ Por tanto $\lim_{n\to \infty}|x_ny_n-xy|=0.$
+    Es decir $x_ny_n\to xy.$
+\end{enumerate}
+\end{proof}
+
+\begin{definicion}
+Dada una sucesión $\{x_n\}$ en $X$, decimos que es de Cauchy, si para todo $\varepsilon >0$, existe un natural $N=N(\varepsilon)$ tal que \[d(x_n, x_m) <\varepsilon, \qquad \text{para todo $n,m \geq N$}.\]
+\end{definicion}
+Hablando en lenguaje ordinario, podría decirse que una sucesión de Cauchy es una sucesión que quiere ser convergente, pues los valores de ésta son cada vez más cercanos unos de otros. Sin embargo esta condición (de ser de Cauchy) no implica convergencia.
+
+\begin{example}
+Considere la sucesión $\left\{ \frac{1}{n}\right\}$, la cual es de Cauchy en $X=(0,1]$ pero no es convergente en $X$.
+\end{example}
+
+\begin{teorema}
+Toda sucesión convergente en $X$ es de Cauchy.
+\end{teorema}
+\begin{proof}
+Sea $\left\{x_n \right\}$ una sucesión en $X$ que converge a $x\in X$. Teniendo en cuenta la desigualdad
+\[d(x_n, x_m)\leq d(x_n, x)+d(x, x_m), \quad \text{para todo $m,n\in \ene$}, \]
+se sigue el resultado.
+\end{proof}
+
+\begin{definicion}
+Sea $A\subseteq X$.
+\begin{enumerate}
+    \item La clausura de $A$ es $\overline{A} :=A\cup A'$.
+    \item Decimos que $A$ es denso en $X$ si $\overline{A}=X$.
+    \item Sea $(Y, d_Y)$ un espacio métrico  y $\Phi: X\to Y$ una biyección. Decimos que $\Phi $ es una isometría de $X$ en $Y$ si
+    \[d(x_1,\, x_2)=d_Y(\Phi (x_1),\, \Phi (x_2)), \qquad \text{para todo $x_1,x_2 \in X$}.\]
+    \item Si existe una isometría de $X$ en $Y$, decimos que $X$ es isométrico a $Y$ ($X\cong Y$).
+    \item Decimos que $X$ es completo si toda sucesión de Cauchy en $X$, es convergente en $X$.
+\end{enumerate}
+\end{definicion}
+
+\begin{teorema}\label{cauchy-acota}
+Toda sucesión de Cauchy en $\R$ es acotada.
+\end{teorema}
+\begin{proof}
+Sea $\left\{x_n \right\}$ una sucesión de Cauchy en $X$. Por tanto existe un $N$ tal que para todo $m\geq N$, $x_m\in B(x_N, 1).$ Sea $R=2\max\{1, \, d(x_1, x_N),\dots, d(x_{N-1}, x_N)\}.$ Con esto tenemos que $x_n \in B(x_N, R)$ para todo $n\in \ene.$
+\end{proof}
+
+\begin{teorema}\label{R-completo}
+$\R$ es un espacio métrico completo.
+\end{teorema}
+\begin{proof}
+Sea $\{x_n \}_n$ una sucesión de Cauchy en $\R$. Por Teorema \ref{cauchy-acota}, existe un $R>0$ tal que $x_n \in [-R, \, R]$, para todo $n$. Como $[-R, \, R]$ es compacto, ésta sucesión admite una  subsucesión convergente $\{x_{n_k}\}_k$. Supongamos que $x$ es su límite. Sea $\varepsilon >0$. Entonces existen  $N_1$ y $N_2$ tales que
+\[ | x_n- x_m|<\frac{\varepsilon}{2} \quad \text{para todo $m,n\geq N_1$}\]
+y
+\[ | x_{n_k}- x|<\frac{\varepsilon}{2} \quad \text{para todo $k\geq N_2$}.\]
+Fijemos un $k\geq \max\{N_1, N_2\}$. Entonces, $n_k\geq N_1$ y $n_k\geq N_2$. Así que teniendo en cuenta las desigualdades anteriores
+\[ | x_n- x | \leq | x_n- x_{n_k} |+| x_{n_k}- x | <\frac{\varepsilon}{2}+\frac{\varepsilon}{2}={\varepsilon}, \quad \text{para todo $n \geq N_1$}.\]
+Es decir, $x_n \to x$ cuando $n\to \infty .$
+\end{proof}
+
+\begin{definicion}
+Decimos que $X$ es totalmente acotado si para todo $\varepsilon >0$, existe un número finito de puntos de $X$, $x_1, \dots, x_k$ tal que $X=\bigcup _{i=1}^k B(x_i, \varepsilon).$
+\end{definicion}
+
+\begin{teorema}
+$X$ es compacto si y sólo si $X$ es completo y totalmente acotado.
+\end{teorema}

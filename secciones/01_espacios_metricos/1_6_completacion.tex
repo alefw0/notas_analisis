@@ -1,0 +1,133 @@
+\section{Completacion de un espacio metrico}
+
+\begin{definicion}
+Sea $(X^*, \rho)$ un espacio métrico. Decimos que este espacio es una completación de $(X,d)$ si satisface:
+\begin{enumerate}
+    \item $(X^*, \rho)$ es completo.
+    \item Existe un subespacio $\hat{X}$ denso en $X^*$ que es isométrico a $X$.
+\end{enumerate}
+\end{definicion}
+
+\begin{teorema}
+Existe una completación de $X$ que es única salvo isometrías.
+\end{teorema}
+\begin{proof}
+Sea $C[X]$ el conjunto de todas las sucesiones de Cauchy en $X$.
+\begin{enumerate}
+    \item Definamos en $C[X]$ la siguiente relación:
+    \[
+    \{a_n\}\sim\{b_n\} \iff \lim_{n\to\infty} d(a_n,b_n)=0.
+    \]
+    Esta es una relación de equivalencia. En efecto:
+    \begin{enumerate}
+        \item Como $d(a_n,a_n)=0$ para todo $n\in\ene$, entonces $\{a_n\}\sim\{a_n\}$.
+        \item Como $d(a_n,b_n)=d(b_n,a_n)$ para todo $n\in\ene$, se sigue la simetría.
+        \item Si $\lim_{n\to\infty} d(a_n,b_n)=0$ y $\lim_{n\to\infty} d(b_n,c_n)=0$, entonces por desigualdad triangular
+        \[
+        \lim_{n\to\infty} d(a_n,c_n)
+        \le
+        \lim_{n\to\infty} d(a_n,b_n)+\lim_{n\to\infty} d(b_n,c_n)=0.
+        \]
+        Luego $\{a_n\}\sim\{c_n\}$.
+    \end{enumerate}
+
+    \item Definamos
+    \[
+    X^*:=C[X]/\sim=\left\{[\{a_n\}]:\ \{a_n\}\in C[X]\right\}.
+    \]
+    Luego definimos en $X^*$ la métrica $\rho:X^*\times X^*\to\R$ por
+    \[
+    \rho([\{a_n\}], [\{b_n\}])=\lim_{n\to\infty} d(a_n,b_n).
+    \]
+
+    Probemos que $\rho$ está bien definida. Sean $\{a_n\}$ y $\{b_n\}$ sucesiones de Cauchy en $X$. Sea $x_n:=d(a_n,b_n)$. Afirmamos que $\{x_n\}$ es de Cauchy en $\R$. En efecto, para todo $m,n\in\ene$,
+    \[
+    |x_n-x_m|=|d(a_n,b_n)-d(a_m,b_m)|\le d(a_n,a_m)+d(b_n,b_m).
+    \]
+    Como $\{a_n\}$ y $\{b_n\}$ son de Cauchy, la afirmación es cierta. Como $\R$ es completo, $\{x_n\}$ converge y por tanto el límite en la definición de $\rho$ existe.
+
+    Probemos que $\rho$ no depende de los representantes. Sean $\{a_n'\}$ y $\{b_n'\}$ representantes de $[\{a_n\}]$ y $[\{b_n\}]$ respectivamente. Entonces
+    \[
+    |d(a_n,b_n)-d(a_n',b_n')|\le d(a_n,a_n')+d(b_n',b_n).
+    \]
+    Como $\lim_{n\to\infty}d(a_n,a_n')=\lim_{n\to\infty}d(b_n,b_n')=0$, se sigue que
+    \[
+    \lim_{n\to\infty}d(a_n,b_n)=\lim_{n\to\infty}d(a_n',b_n').
+    \]
+
+    Veamos que $\rho$ es una métrica. Las propiedades de positividad, identidad e invariancia por intercambio se heredan de $d$. Para la triangular, para todo $n\in\ene$,
+    \[
+    d(a_n,b_n)\le d(a_n,c_n)+d(c_n,b_n),
+    \]
+    y al tomar límites se obtiene
+    \[
+    \rho([\{a_n\}],[\{b_n\}])\le \rho([\{a_n\}],[\{c_n\}]) + \rho([\{c_n\}],[\{b_n\}]).
+    \]
+
+    \item Definamos la función $\,\hat{}:X\to X^*$ como
+    \[
+    x\mapsto \hat{x}:=[\{x\}_{n=0}^{\infty}],
+    \]
+    donde $\{x\}_{n=0}^{\infty}$ es la sucesión constante $x$. Denotamos por $\hat{X}$ la imagen de $X$ bajo esta función.
+    Entonces $X$ es isométrico a $\hat{X}$, pues si $p,q\in X$,
+    \[
+    \rho(\hat{p},\hat{q})=\lim_{n\to\infty} d(p,q)=d(p,q).
+    \]
+
+    \item Afirmamos que $\hat{X}$ es denso en $X^*$. Es suficiente probar que para todo $x\in X^*$, $x\in\overline{\hat{X}}$. Por el Lema \ref{claus-suces}, basta construir una sucesión en $\hat{X}$ que converja a $x$. Sea $x=[\{a_n\}]$, donde $\{a_n\}$ es de Cauchy en $X$. Veamos que $\{\hat{a}_n\}$ converge a $x$.
+
+    En efecto, sea $\varepsilon>0$. Existe $N$ tal que
+    \[
+    d(a_n,a_m)<\frac{\varepsilon}{2},\quad \text{para todo } n,m\ge N.
+    \]
+    Fijado $n\ge N$, para todo $m\ge N$,
+    \[
+    d(a_n,a_m)<\frac{\varepsilon}{2}.
+    \]
+    Tomando límite en $m$,
+    \[
+    \rho(\hat{a}_n,x)=\rho([\{a_n\}],[\{a_m\}])=\lim_{m\to\infty}d(a_n,a_m)\le\frac{\varepsilon}{2}<\varepsilon.
+    \]
+    Luego $\hat{a}_n\to x$.
+
+    \item \textbf{Lema.} Sea $(M,d_M)$ un espacio métrico. Supongamos que $\{x_n\}$ y $\{y_n\}$ son sucesiones en $M$ tales que para todo $n$ se cumple
+    \[
+    d_M(x_n,y_n)<\frac{1}{n}.
+    \]
+    Entonces: i) si $\{x_n\}$ es de Cauchy, $\{y_n\}$ también lo es; ii) si $\{x_n\}\to x$, entonces $\{y_n\}\to x$.
+
+    \item Probemos que $X^*$ es completo. Sea $\{[\alpha_n]\}_n$ una sucesión de Cauchy en $X^*$. Como $\hat{X}$ es denso en $X^*$, para todo $n$ existe $\hat{x}_n\in\hat{X}$ tal que
+    \[
+    \rho(\hat{x}_n,\alpha_n)<\frac{1}{n}.
+    \]
+    Por el lema anterior, $\{\hat{x}_n\}$ es de Cauchy en $\hat{X}$. Como $X$ es isométrico a $\hat{X}$, $\{x_n\}$ es de Cauchy en $X$. Definiendo $x=[\{x_n\}]\in X^*$, se obtiene $\hat{x}_n\to x$ en $X^*$ y de nuevo por el lema, también $\alpha_n\to x$. Por tanto $X^*$ es completo.
+
+    \item Probemos la unicidad de la completación. Supongamos que $(Y,d_Y)$ es una completación de $X$. Sin pérdida de generalidad, $X\subseteq Y$ y $\overline{X}=Y$. Definamos $f:Y\to X^*$ así: para cada $x\in Y$,
+    \[
+    f(x):=[\{a_n\}],
+    \]
+    donde $\{a_n\}$ es una sucesión en $X$ tal que $a_n\to x$.
+
+    Esta definición es independiente de la sucesión elegida: si $b_n\to x$ en $X$, entonces
+    \[
+    d(a_n,b_n)\le d(a_n,x)+d(x,b_n),
+    \]
+    y por tanto $\lim_{n\to\infty}d(a_n,b_n)=0$.
+
+    Veamos que $f$ es sobreyectiva. Sea $x=[\{a_n\}]\in X^*$. Como $\{a_n\}$ es de Cauchy en $X$, también lo es en $Y$; como $Y$ es completo, existe $p\in Y$ tal que $a_n\to p$. Entonces $f(p)=x$.
+
+    Veamos que $f$ preserva distancias. Sean $x,y\in Y$ y $a_n\to x$, $b_n\to y$ en $X$. Entonces, para todo $n$,
+    \[
+    |d_Y(a_n,b_n)-d_Y(x,y)|\le d_Y(a_n,x)+d_Y(b_n,y).
+    \]
+    Al pasar al límite,
+    \[
+    \lim_{n\to\infty}d_Y(a_n,b_n)=d_Y(x,y).
+    \]
+    Como $d_Y(a_n,b_n)=d(a_n,b_n)$,
+    \[
+    \rho(f(x),f(y))=\lim_{n\to\infty}d(a_n,b_n)=d_Y(x,y).
+    \]
+    Luego $f$ es una isometría y, en consecuencia, $Y\cong X^*$.
+\end{enumerate}
+\end{proof}
