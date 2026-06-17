@@ -1,0 +1,142 @@
+\chapter{Límites y continuidad de una función} % [cite: 1, 2, 3, 4, 5, 6, 7]
+\textbf{Referencia:} Análisis matemático T.M. Apostol Segunda edición. % [cite: 8]
+
+La idea intuitiva de esta definición es que $f(x)$ puede estar tan cerca a $b$ como queremos siempre que se tome $x$ lo suficientemente próximo a $p$. % [cite: 15, 16, 17, 18, 19, 20]
+
+Recordatorio: $\lim_{n \to \infty} x_n = p$ si y sólo si para todo $\epsilon > 0$ existe $N \in \N$ tal que si $n \ge N$ entonces $d(x_n, p) < \epsilon$. % [cite: 9, 10, 11, 12, 13, 14]
+
+En este capítulo $(X, d_X)$ y $(Y, d_Y)$ son espacios métricos. % [cite: 21, 22, 23, 24, 36, 37]
+
+\begin{definicion}[Límite de una función] % [cite: 26, 38]
+Sean $A \subseteq X$ y $f: A \to Y$ una función de $A$ en $Y$. % [cite: 39, 40, 41, 43]
+Si $p$ es un punto de acumulación de $A$ y $b \in Y$, % [cite: 33, 42]
+entonces $\lim_{x \to p} f(x) = b$ significa que para todo $\epsilon > 0$ existe $\delta > 0$ % [cite: 34, 35, 44, 45, 47]
+tal que para todo $x \in A \setminus \{p\}$ si $d_X(x, p) < \delta$ entonces $d_Y(f(x), b) < \epsilon$. % [cite: 46, 48]
+
+En símbolos:
+$$ (\forall \epsilon > 0)(\exists \delta > 0)(\forall x \in A \setminus \{p\})(d_X(x, p) < \delta \implies d_Y(f(x), b) < \epsilon) $$ % [cite: 49]
+\end{definicion}
+
+\begin{remark}
+La negación de la definición de límite de una función es: % [cite: 50, 51, 52, 53, 54]
+$$ (\exists \epsilon > 0)(\forall \delta > 0)(\exists x_\delta \in A \setminus \{p\})(d_X(x_\delta, p) < \delta \land d_Y(f(x_\delta), b) \ge \epsilon) $$ % [cite: 55, 67]
+\end{remark}
+
+\begin{teorema} % [cite: 56]
+Supongamos que $p$ es un punto de acumulación de $A \subseteq X$ y $b \in Y$. % [cite: 56, 57, 59, 61, 68]
+Entonces $\lim_{x \to p} f(x) = b$ si y sólo si % [cite: 58, 62, 63]
+para toda sucesión $\{x_n\} \subseteq A \setminus \{p\}$ tal que $x_n \to p$ entonces $f(x_n) \to b$. % [cite: 64, 65, 66, 69, 70, 71, 72]
+\end{teorema}
+
+\begin{dem} % [cite: 73]
+($\implies$) Sea $\{x_n\} \subseteq A \setminus \{p\}$ una sucesión tal que $x_n \to p$. % [cite: 75, 77, 78, 88, 89]
+Veamos que $\lim_{n \to \infty} f(x_n) = b$. % [cite: 76, 79]
+Sea $\epsilon > 0$, por hipótesis existe $\delta > 0$ tal que si $x \in A \setminus \{p\}$ y $d_X(x, p) < \delta$ entonces $d_Y(f(x), b) < \epsilon \quad (*)$. % [cite: 79, 80, 81, 82, 90, 91]
+
+Como $x_n \to p$, existe $N \in \N$ tal que para todo $n \ge N$, $d_X(x_n, p) < \delta$. % [cite: 83, 84, 86, 92, 96, 98, 100]
+Por lo anterior y por $(*)$, tenemos $d_Y(f(x_n), b) < \epsilon$. % [cite: 93, 95, 101]
+Luego existe $N \in \N$ tal que para todo $n \ge N$, $d_Y(f(x_n), b) < \epsilon$, por lo tanto $f(x_n) \to b$. % [cite: 94, 96, 97]
+
+($\impliedby$) Razonemos por contradicción, supongamos que $\lim_{x \to p} f(x) \neq b$, % [cite: 102]
+es decir, existe $\epsilon > 0$ tal que para todo $\delta > 0$ existe $x_\delta \in A \setminus \{p\}$ % [cite: 103, 104]
+tal que $0 < d_X(x_\delta, p) < \delta \land d_Y(f(x_\delta), b) \ge \epsilon$. % [cite: 102]
+
+Tomando $\delta = \frac{1}{n}$, existe $x_n \in A \setminus \{p\}$ tal que $d_X(x_n, p) < \frac{1}{n} \land d_Y(f(x_n), b) \ge \epsilon$. % [cite: 105, 106, 107]
+Notar que $\{x_n\} \subseteq A \setminus \{p\}$ y $x_n \to p$. % [cite: 108, 109, 112]
+Por hipótesis $f(x_n) \to b$, por lo que para un $n$ lo suficientemente grande $f(x_n) \in B_Y(b, \epsilon)$, lo cual implica que $B_Y(b, \epsilon) \cap \{f(x_n)\} = \emptyset$ es falso. ¡Contradicción! % [cite: 111, 115, 117]
+\end{dem}
+
+\begin{remark}
+La unicidad del límite para sucesiones convergentes, se usa para probar la unicidad del límite $\lim_{x \to p} f(x) = b$, según el teorema anterior. (Ejercicio). % [cite: 118, 119, 122, 123, 124]
+\end{remark}
+
+\begin{example}
+Probar que $\lim_{x \to 2} (3x + 1) = 7$. % [cite: 125, 126]
+
+Sea $\epsilon > 0$. Existe $\delta > 0$ tal que si $|x - 2| < \delta$ entonces $|(3x + 1) - 7| = 3|x - 2| < \epsilon$. % [cite: 127, 128, 129, 130]
+(Basta tomar $\delta = \epsilon/3$).
+\end{example}
+
+\section*{Funciones continuas} % [cite: 137]
+
+\begin{definicion}[Continuidad en un punto] % [cite: 138, 150]
+Sea $f: A \to Y$. Decimos que $f$ es continua en un punto $p \in A$ si y sólo si para todo $\epsilon > 0$ existe $\delta > 0$ tal que para todo $x \in A$, si $d_X(x, p) < \delta$ implica $d_Y(f(x), f(p)) < \epsilon$. % [cite: 139, 140, 141, 142, 143, 145, 146, 147, 148, 149, 151, 152, 153, 154, 155, 156, 158, 159, 160, 161, 162]
+\end{definicion}
+
+\begin{definicion}[Continuidad en términos de bolas] % [cite: 163]
+Una función $f$ es continua en un punto $p \in A$ si y sólo si $(\forall \epsilon > 0)(\exists \delta > 0)$ tal que $f(B_X(p, \delta) \cap A) \subseteq B_Y(f(p), \epsilon)$. % [cite: 164, 165, 166, 167, 168, 169]
+\end{definicion}
+
+\begin{remark} % [cite: 170]
+$f: A \to Y$ es continua en $p$ si y sólo si para todo $\epsilon > 0$, existe $\delta > 0$ tal que $f(B_X(p, \delta) \cap A) \subseteq B_Y(f(p), \epsilon)$. % [cite: 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180]
+\end{remark}
+
+\begin{dem} % [cite: 174]
+($\implies$) Sea $\epsilon > 0$, como $f$ es continua en $p$ entonces $\exists \delta > 0$ tal que para todo $x \in A$ si $d_X(x, p) < \delta$ implica $d_Y(f(x), f(p)) < \epsilon \quad (*)$. % [cite: 181, 182, 183, 184, 185, 187]
+Sea $y \in f(B_X(p, \delta) \cap A)$ entonces existe $x \in B_X(p, \delta) \cap A$ tal que $y = f(x)$, por $(*)$ se tiene que $y \in B_Y(f(p), \epsilon)$. % [cite: 189, 190, 191]
+Luego $f(B_X(p, \delta) \cap A) \subseteq B_Y(f(p), \epsilon)$. % [cite: 195]
+
+($\impliedby$) Sea $\epsilon > 0$, por hipótesis $\exists \delta > 0$ tal que $f(B_X(p, \delta) \cap A) \subseteq B_Y(f(p), \epsilon)$. % [cite: 191, 192, 195]
+Si $x \in B_X(p, \delta) \cap A$ entonces $f(x) \in B_Y(f(p), \epsilon)$, es decir $d_Y(f(x), f(p)) < \epsilon$. % [cite: 186, 193, 194, 196, 197]
+\end{dem}
+
+\begin{teorema} % [cite: 198]
+Sea $f: A \to Y$. $f$ es continua en $p \in A$ si y sólo si para toda sucesión $\{x_n\} \subseteq A$ que converge a $p$ ($x_n \to p$), la sucesión $f(x_n) \to f(p)$. % [cite: 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215]
+Es decir,
+$$ \lim_{n \to \infty} f(x_n) = f\left(\lim_{n \to \infty} x_n\right) = f(p) $$ % [cite: 216, 217]
+\end{teorema}
+
+\begin{example} % [cite: 218]
+La función
+$$ f(x) = \begin{cases} x, & \text{si } x \in \Q \\ 0, & \text{si } x \in \mathbb{I} \end{cases} $$ % [cite: 227]
+es discontinua en $p \in \R \setminus \{0\}$. % [cite: 219, 220, 222, 230]
+
+En efecto, como $\overline{\Q} = \R$ y $\overline{\mathbb{I}} = \R$ (son densos en $\R$), existen sucesiones $\{q_n\} \subseteq B\left(p, \frac{1}{n}\right) \cap \Q$ y $\{r_n\} \subseteq B\left(p, \frac{1}{n}\right) \cap \mathbb{I}$. % [cite: 221, 223, 224, 228, 230, 232, 233, 237, 238, 239]
+Por lo anterior $|q_n - p| < \frac{1}{n}$ y $|r_n - p| < \frac{1}{n}$. Luego $q_n \to p$ y $r_n \to p$. % [cite: 234, 235, 240, 246]
+
+Notemos que $f(q_n) = q_n$ y $f(r_n) = 0$. % [cite: 236, 243]
+$\lim_{n \to \infty} f(q_n) = \lim_{n \to \infty} q_n = p$ y $\lim_{n \to \infty} f(r_n) = 0$. % [cite: 244, 248]
+
+Por el teorema anterior, $f$ es discontinua en $p$, ya que encontramos dos sucesiones $\{q_n\}_{n \in \N}$ y $\{r_n\}_{n \in \N}$ tales que $\lim_{n \to \infty} q_n = \lim_{n \to \infty} r_n = p$ pero % [cite: 250, 251, 252, 253, 254, 255, 256, 257, 259, 260, 261, 262]
+$$ \lim_{n \to \infty} f(q_n) = p \neq \lim_{n \to \infty} f(r_n) = 0 $$ % [cite: 263]
+\end{example}
+
+\begin{example} % [cite: 264]
+La función
+$$ f(x) = \begin{cases} x, & \text{si } x \in \Q \\ 0, & \text{si } x \in \mathbb{I} \end{cases} $$ % [cite: 268]
+es continua en cero. (Ejercicio). % [cite: 269, 270, 271, 272, 267]
+\end{example}
+
+\begin{example} % [cite: 274, 275]
+La función
+$$ f(x) = \begin{cases} 1, & \text{si } x \in \Q \\ 0, & \text{si } x \in \mathbb{I} \end{cases} $$ % [cite: 276]
+es discontinua en todo $x \in \R$. % [cite: 277, 278, 279]
+\end{example}
+
+\begin{definicion}[Continuidad en $A$] % [cite: 282, 283, 284, 285]
+Sea $f: A \to Y$, decimos que $f$ es continua en $A$ si y sólo si $f$ es continua en todo $p \in A$. % [cite: 286, 287, 288, 289, 290, 303, 304, 305, 306, 307, 311, 312, 313, 314, 315, 316, 317]
+\end{definicion}
+
+\begin{teorema} % [cite: 291]
+$f$ es continua en $A$ si y solo si para todo $U$ abierto en $Y$, $f^{-1}[U]$ es abierto en $A$. % [cite: 291, 292, 293, 294, 295, 296, 298, 299, 300, 301, 308, 309, 310, 318]
+Recordar: $f^{-1}[U] = \{x \in A \mid f(x) \in U\}$. % [cite: 297, 319]
+\end{teorema}
+
+\begin{dem} % [cite: 302]
+($\implies$) Supongamos que $f$ es continua en $A$. Sea $U$ un abierto en $Y$. % [cite: 320, 321, 322, 326, 331, 333, 334, 335, 336, 340]
+Sea $y \in f^{-1}[U]$ entonces $f(y) \in U$. % [cite: 322, 323, 324, 327, 329, 330]
+Como $U$ es abierto existe $\epsilon > 0$ tal que $B_Y(f(y), \epsilon) \subseteq U \quad (*)$. % [cite: 332, 337, 338, 339, 341, 342]
+Como $f$ es continua en $A$, en particular es continua en $y$, existe $\delta > 0$ tal que $f(B_X(y, \delta) \cap A) \subseteq B_Y(f(y), \epsilon) \quad (**)$. % [cite: 343, 344]
+
+\textbf{Afirmación:} $B_X(y, \delta) \cap A \subseteq f^{-1}[U]$. % [cite: 345]
+En efecto, si $x \in B_X(y, \delta) \cap A$ entonces $d_Y(f(x), f(y)) < \epsilon$ (por $(**)$) entonces de $(*)$ tenemos $f(x) \in U$. % [cite: 346, 347]
+Luego $x \in f^{-1}[U]$. % [cite: 348]
+
+($\impliedby$) Supongamos para todo $U$ abierto en $Y$, $f^{-1}[U]$ es abierto en $A$. % [cite: 349, 350, 351, 354, 355, 358, 360, 361, 362, 363, 364, 365, 366, 367]
+Sean $x \in A$ y $\epsilon > 0$. Un abierto en $Y$, por ejemplo $B_Y(f(x), \epsilon)$, por hipótesis $f^{-1}(B_Y(f(x), \epsilon))$ es abierto en $A$. % [cite: 352, 353, 356, 357, 359, 368, 369]
+Como $x \in f^{-1}(B_Y(f(x), \epsilon))$, existe $\delta > 0$ tal que $B_X(x, \delta) \cap A \subseteq f^{-1}(B_Y(f(x), \epsilon))$. % [cite: 370, 371]
+
+\textbf{Afirmación:} $f(B_X(x, \delta) \cap A) \subseteq B_Y(f(x), \epsilon)$. % [cite: 372]
+Sea $y \in f(B_X(x, \delta) \cap A)$, entonces existe $z \in B_X(x, \delta) \cap A$ tal que $y=f(z)$. % [cite: 373, 374, 375]
+Entonces $y \in B_Y(f(x), \epsilon)$. % [cite: 376]
+\end{dem}

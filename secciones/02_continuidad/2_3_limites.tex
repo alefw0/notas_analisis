@@ -1,1 +1,104 @@
+%\clearpage
 \section{Limites. Limites superior e inferior.}
+
+En esta sección, $(X,d_X)$ y $(Y,d_Y)$ son espacios métricos.
+
+\begin{definicion}[Límite de una función]
+Sean $A\subseteq X$ y $f:A\to Y$.
+Si $p$ es un punto de acumulación de $A$ y $b\in Y$, decimos que
+\[
+\lim_{x\to p}f(x)=b
+\]
+si para todo $\epsilon>0$ existe $\delta>0$ tal que para todo $x\in A\setminus\{p\}$,
+\[
+d_X(x,p)<\delta \implies d_Y(f(x),b)<\epsilon.
+\]
+\end{definicion}
+
+\begin{remark}
+La negación de la definición anterior es:
+\[
+(\exists\epsilon>0)(\forall\delta>0)(\exists x_\delta\in A\setminus\{p\})\;
+d_X(x_\delta,p)<\delta \ \land\ d_Y(f(x_\delta),b)\ge\epsilon.
+\]
+\end{remark}
+
+\begin{teorema}[Caracterización secuencial del límite]
+Supongamos que $p$ es punto de acumulación de $A\subseteq X$ y $b\in Y$.
+Entonces
+\[
+\lim_{x\to p}f(x)=b
+\]
+si y sólo si para toda sucesión $\{x_n\}\subseteq A\setminus\{p\}$ con $x_n\to p$, se tiene $f(x_n)\to b$.
+\end{teorema}
+
+\begin{example}
+Probar que
+\[
+\lim_{x\to 2}(3x+1)=7.
+\]
+Sea $\epsilon>0$. Si tomamos $\delta=\epsilon/3$, entonces
+\[
+|x-2|<\delta \implies |(3x+1)-7|=3|x-2|<\epsilon.
+\]
+\end{example}
+
+\subsection*{Límites laterales en funciones reales}
+
+Sea $A\subseteq\R$, $f:A\to\R$ y $p\in A'$.
+
+\begin{definicion}
+\begin{enumerate}
+    \item Decimos que $\lim_{x\to p^+}f(x)=b$ si para todo $\epsilon>0$ existe $\delta>0$ tal que, si $x\in A$ y $p<x<p+\delta$, entonces $|f(x)-b|<\epsilon$.
+    \item Decimos que $\lim_{x\to p^-}f(x)=b$ si para todo $\epsilon>0$ existe $\delta>0$ tal que, si $x\in A$ y $p-\delta<x<p$, entonces $|f(x)-b|<\epsilon$.
+\end{enumerate}
+\end{definicion}
+
+\begin{teorema}
+Sean $A\subseteq\R$, $p\in A'$, $f:A\to\R$ y $b\in\R$.
+Entonces
+\[
+\lim_{x\to p}f(x)=b
+\]
+si y sólo si
+\[
+\lim_{x\to p^+}f(x)=b \quad\text{y}\quad \lim_{x\to p^-}f(x)=b.
+\]
+\end{teorema}
+
+\begin{teorema}[Teorema de estricción]
+Sean $f,g,h$ funciones definidas en $A\subseteq\R$, y sea $p\in A'$.
+Supongamos que para $x\in A\setminus\{p\}$ suficientemente cercano a $p$ se cumple
+\[
+f(x)\le g(x)\le h(x),
+\]
+y además
+\[
+\lim_{x\to p}f(x)=L,
+\qquad
+\lim_{x\to p}h(x)=L.
+\]
+Entonces
+\[
+\lim_{x\to p}g(x)=L.
+\]
+\end{teorema}
+
+\begin{example}
+Calcular $\lim_{x\to 0}x^2\sen(1/x)$.
+
+Como $-1\le\sen(1/x)\le 1$ para $x\neq 0$, al multiplicar por $x^2>0$:
+\[
+-x^2\le x^2\sen(1/x)\le x^2.
+\]
+Además,
+\[
+\lim_{x\to 0}(-x^2)=0,
+\qquad
+\lim_{x\to 0}x^2=0.
+\]
+Por el teorema de estricción,
+\[
+\lim_{x\to 0}x^2\sen(1/x)=0.
+\]
+\end{example}

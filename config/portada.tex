@@ -9,20 +9,6 @@
   % Gradiente sutil en la zona de texto
   \path[fill=AnalisisLight] ([xshift=4.4cm]current page.north west) rectangle (current page.south east);
 
-  % --- NUEVA SECCIÓN: Sucesión de Cauchy en la parte inferior ---
-  \begin{scope}[shift={([xshift=5.5cm, yshift=8cm]current page.south west)}]
-      % Línea límite (el valor al que converge la sucesión)
-      \draw[AnalisisBlue!40, dashed, line width=1pt] (0,0) -- (13,0) node[right, text=AnalisisBlue] {$L$};
-
-      % Curva suave que guía la vista (trayectoria amortiguada)
-      \draw[AnalisisAccent!60, line width=1pt, variable=\x, domain=0:12.5, samples=100]
-          plot ({\x}, {2.5 * exp(-0.3*\x) * cos(deg(3*\x))});
-
-      % Puntos de la sucesión (x_n) acercándose entre sí (Cauchy) y al límite
-      \foreach \x in {0, 0.4, 0.8, 1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6, 4.0, 4.4, 4.8, 5.2, 5.6, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0} {
-          \fill[AnalisisBlue] ({\x}, {2.5 * exp(-0.3*\x) * cos(deg(3*\x))}) circle (2.5pt);
-      }
-  \end{scope}
 
 \end{tikzpicture}
 
@@ -51,8 +37,6 @@
         Facultad de Ciencias Exactas y Naturales} \\
 \vspace{0.8cm}
 
-%{\Large \textbf{Fecha:}} \\
-{\large Semestre 2026 - 1}
 
 \vfill
 

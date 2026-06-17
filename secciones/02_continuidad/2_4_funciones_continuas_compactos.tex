@@ -1,1 +1,97 @@
+%\clearpage
 \section{Funciones continuas en espacios métricos compactos; homeomorfismos}
+
+\begin{teorema}
+Sea $f:A\to Y$ continua en $A$ y $B\subseteq A$ compacto.
+Entonces $f(B)$ es compacto en $Y$.
+\end{teorema}
+
+\begin{proof}
+Sea $\mathcal{F}=\{U_i\}$ un cubrimiento abierto de $f(B)$.
+Como cada $U_i$ es abierto y $f$ es continua, $f^{-1}(U_i)$ es abierto en $A$.
+
+Además, $B\subseteq\bigcup_i f^{-1}(U_i)$, pues si $x\in B$ entonces $f(x)\in f(B)$ y por tanto $f(x)\in U_i$ para algún $i$, lo que implica $x\in f^{-1}(U_i)$.
+
+Así, $\{f^{-1}(U_i)\}$ es un cubrimiento abierto de $B$.
+Por compacidad de $B$, existen $U_1,\dots,U_n\in\mathcal{F}$ tales que
+\[
+B\subseteq\bigcup_{i=1}^n f^{-1}(U_i).
+\]
+Aplicando $f$, obtenemos
+\[
+f(B)\subseteq\bigcup_{i=1}^n U_i.
+\]
+Luego $f(B)$ es compacto.
+\end{proof}
+
+\begin{teorema}
+Sea $f:A\to\R$ continua y $B\subseteq A$ compacto.
+Entonces existen $p,q\in B$ tales que
+\[
+f(p)=\inf f(B),
+\qquad
+f(q)=\sup f(B).
+\]
+\end{teorema}
+
+\begin{remark}
+En el teorema anterior, $f(p)$ y $f(q)$ se llaman respectivamente el valor mínimo absoluto y el valor máximo absoluto de $f$ en $B$.
+\end{remark}
+
+\begin{teorema}[Teorema del valor extremo]
+Sea $f:[a,b]\to\R$ continua en $[a,b]$.
+Entonces $f$ alcanza su mínimo y su máximo absolutos en $[a,b]$.
+\end{teorema}
+
+\begin{definicion}
+Sea $f:A\to\R$.
+\begin{enumerate}
+    \item $p\in A$ es punto de máximo absoluto si $f(x)\le f(p)$ para todo $x\in A$.
+    \item $p\in A$ es punto de mínimo absoluto si $f(p)\le f(x)$ para todo $x\in A$.
+\end{enumerate}
+\end{definicion}
+
+\begin{example}
+La función $f:(0,1)\to\R$, $f(x)=x$, es continua en $(0,1)$, pero no alcanza ni máximo absoluto ni mínimo absoluto.
+\end{example}
+
+\begin{teorema}
+Sea $f:A\to Y$ inyectiva y continua. Si $A$ es compacto, entonces
+\[
+f^{-1}:f(A)\to A
+\]
+es continua.
+\end{teorema}
+
+\begin{proof}
+Como $f$ es inyectiva, $f^{-1}$ está bien definida sobre $f(A)$.
+Sea $C\subseteq A$ cerrado en $A$. Como $A$ es compacto, $C$ es compacto.
+Por continuidad de $f$, $f(C)$ es compacto; en particular, es cerrado en $f(A)$.
+
+Ahora,
+\[
+(f^{-1})^{-1}(C)=f(C),
+\]
+que es cerrado en $f(A)$. Por lo tanto, $f^{-1}$ es continua.
+\end{proof}
+
+\begin{definicion}[Homeomorfismo]
+Sea $f:S\to T$ una función entre espacios métricos y supongamos que es inyectiva.
+Decimos que $f$ es un homeomorfismo si
+\[
+f:S\to f(S)
+\]
+es continua y
+\[
+f^{-1}:f(S)\to S
+\]
+es continua.
+\end{definicion}
+
+\begin{example}
+Los espacios métricos $\R$ y $(-\pi/2,\pi/2)$ (con la métrica de subespacio) son homeomorfos, pues
+\[
+\tan:(-\pi/2,\pi/2)\to\R
+\]
+es un homeomorfismo.
+\end{example}

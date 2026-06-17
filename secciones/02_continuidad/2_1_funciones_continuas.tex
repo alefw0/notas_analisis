@@ -1,1 +1,125 @@
+%\clearpage
 \section{Funciones continuas en espacios métricos}
+
+En esta sección, $(X,d_X)$ y $(Y,d_Y)$ son espacios métricos.
+
+\begin{definicion}[Continuidad en un punto]
+Sea $f:A\to Y$. Decimos que $f$ es continua en $p\in A$ si y sólo si para todo $\epsilon>0$ existe $\delta>0$ tal que para todo $x\in A$, si $d_X(x,p)<\delta$ entonces $d_Y(f(x),f(p))<\epsilon$.
+\end{definicion}
+
+\begin{definicion}[Continuidad en términos de bolas]
+Una función $f:A\to Y$ es continua en $p\in A$ si y sólo si
+\[
+(\forall \epsilon>0)(\exists \delta>0)\; f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\epsilon).
+\]
+\end{definicion}
+
+\begin{proof}
+($\implies$) Sea $\epsilon>0$. Como $f$ es continua en $p$, existe $\delta>0$ tal que para todo $x\in A$, si $d_X(x,p)<\delta$ entonces $d_Y(f(x),f(p))<\epsilon$.
+
+Sea $y\in f(B_X(p,\delta)\cap A)$. Entonces existe $x\in B_X(p,\delta)\cap A$ tal que $y=f(x)$. Por lo anterior, $y\in B_Y(f(p),\epsilon)$. Luego
+\[
+f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\epsilon).
+\]
+
+($\impliedby$) Sea $\epsilon>0$. Por hipótesis existe $\delta>0$ tal que
+\[
+f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\epsilon).
+\]
+Si $x\in A$ satisface $d_X(x,p)<\delta$, entonces $x\in B_X(p,\delta)\cap A$, y por tanto $f(x)\in B_Y(f(p),\epsilon)$, es decir,
+\[
+d_Y(f(x),f(p))<\epsilon.
+\]
+\end{proof}
+
+\begin{teorema}
+Sea $f:A\to Y$. Entonces $f$ es continua en $p\in A$ si y sólo si para toda sucesión $\{x_n\}\subseteq A$ que converge a $p$, se tiene $f(x_n)\to f(p)$.
+\end{teorema}
+
+\begin{example}
+La función
+\[
+f(x)=\begin{cases}
+x, & \text{si } x\in\Q,\\
+0, & \text{si } x\in\mathbb{I}
+\end{cases}
+\]
+es discontinua en todo $p\in\R\setminus\{0\}$.
+\end{example}
+
+\begin{example}
+La función
+\[
+f(x)=\begin{cases}
+x, & \text{si } x\in\Q,\\
+0, & \text{si } x\in\mathbb{I}
+\end{cases}
+\]
+es continua en $0$.
+\end{example}
+
+\begin{example}
+La función
+\[
+f(x)=\begin{cases}
+1, & \text{si } x\in\Q,\\
+0, & \text{si } x\in\mathbb{I}
+\end{cases}
+\]
+es discontinua en todo $x\in\R$.
+\end{example}
+
+\begin{definicion}[Continuidad en un conjunto]
+Sea $f:A\to Y$. Decimos que $f$ es continua en $A$ si y sólo si $f$ es continua en todo $p\in A$.
+\end{definicion}
+
+\begin{teorema}
+Sea $f:A\to Y$. Entonces $f$ es continua en $A$ si y sólo si para todo abierto $U\subseteq Y$, $f^{-1}[U]$ es abierto en $A$.
+\end{teorema}
+
+\begin{proof}
+($\implies$) Supongamos que $f$ es continua en $A$ y sea $U\subseteq Y$ abierto.
+Sea $y\in f^{-1}[U]$, entonces $f(y)\in U$. Como $U$ es abierto, existe $\epsilon>0$ tal que
+\[
+B_Y(f(y),\epsilon)\subseteq U.
+\]
+Como $f$ es continua en $y$, existe $\delta>0$ tal que
+\[
+f(B_X(y,\delta)\cap A)\subseteq B_Y(f(y),\epsilon)\subseteq U.
+\]
+Luego $B_X(y,\delta)\cap A\subseteq f^{-1}[U]$, y por tanto $f^{-1}[U]$ es abierto en $A$.
+
+($\impliedby$) Supongamos que para todo abierto $U\subseteq Y$, $f^{-1}[U]$ es abierto en $A$.
+Sean $x\in A$ y $\epsilon>0$. El conjunto $B_Y(f(x),\epsilon)$ es abierto en $Y$, así que
+\[
+f^{-1}(B_Y(f(x),\epsilon))
+\]
+es abierto en $A$. Como $x$ pertenece a ese conjunto, existe $\delta>0$ tal que
+\[
+B_X(x,\delta)\cap A\subseteq f^{-1}(B_Y(f(x),\epsilon)).
+\]
+Entonces
+\[
+f(B_X(x,\delta)\cap A)\subseteq B_Y(f(x),\epsilon),
+\]
+y $f$ es continua en $x$. Como $x$ fue arbitrario, $f$ es continua en $A$.
+\end{proof}
+
+\begin{teorema}
+Sea $f:A\to Y$. Entonces $f$ es continua en $A$ si y sólo si para todo cerrado $C\subseteq Y$, $f^{-1}(C)$ es cerrado en $A$.
+\end{teorema}
+
+\begin{proof}
+($\implies$) Sea $C\subseteq Y$ cerrado. Entonces $C^c$ es abierto en $Y$. Por continuidad, $f^{-1}(C^c)$ es abierto en $A$.
+Como
+\[
+f^{-1}(C^c)=(f^{-1}(C))^c,
+\]
+se concluye que $f^{-1}(C)$ es cerrado en $A$.
+
+($\impliedby$) Sea $U\subseteq Y$ abierto. Entonces $U^c$ es cerrado en $Y$, así que por hipótesis
+\[
+f^{-1}(U^c)=(f^{-1}(U))^c
+\]
+es cerrado en $A$. Por lo tanto $f^{-1}(U)$ es abierto en $A$, y $f$ es continua en $A$.
+\end{proof}

@@ -1,1 +1,123 @@
+%\clearpage
 \section{Sucesiones de funciones. Convergencia puntual y uniforme.}
+
+\begin{definicion}[Sucesión de funciones]
+Sean $(X,d_X)$ y $(Y,d_Y)$ espacios métricos, y sea $A\subseteq X$.
+Denotemos por $\mathcal{F}(A,Y)$ el conjunto de funciones de $A$ en $Y$.
+Una sucesión de funciones en $A$ es una aplicación
+\[
+\N\to \mathcal{F}(A,Y),\qquad n\mapsto f_n.
+\]
+\end{definicion}
+
+\begin{definicion}[Convergencia puntual]
+Sea $\{f_n\}\subset \mathcal{F}(A,Y)$ y sea $S\subseteq A$.
+Decimos que $f_n$ converge puntualmente en $S$ a $f\in \mathcal{F}(A,Y)$ si para todo $x\in S$ y todo $\epsilon>0$ existe $N\in\N$ (que depende de $x$ y de $\epsilon$) tal que
+\[
+n\ge N \implies d_Y(f_n(x),f(x))<\epsilon.
+\]
+Equivalente: para todo $x\in S$, se tiene
+\[
+\lim_{n\to\infty}f_n(x)=f(x).
+\]
+\end{definicion}
+
+\begin{example}
+En $\R$, considere
+\[
+f_n(x)=\frac{x^{2n}}{1+x^{2n}},\qquad x\in\R.
+\]
+Entonces $f_n(x)\to f(x)$ puntualmente, donde
+\[
+f(x)=\begin{cases}
+0, & |x|<1,\\
+\frac12, & |x|=1,\\
+1, & |x|>1.
+\end{cases}
+\]
+Cada $f_n$ es continua en $\R$, pero $f$ es discontinua en $x=1$ y $x=-1$.
+\end{example}
+
+\begin{definicion}[Convergencia uniforme]
+Sea $\{f_n\}\subset \mathcal{F}(A,Y)$ y sea $S\subseteq A$.
+Decimos que $f_n$ converge uniformemente en $S$ a $f\in \mathcal{F}(A,Y)$ si para todo $\epsilon>0$ existe $N\in\N$ (que depende solo de $\epsilon$) tal que
+\[
+n\ge N \implies d_Y(f_n(x),f(x))<\epsilon\quad \text{para todo }x\in S.
+\]
+\end{definicion}
+
+\begin{remark}
+La diferencia clave con la convergencia puntual es que en convergencia uniforme el mismo $N$ funciona para todos los puntos de $S$.
+\end{remark}
+
+\begin{teorema}[Límite uniforme de funciones continuas]
+Supongamos que $f_n\to f$ uniformemente en $S$.
+Si cada $f_n$ es continua en $c\in S$, entonces $f$ es continua en $c$.
+En particular,
+\[
+\lim_{x\to c}\lim_{n\to\infty}f_n(x)=\lim_{n\to\infty}\lim_{x\to c}f_n(x).
+\]
+\end{teorema}
+
+\begin{proof}
+Si $c$ es aislado en $S$, el resultado es inmediato.
+Supongamos que $c$ es punto de acumulación de $S$.
+
+Sea $\epsilon>0$. Por convergencia uniforme, existe $M\in\N$ tal que
+\[
+d_Y(f_M(x),f(x))<\frac\epsilon3\quad \text{para todo }x\in S,
+\]
+y también
+\[
+d_Y(f_M(c),f(c))<\frac\epsilon3.
+\]
+
+Como $f_M$ es continua en $c$, existe $\delta>0$ tal que si $x\in B_X(c,\delta)\cap S$, entonces
+\[
+d_Y(f_M(x),f_M(c))<\frac\epsilon3.
+\]
+
+Por desigualdad triangular, para $x\in B_X(c,\delta)\cap S$:
+\[
+\begin{aligned}
+d_Y(f(x),f(c))
+&\le d_Y(f(x),f_M(x))+d_Y(f_M(x),f_M(c))+d_Y(f_M(c),f(c))\\
+&<\frac\epsilon3+\frac\epsilon3+\frac\epsilon3=\epsilon.
+\end{aligned}
+\]
+Luego $f$ es continua en $c$.
+\end{proof}
+
+\begin{example}
+Sea
+\[
+f_n(x)=\frac{\sen(nx)}{\sqrt{n}},\qquad x\in\R.
+\]
+Entonces $f_n\to 0$ uniformemente en $\R$.
+Sin embargo,
+\[
+f_n'(x)=\sqrt{n}\cos(nx),
+\]
+y en general $\lim_{n\to\infty}f_n'(x)$ no existe.
+\end{example}
+
+\begin{teorema}[Criterio de Cauchy para convergencia uniforme]
+Sea $\{f_n\}\subset \mathcal{F}(S,Y)$, con $Y$ completo.
+Existe $f$ tal que $f_n\to f$ uniformemente en $S$ si y solo si:
+para todo $\epsilon>0$ existe $N\in\N$ tal que
+\[
+m,n\ge N \implies d_Y(f_m(x),f_n(x))<\epsilon\quad \text{para todo }x\in S.
+\]
+\end{teorema}
+
+\begin{teorema}[Convergencia uniforme y diferenciación]
+Supongamos $f_n:[a,b]\to\R$ derivables en $(a,b)$, que existe $x_0\in(a,b)$ con $\{f_n(x_0)\}$ convergente, y que existe $g$ tal que
+\[
+f_n'\to g \quad \text{uniformemente en }(a,b).
+\]
+Entonces:
+\begin{enumerate}
+    \item Existe $f$ tal que $f_n\to f$ uniformemente en $(a,b)$.
+    \item Para todo $x\in(a,b)$, existe $f'(x)$ y $f'(x)=g(x)$.
+\end{enumerate}
+\end{teorema}

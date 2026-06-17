@@ -1,0 +1,253 @@
+%\clearpage
+\section{Teorema de Arzelà--Ascoli}
+
+\begin{definicion}[Espacio de trabajo]
+En esta sección consideramos:
+\begin{itemize}
+    \item $(X,d_X)$ un espacio métrico compacto,
+    \item $(Y,d_Y)$ un espacio métrico,
+    \item el conjunto
+    \[
+    C(X,Y)=\{f:X\to Y\mid f \text{ es continua}\}.
+    \]
+    \item la función distancia candidata
+    \[
+    d_\infty(f,g)=\sup_{x\in X}d_Y(f(x),g(x)),\qquad f,g\in C(X,Y).
+    \]
+\end{itemize}
+\end{definicion}
+
+\begin{teorema}
+La tupla $(C(X,Y),d_\infty)$ es un espacio métrico.
+\end{teorema}
+
+\begin{proof}
+Primero verificamos que $d_\infty$ está bien definida y es finita.
+Sean $f,g\in C(X,Y)$ y consideremos
+\[
+\varphi:X\to\R,\qquad \varphi(x)=d_Y(f(x),g(x)).
+\]
+Como $f$ y $g$ son continuas y $d_Y$ es continua en $Y\times Y$, la función $\varphi$ es continua.
+Al ser $X$ compacto, $\varphi(X)$ es compacto en $\R$; en particular está acotado y alcanza máximo.
+Por tanto,
+\[
+\sup_{x\in X}d_Y(f(x),g(x))=\max_{x\in X}d_Y(f(x),g(x))<\infty.
+\]
+
+Ahora probamos los axiomas de métrica:
+
+\textbf{(M1) Positividad y definitud.}
+Como $d_Y\ge 0$, se tiene $d_\infty(f,g)\ge 0$.
+Si $d_\infty(f,g)=0$, entonces $d_Y(f(x),g(x))=0$ para todo $x\in X$, luego $f(x)=g(x)$ para todo $x$,
+es decir, $f=g$.
+Recíprocamente, si $f=g$, entonces claramente $d_\infty(f,g)=0$.
+
+\textbf{(M2) Simetría.}
+Para todo $x\in X$,
+\[
+d_Y(f(x),g(x))=d_Y(g(x),f(x)).
+\]
+Tomando supremo en $x$,
+\[
+d_\infty(f,g)=d_\infty(g,f).
+\]
+
+\textbf{(M3) Desigualdad triangular.}
+Sean $f,g,h\in C(X,Y)$. Para todo $x\in X$,
+\[
+d_Y(f(x),h(x))\le d_Y(f(x),g(x))+d_Y(g(x),h(x))
+\]
+y por tanto
+\[
+d_Y(f(x),h(x))\le d_\infty(f,g)+d_\infty(g,h).
+\]
+Tomando supremo en $x$,
+\[
+d_\infty(f,h)\le d_\infty(f,g)+d_\infty(g,h).
+\]
+
+Se cumplen (M1), (M2) y (M3), luego $(C(X,Y),d_\infty)$ es un espacio métrico.
+\end{proof}
+
+\begin{definicion}
+Sea $\mathfrak{F}\subset C(X,Y)$.
+\begin{enumerate}
+    \item $\mathfrak{F}$ es \emph{equicontinua} si para todo $\epsilon>0$ existe $\delta>0$ tal que
+    \[
+    d_X(x,x')<\delta \implies d_Y(f(x),f(x'))<\epsilon
+    \]
+    para todo $f\in\mathfrak{F}$ y todo $x,x'\in X$.
+    \item $\mathfrak{F}$ es \emph{puntualmente precompacta} si para todo $x\in X$, el conjunto
+    \[
+    \mathfrak{F}(x):=\{f(x):f\in\mathfrak{F}\}
+    \]
+    es precompacto en $Y$.
+\end{enumerate}
+\end{definicion}
+
+\begin{teorema}[Arzelà--Ascoli]
+Sea $(X,d_X)$ compacto, $(Y,d_Y)$ métrico y $\mathfrak{F}\subset C(X,Y)$.
+Son equivalentes:
+\begin{enumerate}
+    \item $\mathfrak{F}$ es precompacto en $(C(X,Y),d_\infty)$.
+    \item $\mathfrak{F}$ es puntualmente precompacto y equicontinuo.
+\end{enumerate}
+\end{teorema}
+
+\begin{proof}
+Probamos $(1)\Rightarrow(2)$.
+
+Primero, para cada $x\in X$, la aplicación de evaluación
+\[
+\operatorname{ev}_x:C(X,Y)\to Y,\qquad \operatorname{ev}_x(f)=f(x),
+\]
+es continua en la métrica $d_\infty$. La imagen de un precompacto por una aplicación continua es precompacta; luego
+\[
+\mathfrak{F}(x)=\operatorname{ev}_x(\mathfrak{F})
+\]
+es precompacto en $Y$ para todo $x\in X$.
+
+Ahora probamos equicontinuidad. Fijado $\epsilon>0$, como $\mathfrak{F}$ es precompacto, es totalmente acotado, así que existen
+$f_1,\dots,f_m\in\mathfrak{F}$ con
+\[
+\mathfrak{F}\subset\bigcup_{i=1}^m B_{\epsilon/3}(f_i)
+\]
+en $d_\infty$.
+Cada $f_i$ es uniformemente continua en $X$ (Heine), por lo que existe $\delta>0$ tal que
+\[
+d_X(x,x')<\delta \implies d_Y(f_i(x),f_i(x'))<\epsilon/3
+\]
+para todo $i=1,\dots,m$.
+
+Sea $f\in\mathfrak{F}$ y $x,x'\in X$ con $d_X(x,x')<\delta$. Tomamos $j$ tal que
+$d_\infty(f,f_j)<\epsilon/3$. Entonces
+\[
+d_Y(f(x),f(x'))
+\le d_Y(f(x),f_j(x))+d_Y(f_j(x),f_j(x'))+d_Y(f_j(x'),f(x'))
+<\epsilon.
+\]
+Por tanto, $\mathfrak{F}$ es equicontinua.
+
+Probamos $(2)\Rightarrow(1)$.
+Sea $(f_n)\subset\mathfrak{F}$ una sucesión arbitraria.
+
+\textbf{Paso 1: diagonalización}
+
+Como $X$ es compacto, es separable. Tomamos un subconjunto denso numerable
+\[
+D=\{x_1,x_2,\dots\}\subset X.
+\]
+Como $\mathfrak{F}(x_1)$ es precompacto, extraemos de $(f_n)$ una subsucesión
+\[
+(f_{1,j})_{j\in\N}
+\]
+tal que $(f_{1,j}(x_1))_j$ converge en $Y$.
+
+En el paso $k\ge 2$, como $\mathfrak{F}(x_k)$ es precompacto, extraemos de
+$(f_{k-1,j})_j$ una subsucesión
+\[
+(f_{k,j})_{j\in\N}
+\]
+tal que $(f_{k,j}(x_k))_j$ converge en $Y$.
+
+La construcción queda representada por la matriz de subsucesiones
+\[
+\begin{array}{cccccc}
+f_{1,1} & f_{1,2} & f_{1,3} & f_{1,4} & f_{1,5} & \cdots \\
+f_{2,1} & f_{2,2} & f_{2,3} & f_{2,4} & \cdots \\
+f_{3,1} & f_{3,2} & f_{3,3} & \cdots \\
+\vdots & \vdots & \vdots & \ddots
+\end{array}
+\]
+y definimos la diagonal
+\[
+g_i:=f_{i,i},\qquad i\in\N.
+\]
+Para cada $k$, la cola $(g_i)_{i\ge k}$ es subsucesión de $(f_{k,j})_j$; por tanto
+\[
+(g_i(x_k))_{i\in\N}
+\]
+es de Cauchy (de hecho convergente) en $Y$.
+
+\textbf{Paso 2: uso de la equicontinuidad y recubrimiento finito}
+
+Fijamos $\epsilon>0$. Por equicontinuidad de $\mathfrak{F}$, existe $\delta>0$ tal que
+\[
+d_X(x,x')<\delta \implies d_Y(h(x),h(x'))<\frac\epsilon3
+\quad(\forall h\in\mathfrak{F}).
+\]
+
+La familia $\{B_{\delta/2}(y):y\in X\}$ recubre $X$. Por compacidad, existen
+$y_1,\dots,y_m\in X$ con
+\[
+X\subset\bigcup_{r=1}^m B_{\delta/2}(y_r).
+\]
+Como $D$ es denso, para cada $r$ tomamos $\hat x_r\in D$ tal que
+\[
+d_X(y_r,\hat x_r)<\delta/2.
+\]
+Entonces $B_{\delta/2}(y_r)\subset B_\delta(\hat x_r)$ y, en consecuencia,
+\[
+X\subset\bigcup_{r=1}^m B_\delta(\hat x_r).
+\]
+
+\textbf{Paso 3: control secuencial en los centros}
+
+Para cada $r\in\{1,\dots,m\}$, la sucesión $(g_i(\hat x_r))_i$ es de Cauchy en $Y$,
+así que existe $N_r$ tal que
+\[
+i,j\ge N_r \implies d_Y(g_i(\hat x_r),g_j(\hat x_r))<\frac\epsilon3.
+\]
+Definimos
+\[
+N:=\max\{N_1,\dots,N_m\}.
+\]
+Luego, si $i,j\ge N$, se cumple simultáneamente
+\[
+d_Y(g_i(\hat x_r),g_j(\hat x_r))<\frac\epsilon3
+\quad \text{para todo } r=1,\dots,m.
+\]
+
+\textbf{Paso 4: desigualdad triangular}
+
+Sea $x\in X$. Elegimos $r$ con $x\in B_\delta(\hat x_r)$. Para $i,j\ge N$,
+\[
+\begin{aligned}
+d_Y(g_i(x),g_j(x))
+&\le d_Y(g_i(x),g_i(\hat x_r))
++d_Y(g_i(\hat x_r),g_j(\hat x_r))
++d_Y(g_j(\hat x_r),g_j(x))\\
+&<\frac\epsilon3+\frac\epsilon3+\frac\epsilon3=\epsilon.
+\end{aligned}
+\]
+Tomando supremo en $x\in X$:
+\[
+d_\infty(g_i,g_j)<\epsilon \quad (i,j\ge N).
+\]
+Por tanto $(g_i)$ es de Cauchy en $(C(X,Y),d_\infty)$.
+
+Ahora, para cada $x\in X$, $(g_i(x))$ es de Cauchy y está contenida en
+$\mathfrak{F}(x)$, que es precompacto. Su clausura es compacta, luego completa,
+y existe
+\[
+g(x):=\lim_{i\to\infty}g_i(x)\in Y.
+\]
+Además, de la cota uniforme anterior, al pasar $j\to\infty$, obtenemos
+\[
+d_Y(g_i(x),g(x))\le\epsilon \quad (\forall x\in X,\ i\ge N),
+\]
+y por tanto
+\[
+d_\infty(g_i,g)=\sup_{x\in X}d_Y(g_i(x),g(x))\le\epsilon.
+\]
+Luego $g_i\to g$ uniformemente en $X$.
+
+Como cada $g_i$ es continua, $g$ es continua (límite uniforme), es decir,
+$g\in C(X,Y)$.
+
+Concluimos que toda sucesión en $\mathfrak{F}$ tiene una subsucesión convergente en
+$C(X,Y)$. Por la caracterización secuencial de precompacidad en espacios métricos,
+$\mathfrak{F}$ es precompacto.
+\end{proof}
+
+

@@ -1,1 +1,43 @@
-\section{Funciones monotonas}
+%\clearpage
+\section{Funciones monótonas}
+
+\begin{definicion}
+Sea $f$ una función real definida en un subconjunto $A\subseteq\R$.
+\begin{enumerate}
+    \item $f$ es creciente (no decreciente) en $A$ si $x<y$ implica $f(x)\le f(y)$.
+    \item $f$ es estrictamente creciente en $A$ si $x<y$ implica $f(x)<f(y)$.
+    \item $f$ es decreciente (resp. estrictamente decreciente) si $x<y$ implica $f(x)\ge f(y)$ (resp. $f(x)>f(y)$).
+    \item $f$ es monótona en $A$ si es creciente o decreciente.
+\end{enumerate}
+\end{definicion}
+
+\begin{teorema}
+Sea $f:(a,b)\to\R$ una función monótona en $(a,b)$ y $c\in(a,b)$.
+Entonces existen $f(c^-)$ y $f(c^+)$.
+
+Además, si $f$ es creciente, entonces
+\[
+f(c^-)=\sup\{f(x):a<x<c\}\le f(c)\le \inf\{f(x):c<x<b\}=f(c^+).
+\]
+Si $f$ es decreciente, se invierten las desigualdades:
+\[
+f(c^-)=\inf\{f(x):a<x<c\}\ge f(c)\ge \sup\{f(x):c<x<b\}=f(c^+).
+\]
+\end{teorema}
+
+\begin{corolario}
+Sea $f:(a,b)\to\R$ monótona. Entonces $f$ no tiene discontinuidades de segunda clase.
+\end{corolario}
+
+\begin{teorema}
+Sea $f$ monótona en $(a,b)$. El conjunto de puntos de discontinuidad de $f$ en $(a,b)$ es a lo sumo numerable.
+\end{teorema}
+
+\begin{teorema}
+Si $f$ es estrictamente creciente en $A\subseteq\R$, entonces $f^{-1}$ existe y es estrictamente creciente en $f(A)$.
+\end{teorema}
+
+\begin{teorema}
+Sea $f$ estrictamente creciente y continua en un intervalo compacto $[a,b]$.
+Entonces $f^{-1}$ es estrictamente creciente y continua en $[f(a),f(b)]$.
+\end{teorema}

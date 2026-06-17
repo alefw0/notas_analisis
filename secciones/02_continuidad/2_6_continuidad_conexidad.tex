@@ -1,1 +1,55 @@
+%\clearpage
 \section{Continuidad y conexidad}
+
+\begin{teorema}
+Sea $f:X\to Y$ continua y $E\subseteq X$ conexo.
+Entonces $f(E)$ es conexo.
+\end{teorema}
+
+\begin{proof}
+Supongamos por contradicción que $f(E)$ es disconexo.
+Entonces existen $A,B$ abiertos en $f(E)$ tales que
+\[
+A\neq\emptyset,\quad B\neq\emptyset,\quad A\cap B=\emptyset,\quad f(E)=A\cup B.
+\]
+Definimos
+\[
+G=f^{-1}(A)\cap E,
+\qquad
+H=f^{-1}(B)\cap E.
+\]
+Como $f$ es continua, $f^{-1}(A)$ y $f^{-1}(B)$ son abiertos en $E$; luego $G$ y $H$ son abiertos en $E$.
+
+Además, si $x\in E$, entonces $f(x)\in f(E)=A\cup B$, así que $x\in G\cup H$. Por tanto $E=G\cup H$.
+
+Si $x\in G\cap H$, entonces $f(x)\in A\cap B$, contradicción. Luego $G\cap H=\emptyset$.
+
+También $G\neq\emptyset$ y $H\neq\emptyset$ porque $A\neq\emptyset$ y $B\neq\emptyset$.
+Con esto, $E$ queda separado por $G$ y $H$, contradiciendo que $E$ es conexo.
+\end{proof}
+
+\begin{teorema}[Teorema del valor intermedio]
+Sea $f:[a,b]\to\R$ continua.
+Si $f(a)\neq f(b)$ y $c$ es un número entre $f(a)$ y $f(b)$,
+entonces existe $x\in(a,b)$ tal que $f(x)=c$.
+\end{teorema}
+
+\begin{proof}
+Como $f$ es continua, $f([a,b])$ es conexo.
+Como $f([a,b])\subseteq\R$, se concluye que $f([a,b])$ es un intervalo.
+Si $c$ está entre $f(a)$ y $f(b)$, entonces $c\in f([a,b])$.
+Por lo tanto existe $x\in[a,b]$ con $f(x)=c$; al ser estricto el valor intermedio, puede tomarse $x\in(a,b)$.
+\end{proof}
+
+\begin{teorema}[Teorema de Bolzano]
+Sea $f:[a,b]\to\R$ continua y supongamos $f(a)f(b)<0$.
+Entonces existe al menos un $c\in(a,b)$ tal que $f(c)=0$.
+\end{teorema}
+
+\begin{example}
+Si $I=[0,1]$ y $f:I\to I$ es continua, entonces existe $x\in[0,1]$ tal que $f(x)=x$.
+
+En efecto, definimos $g(x)=f(x)-x$. Si $f(0)=0$ o $f(1)=1$, ya está.
+Si no, podemos suponer $g(0)>0$ y $g(1)<0$.
+Por Bolzano, existe $x\in[0,1]$ con $g(x)=0$, es decir, $f(x)=x$.
+\end{example}

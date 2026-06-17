@@ -1,0 +1,1005 @@
+%% definiciones sucesiones de funciones %%
+\section{Conceptos previos}
+
+\begin{frame}{Sucesiones de funciones:}
+    \begin{definicion}
+        Sean $(X,d_X)$ y $(Y,d_Y)$ dos espacio métricos y $A\subseteq X$. Y sea $\mathcal{F}(A,Y)$ el conjunto de todas las funciones que van desde el subconjunto 
+        $A$ al espacio métrico Y. Una \textbf{sucesión de funciones} $\{f_n\}$ definidas en $A$ es una aplicación 
+        que asigna  a cada número natural $n\in \N$  una única función $f_n\in \mathcal{F}(A,Y)$.
+    \end{definicion}
+\end{frame}
+
+\begin{frame}{Observaciones:}
+    \begin{itemize}
+    \item Para cada índice n fijo, $f_n$ es una función completa cuya regla de correspondencia 
+    es $f_n:A\subseteq X\to Y$.
+    \item Si $Y=\R$ con la métrica usual y si fijamos un único punto $x \in A$, al evaluar todas las funciones de la sucesión exactamente 
+    en ese mismo punto, obtenemos una sucesión de números reales $\{f_{1}(x),f_{2}(x),f_{3}(x),...\}$.
+    \end{itemize} 
+\end{frame}
+
+\begin{frame}{Convergencia puntual:}
+    \begin{definicion}
+        Sea $A\subseteq X$ y $\{f_{n}\}\subset \mathcal{F}(A,Y)$ una sucesión de funciones definidas en $A$.
+        Decimos que la sucesión \textbf{converge puntualmente} en un conjunto $S\subseteq A$  a una función  $f\in \mathcal{F}(A,Y)$.
+        Si para cada $x\in S$ y para cada $\epsilon>0$, existe un $N\in \N$ (que depende de x y $\epsilon$)
+        tal que:
+        \[
+        \text{Si } n>N, \text{entonces } d_{Y}(f_n(x),f(x))<\epsilon. 
+        \]
+    \end{definicion}
+\end{frame}
+
+\begin{frame}{Observaciones:}
+    \begin{itemize}
+    \item La definición anterior se puede escribir del siguiendo modo: La sucesión $\{f_n\}$ 
+    converge puntualmente a la función $f\in \mathcal{F}(A,Y)$ en el conjunto $S\subseteq A$, si y sólo si se cumple:
+    \[
+     \lim_{n\to \infty} f_{n}(x) = f(x),\,\text{para todo } x\in S
+    \]
+    Se dice que f es la \textbf{función limite} de la sucesión.
+    \item En general, la convergencia puntual no transfiere propiedades de continuidad y diferencibilidad a la función límite.
+    \end{itemize} 
+\end{frame}
+
+\begin{frame}{Ejemplo 1:}
+    Sea $X=\R$ con la métrica usual. Consideremos la sucesión de funciones reales $\{f_n\}\subset \mathcal{F}(\R, \R)$ dada por:
+    \[   
+     f_n(x)=\frac{x^{2n}}{1+x^{2n}}, \,\text{con } x\in \R\,\text{y } n=1,2,3,...
+    \]
+    En este caso, el $\lim_{n\to \infty}f_{n}(x)$ existe para cada x real y la función límite f está dada por:
+    \[   
+     f(x)=
+     \begin{cases} 
+        0 & \text{si } |x| < 1 \\ 
+        1/2 & \text{si } |x|=1 \\
+        1 & \text{si } |x|>1
+     \end{cases}
+    \]
+    Cada $f_n(x)$ es continua en $\R$. Pero, f es discontinua en x=1 y x=-1.
+\end{frame}
+
+\begin{frame}{Ejemplo 1:}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.9\textwidth]{imagenes/Convergencia puntual.png}
+        \caption{En general la convergencia puntual no preserva la continuidad. Tomado del \textbf{Tom Apostol p.219}}
+        \label{fig:imagen1}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Ejercicio 1:}
+    Para cada índice $n\in \N^{*}$. Definamos las funciones $g_{n}:[0,1]\to \R$ como:
+    \[   
+     g_n(x)=\sqrt[n]{x},\,\text{con } n=1,2,3,...
+    \]    
+    Probar que la sucesión $\{g_{n}\}$ converge puntualmente en el conjunto $[0,1]$ a la función límite g dada por:  
+    \[  
+     g(x)=
+     \begin{cases} 
+        0 & \text{si } x=0 \\ 
+        1 & \text{si } 0<x\leq 1\\
+     \end{cases}
+    \]
+    \textbf{Ayuda:} El caso x=0 es inmediato. Luego, fija un $x\in (0,1]$ y demuestra que el $\lim_{n\to \infty}\sqrt[n]{x} = 1$ usando la definición formal de limite 
+    con $N>\frac{1}{x\cdot \epsilon}$ para un $\epsilon>0$ cualquiera.
+\end{frame}
+
+\begin{frame}{Ejemplo 2:}
+    Sea $X=\R$ con la métrica usual. Consideremos la sucesión de funciones reales $\{f_n\}\subset \mathcal{F}([-1,1], \R)$ dada por:
+    \[   
+     f_n(x)=x^{\frac{2n}{2n-1}}, \,\text{con } x\in [-1,1]\,\text{y } n=1,2,3,...
+    \]
+    En este caso, el $\lim_{n\to \infty}f_{n}(x)$ existe para cada x entre -1 y 1 y la función límite f está dada por:
+    \[   
+     f(x)=
+     \begin{cases} 
+         \, x & \text{si } x\geq 0 \\ 
+        -x & \text{si } x<0 \\
+     \end{cases}
+    \]
+    O lo que es lo mismo, $f(x)=|x|$. Aquí notamos que cada $f_{n}(x)$ es continua y diferenciable en $[-1,1]$. Pero,
+    la función f no es diferenciable en x=0.
+\end{frame}
+
+\begin{frame}{Convergencia uniforme:}
+    \begin{definicion}
+        Sea $A\subseteq X$ y $\{f_{n}\}\subset \mathcal{F}(A,Y)$ una sucesión de funciones definidas en $A$.
+        Decimos que la sucesión \textbf{converge uniformemente} en un conjunto $S\subseteq A$ a la función  $f\in \mathcal{F}(A,Y)$.
+        Si para cada $x\in S$ y para cada $\epsilon>0$, existe un $N\in \N$ (que depende sólo de $\epsilon$)
+        tal que:
+        \[
+        \text{Si } n>N, \text{entonces } d_{Y}(f_n(x),f(x))<\epsilon 
+        \]
+    \end{definicion}
+\end{frame}
+
+\begin{frame}{Observaciones:}
+    \begin{itemize}
+    \item La diferencia entre la convergencia uniforme y la convergencia puntual es que el N funciona 
+    igual de bien para cada punto en $S\subseteq A$.
+    \item Denotamos simbólicamente esto escribiendo:
+    \[
+     f_{n}\to f\,\textbf{uniformemente}\,\text{en } S
+    \]
+    \item Cuando cada término de la sucesión $\{f_{n}\}$ son funciones de variables real, hay una interpretación
+    geométrica útil de la convergencia uniforme. La desigualdad $|f_{n}(x)-f(x)|< \epsilon$ es equivalente a 
+    dos desigualdades:
+    \[
+     f(x) - \epsilon < f_{n}(x) < f(x) + \epsilon
+    \]
+    Si esto se cumple para todo $n>N$ y para todo x en S, esto signfica que todo el gráfico de $f_{n}$
+    (es decir, el conjunto $\{(x,y): y=f_{n}(x), x\in S\}$) se encuentra dentro de una "banda" de altura $2\epsilon$
+    situada simétricamente alrededor del gráfico de f. 
+    \end{itemize} 
+\end{frame}
+
+\begin{frame}{Convergencia uniforme:}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.6\textwidth]{imagenes/Convergenia uniforme.png}
+        \caption{A partir de un cierto n>N la gráfica de $f_{n}$ Se encuentra dentro de una "banda" de altura $2\epsilon$. 
+        Tomado del \textbf{Tom Apostol p.221}}
+        \label{fig:imagen2}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Convergencia uniforme y continuidad:}
+    \begin{teorema}
+        Supongamos que $f_{n}\to f$ \textbf{uniformemente} en S. Si cada f es continua en un punto $c\in S$, entonces
+        la función límite f también es continua en c. Es decir, si $c\in S'$, la conclusión implica:
+        \[
+        \lim_{x\to c}\lim_{n\to \infty}f_{n}(x)=\lim_{n\to \infty}\lim_{x\to c}f_{n}(x)
+        \]
+    \end{teorema}
+\end{frame}
+
+\begin{frame}{}
+    \begin{proof}
+    Si c es un punto aislado de S, entonces f es automáticamente continua en c. Supongamos, entonces, que c es un 
+    punto de acumulación de S. Por hipótesis, para todo $\epsilon>0$, existe un $M\in \N$ tal que si $n\geq M$, entonces
+    \[
+    d_{Y}(f_{n}(x),f(x))<\frac{\epsilon}{3}.\,\text{Para todo} x\in S
+    \]
+    Dado que $f_M$ es continua en c, existe una $\delta$-bola tal que si $x\in  B_{X}(\delta,x)\cap S$, entonces
+    \[
+    d_{Y}(f_{M}(x),f_{M}(c))<\frac{\epsilon}{3}.
+    \]
+    Pero,
+    \[
+    d_{Y}(f(x),f(c))\leq d_{Y}(f(x),f_{M}(x))+d_{Y}(f_{M}(x),f_{M}(c))+d_{Y}(f_{M}(c),f_{M}(c)),\,\text{si } x\in  B_{X}(\delta,x)\cap S.
+    \]
+    Cada término de la derecha es menor que $\frac{\epsilon}{3}$ y por lo tanto $d_{Y}(f(x),f(c))<\epsilon$. 
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Ejemplo 3:}
+    Sea $f_{n}(x)=\frac{\sin{nx}}{\sqrt{n}}$ con $x\in \R$ y $n=1,2,...$ Se puede probar que $f_{n}\to 0$ \textbf{uniformemente}
+    en $\R$. Pero, para cada término de la sucesión de derivadas $f'_{n}(x)=\sqrt{n}\cdot \cos{nx}$ su limite $\lim_{n\to \infty} f'_{n}(x)$
+    no existe para cualquier x.
+\end{frame}
+
+
+\begin{frame}{Condición de Cauchy para convergencia uniforme (Ejercicio 2):}
+    \begin{teorema}
+        Sea $\{f_{n}\}\subset \mathcal{F(A,Y)}$, con $Y$ completo una sucesión de funciones definidas en un conjunto S. Existe una función tal que $f_{n}\to f$
+        \textbf{uniformemente} en S \textbf{si y sólo si}, se cumple la siguiente condición (llamada \textbf{condición de Cauchy})
+        Para todo $\epsilon>0$, existe un $n\in \N$ tal que si m>N y n>N, entonces:
+        \[
+        d_{Y}(f_{m}(x),f_{n}(x))< \epsilon.\,\text{Para todo } x\in S
+        \]
+    \end{teorema}
+\end{frame}
+
+\begin{frame}{Convergencia uniforme y diferenciabilidad: }
+    \begin{teorema}
+        Supongamos que cada término de $\{f_{n}\}\subset \mathcal{F}([a,b], \R)$ tiene una derivada finita en cada punto de el intervalo
+        abierto (a,b). Supóngamos que para al menos un punto $x_0$ en (a,b), la sucesión $\{f_{n}(x_0)\}$ converge. Además, 
+        supongamos que existe una función g tal que $f'_{n}\to g$ \textbf{uniformemente} en (a,b). Entonces:\\
+        \medskip
+        (a). Existe una función f tal que $f_{n}\to f$ \textbf{uniformemente} en (a,b).\\
+        (b). Para cada c en (a,b), la derivada $f'(x)$ existe y es igual a g(x).
+    \end{teorema}
+\end{frame}
+
+
+\begin{frame}{Espacio $(C(X,Y),d_{\infty})$}
+    Sea $(X, d_X)$ y $(Y, d_Y)$ espacios métricos y asumamos $X$ compacto.\\
+    Consideremos el espacio 
+    \[
+    \Cc{X,Y} = \{f:X\to Y : f \text{ es continua}\}
+    \]
+    Y consideremos la distancia
+    \[
+        d_{\infty}(f,g) = \sup_{x\in X} d_Y(f(x), g(x)).
+    \]
+    Entonces, la tupla $(\Cc{X,Y}, d_{\infty})$ es un espacio métrico.
+\end{frame}
+
+\begin{frame}{La métrica $d_{\infty}$ está bien definida}
+    Antes de verificar los axiomas, debemos garantizar que $d_{\infty}(f,g) < \infty$.
+    \begin{itemize}
+        \item Sean $f, g \in \Cc{X,Y}$. Como ambas funciones son continuas, la función que mide su distancia puntual:
+        \[ \varphi: X \to \R, \quad \varphi(x) = d_Y(f(x), g(x)) \]
+        es también una función continua.
+        \item Por hipótesis, el espacio dominio $X$ es \textbf{compacto}.
+        \item El Teorema de Weierstrass nos garantiza que toda función continua definida sobre un compacto alcanza su valor máximo.
+        \item Por lo tanto, el supremo se alcanza y es un número real finito:
+        \[ d_{\infty}(f,g) = \max_{x\in X} d_Y(f(x), g(x)) < \infty. \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Propiedades de la métrica (P1 y P2)}
+    \textbf{(P1) Positividad y Definitud:}
+    \begin{itemize}
+        \item Como $d_Y \ge 0$, es directo que $d_{\infty}(f,g) = \sup_{x\in X} d_Y(f(x),g(x)) \ge 0$.
+        \item Supongamos que $d_{\infty}(f,g) = 0$. Como todas las distancias puntuales son no negativas, el supremo solo puede ser cero si:
+        \[ d_Y(f(x), g(x)) = 0 \quad \text{para todo } x \in X. \]
+        \item Por ser $d_Y$ una métrica en $Y$, esto implica que $f(x) = g(x)$ para todo $x$, es decir, $f = g$.
+    \end{itemize}
+    
+    \vspace{0.3cm}
+    \textbf{(P2) Simetría:}
+    \begin{itemize}
+        \item Se hereda inmediatamente de la simetría en el espacio de llegada $Y$:
+        \begin{align*}
+            d_{\infty}(f,g) &= \sup_{x\in X} d_Y(f(x), g(x)) \\
+            &= \sup_{x\in X} d_Y(g(x), f(x)) = d_{\infty}(g,f).
+        \end{align*}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Propiedad de la métrica (P3)}
+    \textbf{(P3) Desigualdad triangular:} \\
+    \vspace{0.1cm}
+    Sean $f, g, h \in \Cc{X,Y}$. Para cualquier punto arbitrario $x \in X$, aplicamos la desigualdad triangular de la métrica en $Y$:
+    \[ d_Y(f(x), h(x)) \le d_Y(f(x), g(x)) + d_Y(g(x), h(x)) \]
+    
+    \vspace{0.1cm}
+    A continuación, acotamos cada término del lado derecho por su respectivo supremo global sobre todo el espacio:
+    \[ d_Y(f(x), h(x)) \le \sup_{y\in X} d_Y(f(y), g(y)) + \sup_{z\in X} d_Y(g(z), h(z)) \]
+    \[ d_Y(f(x), h(x)) \le d_{\infty}(f,g) + d_{\infty}(g,h) \]
+    
+    \vspace{0.1cm}
+    Como el lado derecho es una constante constante fija y la desigualdad es válida para todo $x \in X$, tomamos el supremo al lado izquierdo para concluir:
+    \[ d_{\infty}(f,h) \le d_{\infty}(f,g) + d_{\infty}(g,h). \qed \]
+\end{frame}
+
+
+\begin{frame}{Precompacidad}
+    \begin{definicion}
+        Un conjunto $\mathcal F\subset \Cc{X,Y}$ es \alert{precompacto} si su clausura $\overline{\mathcal F}$ es compacta en $(\Cc{X,Y},d_{\infty})$.
+    \end{definicion}
+\end{frame}
+
+
+\begin{frame}{Equicontinuidad}
+    \begin{definicion}
+        Una familia $\mathcal F \subset \Cc{X,Y}$ es \alert{equicontinua} si para todo $\eps>0$
+        existe $\delta>0$ tal que
+        \[
+            d_X(x,y)<\delta \implies d_Y(f(x), f(y))<\eps,
+        \]
+        para todo $f\in\mathcal F$ y todo $x,y\in X$.
+    \end{definicion}
+\end{frame}
+
+\begin{frame}{Precompacidad puntual}
+    \begin{definicion}
+        Una familia $\mathcal F \subset \Cc{X,Y}$ es \alert{puntualmente precompacta} si para cada $x\in X$ el conjunto
+        \[
+            \mathcal F(x) := \{f(x) : f\in\mathcal F\}
+        \]
+        es precompacto en $Y$.
+    \end{definicion}
+\end{frame}
+
+\begin{frame}{La continuidad lleva precompactos en precompactos}
+    \begin{teorema}
+        La imagen de un conjunto precompacto bajo un mapeo continuo es precompacto
+    \end{teorema}
+\end{frame}
+
+\begin{frame}{Prueba del teorema}
+    \begin{Proof}
+        Sean $(M_1,d_1)$ y $(M_2,d_2)$ dos espacios métricos. Sea $f:M_1\to M_2$ una función continua y sea $A\subset M_1$ un conjunto precompacto.
+        Veamos que su imagen $f(A)$ es precompacta en $M_2$.\\
+        \medskip
+        Por hipótesis, el conjunto A, es precompacto en $M_1$, lo que significa por definición que su clausura $\bar{A}$ es compacta. Dado que la función f es 
+        continua en todo el espacio $M_1$, su restricción al subconjunto $\bar{A}$ también es continua. Por lo que, el conjunto $f(\bar{A})$ es compacto $M_2$.\\
+        \medskip
+        Ahora, como $A\subset \bar{A}$, entonces $f(A)\subset f(\bar{A})$ y por lo tanto $\overline{f(A)}\subset \overline{f(\bar{A})}$. Como $f(\bar{A})$ es compacto (cerrado y acotado)
+        entonces $\overline{f(\bar{A})} = f(\bar{A})$ y por tanto $\overline{f(A)}\subset f(\bar{A})$. Por definición $\overline{f(A)}$ es cerrado y como es subconjunto de un compacto, entonces
+        $\overline{f(A)}$ es compacto.\\
+        \medskip
+        Al haber demostrado que la clausura de la imagen f(A) es un conjunto compacto, concluimos por definición que el conjunto f(A) es precompacto.
+    \end{Proof}
+\end{frame}
+
+\begin{frame}{Observación topológica fundamental}
+    \begin{corolario}[Corolario 1.7 de Bühler]
+        Todo espacio métrico compacto es separable.
+    \end{corolario}
+    \vspace{0.5cm}
+    \begin{block}{Nota para la demostración de Arzelà-Ascoli}
+        Este es el resultado que nos garantizará la existencia de un subconjunto denso numerable $D = \{x_1, x_2, \dots \}$ en nuestro dominio $X$, permitiendo aplicar el argumento de diagonalización.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Compacto implica completo}
+    \begin{teorema}
+        Todo espacio métrico compacto es completo.
+    \end{teorema}
+    \vspace{0.3cm}
+    \begin{proof}
+        Sea $(x_n)$ una sucesión de Cauchy en un espacio métrico compacto $(M,d)$. Por compacidad, $(x_n)$ tiene una subsucesión convergente $(x_{n_k})\to x\in M$.
+        Dado $\epsilon>0$, elegimos $N_1$ tal que $d(x_n,x_m)<\epsilon/2$ si $n,m\ge N_1$ (Cauchy), y $N_2$ tal que $d(x_{n_k},x)<\epsilon/2$ si $k\ge N_2$.
+        Si $n\ge N_1$ y $k\ge N_2$ con $n_k\ge N_1$, entonces
+        \[
+            d(x_n,x)\le d(x_n,x_{n_k})+d(x_{n_k},x)<\epsilon/2+\epsilon/2=\epsilon.
+        \]
+        Luego $x_n\to x$, y por tanto $M$ es completo.
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Caracterización de la precompacidad (Corolario 1.8)}
+    \begin{corolario}
+        Sea $(X, d_X)$ un espacio métrico y sea $A \subset X$. Entonces los siguientes enunciados son equivalentes:
+        \begin{enumerate}
+            \item[(i)] $A$ es precompacto.
+            \item[(ii)] Toda sucesión en $A$ tiene una subsucesión que converge en $X$.
+            \item[(iii)] $A$ es totalmente acotado y toda sucesión de Cauchy en $A$ converge en $X$.
+        \end{enumerate}
+    \end{corolario}
+\end{frame}
+
+\begin{frame}{Demostración del Corolario 1.8 (Parte 1)}
+    \textbf{(i) $\implies$ (ii):}\\
+    Se sigue directamente de las definiciones: si $A$ es precompacto, $\overline{A}$ es secuencialmente compacto. Toda sucesión en $A$ es sucesión en $\overline{A}$, luego tiene subsucesión convergente en $\overline{A} \subset X$.
+
+    \vspace{0.3cm}
+    \textbf{(ii) $\implies$ (iii):}
+    \begin{itemize}
+        \item Por (ii), toda sucesión tiene una subsucesión de Cauchy. Por el Lema 1.5, esto equivale a que $A$ es \textbf{totalmente acotado}.
+        \item Sea $(x_n)$ una sucesión de Cauchy en $A$. Por (ii), tiene una subsucesión convergente en $X$.
+        \item En espacios métricos, si una sucesión de Cauchy tiene una subsucesión convergente, entonces la sucesión original converge al mismo límite. Luego, converge en $X$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Demostración del Corolario 1.8 (Parte 2)}
+    \textbf{(iii) $\implies$ (i):}\\
+    Queremos demostrar que $\overline{A}$ es secuencialmente compacta.
+    \begin{itemize}
+        \item Sea $(x_n)_{n\in\mathbb{N}}$ una sucesión arbitraria en $\overline{A}$.
+        \item Por axioma de elección numerable, existe una sucesión $(a_n)$ en $A$ tal que $d(x_n, a_n) < 1/n$.
+        \item Como $A$ es totalmente acotado, $(a_n)$ tiene una \textbf{subsucesión de Cauchy} $(a_{n_i})$.
+        \item Por (iii), esta subsucesión converge en $X$. Llamemos a su límite $a$.
+        \item Notemos que $a \in \overline{A}$. Además, como $d(x_{n_i}, a_{n_i}) \to 0$, se concluye que $\lim x_{n_i} = a$.
+        \item Luego, toda sucesión en $\overline{A}$ tiene subsucesión convergente. $\overline{A}$ es compacto y por tanto $A$ es precompacto. \qed
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Precompacidad en espacios completos (Corolario 1.9)}
+    \begin{corolario}
+        Sea $(X, d_X)$ un espacio métrico \textbf{completo} y sea $A\subset X$. Entonces los siguientes enunciados son equivalentes:
+        \begin{enumerate}
+            \item[(i)] $A$ es precompacto.
+            \item[(ii)] Toda sucesión en $A$ tiene una subsucesión de Cauchy.
+            \item[(iii)] $A$ es totalmente acotado.
+        \end{enumerate}
+    \end{corolario}
+    
+    \vspace{0.4cm}
+    \begin{block}{La clave de la demostración}
+        Este resultado es una consecuencia directa del Corolario 1.8. La hipótesis adicional de que el espacio "grande" $X$ es \textbf{completo} nos permite relajar las exigencias topológicas, ya que en un espacio completo, las nociones de ``sucesión de Cauchy'' y ``sucesión convergente'' son equivalentes.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \begin{proof}
+        Procedemos comparando con las equivalencias del Corolario 1.8:
+        \vspace{0.2cm}
+        \begin{itemize}
+            \item \textbf{Equivalencia (i) $\iff$ (ii):}\\
+            Por el Cor. 1.8, la precompacidad (i) equivale a que toda sucesión tenga una subsucesión \textit{convergente en $X$}. Dado que $X$ es completo, toda subsucesión de Cauchy converge en $X$, y toda subsucesión convergente es de Cauchy. Luego, basta exigir que exista una subsucesión de Cauchy (ii).
+            
+            \vspace{0.3cm}
+            \item \textbf{Equivalencia (i) $\iff$ (iii):}\\
+            El Cor. 1.8 establece que (i) equivale a dos condiciones simultáneas: 
+            \begin{enumerate}
+                \item[1.] $A$ es totalmente acotado.
+                \item[2.] Toda sucesión de Cauchy en $A$ converge en $X$.
+            \end{enumerate}
+            La condición 2 se cumple de manera \textbf{automática y trivial} para cualquier sucesión en $A$ gracias a que el espacio $X$ es completo. Por lo tanto, el peso de la equivalencia recae exclusivamente en la condición 1, que es exactamente nuestro enunciado (iii).
+        \end{itemize}
+    \end{proof}
+\end{frame}
+
+
+%% teorema de Arzela-Ascoli %%
+\section{Enunciado y demostración}
+
+\begin{frame}{Enunciado base de Arzelà--Ascoli}
+    \begin{teorema}[Arzelà--Ascoli]
+        Sea $(X, d_X)$ un espacio métrico compacto, $(Y, d_Y)$ un espacio métrico y $\mathcal F\subset \Cc{X,Y}$. Entonces los siguientes enunciados son equivalentes:
+        \begin{enumerate}
+            \item $\mathcal F$ es precompacto,
+            \item $\mathcal F$ es puntualmente precompacto y equicontinuo.
+        \end{enumerate}
+    \end{teorema}
+\end{frame}
+
+
+\begin{frame}{Demostración de la primera implicación ($\Rightarrow$)}
+    \setbeamertemplate{qed symbol}{}
+    \begin{proof}
+     Supongamos que $\mathcal{F}$ es precompacto. Que $\mathcal{F}$ sea precompacto puntualmente se sigue del hecho de que el mapeo de evaluación
+        \[
+            \text{ev}_x : C(X, Y) \to Y,\, 
+            f\to \text{ev}_x(f) := f(x)
+        \]
+     es continua para todo $x\in X$. Por el teorema anterior, se sigue que el conjunto $\mathcal F(x) = ev_{x}(\mathcal{F})$ es un subconjunto precompacto de $Y$
+     para cada $x\in X$.\\
+     \medskip
+     Queda por demostrar que $\mathcal{F}$ es equicontinua. Supongamos que $\mathcal{F}\neq \emptyset$ y fijemos una constante $\epsilon>0$. Dado que el conjunto $\mathcal{F}$ es totalmente
+     acotado, existen un número finito de funciones $f_1,...,f_m\in \mathcal{F}$ tal que:
+        \begin{equation}
+        \mathcal{F}\subset \bigcup_{i=1}^{m} B_{\epsilon/3}(f_i)
+        \end{equation}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Demostración de la primera implicación ($\Rightarrow$)}
+    \begin{proof}
+     Dado que $X$ es compacto. Cada función $f_i$ es uniformemente continua (teorema de Heine). Por lo tanto, existe una constante $\delta>0$ tal que, para todo $i\in \{1,...,m\}$ y todo $x,x'\in X$
+        \begin{equation}
+         d_{X}(x,x')<\delta \Rightarrow d_{Y}(f_{i}(x),f_{i}(x'))<\frac{\epsilon}{3}
+        \end{equation}
+    Ahora sea $f\in \mathcal{F}$ y sea $x,x'\in X$ tal que $d_{X}(x,x')<\delta$. Entonces se sigue de (5) que existe un índice $j\in \{1,...,m\}$ tal que $d(f,f_{j})<\frac{\epsilon}{3}$. Además, se sigue de (6)
+    que $d_{Y}(f(x),f_{j}(x))<\frac{\epsilon}{3}$ y $d_{Y}(f(x'),f_{j}(x'))<\frac{\epsilon}{3}$. Por lo tanto, por la desigualdad triangular
+        \[
+         d_{Y}(f(x),f(x'))\leq d_{Y}(f(x),f_{j}(x))+d_{Y}(f_{j}(x),f_{j}(x'))+d_{Y}(f_{j}(x'),f(x')) \leq \frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{3}=\epsilon
+        \]
+    Esto muestra que $\mathcal{F}$ es equicontinua
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Demostración ($\Leftarrow$): 1. Diagonalización}
+    Supongamos $\mathcal F$ puntualmente precompacto y equicontinuo. Sea $(f_n)\subset \mathcal F$ una sucesión arbitraria.
+    \begin{itemize}
+        \item $X$ es compacto, luego es separable. Sea $D = \{x_1, x_2, \dots \}$ un subconjunto denso en $X$.
+        \item \textbf{Construcción iterativa:}
+        \begin{itemize}
+            \item Como $\mathcal{F}(x_1)$ es precompacto, extraemos una subsucesión $(f_{1,j})_{j\in\mathbb{N}}$ que converge en el punto $x_1$.
+            \item En el paso $k$, extraemos $(f_{k,j})_{j\in\mathbb{N}}$ de la fila anterior $(f_{k-1,j})_{j\in\mathbb{N}}$ tal que converja en $x_k$.
+        \end{itemize}
+    \end{itemize}
+    \begin{block}{La sucesión diagonal}
+        Definimos $g_i := f_{i,i}$. Para todo $k$, la cola $(g_i)_{i \ge k}$ es una subsucesión estricta de $(f_{k,j})_{j\in\mathbb{N}}$. En consecuencia, la sucesión $(g_i(x_k))_{i\in\mathbb{N}}$ es de Cauchy en $Y$ para todo $x_k \in D$.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Demostración ($\Leftarrow$): 2. Uso de la equicontinuidad}
+    Queremos promover esta convergencia puntual a convergencia uniforme. Fijamos $\epsilon > 0$.
+    \begin{itemize}
+        \item \textbf{El radio $\delta$:} Por la equicontinuidad de $\mathcal F$, existe $\delta > 0$ tal que para todo par de puntos $x, x' \in X$:
+        \[ d_X(x, x') < \delta \implies d_Y(f(x), f(x')) < \frac{\epsilon}{3} \quad (\forall f \in \mathcal{F}) \]
+        \item \textbf{Recubrimiento finito inicial:} La familia $\{B_{\delta/2}(x):x\in X\}$ recubre $X$.
+        \item Como $X$ es compacto, existen $y_1,\dots,y_m\in X$ tales que
+        \[ X\subset \bigcup_{k=1}^{m} B_{\delta/2}(y_k). \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Demostración ($\Leftarrow$): 2. Uso de la equicontinuidad}
+    \begin{itemize}
+        \item \textbf{Centros en el denso $D$:} Como $D$ es denso, para cada $k$ existe $\hat x_k\in D$ con
+        \[ d_X(y_k,\hat x_k)<\delta/2. \]
+        Si $x\in B_{\delta/2}(y_k)$, entonces
+        \[ d_X(x,\hat x_k)\le d_X(x,y_k)+d_X(y_k,\hat x_k)<\delta/2+\delta/2=\delta, \]
+        luego $B_{\delta/2}(y_k)\subset B_{\delta}(\hat x_k)$ y por tanto
+        \[ X \subset \bigcup_{k=1}^m B_\delta(\hat{x}_k). \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Demostración ($\Leftarrow$): 3. Control secuencial}
+    Ahora garantizamos que la sucesión $(g_i)$ se estabilice en los $m$ centros al mismo tiempo.
+    \begin{itemize}
+        \item Sabemos que para cada $\hat{x}_k \in \{\hat{x}_1, \dots, \hat{x}_m\}$, la sucesión $(g_i(\hat{x}_k))_{i\in\mathbb{N}}$ es de Cauchy.
+        \item Por lo tanto, para cada $k$, existe un índice $N_k$ a partir del cual las distancias son menores a $\epsilon/3$.
+        \item Definimos el \textbf{umbral global} como el máximo de este conjunto finito:
+        \[ N := \max\{N_1, N_2, \dots, N_m\} \]
+        \item Así, si $i, j \ge N$, logramos simultáneamente que:
+        \[ d_Y(g_i(\hat{x}_k), g_j(\hat{x}_k)) < \frac{\epsilon}{3} \quad \text{para todo } 1 \le k \le m. \]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Demostración ($\Leftarrow$): 4. Desigualdad triangular y Cierre}
+    Dado un $x \in X$ arbitrario, este pertenece a alguna bola $B_\delta(\hat{x}_k)$ con $k \le m$. Si tomamos índices $i, j \ge N$, evaluamos la distancia en $Y$:
+    \begin{align*}
+        d_Y(g_i(x), g_j(x)) &\le d_Y(g_i(x), g_i(\hat{x}_k)) \quad \text{(Acotado por $\delta$ y equicontin. en $g_i$)}\\
+        &\quad + d_Y(g_i(\hat{x}_k), g_j(\hat{x}_k)) \quad \text{(Acotado por $N$ en el centro $\hat{x}_k$)}\\
+        &\quad + d_Y(g_j(\hat{x}_k), g_j(x)) \quad \text{(Acotado por $\delta$ y equicontin. en $g_j$)}\\
+        &< \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon.
+    \end{align*}
+    \begin{itemize}
+        \item Tomando supremo en $x\in X$, obtenemos $d_{\infty}(g_i,g_j)<\epsilon$ para $i,j\ge N$. Así, $(g_i)$ es de Cauchy en $(\Cc{X,Y},d_\infty)$.
+        
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Demostración ($\Leftarrow$): 4. Desigualdad triangular y Cierre}
+    \begin{itemize}
+        \item Para cada $x\in X$, la sucesión $(g_i(x))$ es de Cauchy y está contenida en $\mathcal F(x)$. Como $\mathcal F(x)$ es precompacto, su clausura es compacta (luego completa por teorema pag. 35), así que existe
+        \[ g(x):=\lim_{i\to\infty}g_i(x)\in Y. \]
+        \item Fijado $\epsilon>0$, tomamos $N$ como arriba. Si $i\ge N$, de
+        \[ d_Y(g_i(x),g_j(x))<\epsilon \quad (\forall j\ge N,\ \forall x\in X) \]
+        al pasar al límite $j\to\infty$ se obtiene $d_Y(g_i(x),g(x))\le \epsilon$ para todo $x\in X$. Luego
+        \[ d_\infty(g_i,g)=\sup_{x\in X}d_Y(g_i(x),g(x))\le\epsilon, \]
+        es decir, $g_i\to g$ uniformemente.
+        \item Como cada $g_i$ es continua y la convergencia es uniforme, $g\in C(X,Y)$.\\
+        \textbf{Conclusión:} toda sucesión en $\mathcal F$ tiene una subsucesión convergente en $C(X,Y)$; por el Corolario 1.8, $\mathcal F$ es precompacto. \qed
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Corolario 1.12}
+    \begin{corolario}[Corolario 1.12 de Bühler]
+        Sea $(X, d_X)$ un espacio métrico compacto, $(Y, d_Y)$ un espacio métrico y $\mathcal{F} \subset C(X, Y)$. Entonces los siguientes enunciados son equivalentes:
+        \begin{enumerate}
+            \item $\mathcal{F}$ es compacto.
+            \item $\mathcal{F}$ es cerrado, puntualmente compacto y equicontinuo.
+            \item $\mathcal{F}$ es cerrado, puntualmente precompacto y equicontinuo.
+        \end{enumerate}
+    \end{corolario}
+\end{frame}
+
+\begin{frame}{Demostración del Corolario 1.12}
+    \begin{itemize}
+        \item \textbf{(i) $\Rightarrow$ (ii):} Todo subconjunto compacto de un espacio métrico es cerrado, y la imagen de un compacto bajo una función continua es compacta.
+        \begin{itemize}
+            \item La aplicación relevante es la evaluación $C(X,Y) \to Y$, $f \mapsto f(x)$.
+            \item El Teorema 5 (Arzelà-Ascoli) garantiza la equicontinuidad.
+        \end{itemize}
+        \item \textbf{(ii) $\Rightarrow$ (iii):} Inmediato, pues compacto implica precompacto.
+        \item \textbf{(iii) $\Rightarrow$ (i):} Por el Teorema 5 (Arzelà-Ascoli), $\mathcal{F}$ es precompacto; al ser también cerrado, es compacto. \qed
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Corolario 1.13: Arzelá--Ascoli en espacios euclidianos}
+    Cuando el espacio destino es $\mathbb{R}^n$ con la norma $\|\cdot\|_2$, el teorema toma la siguiente forma.
+    \begin{corolario}[Arzelá--Ascoli euclidiano]
+        Sea $(X, d_X)$ un espacio métrico compacto y $\mathcal{F} \subset C(X, \mathbb{R}^n)$. Entonces:
+        \begin{enumerate}
+            \item $\mathcal{F}$ es precompacto \textit{si y solo si} es acotado y equicontinuo.
+            \item $\mathcal{F}$ es compacto \textit{si y solo si} es cerrado, acotado y equicontinuo.
+        \end{enumerate}
+    \end{corolario}
+\end{frame}
+
+\begin{frame}{Demostración del Corolario 1.13}
+    \textbf{Parte (i):}
+    \begin{itemize}
+        \item \textbf{($\Rightarrow$):} Si $\mathcal{F}$ es precompacto, es equicontinuo por el Teorema 5 (Arzelà-Ascoli), y acotado porque una sucesión con norma $\to \infty$ no puede tener subsucesión convergente.
+        \item \textbf{($\Leftarrow$):} Si $\mathcal{F}$ es acotado y equicontinuo, entonces para cada $x \in X$ el conjunto $\mathcal{F}(x) \subset \mathbb{R}^n$ es acotado, luego precompacto por el Teorema de Heine--Borel. El Teorema 5 (Arzelà-Ascoli) concluye que $\mathcal{F}$ es precompacto.
+    \end{itemize}
+    \medskip
+    \textbf{Parte (ii):} Se sigue de (i) y del hecho de que un subconjunto de un espacio métrico es compacto si y solo si es precompacto y cerrado. \qed
+\end{frame}
+
+
+%% libro bühler de referencia %%
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolario}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{exercise}[theorem]{Ejercicio}
+
+\begin{document}
+
+\section*{Capítulo 1: Fundamentos}
+
+Este capítulo introductorio discute algunos de los conceptos básicos que juegan un papel central en la materia del Análisis Funcional. En pocas palabras, el análisis funcional es el estudio de los espacios vectoriales normados y los operadores lineales acotados. Por lo tanto, fusiona las materias del álgebra lineal (espacios vectoriales y aplicaciones lineales) con el de la topología general (espacios topológicos y aplicaciones continuas). 
+
+Las topologías que aparecen en el análisis funcional surgirán en muchos casos de espacios métricos. Comenzamos en la Sección 1.1 recordando las definiciones básicas y enumerando varios ejemplos de espacios de Banach que se utilizarán para ilustrar la teoría a lo largo del libro. El tema central es el estudio de los conjuntos compactos y los resultados principales son la caracterización de los subconjuntos secuencialmente compactos de un espacio métrico en términos de recubrimientos abiertos y el teorema de Arzelà-Ascoli, el cual da un criterio de compacidad para subconjuntos del espacio de funciones continuas sobre un espacio métrico compacto. 
+
+La Sección 1.2 avanza al estudio de los espacios vectoriales normados de dimensión finita. Muestra que cualesquiera dos normas en un espacio vectorial de dimensión finita son equivalentes, y que un espacio vectorial normado es de dimensión finita si y solo si la bola unitaria es compacta. La sección también contiene una breve introducción a los operadores lineales acotados y a los espacios producto y cociente. 
+
+La Sección 1.3 introduce el espacio dual de un espacio vectorial normado, explica varios ejemplos importantes, y contiene una introducción a la teoría elemental de espacios de Hilbert, incluyendo una demostración de la desigualdad de Cauchy-Schwarz y el teorema de representación de Riesz. La Sección 1.4 examina algunas propiedades básicas de las series de potencias en álgebras de Banach. Muestra, a través de la serie geométrica, que el espacio de operadores invertibles en un espacio de Banach es abierto y que la aplicación que asigna a un operador invertible su inverso es continua. El teorema de la categoría de Baire es el tema de la Sección 1.5.
+
+\section{Espacios Métricos y Conjuntos Compactos}
+
+Esta sección comienza recordando las definiciones básicas de un espacio métrico y un espacio de Banach y da varios ejemplos importantes de espacios de Banach. Luego avanza al estudio de los subconjuntos compactos de un espacio métrico y muestra que la compacidad secuencial es equivalente a la condición de que todo recubrimiento abierto tiene un subrecubrimiento finito (Teorema 1.4). El segundo resultado principal de esta sección es el teorema de Arzelà-Ascoli, que caracteriza los subconjuntos precompactos del espacio de funciones continuas desde un espacio métrico compacto a otro espacio métrico, equipado con la métrica del supremo, en términos de equicontinuidad y precompacidad puntual (Teorema 1.11).
+
+\subsection{Espacios de Banach}
+
+\begin{definition}[Espacio Métrico] 
+Un espacio métrico es un par $(X, d)$ que consiste en un conjunto $X$ y una función
+$d:X\times X\rightarrow\mathbb{R}$
+que satisface los siguientes axiomas.
+\begin{itemize}
+    \item[(M1)] $d(x,y)\ge0$ para todo $x,y\in X$, con igualdad si y solo si $x=y$.
+    \item[(M2)] $d(x,y)=d(y,x)$ para todo $x,y\in X$.
+    \item[(M3)] $d(x,z)\le d(x,y)+d(y,z)$ para todo $x,y,z\in X$.
+\end{itemize}
+\end{definition}
+
+Una función $d:X\times X\rightarrow\mathbb{R}$ que satisface estos axiomas se llama \textbf{función distancia} y la desigualdad en (M3) se llama \textbf{desigualdad triangular}. Un subconjunto $U\subset X$ de un espacio métrico $(X,d)$ se llama \textbf{abierto} (o $d$-abierto) si, para cada $x\in U$, existe una constante $\epsilon>0$ tal que la bola abierta
+\[ B_{\epsilon}(x) := B_{\epsilon}(x,d) := \{y\in X \mid d(x,y)<\epsilon\} \]
+(centrada en $x$ con radio $\epsilon$) está contenida en $U$. El conjunto de subconjuntos $d$-abiertos de $X$ se denotará por
+\[ \mathbb{H}(X, d) := \{U \subset X \mid U \text{ es } d\text{-abierto}\}. \]
+
+Se deduce directamente de las definiciones que la colección $\mathbb{H}(X,d)\subset 2^{X}$ de conjuntos $d$-abiertos en un espacio métrico $(X, d)$ satisface los axiomas de una topología (es decir, el conjunto vacío y el conjunto $X$ son abiertos, las uniones arbitrarias de conjuntos abiertos son abiertas, y las intersecciones finitas de conjuntos abiertos son abiertas). Un subconjunto $F$ de un espacio métrico $(X, d)$ es \textbf{cerrado} (es decir, su complemento es abierto) si y solo si el punto límite de toda sucesión convergente en $F$ está contenido en $F$.
+
+Recuerde que una \textbf{sucesión de Cauchy} en un espacio métrico $(X, d)$ es una sucesión $(x_{n})_{n\in\mathbb{N}}$ con la propiedad de que, para cada $\epsilon>0$, existe un $n_{0}\in\mathbb{N}$ tal que cualesquiera dos enteros $n, m\ge n_{0}$ satisfacen la desigualdad $d(x_{n},x_{m})<\epsilon$. Recuerde también que un espacio métrico $(X, d)$ se llama \textbf{completo} si toda sucesión de Cauchy en $X$ converge.
+
+Los espacios métricos más importantes en el campo del análisis funcional son los espacios vectoriales normados.
+
+\begin{definition}[Espacio de Banach]
+Un espacio vectorial normado es un par $(X, \|\cdot\|)$ que consiste en un espacio vectorial real $X$ y una función $X\rightarrow\mathbb{R}: x \mapsto \|x\|$ que satisface lo siguiente:
+\begin{itemize}
+    \item[(N1)] $\|x\|\ge0$ para todo $x\in X$ con igualdad si y solo si $x=0$.
+    \item[(N2)] $\|\lambda x\|=|\lambda|\|x\|$ para todo $x\in X$ y $\lambda\in\mathbb{R}$.
+    \item[(N3)] $\|x+y\|\le\|x\|+\|y\|$ para todo $x,y\in X$.
+\end{itemize}
+\end{definition}
+
+Sea $(X, \|\cdot\|)$ un espacio vectorial normado. Entonces la fórmula
+\begin{equation}\label{eq:1.1}
+d(x,y) := \|x-y\|
+\end{equation}
+para $x,y\in X$ define una función distancia en $X$. La topología resultante se denota por $\mathbb{H}(X,\|\cdot\|):=\mathbb{H}(X,d)$. $X$ se llama \textbf{espacio de Banach} si el espacio métrico $(X, d)$ es completo, es decir, si toda sucesión de Cauchy en $X$ converge.
+
+Aquí hay seis ejemplos de espacios de Banach.
+
+\begin{example} \label{ex:1.3} \hfill
+\begin{enumerate}
+    \item[(i)] Fije un número real $1\le p<\infty$. Entonces el espacio vectorial $\mathbb{R}^{n}$ de todas las $n$-tuplas $x=(x_{1},\dots,x_{n})$ de números reales es un espacio de Banach con la función norma
+    \[ \|x\|_{p} := \left(\sum_{i=1}^{n}|x_{i}|^{p}\right)^{1/p} \]
+    para $x=(x_{1},\dots,x_{n})\in\mathbb{R}^{n}$. Para $p=2$ esta es la norma euclidiana. Otra norma está dada por $\|x\|_{\infty} := \max_{i=1,\dots,n}|x_{i}|$ para $x=(x_{1},\dots,x_{n})\in\mathbb{R}^{n}$.
+    
+    \item[(ii)] Para $1\le p<\infty$ el conjunto de sucesiones $p$-sumables de números reales se denota por
+    \[ l^{p} := \left\{x=(x_{i})_{i\in\mathbb{N}}\in\mathbb{R}^{\mathbb{N}} \;\middle|\; \sum_{i=1}^{\infty}|x_{i}|^{p}<\infty\right\}. \]
+    Este es un espacio de Banach con la norma $\|x\|_{p} := \left(\sum_{i=1}^{\infty}|x_{i}|^{p}\right)^{1/p}$ para $x\in l^{p}$. De la misma manera, el espacio $l^{\infty}\subset\mathbb{R}^{\mathbb{N}}$ de sucesiones acotadas es un espacio de Banach con la norma del supremo $\|x\|_{\infty} := \sup_{i\in\mathbb{N}}|x_{i}|$ para $x=(x_{i})_{i\in\mathbb{N}}\in l^{\infty}$.
+    
+    \item[(iii)] Sea $(M,\mathcal{A},\mu)$ un espacio de medida, es decir, $M$ es un conjunto, $\mathcal{A}\subset 2^{M}$ es una $\sigma$-álgebra, y $\mu:\mathcal{A}\rightarrow[0,\infty]$ es una medida. Fije una constante $1\le p<\infty$. Una función medible $f:M\rightarrow\mathbb{R}$ se llama $p$-integrable si $\int_{M}|f|^{p}d\mu<\infty$ y el espacio de funciones $p$-integrables en $M$ se denotará por
+    \[ \mathcal{L}^{p}(\mu) := \left\{f:M\rightarrow\mathbb{R} \mid f \text{ es medible y } \int_{M}|f|^{p}d\mu<\infty\right\}. \]
+    La función $\mathcal{L}^{p}(\mu)\rightarrow\mathbb{R}:f\mapsto\|f\|_{p}$ definida por
+    \begin{equation}\label{eq:1.2}
+    \|f\|_{p} := \left(\int_{M}|f|^{p}d\mu\right)^{1/p}
+    \end{equation}
+    es no negativa y satisface la desigualdad triangular (desigualdad de Minkowski). Sin embargo, en general no es una norma, porque $\|f\|_{p}=0$ si y solo si $f$ se anula casi en todas partes (es decir, en el complemento de un conjunto de medida cero). Para obtener un espacio vectorial normado, uno considera el cociente
+    \[ L^{p}(\mu) := \mathcal{L}^{p}(\mu)/{\sim} \]
+    donde $f\sim g \stackrel{\text{def}}{\iff} f=g$ casi en todas partes.
+    La función $f\mapsto\|f\|_{p}$ desciende a este espacio cociente y, con esta norma, $L^{p}(\mu)$ es un espacio de Banach (ver [50, Teorema 4.9]). En este ejemplo, a menudo es conveniente abusar de la notación y usar la misma letra $f$ para denotar una función en $\mathcal{L}^{p}(\mu)$ y su clase de equivalencia en el espacio cociente $L^{p}(\mu)$.
+    
+    \item[(iv)] Sea $(M, \mathcal{A}, \mu)$ un espacio de medida, denote por $\mathcal{L}^{\infty}(\mu)$ el espacio de funciones medibles acotadas, y denote por
+    \[ L^{\infty}(\mu) := \mathcal{L}^{\infty}(\mu)/{\sim} \]
+    el espacio cociente, donde la relación de equivalencia se define de nuevo por la igualdad casi en todas partes. Entonces la fórmula
+    \begin{equation}\label{eq:1.3}
+    \|f\|_{\infty} := \text{ess sup}|f| := \inf \{c\ge 0 \mid |f|\le c \text{ casi en todas partes}\}
+    \end{equation}
+    define una norma en $L^{\infty}(\mu)$, y $L^{\infty}(\mu)$ es un espacio de Banach con esta norma.
+    
+    \item[(v)] Sea $M$ un espacio topológico. Entonces el espacio $C_{b}(M)$ de funciones continuas acotadas $f:M\rightarrow\mathbb{R}$ es un espacio de Banach con la norma del supremo
+    \[ \|f\|_{\infty} := \sup_{p\in M}|f(p)| \]
+    para $f\in C_{b}(M)$.
+    
+    \item[(vi)] Sea $(M, \mathcal{A})$ un espacio medible, es decir, $M$ es un conjunto y $\mathcal{A}\subset 2^{M}$ es una $\sigma$-álgebra. Una medida con signo en $(M, \mathcal{A})$ es una función $\mu:\mathcal{A}\rightarrow\mathbb{R}$ que satisface $\mu(\emptyset)=0$ y es $\sigma$-aditiva, es decir, $\mu(\bigcup_{i=1}^{\infty}A_{i})=\sum_{i=1}^{\infty}\mu(A_{i})$ para toda sucesión de conjuntos medibles disjuntos dos a dos $A_{i}\in\mathcal{A}$. El espacio $\mathcal{M}(M,\mathcal{A})$ de medidas con signo en $(M, \mathcal{A})$ es un espacio de Banach con la norma dada por
+    \begin{equation}\label{eq:1.4}
+    \|\mu\| := |\mu|(M) := \sup_{A\in\mathcal{A}}(\mu(A)-\mu(M\setminus A))
+    \end{equation}
+    para $\mu\in\mathcal{M}(M,\mathcal{A})$ (ver [50, Ejercicio 5.34]).
+\end{enumerate}
+\end{example}
+
+\subsection{Conjuntos Compactos}
+
+Sea $(X,d)$ un espacio métrico y fije un subconjunto $K\subset X$. Entonces la restricción de la función distancia $d$ a $K\times K$ es una función distancia, denotada por $d_{K}:=d|_{K\times K}:K\times K\rightarrow\mathbb{R}$, de manera que $(K,d_{K})$ es un espacio métrico por derecho propio.
+
+El espacio métrico $(X, d)$ se llama \textbf{(secuencialmente) compacto} si toda sucesión en $X$ tiene una subsucesión convergente. El subconjunto $K$ se llama \textbf{(secuencialmente) compacto} si $(K,d_{K})$ es compacto, es decir, si toda sucesión en $K$ tiene una subsucesión que converge a un elemento de $K$. Se llama \textbf{precompacto} si su clausura es secuencialmente compacta. Por lo tanto, $K$ es compacto si y solo si es precompacto y cerrado. El subconjunto $K$ se llama \textbf{completo} si $(K,d_{K})$ es un espacio métrico completo, es decir, si toda sucesión de Cauchy en $K$ converge a un elemento de $K$. Se llama \textbf{totalmente acotado} si es vacío o, para cada $\epsilon>0$, existen finitamente muchos elementos $\xi_{1},\dots,\xi_{m}\in K$ tales que
+\[ K\subset\bigcup_{i=1}^{m}B_{\epsilon}(\xi_{i}). \]
+
+El siguiente teorema caracteriza los subconjuntos compactos de un espacio métrico $(X, d)$ en términos de los subconjuntos abiertos de $X$. Así, muestra que la compacidad depende únicamente de la topología $\mathbb{H}(X,d)$ inducida por la función distancia $d$.
+
+\begin{theorem}[Caracterización de Conjuntos Compactos] \label{thm:1.4}
+Sea $(X,d)$ un espacio métrico y sea $K\subset X$. Entonces los siguientes enunciados son equivalentes.
+\begin{itemize}
+    \item[(i)] $K$ es secuencialmente compacto.
+    \item[(ii)] $K$ es completo y totalmente acotado.
+    \item[(iii)] Todo recubrimiento abierto de $K$ tiene un subrecubrimiento finito.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Ver página 13.
+\end{proof}
+
+Sea $(X, \mathbb{H})$ un espacio topológico. Entonces la condición (iii) en el Teorema 1.4 se utiliza para definir subconjuntos compactos de $X$. Así, un subconjunto $K\subset X$ se llama compacto si todo recubrimiento abierto de $K$ tiene un subrecubrimiento finito. Aquí un \textbf{recubrimiento abierto} de $K$ es una colección $(U_{i})_{i\in I}$ de subconjuntos abiertos $U_{i}\subset X$ indexados por los elementos de un conjunto no vacío $I$, tal que $K\subset\bigcup_{i\in I}U_{i}$, y un \textbf{subrecubrimiento finito} es una colección finita de índices $i_{1},\dots,i_{m}\in I$ tal que $K\subset U_{i_{1}}\cup\dots\cup U_{i_{m}}$. Por lo tanto, el Teorema 1.4 afirma que un subconjunto de un espacio métrico $(X, d)$ es secuencialmente compacto si y solo si es compacto como un subconjunto del espacio topológico $(X, \mathbb{H})$ con $\mathbb{H}=\mathbb{H}(X,d)$. Un subconjunto de un espacio topológico se llama \textbf{precompacto} si su clausura es compacta. Las propiedades elementales de los conjuntos compactos incluyen el hecho de que todo subconjunto compacto de un espacio de Hausdorff es cerrado, que todo subconjunto cerrado de un conjunto compacto es compacto, y que la imagen de un conjunto compacto bajo una aplicación continua es compacta (ver [30, 40]).
+
+Damos dos demostraciones del Teorema 1.4. La primera demostración es más directa y utiliza el axioma de elección dependiente. La segunda demostración está tomada de Herrlich [19, Prop 3.26] y solo utiliza el axioma de elección numerable.
+
+El \textbf{axioma de elección dependiente} afirma que, si $X$ es un conjunto no vacío y $A:X\rightarrow 2^{X}$ es una aplicación que asigna a cada elemento $x\in X$ un subconjunto no vacío $A(x)\subset X$, entonces existe una sucesión $(x_{k})_{k\in\mathbb{N}}$ en $X$ tal que $x_{k+1}\in A(x_{k})$ para todo $k\in\mathbb{N}$.
+
+En el axioma de elección dependiente el primer elemento de la sucesión $(x_{k})_{k\in\mathbb{N}}$ puede ser prescrito. Para ver esto, fije un elemento $x_{1}\in X$, defina $\tilde{X}$ como el conjunto de todas las tuplas de la forma $\tilde{x}=(n,x_{1},\dots,x_{n})$ con $n\in\mathbb{N}$ y $x_{k}\in A(x_{k-1})$ para $k=2,\dots,n$, y defina $\tilde{A}(\tilde{x}) := \{(n+1,x_{1},\dots,x_{n},x) \mid x\in A(x_{n})\}$ para $\tilde{x}=(n,x_{1},\dots,x_{n})\in\tilde{X}$. Entonces $\tilde{X}$ es no vacío y $\tilde{A}(\tilde{x})$ es no vacío para todo $\tilde{x}\in\tilde{X}$. Ahora aplique el axioma de elección dependiente a $\tilde{A}$.
+
+El \textbf{axioma de elección numerable} afirma que, si $(A_{k})_{k\in\mathbb{N}}$ es una sucesión de subconjuntos no vacíos de un conjunto $A$, entonces existe una sucesión $(a_{k})_{k\in\mathbb{N}}$ en $A$ tal que $a_{k}\in A_{k}$ para todo $k\in\mathbb{N}$. Se deduce del axioma de elección dependiente tomando $X:=\mathbb{N}\times A$ y $A(k,a):=\{k+1\}\times A_{k+1}$ para $(k,a)\in\mathbb{N}\times A$.
+
+\begin{lemma} \label{lem:1.5}
+Sea $(X, d)$ un espacio métrico y sea $K\subset X$. Entonces los siguientes enunciados son equivalentes.
+\begin{itemize}
+    \item[(i)] Toda sucesión en $K$ tiene una subsucesión de Cauchy.
+    \item[(ii)] $K$ es totalmente acotado.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+Probamos que (ii) implica (i). Así, suponga que $K$ es totalmente acotado y sea $(x_{n})_{n\in\mathbb{N}}$ una sucesión en $K$. Probamos que existe una sucesión de subconjuntos infinitos $\mathbb{N}\supset T_{1}\supset T_{2}\supset\dots$ tal que, para todos $k, m, n\in\mathbb{N}$,
+\begin{equation}\label{eq:1.5}
+m, n \in T_k \implies d(x_{m},x_{n})<2^{-k}.
+\end{equation}
+Dado que $K$ está totalmente acotado, se deduce del axioma de elección numerable que existe una sucesión de subconjuntos finitos ordenados $S_{k}=\{\xi_{k,1},\dots,\xi_{k,m_{k}}\}\subset K$ tales que $K\subset\bigcup_{i=1}^{m_{k}}B_{2^{-k-1}}(\xi_{k,i})$ para todo $k\in\mathbb{N}$. Dado que $x_{n}\in K$ para todo $n\in\mathbb{N}$, debe existir un índice $i\in\{1,\dots,m_{1}\}$ tal que la bola abierta $B_{1/4}(\xi_{1,i})$ contenga infinitos de los elementos $x_{n}$. Sea $i_{1}$ el menor de tales índices y defina el conjunto
+\[ T_{1} := \{n\in\mathbb{N} \mid x_{n}\in B_{1/4}(\xi_{1,i_{1}})\}. \]
+Este conjunto es infinito y satisface $d(x_{n},x_{m})\le d(x_{n},\xi_{1,i_{1}})+d(\xi_{1,i_{1}},x_{m})<1/2$ para todos $m,n\in T_{1}$. Ahora fije un entero $k\ge 2$ y suponga, por inducción, que $T_{k-1}$ ha sido definido. Puesto que $T_{k-1}$ es un conjunto infinito, debe existir un índice $i\in\{1,\dots,m_{k}\}$ tal que la bola $B_{2^{-k-1}}(\xi_{k,i})$ contenga infinitos de los elementos $x_{n}$ con $n\in T_{k-1}$. Sea $i_{k}$ el menor de tales índices y defina
+\[ T_{k} := \{n\in T_{k-1} \mid x_{n}\in B_{2^{-k-1}}(\xi_{k,i_{k}})\}. \]
+Este conjunto es infinito y satisface $d(x_{n},x_{m})\le d(x_{n},\xi_{k,i_{k}})+d(\xi_{k,i_{k}},x_{m})<2^{-k}$ para todos $m,n\in T_{k}$. Esto completa el argumento de inducción y la construcción de una sucesión decreciente de conjuntos infinitos $T_{k}\subset\mathbb{N}$ que satisfacen \eqref{eq:1.5}.
+
+Probamos que $(x_{n})_{n\in\mathbb{N}}$ tiene una subsucesión de Cauchy. Por \eqref{eq:1.5} existe una sucesión de enteros positivos $n_{1}<n_{2}<n_{3}<\dots$ tal que $n_{k}\in T_{k}$ para todo $k\in\mathbb{N}$. Tal sucesión puede definirse mediante la fórmula de recurrencia
+\[ n_{1} := \min T_{1}, \qquad n_{k+1} := \min\{n\in T_{k} \mid n>n_{k}\} \]
+para $k\in\mathbb{N}$. Se sigue que $n_{l}, n_{k} \in T_k$ para $l \ge k \ge 1$ y, por lo tanto,
+\[ d(x_{n_{k}},x_{n_{l}})<2^{-k} \]
+para $l\ge k\ge 1$. Así, la subsucesión $(x_{n_{k}})_{k\in\mathbb{N}}$ es una sucesión de Cauchy.
+
+Probamos que (i) implica (ii), siguiendo [19, Prop 3.26]. Argumentamos indirectamente y suponemos que $K$ no es totalmente acotado y, por ende, es no vacío. Entonces existe una constante $\epsilon>0$ tal que $K$ no admite un recubrimiento finito por bolas de radio $\epsilon$, centradas en elementos de $K$. Probamos en tres pasos que existe una sucesión en $K$ que no tiene una subsucesión de Cauchy.
+
+\noindent \textbf{Paso 1.} Para $n\in\mathbb{N}$ defina el conjunto
+\[ K_{n} := \left\{(x_{1},\dots,x_{n})\in K^{n} \;\middle|\; \begin{array}{l} \text{si } i,j\in\{1,\dots,n\} \text{ y } i\ne j \\ \text{entonces } d(x_{i},x_{j})\ge\epsilon \end{array} \right\} \]
+Hay una sucesión $(x_{k})_{k\in\mathbb{N}}$ en $K$ tal que $(x_{n(n-1)/2+1},\dots,x_{n(n+1)/2})\in K_{n}$ para todo entero $n\ge 1$.
+\\ Probamos que $K_{n}$ es no vacío para todo $n\in\mathbb{N}$. Para $n=1$ esto se cumple porque $K$ es no vacío. Si es vacío para algún $n\in\mathbb{N}$ entonces existe un entero $n\ge 1$ tal que $K_{n}\ne\emptyset$ y $K_{n+1}=\emptyset$. En este caso, elija un elemento $(x_{1},\dots,x_{n})\in K_{n}$. Dado que $K_{n+1}=\emptyset$, esto implica $K\subset\bigcup_{i=1}^{n}B_{\epsilon}(x_{i})$, contradiciendo la elección de $\epsilon$. Puesto que $K_{n}\ne\emptyset$ para todo $n\in\mathbb{N}$, la existencia de una sucesión $(x_{k})_{k\in\mathbb{N}}$ como en el Paso 1 se deduce del axioma de elección numerable.
+
+\noindent \textbf{Paso 2.} Para cada colección de $n-1$ elementos $y_{1},\dots,y_{n-1}\in K$, hay un entero $i$ tal que $\frac{(n-1)n}{2}<i\le\frac{n(n+1)}{2}$ y $d(y_{j},x_{i})\ge\frac{\epsilon}{2}$ para $j=1,\dots,n-1$.
+\\ En caso contrario, existe una aplicación $\nu:\{\frac{(n-1)n}{2}+1,\dots,\frac{n(n+1)}{2}\}\rightarrow\{1,\dots,n-1\}$ tal que $d(x_{i},y_{\nu(i)})<\frac{\epsilon}{2}$ para todo $i$. Dado que el espacio de llegada de $\nu$ tiene menor cardinalidad que el dominio, hay un par $i\ne j$ en el dominio con $\nu(i)=\nu(j)$ y por lo tanto $d(x_{i},x_{j})\le d(x_{i},y_{\nu(i)})+d(y_{\nu(j)},x_{j})<\epsilon$ en contradicción con el Paso 1.
+
+\noindent \textbf{Paso 3.} Existe una subsucesión $(x_{k_{n}})_{n\in\mathbb{N}}$ tal que $k_{1}=1$ y
+\[ \frac{(n-1)n}{2}<k_{n}\le\frac{n(n+1)}{2}, \qquad d(x_{k_{m}},x_{k_{n}})\ge\frac{\epsilon}{2} \text{ para } m<n. \quad (1.6) \]
+Defina $k_{1}:=1$, fije un entero $n\ge 2$, y asuma, por inducción, que los enteros $k_{1},k_{2},\dots,k_{n-1}$ se han encontrado tales que se cumple (1.6) sustituyendo $n$ por cualquier número $n^{\prime}\in\{2,\dots,n-1\}$. Entonces, por el Paso 2, existe un único entero más pequeño $k_{n}$ tal que $\frac{(n-1)n}{2}<k_{n}\le\frac{n(n+1)}{2}$ y $d(x_{k_{m}},x_{k_{n}})\ge\frac{\epsilon}{2}$ para $m=1,\dots,n-1$. Esto prueba la existencia de una subsucesión $(x_{k_{n}})_{n\in\mathbb{N}}$ que satisface (1.6).
+
+La sucesión $(x_{k_{n}})_{n\in\mathbb{N}}$ en el Paso 3 no tiene una subsucesión de Cauchy. Esto demuestra que (i) implica (ii) y completa la demostración del Lema 1.5.
+\end{proof}
+
+\noindent \textbf{Primera demostración del Teorema 1.4.} Probamos que (i) implica (iii). Suponga que $K$ es no vacío y secuencialmente compacto y sea $\{U_{i}\}_{i\in I}$ un recubrimiento abierto de $K$. Aquí $I$ es un conjunto de índices no vacío y la aplicación $I\rightarrow 2^{X}:i\mapsto U_{i}$ asigna a cada índice $i$ un conjunto abierto $U_{i}\subset X$ tal que $K\subset\bigcup_{i\in I}U_{i}$. Probamos en dos pasos que existen finitamente muchos índices $i_{1},\dots,i_{m}\in I$ tales que $K\subset\bigcup_{j=1}^{m}U_{i_{j}}$.
+
+\noindent \textbf{Paso 1.} Existe una constante $\epsilon>0$ tal que, para cada $x\in K$, existe un índice $i\in I$ tal que $B_{\epsilon}(x)\subset U_{i}$.
+\\ Asuma, por contradicción, que no hay tal constante $\epsilon>0$. Entonces
+\[ \forall\epsilon>0 \;\exists x\in K \;\forall i\in I \quad B_{\epsilon}(x)\not\subset U_{i}. \]
+Tome $\epsilon=1/n$ para $n\in\mathbb{N}$. Entonces el conjunto $\{x\in K \mid B_{1/n}(x)\not\subset U_{i} \text{ para todo } i\in I\}$ es no vacío para todo $n\in\mathbb{N}$. Por lo tanto, el axioma de elección numerable afirma que existe una sucesión $x_{n}\in K$ tal que
+\begin{equation}\label{eq:1.7}
+B_{1/n}(x_{n})\not\subset U_{i} \quad \text{para todo } n\in\mathbb{N} \text{ y todo } i\in I.
+\end{equation}
+Como $K$ es secuencialmente compacto, existe una subsucesión $(x_{n_{k}})_{k\in\mathbb{N}}$ que converge a un elemento $x\in K$. Dado que $K\subset\bigcup_{i\in I}U_{i}$, existe un $i\in I$ tal que $x\in U_{i}$. Como $U_{i}$ es abierto, hay un $\epsilon>0$ tal que $B_{\epsilon}(x)\subset U_{i}$. Dado que $x=\lim_{k\rightarrow\infty}x_{n_{k}}$, hay un $k\in\mathbb{N}$ tal que $d(x,x_{n_{k}})<\frac{\epsilon}{2}$ y $\frac{1}{n_{k}}<\frac{\epsilon}{2}$. Así, $B_{1/n_{k}}(x_{n_{k}})\subset B_{\epsilon/2}(x_{n_{k}})\subset B_{\epsilon}(x)\subset U_{i}$ en contradicción con \eqref{eq:1.7}.
+
+\noindent \textbf{Paso 2.} Existen índices $i_{1},\dots,i_{m}\in I$ tales que $K\subset\bigcup_{j=1}^{m}U_{i_{j}}$.
+\\ Asuma, por contradicción, que esto es falso. Sea $\epsilon>0$ la constante en el Paso 1. Probamos que hay sucesiones $x_{n}\in K$ y $i_{n}\in I$ tales que
+\begin{equation}\label{eq:1.8}
+B_{\epsilon}(x_{n})\subset U_{i_{n}}, \qquad x_{n}\notin U_{i_{1}}\cup\dots\cup U_{i_{n-1}}
+\end{equation}
+para todo $n\in\mathbb{N}$ (con $n\ge 2$ para la segunda condición). Elija $x_{1}\in K$. Entonces, por el Paso 1, existe un índice $i_{1}\in I$ tal que $B_{\epsilon}(x_{1})\subset U_{i_{1}}$. Ahora suponga, por inducción, que $x_{1},\dots,x_{k}$ y $i_{1},\dots,i_{k}$ se han encontrado tales que se cumple \eqref{eq:1.8} para $n\le k$. Entonces $K\not\subset U_{i_{1}}\cup\dots\cup U_{i_{k}}$. Elija un elemento $x_{k+1}\in K\setminus(U_{i_{1}}\cup\dots\cup U_{i_{k}})$. Por el Paso 1, existe un índice $i_{k+1}\in I$ tal que $B_{\epsilon}(x_{k+1})\subset U_{i_{k+1}}$. Así, la existencia de sucesiones $x_{n}$ y $i_{n}$ que satisfacen \eqref{eq:1.8} se deduce del axioma de elección dependiente.
+
+Por \eqref{eq:1.8} tenemos $d(x_{n},x_{k})\ge\epsilon$ para $k\ne n$, por lo que $(x_{n})_{n\in\mathbb{N}}$ no tiene una subsucesión convergente, contradiciendo (i). Esto demuestra que (i) implica (iii).
+
+Probamos que (iii) implica (ii). Suponga que todo recubrimiento abierto de $K$ tiene un subrecubrimiento finito. Suponga que $K$ es no vacío y fije una constante $\epsilon>0$. Entonces los conjuntos $B_{\epsilon}(\xi)$ para $\xi\in K$ forman un recubrimiento abierto no vacío de $K$. Por ende existen finitamente muchos elementos $\xi_{1},\dots,\xi_{m}\in K$ tales que $K\subset\bigcup_{i=1}^{m}B_{\epsilon}(\xi_{i})$. Esto demuestra que $K$ es totalmente acotado.
+
+Probamos que $K$ es completo. Sea $(x_{n})_{n\in\mathbb{N}}$ una sucesión de Cauchy en $K$ y suponga, por contradicción, que $(x_{n})_{n\in\mathbb{N}}$ no converge a ningún elemento de $K$. Entonces ninguna subsucesión de $(x_{n})_{n\in\mathbb{N}}$ puede converger a ningún elemento de $K$. Por lo tanto, para cada $\xi\in K$ hay un $\epsilon>0$ tal que $B_{\epsilon}(\xi)$ contiene solo un número finito de los $x_{n}$. Para $\xi\in K$ sea $\epsilon(\xi)>0$ la mitad del supremo del conjunto de todos los $\epsilon\in(0,1]$ tales que $\#\{n\in\mathbb{N} \mid x_{n}\in B_{\epsilon}(\xi)\}<\infty$. Entonces el conjunto $\{n\in\mathbb{N} \mid x_{n}\in B_{\epsilon(\xi)}(\xi)\}$ es finito para cada $\xi\in K$. Así, $\{B_{\epsilon(\xi)}(\xi)\}_{\xi\in K}$ es un recubrimiento abierto de $K$ que no tiene un subrecubrimiento finito, en contradicción con (iii). Esto demuestra que (iii) implica (ii).
+
+Que (ii) implica (i) se sigue del Lema 1.5 y esto completa la primera demostración del Teorema 1.4. \hfill $\Box$
+
+La demostración anterior del Teorema 1.4 requiere el axioma de elección dependiente y solo usa la implicación (ii)$\Rightarrow$(i) del Lema 1.5. La segunda demostración sigue a [19, Prop 3.26]. Solo requiere el axioma de elección numerable, pero usa ambas direcciones del Lema 1.5.
+
+\noindent \textbf{Segunda demostración del Teorema 1.4.} Todo espacio métrico secuencialmente compacto es completo, porque una sucesión de Cauchy converge si y solo si tiene una subsucesión convergente. Por ende, la equivalencia de (i) y (ii) en el Teorema 1.4 se deduce directamente del Lema 1.5.
+
+Probamos que (ii) implica (iii). Asuma que $K$ es completo y totalmente acotado. Suponga, por contradicción, que hay un recubrimiento abierto $\{U_{i}\}_{i\in I}$ de $K$ que no tiene un subrecubrimiento finito. Entonces $K\ne\emptyset$. Para $n, m\in\mathbb{N}$ defina
+\[ A_{n,m} := \left\{(x_{1},\dots,x_{m})\in K^{m} \;\middle|\; K\subset\bigcup_{j=1}^{m}B_{1/n}(x_{j})\right\} \]
+Entonces, para cada $n\in\mathbb{N}$, existe un $m\in\mathbb{N}$ tal que $A_{n,m}\ne\emptyset$ porque $K$ es totalmente acotado y no vacío. Para $n\in\mathbb{N}$ sea $m_{n}\in\mathbb{N}$ el menor entero positivo tal que $A_{n,m_{n}}\ne\emptyset$. Entonces, por el axioma de elección numerable, hay una sucesión
+\[ a_{n}=(x_{n,1},\dots,x_{n,m_{n}})\in A_{n,m_{n}} \]
+para $n\in\mathbb{N}$.
+
+A continuación construimos una sucesión $(y_{n})_{n\in\mathbb{N}}$ en $K$ tal que la intersección
+\[ \bigcap_{\nu=1}^{n}B_{1/\nu}(y_{\nu})\cap K \]
+no puede ser cubierta por un número finito de los conjuntos $U_{i}$ para ningún $n\in\mathbb{N}$. Para $n=1$ defina $y_{1}:=x_{1,k}$, donde
+\[ k := \min\left\{j\in\{1,\dots,m_{1}\} \;\middle|\; \text{el conjunto } B_{1}(x_{1,j})\cap K \text{ no puede ser cubierto por finitamente muchos } U_{i} \right\} \]
+Asuma, por inducción, que $y_{1},\dots,y_{n-1}$ han sido elegidos tales que el conjunto $\bigcap_{\nu=1}^{n-1}B_{1/\nu}(y_{\nu})\cap K$ no puede ser cubierto por finitamente muchos de los $U_{i}$ y defina $y_{n}:=x_{n,k}$, donde
+\[ k := \min\left\{j\in\{1,\dots,m_{n}\} \;\middle|\; \begin{array}{l} \text{el conjunto } B_{1/n}(x_{n,j})\cap\bigcap_{\nu=1}^{n-1}B_{1/\nu}(y_{\nu})\cap K \\ \text{no puede ser cubierto por finitamente muchos } U_{i} \end{array} \right\} \]
+Esto completa la construcción de la sucesión $(y_{n})_{n\in\mathbb{N}}$. Satisface
+\[ d(y_{n},y_{m})<\frac{1}{m}+\frac{1}{n}\le\frac{2}{m} \quad \text{para } n>m\ge 1, \]
+porque $B_{1/n}(y_{n})\cap B_{1/m}(y_{m})\ne\emptyset$. Por lo tanto, $(y_{n})_{n\in\mathbb{N}}$ es una sucesión de Cauchy en $K$. Como $K$ es completo, el límite
+\[ y^{*} := \lim_{n\rightarrow\infty}y_{n} \]
+existe y es un elemento de $K$. Elija un índice $i^{*}\in I$ tal que $y^{*}\in U_{i^{*}}$ y elija una constante $\epsilon^{*}>0$ tal que
+\[ B_{\epsilon^{*}}(y^{*})\subset U_{i^{*}}. \]
+Entonces
+\[ B_{1/n}(y_{n})\subset B_{\epsilon^{*}}(y^{*})\subset U_{i^{*}} \]
+para $n$ suficientemente grande en contradicción con la elección de $y_{n}$. Esto demuestra que (ii) implica (iii).
+
+Que (iii) implica (ii) se demostró en la primera demostración sin usar ninguna versión del axioma de elección. Esto completa la segunda demostración del Teorema 1.4. \hfill $\Box$
+
+Se deduce inmediatamente del Teorema 1.4 que todo espacio métrico compacto es separable. Aquí están las definiciones relevantes.
+
+\begin{definition}\label{def:1.6}
+Sea $X$ un espacio topológico. Un subconjunto $S\subset X$ se llama \textbf{denso} en $X$ si su clausura es igual a $X$ o, equivalentemente, todo subconjunto abierto no vacío de $X$ contiene un elemento de $S$. El espacio $X$ se llama \textbf{separable} si admite un subconjunto denso numerable. (Un conjunto se llama \textbf{numerable} si es finito o infinito numerable).
+\end{definition}
+
+\begin{corollary}\label{cor:1.7}
+Todo espacio métrico compacto es separable.
+\end{corollary}
+\begin{proof}
+Sea $n\in\mathbb{N}$. Como $X$ es totalmente acotado por el Teorema 1.4, existe un conjunto finito $S_{n}\subset X$ tal que $X=\bigcup_{\xi\in S_{n}}B_{1/n}(\xi)$. Por ende, $S:=\bigcup_{n\in\mathbb{N}}S_{n}$ es un subconjunto denso numerable de $X$.
+\end{proof}
+
+\begin{corollary}\label{cor:1.8}
+Sea $(X,d)$ un espacio métrico y sea $A\subset X$. Entonces los siguientes enunciados son equivalentes.
+\begin{itemize}
+    \item[(i)] $A$ es precompacto.
+    \item[(ii)] Toda sucesión en $A$ tiene una subsucesión que converge en $X$.
+    \item[(iii)] $A$ es totalmente acotado y toda sucesión de Cauchy en $A$ converge en $X$.
+\end{itemize}
+\end{corollary}
+\begin{proof}
+Que (i) implica (ii) se sigue directamente de las definiciones.
+
+Probamos que (ii) implica (iii). Por (ii) toda sucesión en $A$ tiene una subsucesión de Cauchy y así $A$ es totalmente acotado por el Lema 1.5. Si $(x_{n})_{n\in\mathbb{N}}$ es una sucesión de Cauchy en $A$, entonces por (ii) existe una subsucesión $(x_{n_{i}})_{i\in\mathbb{N}}$ que converge en $X$, y por lo tanto la sucesión original converge en $X$ porque una sucesión de Cauchy converge si y solo si tiene una subsucesión convergente.
+
+Probamos que (iii) implica (i). Sea $(x_{n})_{n\in\mathbb{N}}$ una sucesión en la clausura $\overline{A}$ de $A$. Entonces, por el axioma de elección numerable, existe una sucesión $(a_{n})_{n\in\mathbb{N}}$ en $A$ tal que $d(x_{n},a_{n})<1/n$ para todo $n\in\mathbb{N}$. Dado que $A$ es totalmente acotado, se deduce del Lema 1.5 que la sucesión $(a_{n})_{n\in\mathbb{N}}$ tiene una subsucesión de Cauchy $(a_{n_{i}})_{i\in\mathbb{N}}$. Esta subsucesión converge en $X$ por (iii). Denote su límite por $a$. Entonces $a\in\overline{A}$ y $a=\lim_{i\rightarrow\infty}a_{n_{i}}=\lim_{i\rightarrow\infty}x_{n_{i}}$. Así, $\overline{A}$ es secuencialmente compacto. Esto prueba el Corolario 1.8.
+\end{proof}
+
+\begin{corollary}\label{cor:1.9}
+Sea $(X, d)$ un espacio métrico completo y sea $A\subset X$. Entonces los siguientes enunciados son equivalentes.
+\begin{itemize}
+    \item[(i)] $A$ es precompacto.
+    \item[(ii)] Toda sucesión en $A$ tiene una subsucesión de Cauchy.
+    \item[(iii)] $A$ es totalmente acotado.
+\end{itemize}
+\end{corollary}
+\begin{proof}
+Esto se sigue directamente de las definiciones y el Corolario 1.8.
+\end{proof}
+
+\subsection{El Teorema de Arzelà-Ascoli}
+
+Es un tema recurrente en el análisis funcional entender qué subconjuntos de un espacio de Banach o de un espacio vectorial topológico son compactos. Para el espacio euclidiano estándar $(\mathbb{R}^{n},\|\cdot\|_{2})$ el Teorema de Heine-Borel afirma que un subconjunto de $\mathbb{R}^{n}$ es compacto si y solo si es cerrado y acotado. Esto continúa siendo válido para todo espacio vectorial normado de dimensión finita y, recíprocamente, todo espacio vectorial normado en el que la bola unitaria cerrada es compacta es necesariamente de dimensión finita (ver Teorema 1.26 más adelante). Para espacios de Banach de dimensión infinita esto lleva al problema de caracterizar los subconjuntos compactos. Condiciones necesarias son que el subconjunto sea cerrado y acotado, sin embargo, estas condiciones ya no pueden ser suficientes. Para el espacio de Banach de funciones continuas sobre un espacio métrico compacto se da una caracterización de los subconjuntos compactos por un teorema de Arzelà y Ascoli que explicaremos a continuación.
+
+Sean $(X,d_{X})$ y $(Y,d_{Y})$ espacios métricos y asuma que $X$ es compacto. Entonces el espacio
+\[ C(X,Y) := \{f : X \rightarrow Y \mid f \text{ es continua}\} \]
+de aplicaciones continuas de $X$ a $Y$ es un espacio métrico con la función distancia
+\begin{equation}\label{eq:1.9}
+d(f,g) := \sup_{x\in X}d_{Y}(f(x),g(x)) \quad \text{para } f,g\in C(X,Y).
+\end{equation}
+Esto está bien definido porque la función $X\rightarrow\mathbb{R}:x\mapsto d_{Y}(f(x),g(x))$ es continua y por tanto está acotada porque $X$ es compacto. Que \eqref{eq:1.9} satisface los axiomas de una función distancia se deduce directamente de las definiciones. Cuando $X$ es no vacío, el espacio métrico $C(X,Y)$ con la función distancia \eqref{eq:1.9} es completo si y solo si $Y$ es completo, porque el límite de una sucesión uniformemente convergente de funciones continuas es nuevamente continua.
+
+\begin{definition}\label{def:1.10}
+Un subconjunto $\mathfrak{F}\subset C(X,Y)$ se llama \textbf{equicontinuo} si, para cada $\epsilon>0$, hay un $\delta>0$ tal que, para todos $x, x^{\prime}\in X$ y todo $f\in\mathfrak{F}$,
+\[ d_{X}(x,x^{\prime})<\delta \implies d_{Y}(f(x),f(x^{\prime}))<\epsilon. \]
+Se llama \textbf{puntualmente compacto} si, para cada $x\in X$, el conjunto
+\[ \mathfrak{F}(x) := \{f(x) \mid f\in\mathfrak{F}\} \]
+es un subconjunto compacto de $Y$. Se llama \textbf{puntualmente precompacto} si, para cada $x\in X$, el conjunto $\mathfrak{F}(x)$ tiene clausura compacta en $Y$.
+\end{definition}
+
+Dado que toda aplicación continua definida en un espacio métrico compacto es uniformemente continua, todo subconjunto finito de $C(X,Y)$ es equicontinuo.
+
+\begin{theorem}[Arzelà-Ascoli] \label{thm:1.11}
+Sea $(X,d_{X})$ un espacio métrico compacto, sea $(Y,d_{Y})$ un espacio métrico, y sea $\mathfrak{F}\subset C(X,Y)$. Entonces los siguientes enunciados son equivalentes.
+\begin{itemize}
+    \item[(i)] $\mathfrak{F}$ es precompacto.
+    \item[(ii)] $\mathfrak{F}$ es puntualmente precompacto y equicontinuo.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Probamos que (i) implica (ii). Asuma que $\mathfrak{F}$ es precompacto. Que $\mathfrak{F}$ es puntualmente precompacto se sigue del hecho de que la aplicación de evaluación
+\[ C(X,Y)\rightarrow Y:f\mapsto ev_{x}(f):=f(x) \]
+es continua para cada $x\in X$. Como la imagen de un conjunto precompacto bajo una aplicación continua es de nuevo precompacta (Ejercicio 1.60), se deduce que el conjunto $\mathfrak{F}(x)=ev_{x}(\mathfrak{F})$ es un subconjunto precompacto de $Y$ para cada $x\in X$.
+
+Queda por probar que $\mathfrak{F}$ es equicontinuo. Asuma que $\mathfrak{F}$ es no vacío y fije una constante $\epsilon>0$. Dado que el conjunto $\mathfrak{F}$ es totalmente acotado por el Lema 1.5, existen finitamente muchas aplicaciones $f_{1},\dots,f_{m}\in\mathfrak{F}$ tales que
+\begin{equation}\label{eq:1.10}
+\mathfrak{F}\subset\bigcup_{i=1}^{m}B_{\epsilon/3}(f_{i}).
+\end{equation}
+Como $X$ es compacto, cada función $f_{i}$ es uniformemente continua. Por ende, existe una constante $\delta>0$ tal que, para todo $i\in\{1,\dots,m\}$ y todos $x, x^{\prime}\in X$,
+\begin{equation}\label{eq:1.11}
+d_{X}(x,x^{\prime})<\delta \implies d_{Y}(f_{i}(x),f_{i}(x^{\prime}))<\epsilon/3.
+\end{equation}
+Ahora sea $f\in\mathfrak{F}$ y sean $x,x^{\prime}\in X$ tales que $d_{X}(x,x^{\prime})<\delta$. Entonces se deduce de \eqref{eq:1.10} que hay un índice $i\in\{1,\dots,m\}$ tal que $d(f,f_{i})<\epsilon/3$. Así, $d_{Y}(f(x),f_{i}(x))<\epsilon/3$ y $d_{Y}(f(x^{\prime}),f_{i}(x^{\prime}))<\epsilon/3$. Además, se sigue de \eqref{eq:1.11} que $d_{Y}(f_{i}(x),f_{i}(x^{\prime}))<\epsilon/3$. Por lo tanto, por la desigualdad triangular,
+\begin{align*}
+d_{Y}(f(x),f(x^{\prime})) &\le d_{Y}(f(x),f_{i}(x))+d_{Y}(f_{i}(x),f_{i}(x^{\prime}))+d_{Y}(f_{i}(x^{\prime}),f(x^{\prime})) \\
+&< \epsilon/3+\epsilon/3+\epsilon/3 = \epsilon.
+\end{align*}
+Esto muestra que $\mathfrak{F}$ es equicontinuo.
+
+Probamos que (ii) implica (i). Asuma que $X$ e $Y$ son no vacíos, sea $(x_{k})_{k\in\mathbb{N}}$ una sucesión densa en $X$ (Corolario 1.7), y sea $(f_{n})_{n\in\mathbb{N}}$ una sucesión en $\mathfrak{F}$. Probamos en tres pasos que $(f_{n})_{n\in\mathbb{N}}$ tiene una subsucesión convergente.
+
+\noindent \textbf{Paso 1.} Existe una subsucesión $(g_{i})_{i\in\mathbb{N}}$ de $(f_{n})_{n\in\mathbb{N}}$ tal que la sucesión $(g_{i}(x_{k}))_{i\in\mathbb{N}}$ converge en $Y$ para cada $k\in\mathbb{N}$.
+\\ Dado que $\mathfrak{F}(x_{k})$ es precompacto para cada $k$, se sigue del axioma de elección dependiente (página 10) que hay una sucesión de subsucesiones $(f_{n_{k,i}})_{i\in\mathbb{N}}$ tal que, para cada $k\in\mathbb{N}$, la sucesión $(f_{n_{k+1,i}})_{i\in\mathbb{N}}$ es una subsucesión de $(f_{n_{k,i}})_{i\in\mathbb{N}}$ y la sucesión $(f_{n_{k,i}}(x_{k}))_{i\in\mathbb{N}}$ converge en $Y$. Así, la subsucesión diagonal $g_{i}:=f_{n_{i,i}}$ satisface los requerimientos del Paso 1.
+
+\noindent \textbf{Paso 2.} Sea $g_{i}$ como en el Paso 1. Entonces $(g_{i})_{i\in\mathbb{N}}$ es una sucesión de Cauchy en $C(X,Y)$.
+\\ Fije una constante $\epsilon>0$. Entonces, por equicontinuidad, existe una constante $\delta>0$ tal que, para todo $f\in\mathfrak{F}$ y todos $x, x^{\prime}\in X$,
+\begin{equation}\label{eq:1.12}
+d_{X}(x,x^{\prime})<\delta \implies d_{Y}(f(x), f(x^{\prime}))<\epsilon/3.
+\end{equation}
+Dado que las bolas $B_{\delta}(x_{k})$ forman un recubrimiento abierto de $X$, existe un $m\in\mathbb{N}$ tal que $X=\bigcup_{k=1}^{m}B_{\delta}(x_{k})$. Dado que $(g_{i}(x_{k}))_{i\in\mathbb{N}}$ es una sucesión de Cauchy para cada $k$, existe un $N\in\mathbb{N}$ tal que, para todos $i, j, k\in\mathbb{N}$, tenemos
+\begin{equation}\label{eq:1.13}
+1\le k\le m, \quad i,j\ge N \implies d_{Y}(g_{i}(x_{k}),g_{j}(x_{k}))<\epsilon/3.
+\end{equation}
+Probamos que $d(g_{i},g_{j})<\epsilon$ para todos $i, j\ge N$. Para ver esto, fije un elemento $x\in X$. Entonces existe un índice $k\in\{1,\dots,m\}$ tal que $d_{X}(x,x_{k})<\delta$. Esto implica $d_{Y}(g_{i}(x),g_{i}(x_{k}))<\epsilon/3$ para todo $i\in\mathbb{N}$ por \eqref{eq:1.12}, y por lo tanto
+\begin{align*}
+d_{Y}(g_{i}(x),g_{j}(x)) &\le d_{Y}(g_{i}(x),g_{i}(x_{k}))+d_{Y}(g_{i}(x_{k}),g_{j}(x_{k}))+d_{Y}(g_{j}(x_{k}),g_{j}(x)) \\
+&< \epsilon/3+\epsilon/3+\epsilon/3 = \epsilon
+\end{align*}
+para todos $i, j\ge N$ por \eqref{eq:1.13}. Por ende $d(g_{i},g_{j})=\max_{x\in X}d_{Y}(g_{i}(x),g_{j}(x))<\epsilon$ para todos $i, j\ge N$ y esto prueba el Paso 2.
+
+\noindent \textbf{Paso 3.} La subsucesión $(g_{i})_{i\in\mathbb{N}}$ en el Paso 1 converge en $C(X,Y)$.
+\\ Sea $x\in X$. Por el Paso 2, $(g_{i}(x))_{i\in\mathbb{N}}$ es una sucesión de Cauchy en $\mathfrak{F}(x)$. Dado que $\mathfrak{F}(x)$ es un subconjunto precompacto de $Y$, la sucesión $(g_{i}(x))_{i\in\mathbb{N}}$ tiene una subsucesión convergente y por ende converge en $Y$. Denote el límite por $g(x):=\lim_{i\rightarrow\infty}g_{i}(x)$. Entonces la sucesión $g_{i}$ converge uniformemente a $g$ por el Paso 2 y así $g\in C(X,Y)$.
+
+El Paso 3 muestra que toda sucesión en $\mathfrak{F}$ tiene una subsucesión que converge a un elemento de $C(X,Y)$. Por ende $\mathfrak{F}$ es precompacto por el Corolario 1.8. Esto prueba el Teorema 1.11.
+\end{proof}
+
+\begin{corollary}[Arzelà-Ascoli]\label{cor:1.12}
+Sea $(X,d_{X})$ un espacio métrico compacto, sea $(Y,d_{Y})$ un espacio métrico, y sea $\mathfrak{F}\subset C(X,Y)$. Entonces los siguientes enunciados son equivalentes.
+\begin{itemize}
+    \item[(i)] $\mathfrak{F}$ es compacto.
+    \item[(ii)] $\mathfrak{F}$ es cerrado, puntualmente compacto y equicontinuo.
+    \item[(iii)] $\mathfrak{F}$ es cerrado, puntualmente precompacto y equicontinuo.
+\end{itemize}
+\end{corollary}
+\begin{proof}
+Que (i) implica (ii) se sigue del Teorema 1.11, porque todo subconjunto compacto de un espacio métrico es cerrado, y la imagen de un conjunto compacto bajo una aplicación continua es compacta. Aquí la aplicación continua en cuestión es la aplicación de evaluación $C(X,Y)\rightarrow Y:f\mapsto f(x)$ asociada a $x\in X$. Que (ii) implica (iii) es obvio. Que (iii) implica (i) se deduce del Teorema 1.11, porque un subconjunto de un espacio métrico es compacto si y solo si es precompacto y cerrado. Esto prueba el Corolario 1.12.
+\end{proof}
+
+Cuando el espacio de llegada $Y$ es el espacio euclidiano $(\mathbb{R}^{n},\|\cdot\|_{2})$ en la parte (i) del Ejemplo 1.3, el Teorema de Arzelà-Ascoli toma la siguiente forma.
+
+\begin{corollary}[Arzelà-Ascoli]\label{cor:1.13}
+Sea $(X, d)$ un espacio métrico compacto y sea $\mathfrak{F}\subset C(X,\mathbb{R}^{n})$. Entonces se cumple lo siguiente.
+\begin{itemize}
+    \item[(i)] $\mathfrak{F}$ es precompacto si y solo si es acotado y equicontinuo.
+    \item[(ii)] $\mathfrak{F}$ es compacto si y solo si es cerrado, acotado y equicontinuo.
+\end{itemize}
+\end{corollary}
+\begin{proof}
+Asuma que $\mathfrak{F}$ es precompacto. Entonces $\mathfrak{F}$ es equicontinuo por el Teorema 1.11, y está acotado, porque una sucesión cuya norma tiende a infinito no puede tener una subsucesión convergente. Recíprocamente, asuma que $\mathfrak{F}$ es acotado y equicontinuo. Entonces, para cada $x\in X$, el conjunto $\mathfrak{F}(x)\subset\mathbb{R}^{n}$ es acotado y, por lo tanto, es precompacto por el Teorema de Heine-Borel. Por ende $\mathfrak{F}$ es precompacto por el Teorema 1.11. Esto prueba (i). La parte (ii) se sigue de (i) y del hecho de que un subconjunto de un espacio métrico es compacto si y solo si es precompacto y cerrado. Esto prueba el Corolario 1.13.
+\end{proof}
+
+\begin{exercise}\label{ex:1.14}
+Este ejercicio muestra que la hipótesis de que $X$ es compacto no puede ser eliminada en el Corolario 1.13. Considere el espacio de Banach $C_{b}(\mathbb{R})$ de funciones continuas acotadas a valores reales sobre $\mathbb{R}$ con la norma del supremo. Encuentre un subconjunto cerrado, acotado y equicontinuo de $C_{b}(\mathbb{R})$ que no sea compacto.
+\end{exercise}
+
+Hay muchas versiones del Teorema de Arzelà-Ascoli. Por ejemplo, el Teorema 1.11, el Corolario 1.12, y el Corolario 1.13 continúan cumpliéndose, con la noción apropiada de equicontinuidad, cuando $X$ es cualquier espacio topológico compacto. Este es el contenido del siguiente ejercicio.
+
+\begin{exercise}\label{ex:1.15}
+Sea $X$ un espacio topológico compacto y sea $Y$ un espacio métrico. Entonces el espacio $C(X,Y)$ de funciones continuas $f:X\rightarrow Y$ es un espacio métrico con la función distancia \eqref{eq:1.9}. Un subconjunto $\mathfrak{F}\subset C(X,Y)$ se llama \textbf{equicontinuo} si, para cada $x\in X$ y cada $\epsilon>0$, existe una vecindad abierta $U\subset X$ de $x$ tal que $d_{Y}(f(x), f(x^{\prime}))<\epsilon$ para todo $x^{\prime}\in U$ y todo $f\in\mathfrak{F}$.
+\begin{itemize}
+    \item[(a)] Demuestre que la definición anterior de equicontinuidad coincide con la de la Definición 1.10 siempre que $X$ sea un espacio métrico compacto.
+    \item[(b)] Demuestre la siguiente variante del Teorema de Arzelà-Ascoli para espacios topológicos compactos $X$.
+    
+    \textbf{Teorema de Arzelà-Ascoli.} Sea $X$ un espacio topológico compacto y sea $Y$ un espacio métrico. Un conjunto $\mathfrak{F}\subset C(X,Y)$ es precompacto si y solo si es puntualmente precompacto y equicontinuo.
+    
+    \noindent\textit{Sugerencia 1:} Si $\mathfrak{F}$ es precompacto, use el argumento en la demostración del Teorema 1.11 para mostrar que $\mathfrak{F}$ es puntualmente precompacto y equicontinuo.
+    
+    \noindent\textit{Sugerencia 2:} Asuma que $\mathfrak{F}$ es equicontinuo y puntualmente precompacto.
+    
+    \noindent \textbf{Paso 1.} El conjunto $F:=\{f(x) \mid x\in X, f\in\mathfrak{F}\}\subset Y$ está totalmente acotado.
+    \\ Demuestre que $F$ es precompacto (Ejercicio 1.60) y use el Corolario 1.8.
+    
+    \noindent \textbf{Paso 2.} El conjunto $\mathfrak{F}$ está totalmente acotado.
+    \\ Sea $\epsilon>0$. Cubra $F$ con un número finito de bolas abiertas $V_{1},\dots,V_{n}$ de radio $\epsilon/3$ y cubra $X$ con un número finito de conjuntos abiertos $U_{1},\dots,U_{m}$ tales que
+    \[ \sup_{x^{\prime}\in U_{i}, f\in\mathfrak{F}}d_{Y}(f(x),f(x^{\prime}))<\epsilon/3 \quad \text{para } i=1,\dots,m \]
+    Para cualquier función $\alpha:\{1,\dots,m\}\rightarrow\{1,\dots,n\}$ defina
+    \[ \mathfrak{F}_{\alpha}:=\{f\in\mathfrak{F} \mid f(U_{i})\cap V_{\alpha(i)}\ne\emptyset \text{ para } i=1,\dots,m\}. \]
+    Demuestre que $d(f,g)=\sup_{x\in X}d_{Y}(f(x),g(x))<\epsilon$ para todos $f,g\in\mathfrak{F}_{\alpha}$. Sea $A$ el conjunto de todos los $\alpha$ tales que $\mathfrak{F}_{\alpha}\ne\emptyset$. Demuestre que $\mathfrak{F}=\bigcup_{\alpha\in A}\mathfrak{F}_{\alpha}$ y elija una colección de funciones $f_{\alpha}\in\mathfrak{F}_{\alpha}$, una para cada $\alpha\in A$.
+    
+    \noindent \textabf{Paso 3.} El conjunto $\mathfrak{F}$ es precompacto.
+    \\ Use el Lema 1.5 y el Paso 3 en la demostración del Teorema 1.11 para mostrar que toda sucesión en $\mathfrak{F}$ tiene una subsucesión que converge en $C(X,Y)$.
+\end{itemize}
+\end{exercise}
+
+En contraste con lo que uno podría esperar del Ejercicio 1.14, también hay una versión del teorema de Arzelà-Ascoli para el espacio de funciones continuas desde un espacio topológico arbitrario $X$ hacia un espacio métrico $Y$. Esta versión utiliza la topología compacto-abierta en $C(X,Y)$ y se explica en el Ejercicio 3.63.
+
+\end{document}

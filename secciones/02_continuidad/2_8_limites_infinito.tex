@@ -1,1 +1,47 @@
-\section{Limites en el infinito y al infinito}
+%\clearpage
+\section{Límites en el infinito y al infinito}
+
+\begin{definicion}[Límites infinitos]
+Sea $f:A\to\R$, con $A\subseteq\R$, y $p\in A'$.
+\begin{enumerate}
+    \item Decimos que $\lim_{x\to p}f(x)=\infty$ si para todo $M>0$ existe $\delta>0$ tal que si $x\in A\setminus\{p\}$ y $|x-p|<\delta$, entonces $f(x)>M$.
+    \item Decimos que $\lim_{x\to p}f(x)=-\infty$ si para todo $M>0$ existe $\delta>0$ tal que si $x\in A\setminus\{p\}$ y $|x-p|<\delta$, entonces $f(x)<-M$.
+\end{enumerate}
+\end{definicion}
+
+\begin{example}
+\[
+\lim_{x\to 0}\frac{1}{x^2}=\infty.
+\]
+En efecto, dado $M>0$, si tomamos $\delta=\frac{1}{\sqrt{M}}$, entonces
+\[
+0<|x|<\delta \implies x^2<\frac{1}{M} \implies \frac{1}{x^2}>M.
+\]
+\end{example}
+
+\begin{definicion}[Límites en el infinito]
+Sea $f:\R\to\R$.
+\begin{enumerate}
+    \item $\lim_{x\to\infty}f(x)=L$ si para todo $\epsilon>0$ existe $M>0$ tal que $x>M$ implica $|f(x)-L|<\epsilon$.
+    \item $\lim_{x\to-\infty}f(x)=L$ si para todo $\epsilon>0$ existe $M>0$ tal que $x<-M$ implica $|f(x)-L|<\epsilon$.
+\end{enumerate}
+\end{definicion}
+
+\begin{teorema}
+\[
+\lim_{x\to\infty}f(x)=L
+\]
+si y sólo si para toda sucesión $\{x_n\}\subseteq\R$ con $x_n\to\infty$, se cumple $f(x_n)\to L$.
+\end{teorema}
+
+\begin{proof}
+    ($\implies$) Supongamos $\lim_{x\to\infty}f(x)=L$ y sea $x_n\to\infty$.
+    Dado $\epsilon>0$, existe $M>0$ tal que $x>M$ implica $|f(x)-L|<\epsilon$.
+    Como $x_n\to\infty$, existe $N$ tal que $n\ge N$ implica $x_n>M$.
+    Entonces $|f(x_n)-L|<\epsilon$ para todo $n\ge N$, y por tanto $f(x_n)\to L$.
+
+    ($\impliedby$) Supongamos que para toda sucesión $x_n\to\infty$ se tiene $f(x_n)\to L$, y neguemos $\lim_{x\to\infty}f(x)=L$.
+    Entonces existe $\epsilon_0>0$ tal que para todo $M>0$ existe $x>M$ con $|f(x)-L|\ge\epsilon_0$.
+    Tomando $M=n$, obtenemos una sucesión $x_n>n$ con $|f(x_n)-L|\ge\epsilon_0$ para todo $n$.
+    Así $x_n\to\infty$, pero $f(x_n)$ no puede converger a $L$, contradicción.
+\end{proof}

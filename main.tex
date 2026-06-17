@@ -1,4 +1,8 @@
+% para formato de impresión
 \documentclass{book}
+
+% para formato de pantalla
+%\documentclass[openany]{book}
 
 \input{config/preambulo}
 \input{config/macros}
@@ -12,8 +16,11 @@
 \thispagestyle{empty}
 \input{config/portada}
 \clearpage
+\input{config/prologo}
 
 \tableofcontents
+\clearpage
+\clearpage
 
 \include{secciones/01_espacios_metricos/main_01}
 \include{secciones/02_continuidad/main_02}

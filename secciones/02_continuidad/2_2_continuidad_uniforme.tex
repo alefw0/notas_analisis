@@ -1,1 +1,125 @@
+%\clearpage
 \section{Continuidad uniforme}
+
+\begin{remark}
+Sea $f:X\to Y$ una función continua en $A\subseteq X$.
+Si $p\in A$ y $\epsilon>0$, existe $\delta_{p,\epsilon}>0$ (que depende de $p$ y de $\epsilon$)
+tal que
+\[
+d_Y(f(p),f(x))<\epsilon \quad \text{si } x\in B_X(p,\delta_{p,\epsilon})\cap A.
+\]
+\end{remark}
+
+\begin{definicion}[Continuidad uniforme]
+Sea $f:X\to Y$. Decimos que $f$ es uniformemente continua en $A\subseteq X$ si para todo $\epsilon>0$ existe $\delta_\epsilon>0$ (depende sólo de $\epsilon$) tal que para todo $x,y\in A$, si
+\[
+d_X(x,y)<\delta_\epsilon,
+\]
+entonces
+\[
+d_Y(f(x),f(y))<\epsilon.
+\]
+\end{definicion}
+
+\begin{remark}
+Si $f$ es uniformemente continua en $A$, entonces $f$ es continua en $A$.
+\end{remark}
+
+\begin{proof}
+Sea $\epsilon>0$. Como $f$ es uniformemente continua en $A$, existe $\delta>0$ tal que para todo $x,y\in A$, si $d_X(x,y)<\delta$, entonces $d_Y(f(x),f(y))<\epsilon$.
+
+Fijado $p\in A$, tomando $y=p$, se obtiene que para todo $x\in A$, si $d_X(x,p)<\delta$, entonces
+\[
+d_Y(f(x),f(p))<\epsilon.
+\]
+Luego $f$ es continua en $p$, y como $p$ fue arbitrario, $f$ es continua en $A$.
+\end{proof}
+
+\begin{example}
+La función $f(x)=x$ es uniformemente continua en $\R$.
+
+En efecto, dado $\epsilon>0$, tomando $\delta=\epsilon$, si $|x-y|<\delta$ entonces
+\[
+|f(x)-f(y)|=|x-y|<\epsilon.
+\]
+\end{example}
+
+\begin{example}
+La función $f(x)=x^2$ no es uniformemente continua en $\R$.
+
+Supongamos que sí lo es. Con $\epsilon=1$, existe $\delta>0$ tal que para todo $x,y\in\R$, si $|x-y|<\delta$ entonces $|f(x)-f(y)|<1$.
+
+Escogemos $n\in\N$ tal que
+\[
+n\delta+\frac{\delta^2}{4}>1.
+\]
+Tomamos $x=n+\frac{\delta}{2}$ y $y=n$. Entonces
+\[
+|x-y|=\frac{\delta}{2}<\delta,
+\]
+pero
+\[
+|f(x)-f(y)|=\left|\left(n+\frac{\delta}{2}\right)^2-n^2\right|=n\delta+\frac{\delta^2}{4}>1,
+\]
+contradicción.
+\end{example}
+
+\begin{teorema}[Teorema de Heine]
+Sea $f:X\to Y$ una función. Si $A\subseteq X$ es compacto y $f$ es continua en $A$, entonces $f$ es uniformemente continua en $A$.
+\end{teorema}
+
+\begin{proof}
+Sea $\epsilon>0$. Como $f$ es continua en $A$, para cada $p\in A$ existe $\delta_p>0$ tal que
+\[
+x\in B_X(p,\delta_p)\cap A \implies d_Y(f(p),f(x))<\frac{\epsilon}{2}.
+\]
+
+La familia
+\[
+\mathcal{C}=\left\{B_X\left(p,\frac{\delta_p}{2}\right):p\in A\right\}
+\]
+es un cubrimiento abierto de $A$. Por compacidad, existen $p_1,\dots,p_k\in A$ tales que
+\[
+A\subseteq\bigcup_{i=1}^k B_X\left(p_i,\frac{\delta_{p_i}}{2}\right).
+\]
+
+Definimos
+\[
+\delta=\min\left\{\frac{\delta_{p_i}}{2}:i=1,\dots,k\right\}>0.
+\]
+Sean $x,y\in A$ con $d_X(x,y)<\delta$. Existe $j$ tal que
+\[
+x\in B_X\left(p_j,\frac{\delta_{p_j}}{2}\right).
+\]
+Entonces, por desigualdad triangular,
+\[
+d_X(y,p_j)\le d_X(y,x)+d_X(x,p_j)<\delta+\frac{\delta_{p_j}}{2}\le\delta_{p_j},
+\]
+así que $y\in B_X(p_j,\delta_{p_j})$.
+
+Por tanto,
+\[
+d_Y(f(x),f(y))\le d_Y(f(x),f(p_j))+d_Y(f(y),f(p_j))<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
+\]
+Concluimos que $f$ es uniformemente continua en $A$.
+\end{proof}
+
+\begin{definicion}
+Sea $f:X\to X$ una función.
+\begin{enumerate}
+    \item Un punto $p\in X$ es un punto fijo de $f$ si $f(p)=p$.
+    \item Decimos que $f$ es una contracción de $X$ si existe $0<\alpha<1$ tal que
+    \[
+    d(f(x),f(y))\le \alpha d(x,y),\quad \forall x,y\in X.
+    \]
+\end{enumerate}
+\end{definicion}
+
+\begin{remark}
+Si $f:X\to X$ es una contracción, entonces $f$ es uniformemente continua en $X$.
+\end{remark}
+
+\begin{teorema}[Teorema del punto fijo]
+Sea $f:X\to X$ una contracción en un espacio métrico completo $X$.
+Entonces existe un único punto $p\in X$ tal que $f(p)=p$.
+\end{teorema}
