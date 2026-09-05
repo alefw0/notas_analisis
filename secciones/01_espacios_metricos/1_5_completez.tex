@@ -1,4 +1,4 @@
-\section{Completez. Teorema de Bolzano-Weirstrass}
+\section{Completez. Teorema de Bolzano-Weierstrass}
 
 A lo largo de esta sección $(X,d)$ denotará un espacio métrico.
 Comenzamos estableciendo unas propiedades básicas acerca de sucesiones en $\R$.
@@ -20,7 +20,7 @@ Sean $\{x_n\}$ y $\{y_n\}$ sucesiones en $\R$ convergentes a $x$ y $y$ respectiv
     \[|kx_n-kx|=|k||x_n-x|\leq |k|\frac{\varepsilon}{|k|}=\varepsilon.\]
     \item Supongamos por el contrario que $y<x$. Sea $\varepsilon=\frac{x-y}{2}>0.$ Luego existe un $n>M$ tal que $|x_n-x|<\varepsilon$ y  $|y_n-y|<\varepsilon$. De donde,
     $x-x_n<\varepsilon$ y $y_n-y<\varepsilon$. Luego $\frac{x+y}{2}=x-\varepsilon<x_n$ y $y_n<\varepsilon+y=\frac{x+y}{2}$. Por tanto $y_n<x_n$, para algún $n>M$. Absurdo.
-    \item Como $\{x_n\}$ es convergente, entonces es acotada. Luego existe un $C$ tal que $|x_n|\leq C$ para todo $n\in  \ene.$
+    \item Como $\{x_n\}$ es convergente, entonces es acotada. Luego existe un $C$ tal que $|x_n|\leq C$ para todo $n\in  \N.$
     \begin{align*}
     |x_ny_n-xy|& =|x_ny_n-x_ny-xy+x_ny| \\
     & = |x_n(y_n-y)+y(x_n-x)| \\
@@ -47,7 +47,7 @@ Toda sucesión convergente en $X$ es de Cauchy.
 \end{teorema}
 \begin{proof}
 Sea $\left\{x_n \right\}$ una sucesión en $X$ que converge a $x\in X$. Teniendo en cuenta la desigualdad
-\[d(x_n, x_m)\leq d(x_n, x)+d(x, x_m), \quad \text{para todo $m,n\in \ene$}, \]
+\[d(x_n, x_m)\leq d(x_n, x)+d(x, x_m), \quad \text{para todo $m,n\in \N$}, \]
 se sigue el resultado.
 \end{proof}
 
@@ -67,14 +67,44 @@ Sea $A\subseteq X$.
 Toda sucesión de Cauchy en $\R$ es acotada.
 \end{teorema}
 \begin{proof}
-Sea $\left\{x_n \right\}$ una sucesión de Cauchy en $X$. Por tanto existe un $N$ tal que para todo $m\geq N$, $x_m\in B(x_N, 1).$ Sea $R=2\max\{1, \, d(x_1, x_N),\dots, d(x_{N-1}, x_N)\}.$ Con esto tenemos que $x_n \in B(x_N, R)$ para todo $n\in \ene.$
+Sea $\left\{x_n \right\}$ una sucesión de Cauchy en $X$. Por tanto existe un $N$ tal que para todo $m\geq N$, $x_m\in B(x_N, 1).$ Sea $R=2\max\{1, \, d(x_1, x_N),\dots, d(x_{N-1}, x_N)\}.$ Con esto tenemos que $x_n \in B(x_N, R)$ para todo $n\in \N.$
+\end{proof}
+
+\begin{remark}
+En lo que sigue usaremos un hecho fundamental de los números reales, que se toma como axioma en la construcción de $\R$: \emph{la propiedad del supremo}. Esto es, todo subconjunto no vacío de $\R$ que es acotado superiormente posee supremo en $\R$. (Este hecho ya se usó, por ejemplo, al definir la métrica del supremo en $B(\N)$.)
+\end{remark}
+
+\begin{teorema}[Bolzano-Weierstrass]\label{bolzano-weierstrass}
+Toda sucesión acotada de números reales posee una subsucesión convergente.
+\end{teorema}
+\begin{proof}
+Sea $\{x_n\}$ una sucesión contenida en un intervalo $[A,B]$. Construimos por recursión intervalos encajados $I_k=[a_k,b_k]$ tales que, para cada $k$, el conjunto de índices $\{n\in\N : x_n\in I_k\}$ es infinito y la longitud de $I_k$ es $(B-A)/2^k$.
+
+Tomamos $I_0=[A,B]$. Supongamos construido $I_{k-1}=[a,b]$ que contiene a $x_n$ para infinitos índices $n$, y sea $m=(a+b)/2$ su punto medio. Como $I_{k-1}=[a,m]\cup[m,b]$ y contiene a $x_n$ para infinitos índices, al menos una de las dos mitades contiene a $x_n$ para infinitos índices; definimos $I_k$ como una de tales mitades.
+
+Escogemos ahora, recursivamente, índices $n_1<n_2<\cdots$ tales que $x_{n_k}\in I_k$: dado $n_{k-1}$, ello es posible porque $I_k$ contiene a $x_n$ para infinitos índices $n$.
+
+La sucesión $\{a_k\}$ es creciente y acotada superiormente (por $B$); por la propiedad del supremo, $x:=\sup\{a_k : k\in\N\}$ existe en $\R$. Afirmamos que $a_k\le x\le b_k$ para todo $k$. La primera desigualdad es la definición de supremo. Para la segunda, observemos que cada $b_k$ cota superiormente a $\{a_j : j\in\N\}$: si $j\le k$ entonces $a_j\le a_k\le b_k$, y si $j\ge k$ entonces $a_j\le b_j\le b_k$. Por tanto $x\le b_k$.
+
+Finalmente, como $x_{n_k}\in I_k=[a_k,b_k]$ y $a_k\le x\le b_k$,
+\[
+|x_{n_k}-x|\ \le\ b_k-a_k\ =\ \frac{B-A}{2^k}\ \longrightarrow\ 0,
+\]
+de modo que $x_{n_k}\to x$. Por lo tanto, $\{x_n\}$ posee una subsucesión convergente.
+\end{proof}
+
+\begin{corolario}\label{compacto-intervalo}
+Para todos $a<b$, el intervalo $[a,b]$ es un subconjunto compacto de $\R$ (con la métrica usual).
+\end{corolario}
+\begin{proof}
+Sea $\{x_n\}$ una sucesión en $[a,b]$. En particular, $\{x_n\}$ es acotada y, por el Teorema de Bolzano-Weierstrass, posee una subsucesión $\{x_{n_k}\}$ convergente, con límite $x\in\R$. Como $[a,b]$ es cerrado y $x_{n_k}\in[a,b]$ para todo $k$, la caracterización secuencial de los conjuntos cerrados da $x\in[a,b]$. Por lo tanto, toda sucesión en $[a,b]$ posee una subsucesión convergente con límite en $[a,b]$; es decir, $[a,b]$ es compacto.
 \end{proof}
 
 \begin{teorema}\label{R-completo}
 $\R$ es un espacio métrico completo.
 \end{teorema}
 \begin{proof}
-Sea $\{x_n \}_n$ una sucesión de Cauchy en $\R$. Por Teorema \ref{cauchy-acota}, existe un $R>0$ tal que $x_n \in [-R, \, R]$, para todo $n$. Como $[-R, \, R]$ es compacto, ésta sucesión admite una  subsucesión convergente $\{x_{n_k}\}_k$. Supongamos que $x$ es su límite. Sea $\varepsilon >0$. Entonces existen  $N_1$ y $N_2$ tales que
+Sea $\{x_n \}_n$ una sucesión de Cauchy en $\R$. Por Teorema \ref{cauchy-acota}, existe un $R>0$ tal que $x_n \in [-R, \, R]$, para todo $n$. Como $[-R, \, R]$ es compacto (Corolario \ref{compacto-intervalo}), esta sucesión admite una  subsucesión convergente $\{x_{n_k}\}_k$. Supongamos que $x$ es su límite. Sea $\varepsilon >0$. Entonces existen  $N_1$ y $N_2$ tales que
 \[ | x_n- x_m|<\frac{\varepsilon}{2} \quad \text{para todo $m,n\geq N_1$}\]
 y
 \[ | x_{n_k}- x|<\frac{\varepsilon}{2} \quad \text{para todo $k\geq N_2$}.\]

@@ -1,8 +1,14 @@
 \section{Compacidad}
 
+\begin{definicion}[Conjunto compacto]
+    Sea $X$ un espacio métrico y $A \subseteq X$. Decimos que $A$ es \textbf{compacto} si toda sucesión $\{x_n\}$ en $A$ posee una subsucesión $\{x_{n_k}\}$ que converge a un punto de $A$.
+\end{definicion}
+
+
+
 \begin{definicion}[Cubrimiento abierto]
     Sea $X$ un espacio métrico y $A \subseteq X$.\\
-    Un cubrimiento abierto de $A$ es una familia $\mathcal{C}$ de subconjuntos abiertos de $X$ tales que $$A \subseteq \bigcup_{C \in \mathcal{C}} C$$
+    Un cubrimiento abierto de $A$ es una familia $\mathcal{C}$ de subconjuntos abiertos de $X$ tales que \[A \subseteq \bigcup_{C \in \mathcal{C}} C\]
 \end{definicion}
 
 \begin{definicion}[Subcubrimiento]
@@ -18,7 +24,7 @@
 \begin{proof}
     $(\Rightarrow)$ Supongamos que $A$ es compacto y sea $\mathcal{F}$ un cubrimiento abierto para $A$.
     
-    Sea $n \in \mathbb{N}$, definimos $\mathcal{F}_n = \{ B(x, 1/n) \mid x \in A \}$. $\mathcal{F}_n$ es un cubrimiento abierto para $A$, porque $B(x, 1/n)$ son conjuntos abiertos y veamos que $A \subseteq \bigcup \mathcal{F}_n$: Si $x \in A$, entonces $x \in B(x, 1/n) \in \mathcal{F}_n$, luego $x \in \bigcup \mathcal{F}_n$.
+    Sea $n \in \N$, definimos $\mathcal{F}_n = \{ B(x, 1/n) \mid x \in A \}$. $\mathcal{F}_n$ es un cubrimiento abierto para $A$, porque $B(x, 1/n)$ son conjuntos abiertos y veamos que $A \subseteq \bigcup \mathcal{F}_n$: Si $x \in A$, entonces $x \in B(x, 1/n) \in \mathcal{F}_n$, luego $x \in \bigcup \mathcal{F}_n$.
 
     \begin{afirmacion}
         El cubrimiento abierto $\mathcal{F}_n$ admite un subcubrimiento finito.
@@ -33,28 +39,28 @@
         \item $\dots$
         \item $x_{k+1} \in A - \bigcup_{i=1}^k B(x_i, 1/n)$.
     \end{itemize}
-    Como $A$ es compacto y $\{x_k\}_{k \in \mathbb{N}} \subseteq A$, entonces admite una subsucesión convergente tal que $x_{k_p} \rightarrow x \in A$, con $\{x_{k_p}\}_p \subseteq \{x_k\}_{k \in \mathbb{N}}$.
+    Como $A$ es compacto y $\{x_k\}_{k \in \N} \subseteq A$, entonces admite una subsucesión convergente tal que $x_{k_p} \rightarrow x \in A$, con $\{x_{k_p}\}_p \subseteq \{x_k\}_{k \in \N}$.
     
-    Para $\epsilon = \frac{1}{2n}$, existe $N \in \mathbb{N}$ tal que $d(x_{k_p}, x) < \epsilon$ para $p \ge N$.
+    Para $\varepsilon = \frac{1}{2n}$, existe $N \in \N$ tal que $d(x_{k_p}, x) < \varepsilon$ para $p \ge N$.
     
     Por construcción, si $q > p \ge N $ entonces $ x_{k_q} \notin B(x_{k_p}, 1/n)$. Luego $d(x_{k_q}, x_{k_p}) \ge \frac{1}{n}$, pero por desigualdad triangular:
-    $$d(x_{k_q}, x_{k_p}) \le d(x_{k_q}, x) + d(x_{k_p}, x) < \frac{1}{2n} + \frac{1}{2n} = \frac{1}{n}$$
+    \[d(x_{k_q}, x_{k_p}) \le d(x_{k_q}, x) + d(x_{k_p}, x) < \frac{1}{2n} + \frac{1}{2n} = \frac{1}{n}\]
     Lo cual es una contradicción ($\rightarrow\leftarrow$). Luego $\mathcal{F}_n$ admite un subcubrimiento finito.
     \end{prueba}
     \vspace{.5cm}
     \textbf{Notar:} 
-    Para $n \in \mathbb{N}$, $\mathcal{F}_n$ admite un subcubrimiento finito, denotado como $\mathcal{L}_n := \{ B(x_n^i, 1/n) \mid i = 1, \dots, l_n \}$, es decir $A \subseteq \bigcup_{n \in \mathbb{N}} \mathcal{L}_n = \mathcal{L}$.
+    Para $n \in \N$, $\mathcal{F}_n$ admite un subcubrimiento finito, denotado como $\mathcal{L}_n := \{ B(x_n^i, 1/n) \mid i = 1, \dots, l_n \}$, es decir $A \subseteq \bigcup_{n \in \N} \mathcal{L}_n = \mathcal{L}$.
 
     \begin{afirmacion}
         Para todo $x \in A$ y toda vecindad $U$ de $x$, existe $B_{n_i} \in \mathcal{L}$ tal que $x \in B_{n_i} \subseteq U$.
     \end{afirmacion}
     
     \begin{prueba}
-    Sea $x \in A$ y $U$ una vecindad de $x$; existe $\epsilon > 0$ tal que $B(x, \epsilon) \subseteq U$. Sea $n \in \mathbb{N}$ tal que $\frac{1}{n} < \frac{\epsilon}{2}$.
+    Sea $x \in A$ y $U$ una vecindad de $x$; existe $\varepsilon > 0$ tal que $B(x, \varepsilon) \subseteq U$. Sea $n \in \N$ tal que $\frac{1}{n} < \frac{\varepsilon}{2}$.
     
-    $\mathcal{L}_n$ es un subcubrimiento abierto de $A$, por lo tanto existe un $x_n^i$ tal que $x \in B(x_n^i, 1/n)$. Veamos que $B_{n_i} = B(x_n^i, 1/n) \subseteq B(x, \epsilon) \subseteq U$. Sea $y \in B(x_n^i, 1/n)$, entonces:
-    $$d(y, x) \le d(y, x_n^i) + d(x_n^i, x) < \frac{1}{n} + \frac{1}{n} = \frac{2}{n} < \epsilon$$
-    Luego $y \in B(x, \epsilon) \subseteq U$. Lo anterior prueba la afirmación.
+    $\mathcal{L}_n$ es un subcubrimiento abierto de $A$, por lo tanto existe un $x_n^i$ tal que $x \in B(x_n^i, 1/n)$. Veamos que $B_{n_i} = B(x_n^i, 1/n) \subseteq B(x, \varepsilon) \subseteq U$. Sea $y \in B(x_n^i, 1/n)$, entonces:
+    \[d(y, x) \le d(y, x_n^i) + d(x_n^i, x) < \frac{1}{n} + \frac{1}{n} = \frac{2}{n} < \varepsilon\]
+    Luego $y \in B(x, \varepsilon) \subseteq U$. Lo anterior prueba la afirmación.
     \end{prueba}
 
     \begin{afirmacion}
@@ -62,14 +68,14 @@
     \end{afirmacion}
     
     \begin{prueba}
-    Sea $n \in \mathbb{N}$ y $x_n^i$ los centros de las bolas $B(x_n^i, 1/n) \in \mathcal{L}_n$. 
+    Sea $n \in \N$ y $x_n^i$ los centros de las bolas $B(x_n^i, 1/n) \in \mathcal{L}_n$. 
     Si existe $U \in \mathcal{F}$ tal que $B(x_n^i, 1/n) \subseteq U$, definimos $U_n^i = U$. Si no existe $U \in \mathcal{F}$ tal que $B(x_n^i, 1/n) \subseteq U$, definimos $U_n^i = A$.
     
-    Sea $\mathcal{F}' = \{ U_n^i \mid i=1,\dots,l_n, n \in \mathbb{N} \}$ la cual es una colección contable. La colección $\mathcal{F}'' = \mathcal{F}' - \{A\}$ es contable.
+    Sea $\mathcal{F}' = \{ U_n^i \mid i=1,\dots,l_n, n \in \N \}$ la cual es una colección contable. La colección $\mathcal{F}'' = \mathcal{F}' - \{A\}$ es contable.
     
     \textbf{Caso 1:} Si $A \in \mathcal{F}$ entonces claramente, existe un subcubrimiento contable $\{A\}$ pues $A \subseteq A$.
     
-    \textbf{Caso 2:} Si $A \notin \mathcal{F}$ entonces afirmamos que $A \subseteq \bigcup \mathcal{F}''$. Si $x \in A$, y dado que $\mathcal{F}$ es un cubrimiento abierto para $A$, existe un $U \in \mathcal{F}$ tal que $x \in U$. Por la afirmación 2, existe $n \in \mathbb{N}$ y un $x_n^i$ tal que $x \in B(x_n^i, 1/n) \subseteq U$. Luego, tomamos tal $U_n^i \in \mathcal{F}''$ que $B(x_n^i, 1/n) \subseteq U_n^i$. 
+    \textbf{Caso 2:} Si $A \notin \mathcal{F}$ entonces afirmamos que $A \subseteq \bigcup \mathcal{F}''$. Si $x \in A$, y dado que $\mathcal{F}$ es un cubrimiento abierto para $A$, existe un $U \in \mathcal{F}$ tal que $x \in U$. Por la afirmación 2, existe $n \in \N$ y un $x_n^i$ tal que $x \in B(x_n^i, 1/n) \subseteq U$. Luego, tomamos tal $U_n^i \in \mathcal{F}''$ que $B(x_n^i, 1/n) \subseteq U_n^i$. 
     
     Por construcción tenemos que $U_n^i \ne A$. Así, $x \in B(x_n^i, 1/n) \subseteq U_n^i \subseteq \bigcup U_n^i$. En consecuencia, $\mathcal{F}''$ es un subcubrimiento contable de $\mathcal{F}$.
     \end{prueba}
@@ -83,9 +89,9 @@
     
     Sea $A_1 \in \mathcal{C}$, como $A$ no admite subcubrimientos finitos, $A_1 \ne A$, existe $x_1 \in A - A_1$. Sean $A_1, A_2 \in \mathcal{C}$, escogemos $x_2 \in A - (A_1 \cup A_2)$ (esto es posible ya que no admite subcubrimientos finitos). Construimos $x_n \in A$ tal que: $x_n \in A - \bigcup_{i=1}^n A_i$.
     
-    Como $A$ es compacto, existe una subsucesión $\{x_{n_k}\}$ de $\{x_n\}$ tal que $x_{n_k} \rightarrow x \in A$. Como $\mathcal{C}$ es un cubrimiento abierto para $A$ y $x \in A$, existe $j \in \mathbb{N}$ tal que $x \in A_j$ (pues $x \in A \subseteq \bigcup_{i=1}^\infty A_i$).
+    Como $A$ es compacto, existe una subsucesión $\{x_{n_k}\}$ de $\{x_n\}$ tal que $x_{n_k} \rightarrow x \in A$. Como $\mathcal{C}$ es un cubrimiento abierto para $A$ y $x \in A$, existe $j \in \N$ tal que $x \in A_j$ (pues $x \in A \subseteq \bigcup_{i=1}^\infty A_i$).
     
-    Dado que $A_j$ es abierto, existe $r > 0$ tal que $B(x, r) \subseteq A_j$; luego $\exists N_1 \in \mathbb{N}$ tal que para $k \ge N_1$, $x_{n_k} \in B(x, r) \subseteq A_j$. Pero para $k \ge j$, $x_{n_k} \notin A_j$ (por construcción). Esto es una contradicción ($\rightarrow\leftarrow$). Luego, todo cubrimiento abierto contable de $A$ admite un subcubrimiento finito.
+    Dado que $A_j$ es abierto, existe $r > 0$ tal que $B(x, r) \subseteq A_j$; luego $\exists N_1 \in \N$ tal que para $k \ge N_1$, $x_{n_k} \in B(x, r) \subseteq A_j$. Pero para $k \ge j$, $x_{n_k} \notin A_j$ (por construcción). Esto es una contradicción ($\rightarrow\leftarrow$). Luego, todo cubrimiento abierto contable de $A$ admite un subcubrimiento finito.
     \end{prueba}
 
     \begin{afirmacion}
@@ -117,9 +123,9 @@
     \end{prueba}
     
     Por hipótesis $\mathcal{F}$ admite un subcubrimiento finito $\mathcal{F}'$. Notar que $B = F \cap A \subseteq F$ y $B \subseteq A \subseteq \bigcup \mathcal{F}'$, luego existen $b_1, b_2, \dots, b_n \in B$ tales que $B(b_i, r_{b_i}) \in \mathcal{F}'$ y
-    $$B \subseteq \bigcup_{i=1}^n B(b_i, r_{b_i}) \cup (X - F)$$
+    \[B \subseteq \bigcup_{i=1}^n B(b_i, r_{b_i}) \cup (X - F)\]
     Dado que $B \subseteq F$, la intersección con $X-F$ es vacía, y recordando que $B(b_i, r_{b_i}) \cap B = \{b_i\}$, obtenemos:
-    $$B = \bigcup_{i=1}^n \{b_i\}$$
+    \[B = \bigcup_{i=1}^n \{b_i\}\]
     Luego $B$ es finito, lo cual es una contradicción ($\rightarrow\leftarrow$) pues $B$ es infinito. Por lo anterior $A$ es compacto.
 \end{proof}
 
@@ -132,7 +138,7 @@
     Sea $\mathcal{F}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{F}$ tiene la propiedad de la intersección finita si toda subfamilia finita tiene intersección no vacía.
 \end{definicion}
 
-\textbf{Ejemplo:} Sea $\R$ con la métrica usual, consideremos la familia $\mathcal{F} = \{A_n : n \in \mathbb{N}\}$ donde $A_n = (n, \infty)$. $\mathcal{F}$ tiene la propiedad de intersección finita. Sea la subcolección finita $\{A_{n_i} \mid i=1,\dots,k\}$. Esta tiene intersección $\bigcap_{i=1}^k A_{n_i} = A_{\max\{n_i\}} \ne \emptyset$. Por lo anterior $\mathcal{F}$ tiene la propiedad de intersección finita.
+\textbf{Ejemplo:} Sea $\R$ con la métrica usual, consideremos la familia $\mathcal{F} = \{A_n : n \in \N\}$ donde $A_n = (n, \infty)$. $\mathcal{F}$ tiene la propiedad de intersección finita. Sea la subcolección finita $\{A_{n_i} \mid i=1,\dots,k\}$. Esta tiene intersección $\bigcap_{i=1}^k A_{n_i} = A_{\max\{n_i\}} \ne \emptyset$. Por lo anterior $\mathcal{F}$ tiene la propiedad de intersección finita.
 
 \vspace{0.5cm}
 \noindent\textbf{Formulación alternativa de compacidad:}
@@ -145,12 +151,12 @@
     $(\Rightarrow)$ Supongamos que $X$ es compacto. Sea $\mathcal{F}$ una familia de subconjuntos cerrados con la propiedad de la intersección finita. Veamos que $\bigcap \mathcal{F} \ne \emptyset$.
     
     Supongamos por el contrario que $\bigcap \mathcal{F} = \emptyset$. Luego
-    $$X = X - \bigcap \mathcal{F} = X - \left( \bigcap_{C \in \mathcal{F}} C \right) = \left( \bigcap_{C \in \mathcal{F}} C \right)^c = \bigcup_{C \in \mathcal{F}} C^c = \bigcup_{C \in \mathcal{F}} (X - C)$$
+    \[X = X - \bigcap \mathcal{F} = X - \left( \bigcap_{C \in \mathcal{F}} C \right) = \left( \bigcap_{C \in \mathcal{F}} C \right)^c = \bigcup_{C \in \mathcal{F}} C^c = \bigcup_{C \in \mathcal{F}} (X - C)\]
     Consideremos la colección $\mathcal{C} = \{ X - C \mid C \in \mathcal{F} \}$. $\mathcal{C}$ es un cubrimiento abierto para $X$, porque $C$ es cerrado (luego $X - C$ es abierto) y por lo anterior $X = \bigcup_{C \in \mathcal{F}} (X - C)$.
     
     Como $X$ es compacto, este cubrimiento admite un subcubrimiento finito. Es decir, existen finitos $C_1, C_2, \dots, C_k \in \mathcal{F}$ tales que $X = \bigcup_{i=1}^k (X - C_i)$.
     Por lo tanto:
-    $$\emptyset = \left( \bigcup_{i=1}^k (X - C_i) \right)^c = \bigcap_{i=1}^k (X - C_i)^c = \bigcap_{i=1}^k C_i$$
+    \[\emptyset = \left( \bigcup_{i=1}^k (X - C_i) \right)^c = \bigcap_{i=1}^k (X - C_i)^c = \bigcap_{i=1}^k C_i\]
     Esto es una contradicción ($\rightarrow\leftarrow$) porque $\mathcal{F}$ satisface la propiedad de la intersección finita. Luego $\bigcap \mathcal{F} \ne \emptyset$.
 
     \vspace{0.5cm}
@@ -158,11 +164,11 @@
     $(\Leftarrow)$ Supongamos por contradicción que $X$ no es compacto. Sea $\mathcal{C}$ un cubrimiento abierto que no admite un subcubrimiento finito. Considere la familia de cerrados $\mathcal{F} = \{ X - U \mid U \in \mathcal{C} \}$. Veamos que $\mathcal{F}$ satisface la propiedad de la intersección finita. 
     
     Sean $X - U_1, X - U_2, \dots, X - U_k \in \mathcal{F}$. Como $\mathcal{C}$ no admite un subcubrimiento finito, $X \ne \bigcup_{i=1}^k U_i$. Entonces:
-    $$X - \bigcup_{i=1}^k U_i = \left( \bigcup_{i=1}^k U_i \right)^c = \bigcap_{i=1}^k U_i^c = \bigcap_{i=1}^k (X - U_i) \ne \emptyset$$
+    \[X - \bigcup_{i=1}^k U_i = \left( \bigcup_{i=1}^k U_i \right)^c = \bigcap_{i=1}^k U_i^c = \bigcap_{i=1}^k (X - U_i) \ne \emptyset\]
     Luego $\mathcal{F}$ es una familia de subconjuntos cerrados de $X$ con la propiedad de la intersección finita. Por hipótesis $\bigcap \mathcal{F} \ne \emptyset$.
     
     Luego:
-    $$X - \bigcap \mathcal{F} = \left( \bigcap_{U \in \mathcal{C}} (X - U) \right)^c = \bigcup_{U \in \mathcal{C}} (U^c)^c = \bigcup_{U \in \mathcal{C}} U \ne X$$
+    \[X - \bigcap \mathcal{F} = \left( \bigcap_{U \in \mathcal{C}} (X - U) \right)^c = \bigcup_{U \in \mathcal{C}} (U^c)^c = \bigcup_{U \in \mathcal{C}} U \ne X\]
     Esto es una contradicción ($\rightarrow\leftarrow$) porque $\mathcal{C}$ es un cubrimiento para $X$. Luego $X$ es compacto.
 \end{proof}
 
@@ -170,7 +176,7 @@
 
 \begin{definicion}
     Sean $A$ y $B$ subconjuntos de $X$. Definimos la distancia entre $A$ y $B$ como:
-    $$\text{dist}(A, B) = \inf \{ d(x, y) \mid x \in A, y \in B \}$$
+    \[\text{dist}(A, B) = \inf \{ d(x, y) \mid x \in A, y \in B \}\]
 \end{definicion}
 
 \begin{teorema}
@@ -181,35 +187,35 @@
     Sea $\delta = d(A, B)$. Supongamos por contradicción que $d(A, B) = 0$.
     
     \begin{afirmacion}
-        Existe $\{(x_n, y_n)\}_{n \in \mathbb{N}} \subseteq A \times B$ tal que $d(x_n, y_n) \rightarrow \delta$ (converge a $\delta$).
+        Existe $\{(x_n, y_n)\}_{n \in \N} \subseteq A \times B$ tal que $d(x_n, y_n) \rightarrow \delta$ (converge a $\delta$).
     \end{afirmacion}
     
     \begin{prueba}
-    En efecto, para $n \in \mathbb{N}$ usando la caracterización de ínfimo existe $(x_n, y_n)$ con $x_n \in A, y_n \in B$ tal que:
-    $$\delta \le d(x_n, y_n) \le \delta + \frac{1}{n}$$
+    En efecto, para $n \in \N$ usando la caracterización de ínfimo existe $(x_n, y_n)$ con $x_n \in A, y_n \in B$ tal que:
+    \[\delta \le d(x_n, y_n) \le \delta + \frac{1}{n}\]
     Notar que:
-    $$\delta - \frac{1}{n} \le \delta \le d(x_n, y_n) \le \delta + \frac{1}{n} \implies -\frac{1}{n} \le d(x_n, y_n) - \delta \le \frac{1}{n}$$
-    Sea $|d(x_n, y_n) - \delta| \le \frac{1}{n}$. Dado $\epsilon > 0$, existe $N \in \mathbb{N}$ tal que $\frac{1}{N} < \epsilon$. Para $n > N$:
-    $$|d(x_n, y_n) - \delta| \le \frac{1}{n} \le \frac{1}{N} < \epsilon$$
-    Luego $\{d(x_n, y_n)\}_{n \in \mathbb{N}} \subseteq \R$ converge a $\delta$ cuando $n \rightarrow \infty$.
+    \[\delta - \frac{1}{n} \le \delta \le d(x_n, y_n) \le \delta + \frac{1}{n} \implies -\frac{1}{n} \le d(x_n, y_n) - \delta \le \frac{1}{n}\]
+    Sea $|d(x_n, y_n) - \delta| \le \frac{1}{n}$. Dado $\varepsilon > 0$, existe $N \in \N$ tal que $\frac{1}{N} < \varepsilon$. Para $n > N$:
+    \[|d(x_n, y_n) - \delta| \le \frac{1}{n} \le \frac{1}{N} < \varepsilon\]
+    Luego $\{d(x_n, y_n)\}_{n \in \N} \subseteq \R$ converge a $\delta$ cuando $n \rightarrow \infty$.
     \end{prueba}
     
     Como $\delta = d(A, B) = 0$, entonces $d(x_n, y_n) \rightarrow 0$ cuando $n \rightarrow \infty$.
     
-    Como $B$ es compacto, la sucesión $\{y_n\} \subseteq B$ tiene una subsucesión convergente $\{y_{n_k}\}_{k \in \mathbb{N}}$ tal que $y_{n_k} \rightarrow y_0 \in B$.
+    Como $B$ es compacto, la sucesión $\{y_n\} \subseteq B$ tiene una subsucesión convergente $\{y_{n_k}\}_{k \in \N}$ tal que $y_{n_k} \rightarrow y_0 \in B$.
     
     \begin{afirmacion}
-        La sucesión $\{x_{n_k}\}_{k \in \mathbb{N}} \subseteq A$ converge a $y_0$.
+        La sucesión $\{x_{n_k}\}_{k \in \N} \subseteq A$ converge a $y_0$.
     \end{afirmacion}
     
     \begin{prueba}
-    En efecto, sea $\epsilon > 0$. 
+    En efecto, sea $\varepsilon > 0$. 
     \begin{itemize}
-        \item Existe $N_1 \in \mathbb{N}$ tal que $d(y_{n_k}, y_0) < \frac{\epsilon}{2}$ para $\forall k \ge N_1$ (pues $y_{n_k} \rightarrow y_0$ en $B$).
-        \item Existe $N_2 \in \mathbb{N}$ tal que $|d(x_{n_k}, y_{n_k}) - 0| < \frac{\epsilon}{2}$ para $\forall k \ge N_2$ (pues $d(x_n, y_n) \rightarrow 0$).
+        \item Existe $N_1 \in \N$ tal que $d(y_{n_k}, y_0) < \frac{\varepsilon}{2}$ para $\forall k \ge N_1$ (pues $y_{n_k} \rightarrow y_0$ en $B$).
+        \item Existe $N_2 \in \N$ tal que $|d(x_{n_k}, y_{n_k}) - 0| < \frac{\varepsilon}{2}$ para $\forall k \ge N_2$ (pues $d(x_n, y_n) \rightarrow 0$).
     \end{itemize}
     Sea $N = \max\{N_1, N_2\}$. Para $k \ge N$:
-    $$d(x_{n_k}, y_0) \le d(x_{n_k}, y_{n_k}) + d(y_{n_k}, y_0) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$$
+    \[d(x_{n_k}, y_0) \le d(x_{n_k}, y_{n_k}) + d(y_{n_k}, y_0) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\]
     Luego $\{x_{n_k}\} \subseteq A$ converge a $y_0$, es decir $x_{n_k} \rightarrow y_0$.
     \end{prueba}
     

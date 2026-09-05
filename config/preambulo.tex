@@ -10,11 +10,11 @@
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
-
 \usepackage{titlesec}
-
-% Para que cada SUBSECCIÓN inicie en una página nueva:
-\newcommand{\sectionbreak}{\clearpage}
+\usepackage{needspace}
+\titleformat{\section}
+  {\needspace{10\baselineskip}\normalfont\Large\bfseries}
+  {\thesection}{1em}{}
 
 \definecolor{AnalisisBlue}{HTML}{1A237E}
 \definecolor{AnalisisLight}{HTML}{E8EAF6}

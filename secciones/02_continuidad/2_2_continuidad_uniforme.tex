@@ -3,21 +3,21 @@
 
 \begin{remark}
 Sea $f:X\to Y$ una función continua en $A\subseteq X$.
-Si $p\in A$ y $\epsilon>0$, existe $\delta_{p,\epsilon}>0$ (que depende de $p$ y de $\epsilon$)
+Si $p\in A$ y $\varepsilon>0$, existe $\delta_{p,\varepsilon}>0$ (que depende de $p$ y de $\varepsilon$)
 tal que
 \[
-d_Y(f(p),f(x))<\epsilon \quad \text{si } x\in B_X(p,\delta_{p,\epsilon})\cap A.
+d_Y(f(p),f(x))<\varepsilon \quad \text{si } x\in B_X(p,\delta_{p,\varepsilon})\cap A.
 \]
 \end{remark}
 
 \begin{definicion}[Continuidad uniforme]
-Sea $f:X\to Y$. Decimos que $f$ es uniformemente continua en $A\subseteq X$ si para todo $\epsilon>0$ existe $\delta_\epsilon>0$ (depende sólo de $\epsilon$) tal que para todo $x,y\in A$, si
+Sea $f:X\to Y$. Decimos que $f$ es uniformemente continua en $A\subseteq X$ si para todo $\varepsilon>0$ existe $\delta_\varepsilon>0$ (depende sólo de $\varepsilon$) tal que para todo $x,y\in A$, si
 \[
-d_X(x,y)<\delta_\epsilon,
+d_X(x,y)<\delta_\varepsilon,
 \]
 entonces
 \[
-d_Y(f(x),f(y))<\epsilon.
+d_Y(f(x),f(y))<\varepsilon.
 \]
 \end{definicion}
 
@@ -26,11 +26,11 @@ Si $f$ es uniformemente continua en $A$, entonces $f$ es continua en $A$.
 \end{remark}
 
 \begin{proof}
-Sea $\epsilon>0$. Como $f$ es uniformemente continua en $A$, existe $\delta>0$ tal que para todo $x,y\in A$, si $d_X(x,y)<\delta$, entonces $d_Y(f(x),f(y))<\epsilon$.
+Sea $\varepsilon>0$. Como $f$ es uniformemente continua en $A$, existe $\delta>0$ tal que para todo $x,y\in A$, si $d_X(x,y)<\delta$, entonces $d_Y(f(x),f(y))<\varepsilon$.
 
 Fijado $p\in A$, tomando $y=p$, se obtiene que para todo $x\in A$, si $d_X(x,p)<\delta$, entonces
 \[
-d_Y(f(x),f(p))<\epsilon.
+d_Y(f(x),f(p))<\varepsilon.
 \]
 Luego $f$ es continua en $p$, y como $p$ fue arbitrario, $f$ es continua en $A$.
 \end{proof}
@@ -38,16 +38,16 @@ Luego $f$ es continua en $p$, y como $p$ fue arbitrario, $f$ es continua en $A$.
 \begin{example}
 La función $f(x)=x$ es uniformemente continua en $\R$.
 
-En efecto, dado $\epsilon>0$, tomando $\delta=\epsilon$, si $|x-y|<\delta$ entonces
+En efecto, dado $\varepsilon>0$, tomando $\delta=\varepsilon$, si $|x-y|<\delta$ entonces
 \[
-|f(x)-f(y)|=|x-y|<\epsilon.
+|f(x)-f(y)|=|x-y|<\varepsilon.
 \]
 \end{example}
 
 \begin{example}
 La función $f(x)=x^2$ no es uniformemente continua en $\R$.
 
-Supongamos que sí lo es. Con $\epsilon=1$, existe $\delta>0$ tal que para todo $x,y\in\R$, si $|x-y|<\delta$ entonces $|f(x)-f(y)|<1$.
+Supongamos que sí lo es. Con $\varepsilon=1$, existe $\delta>0$ tal que para todo $x,y\in\R$, si $|x-y|<\delta$ entonces $|f(x)-f(y)|<1$.
 
 Escogemos $n\in\N$ tal que
 \[
@@ -69,9 +69,9 @@ Sea $f:X\to Y$ una función. Si $A\subseteq X$ es compacto y $f$ es continua en 
 \end{teorema}
 
 \begin{proof}
-Sea $\epsilon>0$. Como $f$ es continua en $A$, para cada $p\in A$ existe $\delta_p>0$ tal que
+Sea $\varepsilon>0$. Como $f$ es continua en $A$, para cada $p\in A$ existe $\delta_p>0$ tal que
 \[
-x\in B_X(p,\delta_p)\cap A \implies d_Y(f(p),f(x))<\frac{\epsilon}{2}.
+x\in B_X(p,\delta_p)\cap A \implies d_Y(f(p),f(x))<\frac{\varepsilon}{2}.
 \]
 
 La familia
@@ -99,7 +99,7 @@ así que $y\in B_X(p_j,\delta_{p_j})$.
 
 Por tanto,
 \[
-d_Y(f(x),f(y))\le d_Y(f(x),f(p_j))+d_Y(f(y),f(p_j))<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
+d_Y(f(x),f(y))\le d_Y(f(x),f(p_j))+d_Y(f(y),f(p_j))<\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
 \]
 Concluimos que $f$ es uniformemente continua en $A$.
 \end{proof}

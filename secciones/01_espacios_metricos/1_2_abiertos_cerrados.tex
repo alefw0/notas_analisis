@@ -17,7 +17,7 @@ A lo largo de esta sección $(X,d)$ denotará un espacio métrico, a menos que s
     \end{teorema}
     \begin{proof}
     Sea $B(p, r)$ una bola en $X$, veamos que éste es un conjunto abierto.  Sea $a\in B(p, r).$ Entonces $d(p,a)<r$. Sea $\varepsilon=r-d(p,a)$, el cual es un número positivo. Veamos que $B(a,\varepsilon)\subseteq B(p,r).$ Sea $x\in B(a,\varepsilon).$ Entonces $d(a,x)<\varepsilon.$ Por tanto
-    $$d(p,x)\leq d(p,a)+d(a,x)<d(p,a)+\varepsilon=r.$$
+    \[d(p,x)\leq d(p,a)+d(a,x)<d(p,a)+\varepsilon=r.\]
 Esto es, $x\in B(p,r)$.
 \end{proof}
 
@@ -51,7 +51,7 @@ Como cada intervalo de la forma $(-n,a)$ y $(a,n)$ es un abierto, entonces por e
 
 El siguiente ejemplo nos demuestra que si quitamos la condición de finitud de la colección $\mathcal{C}$ en la segunda afirmación del Teorema anterior el resultado puede fallar.
 \begin{example}
-Sea $\mathcal{C}= \left\{ B(0, \frac{1}{n})\subseteq \R: \ \ n\in \ene\right\}$. Entonces, $\bigcap_{A\in \mathcal{C}}A=\{0\}$, el cual no es abierto, ya que $0$ no es punto interior de $\{0\}.$
+Sea $\mathcal{C}= \left\{ B(0, \frac{1}{n})\subseteq \R: \ \ n\in \N\right\}$. Entonces, $\bigcap_{A\in \mathcal{C}}A=\{0\}$, el cual no es abierto, ya que $0$ no es punto interior de $\{0\}.$
 \end{example}
 
 \begin{teorema}\label{ab-cerr-subesp}

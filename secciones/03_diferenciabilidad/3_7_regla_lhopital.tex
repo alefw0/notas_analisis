@@ -1,63 +1,78 @@
-\section{Regla de L'Hopital}
+\section{Regla de L'Hôpital}
+
 \begin{teorema}
-Sean $\displaystyle f$ y $\displaystyle g$ funciones con valores reales y derivables en un intervalo abierto $\displaystyle I=( a,b)$, supongamos  que $\displaystyle \lim _{x\to a+} f( x) =\lim _{x\to a+} g( x) =0$ y  $\displaystyle \lim _{x\to a+}\frac{f'( x)}{g'( x)}$ existe. Entonces el limite $\displaystyle \lim _{x\to a+}\frac{f( x)}{g( x)}$ existe. Más aun, 
+Sean $f$ y $g$ funciones con valores reales, derivables en un intervalo abierto $I=(a,b)$, tales que $g'(x)\neq 0$ para todo $x\in(a,b)$. Supongamos que $\lim_{x\to a+} f(x)=\lim_{x\to a+} g(x)=0$ y que $\lim_{x\to a+}\frac{f'(x)}{g'(x)}$ existe. Entonces el límite $\lim_{x\to a+}\frac{f(x)}{g(x)}$ existe. Más aún,
 \begin{equation}
-\lim _{x\to a+}\frac{f'( x)}{g'( x)} =\lim _{x\to a+}\frac{f( x)}{g( x)}
+\lim _{x\to a+}\frac{f'( x)}{g'( x)} =\lim _{x\to a+}\frac{f( x)}{g( x)}.
 \end{equation}
- \end{teorema}
- 
- \begin{prueba}
-    Extendemos la definición de $\displaystyle f$ y $\displaystyle g$ hasta el punto $\displaystyle a$ al poner $\displaystyle f( a) =g( a) =0$; estas funciónes son continuas en el intervalo $\displaystyle [ a,b)$. Continuidad en todo $\displaystyle x\in [ a,b)$ se sigue de la derivabilidad y continuidad por la derecha en $\displaystyle a$ se mantiene ya que 
-    $\displaystyle \ \lim _{x\to a+} f( x) =\lim _{x\to a+} g( x) =0$.
-    Dado que  $\displaystyle \lim _{x\to a+}\frac{f'( x)}{g'( x)} =L$, tomando  $\displaystyle \epsilon  >0$ arbitrario y existe $\displaystyle \delta $, con $\displaystyle 0< \delta < b-a$ (para que $\displaystyle ( a,a+\delta ) \subset ( a,b))$ tal que $\displaystyle \left| \frac{f'( t)}{g'( t)} -L\right| < \epsilon $ y $g'( t) \neq 0$,  para todo $\displaystyle t\in ( a,a+\delta )$. Por el teorema del valor medio generalizado tenemos que existe $\displaystyle \xi \in ( a,x)$ tal que:
+\end{teorema}
+
+\begin{prueba}
+    Extendemos la definición de $f$ y $g$ hasta el punto $a$ al poner $f(a)=g(a)=0$. Extendidas así, estas funciones son continuas en el intervalo $[a,b)$: la continuidad en todo $x\in(a,b)$ se sigue de la derivabilidad, y la continuidad por la derecha en $a$ se mantiene ya que $\lim_{x\to a+} f(x)=\lim_{x\to a+} g(x)=0$.
+
+    Sea $L=\lim_{x\to a+}\frac{f'(x)}{g'(x)}$. Dado $\varepsilon>0$, existe $\delta>0$, con $\delta < b-a$ (para que $(a,a+\delta)\subset(a,b)$), tal que
+    \[
+    \left| \frac{f'( t)}{g'( t)} -L\right| < \varepsilon
+    \]
+    para todo $t\in ( a,a+\delta )$.
+
+    Sea $x\in(a,a+\delta)$. Por el teorema del valor medio generalizado aplicado a $f$ y $g$ en $[a,x]$, existe $\xi \in ( a,x)$ tal que
     \begin{equation}
-\frac{f( x)}{g( x)} =\frac{f( x) -f( a)}{g( x) -g( a)} =\frac{f'( \xi )}{g'( \xi )} .
-\end{equation}
+    \frac{f( x)}{g( x)} =\frac{f( x) -f( a)}{g( x) -g( a)} =\frac{f'( \xi )}{g'( \xi )}.
+    \end{equation}
+    En efecto: la primera igualdad se cumple porque, tras la extensión, $f(a)=g(a)=0$ (nótese que $g(x)\neq 0$; si $g(x)=0$, el teorema de Rolle aplicado a $g$ en $[a,x]$ produciría un punto de $(a,x)$ con derivada nula, contradiciendo que $g'\neq 0$ en $(a,b)$); y la segunda igualdad es la conclusión del teorema del valor medio generalizado. Por lo tanto, como $\xi\in(a,x)\subset(a,a+\delta)$,
+    \[
+    \left| \frac{f( x)}{g( x)} -L\right| =\left| \frac{f'( \xi )}{g'( \xi )} -L\right| < \varepsilon.
+    \]
+    Como $\varepsilon>0$ es arbitrario, entonces $\lim_{x\to a+}\frac{f( x)}{g( x)} =L$.
+\end{prueba}
 
-En efecto, la primera igualdad es verdadera ya que por hipótesis $\displaystyle \ f( a) =g( a) =0$. Por lo tanto:
-\begin{equation*}
-    \left| \frac{f( x)}{g( x)} -L\right| =\left| \frac{f'( \xi )}{g'( \xi )} -L\right| < \epsilon .
-\end{equation*}
-Como $\displaystyle \epsilon  >0$ es arbitrario entonces $\displaystyle \lim _{x\to a+}\frac{f( x)}{g( x)} =L$.
-
- \end{prueba}
-
- 
- \begin{remark}
-     El resultado anteior también es verdad:
+\begin{remark}
+     El resultado anterior también es verdadero:
      \begin{itemize}
-         \item i $\displaystyle \lim _{x\to a+} f( x)$ y $\displaystyle \lim _{x\to a+} g( x)$ son ambos $\displaystyle \pm \infty $ en lugar de 0.  
-         \item Si los limites se toman en $\displaystyle +\infty $ en vez de $\displaystyle a^+$. En este caso $\displaystyle I\ =\ ( b,+\infty )$.
-         \item Si los limites se toman en $\displaystyle -\infty $ en vez de $\displaystyle a^+$. En este caso $\displaystyle I\ =\ ( -\infty,a )$.
-         \end{itemize}
- \end{remark}
- \begin{prueba}Caso: Si $\displaystyle \lim _{x\to a+} f( x)=\pm \infty$ y $\displaystyle \lim _{x\to a+} g( x)=+ \infty$.
-     Por hipótesis $\displaystyle \lim _{x\to a+}\frac{f'( x)}{g'( x)} =L$ es decir, para todo $\displaystyle \epsilon  >0$, existe un $\displaystyle \delta _{1}  >0$ tal que si $\displaystyle a< x< a+ \delta _{1}$ entonces $\displaystyle \left| \frac{f'( x)}{g'( x)} -L\right| < \epsilon $, en si $\displaystyle L-\frac{\epsilon }{2} < \frac{f'( x)}{g'( x)} < L+\frac{\epsilon }{2}$.
-     Decimos que $\displaystyle d=a+\delta _{1}$, en si, $\displaystyle a< x< d< b$, y como $\displaystyle f,g$ son derivables en $\displaystyle ( a,b)$ entonces $\displaystyle f,g$ son derivables en $\displaystyle [ x,d]$. Que por teorema nos dice que $\displaystyle f,g$ es continua en $\displaystyle [ x,d]$.
+         \item Si $\lim_{x\to a+} f( x)$ y $\lim_{x\to a+} g( x)$ son ambos $\pm \infty$ en lugar de $0$.
+         \item Si los límites se toman en $+\infty$ en vez de $a^+$. En este caso $I = ( b,+\infty )$.
+         \item Si los límites se toman en $-\infty$ en vez de $a^+$. En este caso $I = ( -\infty,a )$.
+     \end{itemize}
+\end{remark}
 
-Por teorema del valor medio de Cauchy. existe $\displaystyle \xi \in [ x,d]$ tal que $\displaystyle \frac{f'( \xi )}{g'( \xi )} =\frac{f( d) -f( x)}{g( d) -g( x)}$ y como $\displaystyle [ x,d] \subset ( a,b)$ entonces 	$\displaystyle \xi \in ( a,b)$ y haciendo uso de la hipotesis $\displaystyle L-\frac{\epsilon }{2} < \frac{f'( \xi )}{g'( \xi )} < L+\frac{\epsilon }{2}$ y por teorema del valor medio de Cauchy se tiene que  $\displaystyle L-\frac{\epsilon }{2} < \frac{f( d) -f( x)}{g( d) -g( x)} < L+\frac{\epsilon }{2}$ siendo $\displaystyle d=a+\delta _{1}$.
-Nota: como $\displaystyle \lim _{x\to a+} g( x) =+\infty $, entonces se tiene que, para todo $\displaystyle \epsilon ' >0$, existe $\displaystyle \delta _{1}  >0$ tal que $\displaystyle a< x< a+\delta _{2}$ entonces $\displaystyle g( x)  >\epsilon '$ en si para cierto $\displaystyle \delta _{2} ,\ g( x)  >g( d) \ \land \ f( x)  >f( d)$.
-
-Multiplicando por $\displaystyle \frac{g( x) -g( d)}{g( x)}$ obtenemos:
-\begin{equation*}
-    \left( L-\frac{\epsilon }{2}\right)\left(\frac{g( x) -g( d)}{g( x)}\right) < \frac{f( x) -f( d)}{g( x)} < \left( L+\frac{\epsilon }{2}\right)\left(\frac{g( x) -g( d)}{g( x)}\right)
-\end{equation*}
-adicionamos $\displaystyle \frac{f( d)}{g( x)}$ y restamos $\displaystyle \frac{f( d)}{g( x)}$
-\begin{equation*}
-    \left( L-\frac{\epsilon }{2}\right)\left(\frac{g( x) -g( d)}{g( x)}\right) -\frac{f( d)}{g( x)} < \frac{f( x) -f( d)}{g( x)} < \left( Lg( x) -Lg( d) +\frac{\epsilon }{2} g( x) -\frac{\epsilon }{2} g( d)\right)\frac{1}{g( x)} +\frac{f( d)}{g( x)}
-\end{equation*}
-\begin{equation*}
-    L-\frac{\epsilon }{2} +\frac{Lg( d) +\frac{\epsilon }{2} g( d) -f( d)}{g( x)} < \frac{f( x)}{g( x)} < L+\frac{\epsilon }{2} +\frac{f( d) -Lg( d) -\frac{\epsilon }{2} g( d)}{g( x)}
-\end{equation*}
-sea $\displaystyle A=\frac{Lg( d) +\frac{\epsilon }{2} g( d) -f( d)}{g( x)}$ y $\displaystyle B=\frac{f( d) -Lg( d) -\frac{\epsilon }{2} g( d)}{g( x)}$, decimos que $\displaystyle M=max\{| A| ,| B| \}$, entonces:
-\begin{equation*}
-    \left| \frac{f( x)}{g( x)} -L\right| < \frac{\epsilon }{2} +\frac{M}{| g( x)| }
-\end{equation*}
-Decimos $\displaystyle \delta _{m} =min\{\delta _{1} ,\delta _{2} ,\delta _{3}\}$ si $\displaystyle x\in ( a,a+\delta _{m})$ entonces $\displaystyle a< x< a+\delta _{m}$ implica que $\displaystyle x< a+\delta _{1} \land x< a+\delta _{2} < \land x< a+\delta _{3}$ por lo que las condiciones se cumplen de cada $\displaystyle \delta $ respectiva.
-
-Para $\displaystyle \epsilon  >0$, existe $\displaystyle \delta _{m}  >0$ tal que si $\displaystyle a< x< a+\delta _{m}$ entonces:
-\begin{equation*}
-    \left| \frac{f( x)}{g( x)} -L\right| < \frac{\epsilon }{2} +\frac{M}{| g( x)| } < \frac{\epsilon }{2} +\frac{\epsilon }{2} =\epsilon 
-\end{equation*}
-$\displaystyle \left| \frac{f( x)}{g( x)} -L\right| < \epsilon $ en si $\displaystyle \lim _{x\to a+}\frac{f( x)}{g( x)} =L.$ 
- \end{prueba}
+\begin{prueba}
+    \textbf{Caso $\lim_{x\to a+} f( x)=\pm\infty$ y $\lim_{x\to a+} g( x)=+ \infty$.}
+    Por hipótesis $\lim_{x\to a+}\frac{f'( x)}{g'( x)} =L$; es decir, para todo $\varepsilon > 0$ existe $\delta_{1} > 0$ tal que si $a< x< a+ \delta_{1}$ entonces
+    \[
+    L-\frac{\varepsilon }{2} < \frac{f'( x)}{g'( x)} < L+\frac{\varepsilon }{2}.
+    \]
+    Fijemos un punto $d$ con $a< d< a+\delta_{1}$. Como $f$ y $g$ son derivables en $(a,b)$, son continuas en $[x,d]$ y derivables en $(x,d)$ para cualesquiera $a< x< d$. Por el teorema del valor medio generalizado de Cauchy, existe $\xi \in ( x,d)$ tal que
+    \[
+    \frac{f'( \xi )}{g'( \xi )} =\frac{f( d) -f( x)}{g( d) -g( x)},
+    \]
+    y, como $\xi \in (x,d) \subset ( a,a+ \delta _{1})$, se tiene
+    \[
+    L-\frac{\varepsilon }{2} < \frac{f( d) -f( x)}{g( d) -g( x)} < L+\frac{\varepsilon }{2}.
+    \]
+    Como $\lim_{x\to a+} g( x) =+ \infty$, existe $\delta_{2} > 0$ tal que si $a< x< a+ \delta _{2}$ entonces $g( x) > g( d)$ y $g( x) > 0$; en particular, el factor $\frac{g( x) -g( d)}{g( x)}$ es positivo. Multiplicando por $\frac{g( x) -g( d)}{g( x)}$ la desigualdad anterior (y observando que $\frac{f( d) -f( x)}{g( d) -g( x)}=\frac{f( x) -f( d)}{g( x) -g( d)}$) obtenemos:
+    \begin{equation*}
+    \left( L-\frac{\varepsilon }{2}\right)\left(\frac{g( x) -g( d)}{g( x)}\right) < \frac{f( x) -f( d)}{g( x)} < \left( L+\frac{\varepsilon }{2}\right)\left(\frac{g( x) -g( d)}{g( x)}\right).
+    \end{equation*}
+    Adicionando $\frac{f( d)}{g( x)}$ a los tres miembros, y usando que $\frac{f( x) -f( d)}{g( x)}+\frac{f( d)}{g( x)}=\frac{f( x)}{g( x)}$:
+    \begin{equation*}
+    L-\frac{\varepsilon }{2} +\frac{f( d) -Lg( d) +\frac{\varepsilon }{2} g( d)}{g( x)} < \frac{f( x)}{g( x)} < L+\frac{\varepsilon }{2} +\frac{f( d) -Lg( d) -\frac{\varepsilon }{2} g( d)}{g( x)}.
+    \end{equation*}
+    Sea
+    \[
+    C_1=f( d) -Lg( d) +\frac{\varepsilon }{2} g( d),
+    \qquad
+    C_2=f( d) -Lg( d) -\frac{\varepsilon }{2} g( d),
+    \qquad
+    M=\max\{| C_1| ,| C_2| \},
+    \]
+    que es una constante que no depende de $x$. Entonces, para $a< x< a+\delta _{2}$:
+    \begin{equation*}
+    \left| \frac{f( x)}{g( x)} -L\right| < \frac{\varepsilon }{2} +\frac{M}{| g( x)| }.
+    \end{equation*}
+    Como $g( x) \to +\infty$ cuando $x\to a+$, existe $\delta _{3} > 0$ tal que si $a< x< a+ \delta _{3}$ entonces $\frac{M}{| g( x)| } < \frac{\varepsilon }{2}$. Sea $\delta _{m} =\min\{\delta _{2} ,\delta _{3} ,\, d-a\}$. Si $a< x< a+\delta _{m}$ entonces, en particular, $x< d$, de modo que el teorema del valor medio de Cauchy se aplica en $[x,d]$ y todas las condiciones anteriores se cumplen; por lo tanto
+    \[
+    \left| \frac{f( x)}{g( x)} -L\right| < \frac{\varepsilon }{2} +\frac{\varepsilon }{2} =\varepsilon.
+    \]
+    Es decir, $\lim _{x\to a+}\frac{f( x)}{g( x)} =L$.
+\end{prueba}

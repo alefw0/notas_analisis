@@ -18,7 +18,7 @@ En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. 
     \item Establezca la convergencia o divergencia de la sucesión
     \[ a_1 = 1, \quad a_2 = 1 + \frac{1}{2}, \quad a_3 = 1 + \frac{1}{2 + \frac{1}{2}}, \quad a_4 = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}, \dots \]
     
-    \item Establezca la convergencia o divergencia de la sucesión $\{x_n\}$ en $\R$ o $\R^2$ definida para $n \in \Z^+$ como:
+    \item Establezca la convergencia o divergencia de la sucesión $\{x_n\}$ en $\R$ o $\R^2$ definida para $n \in \N$ como:
     \begin{enumerate}
         \item[a)] $x_n = \frac{1}{n}$.
         \item[b)] $x_n = 1 + \frac{(-1)^n}{n}$.
@@ -32,13 +32,7 @@ En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. 
     \item Sea $(X, d)$ el espacio métrico discreto. Una sucesión $\{x_n\}$ en $X$ converge si y sólo si es eventualmente constante.
     
     \item Muestre que la sucesión $\{\frac{1}{n}\}$ no converge en el intervalo $(0, 1]$ con la métrica relativa.
-\end{enumerate}
 
-\vspace{0.5cm}
-En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente.
-
-\begin{enumerate}
-    \setcounter{enumi}{0}
     \item Construya una sucesión divergente que admita una subsucesión convergente.
     
     \item Si $0 \leq a \leq 1$, entonces la sucesión $\{a^n\}$ converge en $\R$ con la métrica usual. Sugerencia: Si $0 < a < 1$, escriba $a = \frac{1}{1+b}$, donde $b > 0$ y usando el teorema del binomio pruebe que $(1 + b)^n > 1 + nb$.
@@ -94,13 +88,7 @@ En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. 
     \item Demuestre que $X$ y $\emptyset$ son ambos, abiertos y cerrados a la vez. Demuestre también que en $\R$, $\R$ y $\emptyset$ son los únicos subconjuntos que son a la vez abiertos y cerrados.
     
     \item Si $B \subseteq A \subseteq X$, entonces $B$ es cerrado en $(A, d_A)$ si y sólo si $B = A \cap F$ donde $F$ es algún cerrado en $(X, d)$.
-\end{enumerate}
 
-\vspace{0.5cm}
-En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente.
-
-\begin{enumerate}
-    \setcounter{enumi}{0}
     \item Sea $(X, d)$ el espacio métrico discreto. Muestre que $A \subseteq X$ es compacto si y sólo si $A$ es finito.
     
     \item Pruebe que $\R$ no es compacto.
@@ -132,44 +120,42 @@ En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. 
     \end{enumerate}
 \end{enumerate}
 
-\vspace{0.5cm}
-En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente. Tenga en cuenta las siguientes definiciones:
 
-\begin{definicion}
-Sean $A$ un subespacio de $X$ y $\mathcal{C}$ una familia de subconjuntos de $X$.
-\begin{enumerate}
-    \item $\mathcal{C}$ se llama un \textit{cubrimiento} de $A$ si $A \subseteq \bigcup \mathcal{C}$.
-    \item Si todos los elementos de un cubrimiento $\mathcal{C}$ son abiertos de $X$ entonces decimos que éste es un \textit{cubrimiento abierto} de $A$.
-    \item Sea $\mathcal{C}$ un cubrimiento de $A$. Entonces una subcolección $\mathcal{C}'$ de $\mathcal{C}$ se llama un \textit{subcubrimiento} si $\mathcal{C}'$ es un cubrimiento de $A$.
-\end{enumerate}
-\end{definicion}
 
-\begin{definicion}
-Sea $A \subseteq X$.
-\begin{enumerate}
-    \item La \textit{clausura} de $A$ es $\overline{A} := A \cup A'$.
-    \item Decimos que $A$ es \textit{denso} en $X$ si $\overline{A} = X$.
-\end{enumerate}
-\end{definicion}
+    \begin{definicion}
+    Sean $A$ un subespacio de $X$ y $\mathcal{C}$ una familia de subconjuntos de $X$.
+    \begin{enumerate}
+        \item $\mathcal{C}$ se llama un \textit{cubrimiento} de $A$ si $A \subseteq \bigcup \mathcal{C}$.
+        \item Si todos los elementos de un cubrimiento $\mathcal{C}$ son abiertos de $X$ entonces decimos que éste es un \textit{cubrimiento abierto} de $A$.
+        \item Sea $\mathcal{C}$ un cubrimiento de $A$. Entonces una subcolección $\mathcal{C}'$ de $\mathcal{C}$ se llama un \textit{subcubrimiento} si $\mathcal{C}'$ es un cubrimiento de $A$.
+    \end{enumerate}
+    \end{definicion}
 
-\begin{definicion}
-Se dice que un espacio métrico es \textit{separable} si contiene un subconjunto denso numerable.
-\end{definicion}
+    \begin{definicion}
+    Sea $A \subseteq X$.
+    \begin{enumerate}
+        \item La \textit{clausura} de $A$ es $\overline{A} := A \cup A'$.
+        \item Decimos que $A$ es \textit{denso} en $X$ si $\overline{A} = X$.
+    \end{enumerate}
+    \end{definicion}
 
-\begin{definicion}
-Sea $\mathcal{T}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{T}$ tiene la \textit{propiedad de la intersección finita} si toda subfamilia finita de $\mathcal{T}$ tiene intersección no vacía.
-\end{definicion}
+    \begin{definicion}
+    Se dice que un espacio métrico es \textit{separable} si contiene un subconjunto denso numerable.
+    \end{definicion}
 
-\begin{definicion}
-Sean $A$ y $B$ subconjuntos de $X$. Definimos la \textit{distancia} entre $A$ y $B$ como
-\[ \text{dist}(A, B) = \inf\{d(x, y) \mid x \in A, y \in B\}. \]
-Cuando $A = \{a\}$ es un conjunto singular, escribiremos simplemente $d(a, B)$ en lugar de $d(\{a\}, B)$.
-\end{definicion}
+    \begin{definicion}
+    Sea $\mathcal{T}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{T}$ tiene la \textit{propiedad de la intersección finita} si toda subfamilia finita de $\mathcal{T}$ tiene intersección no vacía.
+    \end{definicion}
+
+    \begin{definicion}
+    Sean $A$ y $B$ subconjuntos de $X$. Definimos la \textit{distancia} entre $A$ y $B$ como
+    \[ \text{dist}(A, B) = \inf\{d(x, y) \mid x \in A, y \in B\}. \]
+    Cuando $A = \{a\}$ es un conjunto singular, escribiremos simplemente $d(a, B)$ en lugar de $d(\{a\}, B)$.
+    \end{definicion}
 
 Probar:
-
 \begin{enumerate}
-    \setcounter{enumi}{0}
+    \setcounter{enumi}{41}
     \item $\Q$ es denso en $\R$.
     
     \item $\R$ es separable.

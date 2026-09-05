@@ -12,9 +12,9 @@ Una sucesión de funciones en $A$ es una aplicación
 
 \begin{definicion}[Convergencia puntual]
 Sea $\{f_n\}\subset \mathcal{F}(A,Y)$ y sea $S\subseteq A$.
-Decimos que $f_n$ converge puntualmente en $S$ a $f\in \mathcal{F}(A,Y)$ si para todo $x\in S$ y todo $\epsilon>0$ existe $N\in\N$ (que depende de $x$ y de $\epsilon$) tal que
+Decimos que $f_n$ converge puntualmente en $S$ a $f\in \mathcal{F}(A,Y)$ si para todo $x\in S$ y todo $\varepsilon>0$ existe $N\in\N$ (que depende de $x$ y de $\varepsilon$) tal que
 \[
-n\ge N \implies d_Y(f_n(x),f(x))<\epsilon.
+n\ge N \implies d_Y(f_n(x),f(x))<\varepsilon.
 \]
 Equivalente: para todo $x\in S$, se tiene
 \[
@@ -40,9 +40,9 @@ Cada $f_n$ es continua en $\R$, pero $f$ es discontinua en $x=1$ y $x=-1$.
 
 \begin{definicion}[Convergencia uniforme]
 Sea $\{f_n\}\subset \mathcal{F}(A,Y)$ y sea $S\subseteq A$.
-Decimos que $f_n$ converge uniformemente en $S$ a $f\in \mathcal{F}(A,Y)$ si para todo $\epsilon>0$ existe $N\in\N$ (que depende solo de $\epsilon$) tal que
+Decimos que $f_n$ converge uniformemente en $S$ a $f\in \mathcal{F}(A,Y)$ si para todo $\varepsilon>0$ existe $N\in\N$ (que depende solo de $\varepsilon$) tal que
 \[
-n\ge N \implies d_Y(f_n(x),f(x))<\epsilon\quad \text{para todo }x\in S.
+n\ge N \implies d_Y(f_n(x),f(x))<\varepsilon\quad \text{para todo }x\in S.
 \]
 \end{definicion}
 
@@ -63,18 +63,18 @@ En particular,
 Si $c$ es aislado en $S$, el resultado es inmediato.
 Supongamos que $c$ es punto de acumulación de $S$.
 
-Sea $\epsilon>0$. Por convergencia uniforme, existe $M\in\N$ tal que
+Sea $\varepsilon>0$. Por convergencia uniforme, existe $M\in\N$ tal que
 \[
-d_Y(f_M(x),f(x))<\frac\epsilon3\quad \text{para todo }x\in S,
+d_Y(f_M(x),f(x))<\frac{\varepsilon}{3}\quad \text{para todo }x\in S,
 \]
 y también
 \[
-d_Y(f_M(c),f(c))<\frac\epsilon3.
+d_Y(f_M(c),f(c))<\frac{\varepsilon}{3}.
 \]
 
 Como $f_M$ es continua en $c$, existe $\delta>0$ tal que si $x\in B_X(c,\delta)\cap S$, entonces
 \[
-d_Y(f_M(x),f_M(c))<\frac\epsilon3.
+d_Y(f_M(x),f_M(c))<\frac{\varepsilon}{3}.
 \]
 
 Por desigualdad triangular, para $x\in B_X(c,\delta)\cap S$:
@@ -82,7 +82,7 @@ Por desigualdad triangular, para $x\in B_X(c,\delta)\cap S$:
 \begin{aligned}
 d_Y(f(x),f(c))
 &\le d_Y(f(x),f_M(x))+d_Y(f_M(x),f_M(c))+d_Y(f_M(c),f(c))\\
-&<\frac\epsilon3+\frac\epsilon3+\frac\epsilon3=\epsilon.
+&<\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon.
 \end{aligned}
 \]
 Luego $f$ es continua en $c$.
@@ -104,9 +104,9 @@ y en general $\lim_{n\to\infty}f_n'(x)$ no existe.
 \begin{teorema}[Criterio de Cauchy para convergencia uniforme]
 Sea $\{f_n\}\subset \mathcal{F}(S,Y)$, con $Y$ completo.
 Existe $f$ tal que $f_n\to f$ uniformemente en $S$ si y solo si:
-para todo $\epsilon>0$ existe $N\in\N$ tal que
+para todo $\varepsilon>0$ existe $N\in\N$ tal que
 \[
-m,n\ge N \implies d_Y(f_m(x),f_n(x))<\epsilon\quad \text{para todo }x\in S.
+m,n\ge N \implies d_Y(f_m(x),f_n(x))<\varepsilon\quad \text{para todo }x\in S.
 \]
 \end{teorema}
 

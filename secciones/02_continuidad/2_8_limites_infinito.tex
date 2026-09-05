@@ -22,8 +22,8 @@ En efecto, dado $M>0$, si tomamos $\delta=\frac{1}{\sqrt{M}}$, entonces
 \begin{definicion}[Límites en el infinito]
 Sea $f:\R\to\R$.
 \begin{enumerate}
-    \item $\lim_{x\to\infty}f(x)=L$ si para todo $\epsilon>0$ existe $M>0$ tal que $x>M$ implica $|f(x)-L|<\epsilon$.
-    \item $\lim_{x\to-\infty}f(x)=L$ si para todo $\epsilon>0$ existe $M>0$ tal que $x<-M$ implica $|f(x)-L|<\epsilon$.
+    \item $\lim_{x\to\infty}f(x)=L$ si para todo $\varepsilon>0$ existe $M>0$ tal que $x>M$ implica $|f(x)-L|<\varepsilon$.
+    \item $\lim_{x\to-\infty}f(x)=L$ si para todo $\varepsilon>0$ existe $M>0$ tal que $x<-M$ implica $|f(x)-L|<\varepsilon$.
 \end{enumerate}
 \end{definicion}
 
@@ -36,12 +36,14 @@ si y sólo si para toda sucesión $\{x_n\}\subseteq\R$ con $x_n\to\infty$, se cu
 
 \begin{proof}
     ($\implies$) Supongamos $\lim_{x\to\infty}f(x)=L$ y sea $x_n\to\infty$.
-    Dado $\epsilon>0$, existe $M>0$ tal que $x>M$ implica $|f(x)-L|<\epsilon$.
+    Dado $\varepsilon>0$, existe $M>0$ tal que $x>M$ implica $|f(x)-L|<\varepsilon$.
     Como $x_n\to\infty$, existe $N$ tal que $n\ge N$ implica $x_n>M$.
-    Entonces $|f(x_n)-L|<\epsilon$ para todo $n\ge N$, y por tanto $f(x_n)\to L$.
+    Entonces $|f(x_n)-L|<\varepsilon$ para todo $n\ge N$, y por tanto $f(x_n)\to L$.
 
     ($\impliedby$) Supongamos que para toda sucesión $x_n\to\infty$ se tiene $f(x_n)\to L$, y neguemos $\lim_{x\to\infty}f(x)=L$.
-    Entonces existe $\epsilon_0>0$ tal que para todo $M>0$ existe $x>M$ con $|f(x)-L|\ge\epsilon_0$.
-    Tomando $M=n$, obtenemos una sucesión $x_n>n$ con $|f(x_n)-L|\ge\epsilon_0$ para todo $n$.
+    Entonces existe $\varepsilon_0>0$ tal que para todo $M>0$ existe $x>M$ con $|f(x)-L|\ge\varepsilon_0$.
+    Tomando $M=n$, obtenemos una sucesión $x_n>n$ con $|f(x_n)-L|\ge\varepsilon_0$ para todo $n$.
     Así $x_n\to\infty$, pero $f(x_n)$ no puede converger a $L$, contradicción.
 \end{proof}
+
+\newpage

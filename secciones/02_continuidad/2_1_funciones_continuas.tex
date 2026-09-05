@@ -4,31 +4,31 @@
 En esta sección, $(X,d_X)$ y $(Y,d_Y)$ son espacios métricos.
 
 \begin{definicion}[Continuidad en un punto]
-Sea $f:A\to Y$. Decimos que $f$ es continua en $p\in A$ si y sólo si para todo $\epsilon>0$ existe $\delta>0$ tal que para todo $x\in A$, si $d_X(x,p)<\delta$ entonces $d_Y(f(x),f(p))<\epsilon$.
+Sea $f:A\to Y$. Decimos que $f$ es continua en $p\in A$ si y sólo si para todo $\varepsilon>0$ existe $\delta>0$ tal que para todo $x\in A$, si $d_X(x,p)<\delta$ entonces $d_Y(f(x),f(p))<\varepsilon$.
 \end{definicion}
 
 \begin{definicion}[Continuidad en términos de bolas]
 Una función $f:A\to Y$ es continua en $p\in A$ si y sólo si
 \[
-(\forall \epsilon>0)(\exists \delta>0)\; f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\epsilon).
+(\forall \varepsilon>0)(\exists \delta>0)\; f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\varepsilon).
 \]
 \end{definicion}
 
 \begin{proof}
-($\implies$) Sea $\epsilon>0$. Como $f$ es continua en $p$, existe $\delta>0$ tal que para todo $x\in A$, si $d_X(x,p)<\delta$ entonces $d_Y(f(x),f(p))<\epsilon$.
+($\implies$) Sea $\varepsilon>0$. Como $f$ es continua en $p$, existe $\delta>0$ tal que para todo $x\in A$, si $d_X(x,p)<\delta$ entonces $d_Y(f(x),f(p))<\varepsilon$.
 
-Sea $y\in f(B_X(p,\delta)\cap A)$. Entonces existe $x\in B_X(p,\delta)\cap A$ tal que $y=f(x)$. Por lo anterior, $y\in B_Y(f(p),\epsilon)$. Luego
+Sea $y\in f(B_X(p,\delta)\cap A)$. Entonces existe $x\in B_X(p,\delta)\cap A$ tal que $y=f(x)$. Por lo anterior, $y\in B_Y(f(p),\varepsilon)$. Luego
 \[
-f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\epsilon).
+f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\varepsilon).
 \]
 
-($\impliedby$) Sea $\epsilon>0$. Por hipótesis existe $\delta>0$ tal que
+($\impliedby$) Sea $\varepsilon>0$. Por hipótesis existe $\delta>0$ tal que
 \[
-f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\epsilon).
+f(B_X(p,\delta)\cap A)\subseteq B_Y(f(p),\varepsilon).
 \]
-Si $x\in A$ satisface $d_X(x,p)<\delta$, entonces $x\in B_X(p,\delta)\cap A$, y por tanto $f(x)\in B_Y(f(p),\epsilon)$, es decir,
+Si $x\in A$ satisface $d_X(x,p)<\delta$, entonces $x\in B_X(p,\delta)\cap A$, y por tanto $f(x)\in B_Y(f(p),\varepsilon)$, es decir,
 \[
-d_Y(f(x),f(p))<\epsilon.
+d_Y(f(x),f(p))<\varepsilon.
 \]
 \end{proof}
 
@@ -79,28 +79,28 @@ Sea $f:A\to Y$. Entonces $f$ es continua en $A$ si y sólo si para todo abierto 
 
 \begin{proof}
 ($\implies$) Supongamos que $f$ es continua en $A$ y sea $U\subseteq Y$ abierto.
-Sea $y\in f^{-1}[U]$, entonces $f(y)\in U$. Como $U$ es abierto, existe $\epsilon>0$ tal que
+Sea $y\in f^{-1}[U]$, entonces $f(y)\in U$. Como $U$ es abierto, existe $\varepsilon>0$ tal que
 \[
-B_Y(f(y),\epsilon)\subseteq U.
+B_Y(f(y),\varepsilon)\subseteq U.
 \]
 Como $f$ es continua en $y$, existe $\delta>0$ tal que
 \[
-f(B_X(y,\delta)\cap A)\subseteq B_Y(f(y),\epsilon)\subseteq U.
+f(B_X(y,\delta)\cap A)\subseteq B_Y(f(y),\varepsilon)\subseteq U.
 \]
 Luego $B_X(y,\delta)\cap A\subseteq f^{-1}[U]$, y por tanto $f^{-1}[U]$ es abierto en $A$.
 
 ($\impliedby$) Supongamos que para todo abierto $U\subseteq Y$, $f^{-1}[U]$ es abierto en $A$.
-Sean $x\in A$ y $\epsilon>0$. El conjunto $B_Y(f(x),\epsilon)$ es abierto en $Y$, así que
+Sean $x\in A$ y $\varepsilon>0$. El conjunto $B_Y(f(x),\varepsilon)$ es abierto en $Y$, así que
 \[
-f^{-1}(B_Y(f(x),\epsilon))
+f^{-1}(B_Y(f(x),\varepsilon))
 \]
 es abierto en $A$. Como $x$ pertenece a ese conjunto, existe $\delta>0$ tal que
 \[
-B_X(x,\delta)\cap A\subseteq f^{-1}(B_Y(f(x),\epsilon)).
+B_X(x,\delta)\cap A\subseteq f^{-1}(B_Y(f(x),\varepsilon)).
 \]
 Entonces
 \[
-f(B_X(x,\delta)\cap A)\subseteq B_Y(f(x),\epsilon),
+f(B_X(x,\delta)\cap A)\subseteq B_Y(f(x),\varepsilon),
 \]
 y $f$ es continua en $x$. Como $x$ fue arbitrario, $f$ es continua en $A$.
 \end{proof}

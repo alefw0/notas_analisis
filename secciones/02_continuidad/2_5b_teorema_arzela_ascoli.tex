@@ -72,9 +72,9 @@ Se cumplen (M1), (M2) y (M3), luego $(C(X,Y),d_\infty)$ es un espacio métrico.
 \begin{definicion}
 Sea $\mathfrak{F}\subset C(X,Y)$.
 \begin{enumerate}
-    \item $\mathfrak{F}$ es \emph{equicontinua} si para todo $\epsilon>0$ existe $\delta>0$ tal que
+    \item $\mathfrak{F}$ es \emph{equicontinua} si para todo $\varepsilon>0$ existe $\delta>0$ tal que
     \[
-    d_X(x,x')<\delta \implies d_Y(f(x),f(x'))<\epsilon
+    d_X(x,x')<\delta \implies d_Y(f(x),f(x'))<\varepsilon
     \]
     para todo $f\in\mathfrak{F}$ y todo $x,x'\in X$.
     \item $\mathfrak{F}$ es \emph{puntualmente precompacta} si para todo $x\in X$, el conjunto
@@ -107,24 +107,24 @@ es continua en la métrica $d_\infty$. La imagen de un precompacto por una aplic
 \]
 es precompacto en $Y$ para todo $x\in X$.
 
-Ahora probamos equicontinuidad. Fijado $\epsilon>0$, como $\mathfrak{F}$ es precompacto, es totalmente acotado, así que existen
+Ahora probamos equicontinuidad. Fijado $\varepsilon>0$, como $\mathfrak{F}$ es precompacto, es totalmente acotado, así que existen
 $f_1,\dots,f_m\in\mathfrak{F}$ con
 \[
-\mathfrak{F}\subset\bigcup_{i=1}^m B_{\epsilon/3}(f_i)
+\mathfrak{F}\subset\bigcup_{i=1}^m B_{\varepsilon/3}(f_i)
 \]
 en $d_\infty$.
 Cada $f_i$ es uniformemente continua en $X$ (Heine), por lo que existe $\delta>0$ tal que
 \[
-d_X(x,x')<\delta \implies d_Y(f_i(x),f_i(x'))<\epsilon/3
+d_X(x,x')<\delta \implies d_Y(f_i(x),f_i(x'))<\varepsilon/3
 \]
 para todo $i=1,\dots,m$.
 
 Sea $f\in\mathfrak{F}$ y $x,x'\in X$ con $d_X(x,x')<\delta$. Tomamos $j$ tal que
-$d_\infty(f,f_j)<\epsilon/3$. Entonces
+$d_\infty(f,f_j)<\varepsilon/3$. Entonces
 \[
 d_Y(f(x),f(x'))
 \le d_Y(f(x),f_j(x))+d_Y(f_j(x),f_j(x'))+d_Y(f_j(x'),f(x'))
-<\epsilon.
+<\varepsilon.
 \]
 Por tanto, $\mathfrak{F}$ es equicontinua.
 
@@ -171,9 +171,9 @@ es de Cauchy (de hecho convergente) en $Y$.
 
 \textbf{Paso 2: uso de la equicontinuidad y recubrimiento finito}
 
-Fijamos $\epsilon>0$. Por equicontinuidad de $\mathfrak{F}$, existe $\delta>0$ tal que
+Fijamos $\varepsilon>0$. Por equicontinuidad de $\mathfrak{F}$, existe $\delta>0$ tal que
 \[
-d_X(x,x')<\delta \implies d_Y(h(x),h(x'))<\frac\epsilon3
+d_X(x,x')<\delta \implies d_Y(h(x),h(x'))<\frac{\varepsilon}{3}
 \quad(\forall h\in\mathfrak{F}).
 \]
 
@@ -196,7 +196,7 @@ X\subset\bigcup_{r=1}^m B_\delta(\hat x_r).
 Para cada $r\in\{1,\dots,m\}$, la sucesión $(g_i(\hat x_r))_i$ es de Cauchy en $Y$,
 así que existe $N_r$ tal que
 \[
-i,j\ge N_r \implies d_Y(g_i(\hat x_r),g_j(\hat x_r))<\frac\epsilon3.
+i,j\ge N_r \implies d_Y(g_i(\hat x_r),g_j(\hat x_r))<\frac{\varepsilon}{3}.
 \]
 Definimos
 \[
@@ -204,7 +204,7 @@ N:=\max\{N_1,\dots,N_m\}.
 \]
 Luego, si $i,j\ge N$, se cumple simultáneamente
 \[
-d_Y(g_i(\hat x_r),g_j(\hat x_r))<\frac\epsilon3
+d_Y(g_i(\hat x_r),g_j(\hat x_r))<\frac{\varepsilon}{3}
 \quad \text{para todo } r=1,\dots,m.
 \]
 
@@ -217,12 +217,12 @@ d_Y(g_i(x),g_j(x))
 &\le d_Y(g_i(x),g_i(\hat x_r))
 +d_Y(g_i(\hat x_r),g_j(\hat x_r))
 +d_Y(g_j(\hat x_r),g_j(x))\\
-&<\frac\epsilon3+\frac\epsilon3+\frac\epsilon3=\epsilon.
+&<\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}=\varepsilon.
 \end{aligned}
 \]
 Tomando supremo en $x\in X$:
 \[
-d_\infty(g_i,g_j)<\epsilon \quad (i,j\ge N).
+d_\infty(g_i,g_j)<\varepsilon \quad (i,j\ge N).
 \]
 Por tanto $(g_i)$ es de Cauchy en $(C(X,Y),d_\infty)$.
 
@@ -234,11 +234,11 @@ g(x):=\lim_{i\to\infty}g_i(x)\in Y.
 \]
 Además, de la cota uniforme anterior, al pasar $j\to\infty$, obtenemos
 \[
-d_Y(g_i(x),g(x))\le\epsilon \quad (\forall x\in X,\ i\ge N),
+d_Y(g_i(x),g(x))\le\varepsilon \quad (\forall x\in X,\ i\ge N),
 \]
 y por tanto
 \[
-d_\infty(g_i,g)=\sup_{x\in X}d_Y(g_i(x),g(x))\le\epsilon.
+d_\infty(g_i,g)=\sup_{x\in X}d_Y(g_i(x),g(x))\le\varepsilon.
 \]
 Luego $g_i\to g$ uniformemente en $X$.
 

@@ -50,21 +50,21 @@ de lo cual se sigue la desigualdad \eqref{trian-eucli-1}. Regresando a lo que qu
 \end{align*}
 De esto se sigue la desigualdad.
 \begin{definicion}Sea $X\neq \emptyset$. \begin{enumerate}
-    \item Una sucesión en $X$ es una función $\x:\ene \to X$, usualmente denotada como $\left\{ x_n \right\}_{n=0}^\infty $ o  $\left\{ x_n \right\} .$ También se puede considerar como sucesión a una función cuyo dominio es $\left\{ k, k+1, \dots\right\} \subset \ene$  y se denotará  $\left\{ x_n \right\}_{n=k}^\infty $.
-    \item Sea $X=\mathbb{R}$. Decimos que la sucesión es acotada si existe un real $M$ tal que $|x_n|\leq M$, para todo $n \in \ene.$
-    \item Denotemos por $B(\ene)$ al conjunto de todas las sucesiones acotadas en $\mathbb{R}$.
+    \item En este libro $\N$ denota el conjunto $\{1,2,3,\dots\}$ de los números naturales. Una sucesión en $X$ es una función $\x:\N \to X$, usualmente denotada como $\left\{ x_n \right\}_{n=1}^\infty $ o  $\left\{ x_n \right\} .$ También se puede considerar como sucesión a una función cuyo dominio es $\left\{ k, k+1, \dots\right\} \subset \N$  y se denotará  $\left\{ x_n \right\}_{n=k}^\infty $.
+    \item Sea $X=\mathbb{R}$. Decimos que la sucesión es acotada si existe un real $M$ tal que $|x_n|\leq M$, para todo $n \in \N.$
+    \item Denotemos por $B(\N)$ al conjunto de todas las sucesiones acotadas en $\mathbb{R}$.
 \end{enumerate}
 \end{definicion}
 
 
 \begin{example}
-La función $d:B(\ene)\times B(\ene) \to \mathbb{R}$, definida por $d(\x , \y):=\sup\left\{ |x_n-y_n|: \ \ n\in \ene \right\},$ donde $\x=\left\{x_n \right\}$ y $\y=\left\{y_n \right\}$, es una métrica en $B(\ene).$
+La función $d:B(\N)\times B(\N) \to \mathbb{R}$, definida por $d(\x , \y):=\sup\left\{ |x_n-y_n|: \ \ n\in \N \right\},$ donde $\x=\left\{x_n \right\}$ y $\y=\left\{y_n \right\}$, es una métrica en $B(\N).$
 \end{example}
 \begin{proof}
-Sean $\x=\{x_n\}$, $\y=\{y_n\}$ y $\z=\{z_n\}$ sucesiones en $B(\ene)$. Notemos que esta función está bien definida. En efecto, existen reales $M_1$ y $M_2$ tales que  $|x_n|\leq M_1$ y $|y_n|\leq M_2$ para todo $n$. Luego $|x_n-y_n|\leq |x_n|+|y_n|\leq M_1+M_2$, para todo $n$. En consecuencia, el conjunto $\{|x_n-y_n|:\ \ n\in \ene\}$ es acotado y por tanto el supremo existe en $\R$.
+Sean $\x=\{x_n\}$, $\y=\{y_n\}$ y $\z=\{z_n\}$ sucesiones en $B(\N)$. Notemos que esta función está bien definida. En efecto, existen reales $M_1$ y $M_2$ tales que  $|x_n|\leq M_1$ y $|y_n|\leq M_2$ para todo $n$. Luego $|x_n-y_n|\leq |x_n|+|y_n|\leq M_1+M_2$, para todo $n$. En consecuencia, el conjunto $\{|x_n-y_n|:\ \ n\in \N\}$ es acotado y por tanto el supremo existe en $\R$.
 \begin{enumerate}
     \item Claramente $d(\x, \y) \geq 0$.  
-    \item Además $d(\x, \y)=0$ si y sólo si $|x_n-y_n|=0$ para todo $n\in \ene$; es decir ; $\x=\y$.
+    \item Además $d(\x, \y)=0$ si y sólo si $|x_n-y_n|=0$ para todo $n\in \N$; es decir ; $\x=\y$.
     \item Como $|x_n-y_n|=|y_n-x_n|$ entonces $d(\x, \y)=d(\y, \x)$.  
     \item Finalmente como para todo $n$ \[|x_n-y_n|\leq |x_n-z_n|+|z_n-y_n|\leq d(\x, \z)+ d(\z,\y),\]
     entonces $ d(\x, \y)\leq d(\x, \z)+ d(\z,\y).$
@@ -80,30 +80,30 @@ Sean $(X,d)$ un espacio métrico y $A$ un subconjunto no vacío de $X$. Entonces
     Sean $(X,d)$ un espacio métrico, $p\in X$ y $\varepsilon$ un real positivo.
     \begin{enumerate}
         \item La bola en $X$ de centro $p$ y radio $\varepsilon$ (o $\varepsilon-$bola de centro $p$) se define como
-    $$B_X(p,\varepsilon):=\left\{x\in X:\ \ d(p,x)<\varepsilon \right\}.$$
+    \[B_X(p,\varepsilon):=\left\{x\in X:\ \ d(p,x)<\varepsilon \right\}.\]
     Cuando no haya lugar a confusiones se omite, en esta notación, el espacio métrico y se escribe simplememnte $B(p, \varepsilon)$. Otra notación para este conjunto es $B_\varepsilon (p)$.
     \item La esfera de centro $p$ y radio $\varepsilon$ es
-    $$S_X(p,\varepsilon):=\left\{x\in X:\ \ d(p,x)=\varepsilon \right\}.$$
+    \[S_X(p,\varepsilon):=\left\{x\in X:\ \ d(p,x)=\varepsilon \right\}.\]
     Una notación alternativa para este conjunto es $S_\varepsilon (p)$.
     \end{enumerate}
     \end{definicion}
     \begin{remark}
     En topología se denota $S^{n-1}$ a la esfera en $\R^{n}$ de centro $\textbf{0}=(0,\dots, 0)$ y radio $1$, con la métrica Euclidiana. Es decir
-    $$S^{n-1}=\left\{\x\in \R^n:\ \ \|\x\|=1 \right\}.$$
+    \[S^{n-1}=\left\{\x\in \R^n:\ \ \|\x\|=1 \right\}.\]
     \end{remark}
    
     \begin{example}
     \begin{enumerate}
         \item Sea $X\neq \emptyset$ y $d$ la métrica discreta en $X$. Sea $p\in X$. Entonces la bola de centro $p$ y radio 1 es:
-        $$B_X(p,1)=\left\{x\in X:\ \ d(p,x)<1 \right\}=\left\{x\in X:\ \ d(p,x)=0 \right\}=\left\{x\in X:\ \ x=p \right\}=\left\{p \right\}.$$
+        \[B_X(p,1)=\left\{x\in X:\ \ d(p,x)<1 \right\}=\left\{x\in X:\ \ d(p,x)=0 \right\}=\left\{x\in X:\ \ x=p \right\}=\left\{p \right\}.\]
         Por otro lado, como para todo $x\in X$ $d(p,x)\leq 1<2$, entonces la bola de centro $p$ y radio 2 es:
-        $$B_X(p,2)=\left\{x\in X:\ \ d(p,x)<2 \right\}=X.$$
+        \[B_X(p,2)=\left\{x\in X:\ \ d(p,x)<2 \right\}=X.\]
         \item En $\R$ con la métrica euclidiana  tenemos que
-        $$B(0, \varepsilon)=\left\{x\in \R:\ \ |x|<\varepsilon \right\}=\left\{x\in \R:\ \ -\varepsilon <x < \varepsilon \right\}=(-\varepsilon, \varepsilon).$$
+        \[B(0, \varepsilon)=\left\{x\in \R:\ \ |x|<\varepsilon \right\}=\left\{x\in \R:\ \ -\varepsilon <x < \varepsilon \right\}=(-\varepsilon, \varepsilon).\]
         \item Sea $ \R^+= \left\{ x\in \R: \ \ x\geq 0 \right\}.$ Entonces la $\varepsilon-$ bola de centro cero, en el subespacio métrico $\R^+$, con la métrica euclidiana es:
-        $$B_{\R^+}(0, \varepsilon)=\left\{x\in \R^+:\ \ |x|<\varepsilon \right\}=\left\{x\in \R^+:\ \ x < \varepsilon \right\}=[0, \varepsilon).$$
+        \[B_{\R^+}(0, \varepsilon)=\left\{x\in \R^+:\ \ |x|<\varepsilon \right\}=\left\{x\in \R^+:\ \ x < \varepsilon \right\}=[0, \varepsilon).\]
         \item Sea $\R^2$ con la métrica euclidiana. $\textbf{0}=(0,0)\in \R^2$. Entonces
-        $$B(\textbf{0}, 1)=\left\{(x,y) \in \R^2:\ \ |(x,y)-(0,0)|<1 \right\}=\left\{(x,y) \in \R^2:\ \ \sqrt{x^2+y^2}<1 \right\}=\left\{(x,y) \in \R^2:\ \ x^2+y^2<1 \right\}.$$
+        \[B(\textbf{0}, 1)=\left\{(x,y) \in \R^2:\ \ |(x,y)-(0,0)|<1 \right\}=\left\{(x,y) \in \R^2:\ \ \sqrt{x^2+y^2}<1 \right\}=\left\{(x,y) \in \R^2:\ \ x^2+y^2<1 \right\}.\]
     \end{enumerate}
     \end{example}
     \begin{definicion}
@@ -116,11 +116,11 @@ Sean $(X,d)$ un espacio métrico y $A$ un subconjunto no vacío de $X$. Entonces
     Como $\frac{\varepsilon}2$ es positivo, entonces por la definición, existe un entero positivo $N_1$ tal que $d(x, x_n)<\frac{\varepsilon}2$ para todo $n\geq N_1$.\\
     También, existe un entero positivo $N_2$ tal que $d(y, x_n)<\frac{\varepsilon}2$ para todo $n\geq N_2$. Supongamos sin pérdida de generalidad que $N_1 \geq N_2$. Entonces en particular
     $d(x, x_{N_1})<\frac{\varepsilon}2$ y $d(y, x_{N_1})<\frac{\varepsilon}2$. Luego, de la desigualdad triangular se tiene
-    $$d(x,y)\leq d(x,x_{N_1})+d(x_{N_1},y)<\frac{\varepsilon}2+\frac{\varepsilon}2={\varepsilon}.$$
+    \[d(x,y)\leq d(x,x_{N_1})+d(x_{N_1},y)<\frac{\varepsilon}2+\frac{\varepsilon}2={\varepsilon}.\]
     En resumen, se tiene que $d(x,y)<\varepsilon$ ,para todo $\varepsilon>0$. Esto es, $d(x,y)=0$. O sea $x=y$.
     \end{remark}
 
-En la definición anterior $x$ también se dice \textbf{un límite de la sucesión} pero por la observación anterior acerca de la unicidad de éste, $x$ se llama \textbf{el límite de la sucesión}. También se escribe $$\lim_{n\to \infty}x_n=x \qquad \text{o} \qquad x_n\to x \ \ \text{cuando} \ \ n\to \infty .$$   Si existe un $x\in X$ tal que $\lim_{n\to \infty}x_n=x$, se dice que $\left\{x_n \right\}$ converge en $X$, de lo contrario se dice que la sucesión diverge.
+En la definición anterior $x$ también se dice \textbf{un límite de la sucesión} pero por la observación anterior acerca de la unicidad de éste, $x$ se llama \textbf{el límite de la sucesión}. También se escribe \[\lim_{n\to \infty}x_n=x \qquad \text{o} \qquad x_n\to x \ \ \text{cuando} \ \ n\to \infty .\]   Si existe un $x\in X$ tal que $\lim_{n\to \infty}x_n=x$, se dice que $\left\{x_n \right\}$ converge en $X$, de lo contrario se dice que la sucesión diverge.
 
  \begin{example}
  Sea $\left\{x_n \right\}$ la sucesión definida por $x_n=\frac{n}{n+\sqrt{n}},$ para todo entero positivo $n$. Se puede observar que en este cociente, las mayores potencias del numerador y el denominador son iguales, así que intuitivamente la sucesión converge en $\R$ a 1 como lo probaremos a continuación:\\
@@ -128,7 +128,7 @@ En la definición anterior $x$ también se dice \textbf{un límite de la sucesi�
  \begin{equation}\label{xn-con-1}
      \left| \frac{n}{n+\sqrt{n}}-1 \right| = \left| \frac{-\sqrt{n}}{n+\sqrt{n}}\right|=\frac{\sqrt{n}}{n+\sqrt{n}}=\frac{1}{\sqrt{n}+1} .
  \end{equation}
-Ahora bien, como $ \varepsilon ^2$ es positivo, por la propiedad arquimedeana existe un entero positivo $N$ tal que $\frac{1}N < \varepsilon^2$. De donde $\frac{1}{\sqrt{N}}<\varepsilon.$ Por tanto, si $n\geq N$, entonces $\sqrt{n}+1 \geq \sqrt{N}$ y por ende $\frac{1}{\sqrt{n}+1}\leq \frac{1}{\sqrt{N}}<\varepsilon.$ De esto y la ecuación  \eqref{xn-con-1} se sigue que para todo $n\geq N$, $$\left| \frac{n}{n+\sqrt{n}}-1 \right| <\varepsilon.$$
+Ahora bien, como $ \varepsilon ^2$ es positivo, por la propiedad arquimedeana existe un entero positivo $N$ tal que $\frac{1}N < \varepsilon^2$. De donde $\frac{1}{\sqrt{N}}<\varepsilon.$ Por tanto, si $n\geq N$, entonces $\sqrt{n}+1 \geq \sqrt{N}$ y por ende $\frac{1}{\sqrt{n}+1}\leq \frac{1}{\sqrt{N}}<\varepsilon.$ De esto y la ecuación  \eqref{xn-con-1} se sigue que para todo $n\geq N$, \[\left| \frac{n}{n+\sqrt{n}}-1 \right| <\varepsilon.\]
  \end{example}
 
 
@@ -149,17 +149,17 @@ Si $A\subseteq X$ es acotado, entonces para todo $q\in X$, existe un real positi
 Sea $(X,d)$ un espacio métrico. Entonces toda sucesión convergente en $X$ es acotada.
 \end{teorema}
 \begin{proof}
-Sea $\{x_n\}$ una sucesión convergente en $X$ y sea $x$ su límite. Existe un entero positivo $N$ tal que para todo $n\geq N$, $d(x_n, x)<1.$ Sea $M=\max\{d(x_1,  x), \dots , d(x_{N-1},  x), \, 1\}.$ Entonces para todo $n\in \ene$, $x_n\in B(x, M).$
+Sea $\{x_n\}$ una sucesión convergente en $X$ y sea $x$ su límite. Existe un entero positivo $N$ tal que para todo $n\geq N$, $d(x_n, x)<1.$ Sea $M=\max\{d(x_1,  x), \dots , d(x_{N-1},  x), \, 1\}.$ Entonces para todo $n\in \N$, $x_n\in B(x, M).$
 \end{proof}
 
 El recíproco de la afirmación anterior es falso. Como contraejemplo tómemos la sucesión $\{(-1)^n\}$. Si fuera convergente, entonces existirían un $x\in \R$ y un natural $N$ tal que $|x_n-x|<\frac{1}{4}$. En particular $|(-1)^{2k}-x|=|1-x|<\frac{1}{4}$, es decir $\frac{3}4<x<\frac{5}4$. Pero también $|(-1)^{2k+1}-x|=|-1-x|<\frac{1}{4}$, o sea $-\frac{5}4<x<-\frac{3}4$, lo cual es absurdo.
 \begin{definicion}
-Sea $\{a_n\}_{n\in\mathbb{N}}$ una sucesión.  
+Sea $\{a_n\}_{n\in\N}$ una sucesión.  
 Se llama \emph{subsucesión} de $(a_n)$ a toda sucesión de la forma
 \[
-\{a_{n_k}\}_{k\in\mathbb{N}}
+\{a_{n_k}\}_{k\in\N}
 \]
-donde $\{n_k\}_{k\in\mathbb{N}}$ es una sucesión estrictamente creciente de números naturales, es decir,
+donde $\{n_k\}_{k\in\N}$ es una sucesión estrictamente creciente de números naturales, es decir,
 \[
 n_1 < n_2 < n_3 < \cdots
 \]
@@ -180,7 +180,7 @@ que corresponde a la subsucesión de los términos pares:
 \end{example}
 
 \begin{teorema}
-    Si $(X,d)$ es un espacio m\'etrico y $\left\{x_n\right\}$ es una sucesi\'on en $X$ convergente a $x$, entonces cada subsucesi\'on de $\left\{x_n\right\}$ converge a $x$.
+    Si $(X,d)$ es un espacio métrico y $\left\{x_n\right\}$ es una sucesión en $X$ convergente a $x$, entonces cada subsucesión de $\left\{x_n\right\}$ converge a $x$.
 \end{teorema}
 \begin{proof}
     Sea $(X,d)$ un espacio métrico y $\{x_n\}$ una sucesión en $X$ tal que
@@ -189,12 +189,12 @@ x_n \xrightarrow[n\to\infty]{} x.
 \]
 Por definición de convergencia, se tiene que
 \[
-\forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ tal que } d(x_n,x) < \varepsilon
+\forall \varepsilon > 0,\ \exists N \in \N \text{ tal que } d(x_n,x) < \varepsilon
 \quad \text{para todo } n \ge N.
 \]
 
 Sea $\{x_{n_k}\}$ una subsucesión de $\{x_n\}$.  
-Como la sucesión de índices $\{n_k\}$ es estrictamente creciente, existe $k_0 \in \mathbb{N}$ tal que $k_0\ge N$.Dado que $n_k\ge k$ tenemos que
+Como la sucesión de índices $\{n_k\}$ es estrictamente creciente, existe $k_0 \in \N$ tal que $k_0\ge N$.Dado que $n_k\ge k$ tenemos que
 \[
 n_k \ge N \quad \text{para todo } k \ge k_0.
 \]

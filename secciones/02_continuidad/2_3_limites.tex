@@ -1,5 +1,5 @@
 %\clearpage
-\section{Limites. Limites superior e inferior.}
+\section{Límites. Límites superiores e inferiores.}
 
 En esta sección, $(X,d_X)$ y $(Y,d_Y)$ son espacios métricos.
 
@@ -9,17 +9,17 @@ Si $p$ es un punto de acumulación de $A$ y $b\in Y$, decimos que
 \[
 \lim_{x\to p}f(x)=b
 \]
-si para todo $\epsilon>0$ existe $\delta>0$ tal que para todo $x\in A\setminus\{p\}$,
+si para todo $\varepsilon>0$ existe $\delta>0$ tal que para todo $x\in A\setminus\{p\}$,
 \[
-d_X(x,p)<\delta \implies d_Y(f(x),b)<\epsilon.
+d_X(x,p)<\delta \implies d_Y(f(x),b)<\varepsilon.
 \]
 \end{definicion}
 
 \begin{remark}
 La negación de la definición anterior es:
 \[
-(\exists\epsilon>0)(\forall\delta>0)(\exists x_\delta\in A\setminus\{p\})\;
-d_X(x_\delta,p)<\delta \ \land\ d_Y(f(x_\delta),b)\ge\epsilon.
+(\exists\varepsilon>0)(\forall\delta>0)(\exists x_\delta\in A\setminus\{p\})\;
+d_X(x_\delta,p)<\delta \ \land\ d_Y(f(x_\delta),b)\ge\varepsilon.
 \]
 \end{remark}
 
@@ -37,9 +37,9 @@ Probar que
 \[
 \lim_{x\to 2}(3x+1)=7.
 \]
-Sea $\epsilon>0$. Si tomamos $\delta=\epsilon/3$, entonces
+Sea $\varepsilon>0$. Si tomamos $\delta=\varepsilon/3$, entonces
 \[
-|x-2|<\delta \implies |(3x+1)-7|=3|x-2|<\epsilon.
+|x-2|<\delta \implies |(3x+1)-7|=3|x-2|<\varepsilon.
 \]
 \end{example}
 
@@ -49,8 +49,8 @@ Sea $A\subseteq\R$, $f:A\to\R$ y $p\in A'$.
 
 \begin{definicion}
 \begin{enumerate}
-    \item Decimos que $\lim_{x\to p^+}f(x)=b$ si para todo $\epsilon>0$ existe $\delta>0$ tal que, si $x\in A$ y $p<x<p+\delta$, entonces $|f(x)-b|<\epsilon$.
-    \item Decimos que $\lim_{x\to p^-}f(x)=b$ si para todo $\epsilon>0$ existe $\delta>0$ tal que, si $x\in A$ y $p-\delta<x<p$, entonces $|f(x)-b|<\epsilon$.
+    \item Decimos que $\lim_{x\to p^+}f(x)=b$ si para todo $\varepsilon>0$ existe $\delta>0$ tal que, si $x\in A$ y $p<x<p+\delta$, entonces $|f(x)-b|<\varepsilon$.
+    \item Decimos que $\lim_{x\to p^-}f(x)=b$ si para todo $\varepsilon>0$ existe $\delta>0$ tal que, si $x\in A$ y $p-\delta<x<p$, entonces $|f(x)-b|<\varepsilon$.
 \end{enumerate}
 \end{definicion}
 

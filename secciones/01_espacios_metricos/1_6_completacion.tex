@@ -1,4 +1,4 @@
-\section{Completacion de un espacio metrico}
+\section{Completación de un espacio métrico}
 
 \begin{definicion}
 Sea $(X^*, \rho)$ un espacio métrico. Decimos que este espacio es una completación de $(X,d)$ si satisface:
@@ -20,8 +20,8 @@ Sea $C[X]$ el conjunto de todas las sucesiones de Cauchy en $X$.
     \]
     Esta es una relación de equivalencia. En efecto:
     \begin{enumerate}
-        \item Como $d(a_n,a_n)=0$ para todo $n\in\ene$, entonces $\{a_n\}\sim\{a_n\}$.
-        \item Como $d(a_n,b_n)=d(b_n,a_n)$ para todo $n\in\ene$, se sigue la simetría.
+        \item Como $d(a_n,a_n)=0$ para todo $n\in\N$, entonces $\{a_n\}\sim\{a_n\}$.
+        \item Como $d(a_n,b_n)=d(b_n,a_n)$ para todo $n\in\N$, se sigue la simetría.
         \item Si $\lim_{n\to\infty} d(a_n,b_n)=0$ y $\lim_{n\to\infty} d(b_n,c_n)=0$, entonces por desigualdad triangular
         \[
         \lim_{n\to\infty} d(a_n,c_n)
@@ -40,7 +40,7 @@ Sea $C[X]$ el conjunto de todas las sucesiones de Cauchy en $X$.
     \rho([\{a_n\}], [\{b_n\}])=\lim_{n\to\infty} d(a_n,b_n).
     \]
 
-    Probemos que $\rho$ está bien definida. Sean $\{a_n\}$ y $\{b_n\}$ sucesiones de Cauchy en $X$. Sea $x_n:=d(a_n,b_n)$. Afirmamos que $\{x_n\}$ es de Cauchy en $\R$. En efecto, para todo $m,n\in\ene$,
+    Probemos que $\rho$ está bien definida. Sean $\{a_n\}$ y $\{b_n\}$ sucesiones de Cauchy en $X$. Sea $x_n:=d(a_n,b_n)$. Afirmamos que $\{x_n\}$ es de Cauchy en $\R$. En efecto, para todo $m,n\in\N$,
     \[
     |x_n-x_m|=|d(a_n,b_n)-d(a_m,b_m)|\le d(a_n,a_m)+d(b_n,b_m).
     \]
@@ -55,7 +55,7 @@ Sea $C[X]$ el conjunto de todas las sucesiones de Cauchy en $X$.
     \lim_{n\to\infty}d(a_n,b_n)=\lim_{n\to\infty}d(a_n',b_n').
     \]
 
-    Veamos que $\rho$ es una métrica. Las propiedades de positividad, identidad e invariancia por intercambio se heredan de $d$. Para la triangular, para todo $n\in\ene$,
+    Veamos que $\rho$ es una métrica. Las propiedades de positividad, identidad e invariancia por intercambio se heredan de $d$. Para la triangular, para todo $n\in\N$,
     \[
     d(a_n,b_n)\le d(a_n,c_n)+d(c_n,b_n),
     \]

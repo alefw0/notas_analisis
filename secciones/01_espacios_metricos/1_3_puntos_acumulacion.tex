@@ -1,4 +1,4 @@
-\section{Puntos de acumulacion y clausura}
+\section{Puntos de acumulación y clausura}
 
 \begin{definicion}\textbf{(Punto de acumulación)}
 Sea $A\subseteq X$.
@@ -56,12 +56,12 @@ Veamos que 1. implica 2. Supongamos por el contrario que existe una vecindad de 
 \]
 Como $p\in A'$, existe $x\in (B(p,\varepsilon)-\{p\})\cap A\subseteq A\cap U$. Por tanto $x=a_i$ para algún $i\in\{1,\dots,N\}$. Luego $d(p,a_i)=d(p,x)<\varepsilon$, contradicción porque $\varepsilon\le d(p,a_i)$.\\
 
-Probemos ahora que 2. implica 3. Para $n\in\ene$, como $B(p,1/n)\cap A$ es infinito, escogemos $x_n\in B(p,1/n)\cap A$ de modo que $x_n\neq x_{n-1}$ (para $n\ge2$). Con esto la sucesión $\{x_n\}$ tiene rango infinito y $\lim_{n\to\infty}x_n=p$. En efecto, dado $\varepsilon>0$, existe $N$ tal que $1/N<\varepsilon$. Luego si $n\ge N$, entonces
+Probemos ahora que 2. implica 3. Para $n\in\N$, como $B(p,1/n)\cap A$ es infinito, escogemos $x_n\in B(p,1/n)\cap A$ de modo que $x_n\neq x_{n-1}$ (para $n\ge2$). Con esto la sucesión $\{x_n\}$ tiene rango infinito y $\lim_{n\to\infty}x_n=p$. En efecto, dado $\varepsilon>0$, existe $N$ tal que $1/N<\varepsilon$. Luego si $n\ge N$, entonces
 \[
 d(p,x_n)<\frac{1}{n}\le\frac{1}{N}<\varepsilon.
 \]
 
-Finalmente, veamos que 3. implica 1. Sea $\varepsilon>0$. Como $x_n\to p$ cuando $n\to\infty$, existe $N\in\ene$ tal que $x_n\in B(p,\varepsilon)$ para todo $n\ge N$. Como $\{x_N,x_{N+1},\dots\}$ es infinito, alguno de esos términos es distinto de $p$. Luego
+Finalmente, veamos que 3. implica 1. Sea $\varepsilon>0$. Como $x_n\to p$ cuando $n\to\infty$, existe $N\in\N$ tal que $x_n\in B(p,\varepsilon)$ para todo $n\ge N$. Como $\{x_N,x_{N+1},\dots\}$ es infinito, alguno de esos términos es distinto de $p$. Luego
 \[
 \left(B(p,\varepsilon)-\{p\}\right)\cap A\neq\emptyset.
 \]

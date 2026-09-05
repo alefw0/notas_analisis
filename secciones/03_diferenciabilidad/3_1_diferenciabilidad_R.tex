@@ -5,21 +5,20 @@ A lo largo de esta sección $f$ denotará una función de valor real definida en
  \begin{enumerate}
      \item Diremos que $f$ es diferenciable en $c$ si existe el siguiente límite, el cual llamaremos la derivada de $f$ en $c$ y denotaremos
  \begin{equation}\label{def-derivada}
- f'(c):=\lim_{x\to c}\frac{f(x)-f(c)}{x-a}.    
+ f'(c):=\lim_{x\to c}\frac{f(x)-f(c)}{x-c}.    
  \end{equation}
  
- \item Si $U$ es un abierto y $f$ es diferenciable en $a$ para todo $c\in U$, decimos que $f$ es diferenciable (en $U$). La función $f':U\to \mathbb{R}$, se llama la  derivada de $f$.
+ \item Si $U$ es un abierto y $f$ es diferenciable en cada punto $c\in U$, decimos que $f$ es diferenciable (en $U$). La función $f':U\to \mathbb{R}$, se llama la  derivada de $f$.
  \item Otras notaciones para la derivada de $f$  son $\frac{df}{dx}$, $Df$ y $f^{(1)}$.
  \end{enumerate}
 \end{definicion}
 
 \begin{remark}
 De la ecuación \eqref{def-derivada} tenemos que 
-\begin{eqnarray*}
- & \lim_{x\to c}\frac{f(x)-f(c)}{x-c}-f'(c)=0 \\
- &
- \lim_{x\to c}\frac{f(x)-f(c)-f'(c)(x-c)}{x-c}=0.   
- \end{eqnarray*}
+\begin{gather*}
+\lim_{x\to c}\frac{f(x)-f(c)}{x-c}-f'(c)=0,\\
+\lim_{x\to c}\frac{f(x)-f(c)-f'(c)(x-c)}{x-c}=0.
+\end{gather*}
 \end{remark}
 
 \begin{definicion}
@@ -30,22 +29,22 @@ Sea $c$ un punto interior de $U$ y supongamos que $f$ es diferenciable en $c$. L
 \end{definicion}
 \begin{teorema}
     Si $f$ está definida en $(a, b)$ y es diferenciable en $c \in (a, b)$, entonces existe una función $f^*$ (que depende de $f$ y de $c$) continua en $c$ que satisface:
-$$f(x) - f(c) = (x - c) \cdot f^*(x) \quad \forall x \in (a, b), \text{ con } f^*(c) = f'(c)$$
+\[f(x) - f(c) = (x - c) \cdot f^*(x) \quad \forall x \in (a, b), \text{ con } f^*(c) = f'(c)\]
 \textbf{Recíprocamente:} si existe tal $f^*$ continua en $c$ que satisfaga la ecuación, entonces $f$ es diferenciable en $c$ y $f'(c) = f^*(c)$.
 
 \end{teorema}
 \begin{prueba}
     Sea $x \neq c$ y $f$ es diferenciable.Definimos $f^{*}$ como:
-$$f^*(x) = \frac{f(x) - f(c)}{x - c} \quad \text{si } x \neq c, \ f^*(c) = f'(c)$$
+\[f^*(x) = \frac{f(x) - f(c)}{x - c} \quad \text{si } x \neq c, \ f^*(c) = f'(c)\]
 Multiplicamos por $(x - c)$ la ecuación anterior,
-$$(x - c) \cdot f^*(x) = f(x) - f(c)$$
+\[(x - c) \cdot f^*(x) = f(x) - f(c)\]
 Si $x = c$, claramente es igual a cero, pues $f(c) - f(c) = 0 = (c - c) \cdot f^*(c)$. Por lo tanto se tiene que $f^*(x)(x - c) = f(x) - f(c)$ para todo $x \in (a, b)$.
 Ahora debemos demostrar que $f^*$ es continua en $c$.
 
 Para $x \neq c$:
-$$\lim_{x \to c} f^*(x) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c}$$
+\[\lim_{x \to c} f^*(x) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c}\]
 Pero por hipótesis se tiene que $f$ es diferenciable en $c$, por lo que
-$$\lim_{x \to c} f^*(x) = f^*(c).$$
+\[\lim_{x \to c} f^*(x) = f^*(c).\]
 Se concluye que $f^*$ es continua en $c$.
 
 \end{prueba}
@@ -54,15 +53,15 @@ Si $f$ es diferenciable en $c$ entonces $f$ es continua en $c$.
 \end{teorema}
 \begin{prueba}
     Por anterior, tenemos que $f^*$ es continua en $c$, y satisface:
-$$f^*(x)(x-c) = f(x)-f(c) \quad \forall x \neq c$$
+\[f^*(x)(x-c) = f(x)-f(c) \quad \forall x \neq c\]
 Ya que $f^*$ es continua en $c$ y $f^*(c) = f'(c)$.
 Ahora si $x \to c$ entonces
-$$\lim_{x \to c} (f(x)-f(c)) = \lim_{x \to c} (f^*(x)(x-c))$$
+\[\lim_{x \to c} (f(x)-f(c)) = \lim_{x \to c} (f^*(x)(x-c))\]
 Pero como $x \to c$ se tiene que $(c-c) = 0$ y $\lim_{x \to c} f^*(x) = f'(c)$, por lo que:
-$$\lim_{x \to c} (f(x)-f(c)) = f'(c) \cdot 0$$
-$$\lim_{x \to c} (f(x) - f(c)) = 0$$
+\[\lim_{x \to c} (f(x)-f(c)) = f'(c) \cdot 0\]
+\[\lim_{x \to c} (f(x) - f(c)) = 0\]
 Ya que $\lim_{x \to c} f(c) = f(c)$
-$$\lim_{x \to c} f(x) = f(c)$$
+\[\lim_{x \to c} f(x) = f(c)\]
 Por lo tanto se tiene que $f$ es continua en $c$.
 
 \end{prueba}
@@ -71,27 +70,27 @@ Por lo tanto se tiene que $f$ es continua en $c$.
     {¿Si $f$ es continua entonces $f$ es diferenciable?}\\
 Sea $f(x) = |x|$, analizaremos que es continua y no diferenciable en $0$:
 1) $f$ es continua:
-$$\lim_{x \to 0} f(x) = f(0)$$
+\[\lim_{x \to 0} f(x) = f(0)\]
 Analizaremos si $\lim_{x \to 0^+} f(x) = \lim_{x \to 0^-} f(x) = f(0)$
 \begin{itemize}
     \item $x > 0$ por lo que $|x| = x$ así que:
-    $$\lim_{x \to 0^+} |x| = \lim_{x \to 0^+} x = 0$$
+    \[\lim_{x \to 0^+} |x| = \lim_{x \to 0^+} x = 0\]
     
     \item Si $x < 0$ por lo que $|x| = -x$ así que:
-    $$\lim_{x \to 0^-} |x| = \lim_{x \to 0^-} -x = 0$$
+    \[\lim_{x \to 0^-} |x| = \lim_{x \to 0^-} -x = 0\]
 \end{itemize}
 
 2) ¿Ahora si $f$ es diferenciable en cero?
 Ahora apliquemos la definición de diferenciabilidad:
-$$\lim_{x \to 0} \frac{f(x) - f(0)}{x - 0}$$
-$$\lim_{x \to 0} \frac{f(x)}{x} = \lim_{x \to 0} \frac{|x|}{x}$$
+\[\lim_{x \to 0} \frac{f(x) - f(0)}{x - 0}\]
+\[\lim_{x \to 0} \frac{f(x)}{x} = \lim_{x \to 0} \frac{|x|}{x}\]
 Ahora analizaremos por los laterales:
 \begin{itemize}
     \item $x > 0$, entonces $|x| = x$ por lo que se tiene que:
-    $$\lim_{x \to 0^+} \frac{|x|}{x} = \lim_{x \to 0^+} \frac{x}{x} = 1 \quad \text{(1)}$$
+    \[\lim_{x \to 0^+} \frac{|x|}{x} = \lim_{x \to 0^+} \frac{x}{x} = 1 \quad \text{(1)}\]
     
     \item Si $x < 0$, entonces $|x| = -x$, así que:
-    $$\lim_{x \to 0^-} \frac{|x|}{x} = \lim_{x \to 0^-} \frac{-x}{x} = -1 \quad \text{(2)}$$
+    \[\lim_{x \to 0^-} \frac{|x|}{x} = \lim_{x \to 0^-} \frac{-x}{x} = -1 \quad \text{(2)}\]
 \end{itemize}
 Concluimos que $f(x)$ es continua pero no diferenciable ya que $\text{(1)} \neq \text{(2)}$.
 
@@ -99,12 +98,12 @@ Concluimos que $f(x)$ es continua pero no diferenciable ya que $\text{(1)} \neq 
 \begin{example}
  Si $f$ es diferenciable en un abierto $U$, no necesariamente $f'$ es continua en $U$. Ilustremos esta afirmación con un ejemplo. Sea $f:\mathbb{R} \to \mathbb{R}$ definida por 
  \[f(x)= \left\{ \begin{array}{rll}
-    x^2\sin\left(\frac{1}{x}\right), & \text{si}  & x\neq 0  \\
+    x^2\sen\left(\frac{1}{x}\right), & \text{si}  & x\neq 0  \\
     0, & \text{si} & x=0 
  \end{array}\right. .\]
-Enonces $f$ es diferenciable y 
+Entonces $f$ es diferenciable y 
 \[f'(x)= \left\{ \begin{array}{rll}
-    2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right), & \text{si}  & x\neq 0  \\
+    2x\sen\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right), & \text{si}  & x\neq 0  \\
     0, & \text{si} & x=0 
  \end{array}\right. .\]
 Pero notemos que $f'$ no es continua en $0$. Para ver esto, considere la sucesión $x_n=\frac{1}{2\pi n}$. Entonces es claro que $x_n \to 0$. Sin embargo $f'(x_n)=-1 \to -1 \neq f'(0)=0$.
@@ -123,83 +122,83 @@ Notemos que $C^0(U)\supseteq C^1(U)\supseteq C^2(U)\supseteq \cdots .$
 \end{remark}
 \end{definicion}
 
-\begin{teorema}{Álgebra de Derivadas}
+\begin{teorema}[Álgebra de derivadas]
 Supongamos que $f$ y $g$ están definidas en $(a, b)$ y son diferenciables en $c$. Entonces $f + g$, $f - g$, $f \cdot g$ son también diferenciables en $c$. Lo mismo es verdadero para $\frac{f}{g}$ si $g(c) \neq 0$.
 
 \begin{enumerate}[label=\alph*)]
     \item \textbf{Suma / Diferencia}
-    $$(f \pm g)'(c) = f'(c) \pm g'(c)$$
+    \[(f \pm g)'(c) = f'(c) \pm g'(c)\]
     
     \item \textbf{Producto}
-    $$(f \cdot g)'(c) = f(c)g'(c) + f'(c)g(c)$$
+    \[(f \cdot g)'(c) = f(c)g'(c) + f'(c)g(c)\]
     
     \item \textbf{Cociente $[g(c) \neq 0]$}
-    $$\left(\frac{f}{g}\right)'(c) = \frac{[g(c)f'(c) - f(c)g'(c)]}{g(c)^2}$$
+    \[\left(\frac{f}{g}\right)'(c) = \frac{[g(c)f'(c) - f(c)g'(c)]}{g(c)^2}\]
 \end{enumerate}
 \end{teorema}
 \begin{prueba}
     \begin{itemize}
         \item  $(f \pm g)'(x) = f'(x) \pm g'(x)$:
 Tenemos que $f$ y $g$ son diferenciables en $c$ aplicando el teorema anterior tenemos que: $f(x) = f(c) + (x-c)f^*(x)$ y $g(x) = g(c) + (x-c)g^*(x)$, entonces:
-$$(f \pm g)(x) = f(x) \pm g(x)$$
-$$(f \pm g)(x) = (f(c) + (x-c)f^*(x)) \pm (g(c) + (x-c)g^*(x))$$
-$$(f \pm g)(x) = f(c) \pm g(c) + (x-c)(f^*(x) \pm g^*(x))$$
+\[(f \pm g)(x) = f(x) \pm g(x)\]
+\[(f \pm g)(x) = (f(c) + (x-c)f^*(x)) \pm (g(c) + (x-c)g^*(x))\]
+\[(f \pm g)(x) = f(c) \pm g(c) + (x-c)(f^*(x) \pm g^*(x))\]
 Ahora aplicamos la definición de la derivada
-$$(f \pm g)'(c) = \lim_{x \to c} \frac{[(f \pm g)(c) + (x-c)(f^*(x) \pm g^*(x))] - (f \pm g)(c)}{x-c}$$
-$$(f \pm g)'(c) = \lim_{x \to c} (f^*(x) \pm g^*(x))$$
-$$(f \pm g)'(c) = \lim_{x \to c} f^*(c) \pm \lim_{x \to c} g^*(c) \quad \text{Propiedad del límite}$$
+\[(f \pm g)'(c) = \lim_{x \to c} \frac{[(f \pm g)(c) + (x-c)(f^*(x) \pm g^*(x))] - (f \pm g)(c)}{x-c}\]
+\[(f \pm g)'(c) = \lim_{x \to c} (f^*(x) \pm g^*(x))\]
+\[(f \pm g)'(c) = \lim_{x \to c} f^*(x) \pm \lim_{x \to c} g^*(x) \quad \text{Propiedad del límite}\]
 Como $\lim_{x \to c} f^*(x) = f'(c)$ y $\lim_{x \to c} g^*(x) = g'(c)$, por lo que obtenemos:
-$$(f \pm g)'(c) = f'(c) \pm g'(c)$$
+\[(f \pm g)'(c) = f'(c) \pm g'(c)\]
 \item $(f \cdot g)'(x) = f'(x) \cdot g(x) + f(x) \cdot g'(x)$
 Tenemos que $f$ y $g$ son diferenciables en $c$, aplicando el teorema anterior tenemos que $f(x) = f(c) + (x-c)f^*(x)$ y $g(x) = g(c) + (x-c)g^*(x)$, entonces:
-$$(f \cdot g)(x) = f(x) \cdot g(x)$$
-$$(f \cdot g)(x) = (f(c) + (x-c)f^*(x)) \cdot (g(c) + (x-c)g^*(x))$$
-$$(f \cdot g)(x) = f(c) \cdot g(c) + (x-c)g^*(x) \cdot f(c) + (x-c)f^*(x) \cdot g(c) + (x-c)^2 g^*(x) \cdot f^*(x)$$
-$$(f \cdot g)(x) = f(c) \cdot g(c) + (x-c)(g^*(x) \cdot f(c) + f^*(x) \cdot g(c) + (x-c)g^*(x) \cdot f^*(x))$$
+\[(f \cdot g)(x) = f(x) \cdot g(x)\]
+\[(f \cdot g)(x) = (f(c) + (x-c)f^*(x)) \cdot (g(c) + (x-c)g^*(x))\]
+\[(f \cdot g)(x) = f(c) \cdot g(c) + (x-c)g^*(x) \cdot f(c) + (x-c)f^*(x) \cdot g(c) + (x-c)^2 g^*(x) \cdot f^*(x)\]
+\[(f \cdot g)(x) = f(c) \cdot g(c) + (x-c)(g^*(x) \cdot f(c) + f^*(x) \cdot g(c) + (x-c)g^*(x) \cdot f^*(x))\]
 Aplicando la definición de la derivada:
-$$(f \cdot g)'(c) = \lim_{x \to c} \frac{[(f \cdot g)(c) + (x-c)(g^*(x) \cdot f(c) + f^*(x) \cdot g(c) + (x-c)g^*(x) \cdot f^*(x))] - (f \cdot g)(c)}{x-c}$$
-$$(f \cdot g)'(c) = \lim_{x \to c} \frac{(x-c)(g^*(x) \cdot f(c) + f^*(x) \cdot g(c) + (x-c)g^*(x) \cdot f^*(x))}{x-c}$$
-$$(f \cdot g)'(c) = \lim_{x \to c} g^*(x) \cdot f(c) + f^*(x) \cdot g(c) + (x-c)g^*(x) \cdot f^*(x)$$
-$$(f \cdot g)'(c) = g(c) \lim_{x \to c} f^*(x) + f(c) \lim_{x \to c} g^*(x) + \lim_{x \to c} (x-c)g^*(x) \cdot f^*(x)$$
+\[(f \cdot g)'(c) = \lim_{x \to c} \frac{[(f \cdot g)(c) + (x-c)(g^*(x) \cdot f(c) + f^*(x) \cdot g(c) + (x-c)g^*(x) \cdot f^*(x))] - (f \cdot g)(c)}{x-c}\]
+\[(f \cdot g)'(c) = \lim_{x \to c} \frac{(x-c)(g^*(x) \cdot f(c) + f^*(x) \cdot g(c) + (x-c)g^*(x) \cdot f^*(x))}{x-c}\]
+\[(f \cdot g)'(c) = \lim_{x \to c} g^*(x) \cdot f(c) + f^*(x) \cdot g(c) + (x-c)g^*(x) \cdot f^*(x)\]
+\[(f \cdot g)'(c) = g(c) \lim_{x \to c} f^*(x) + f(c) \lim_{x \to c} g^*(x) + \lim_{x \to c} (x-c)g^*(x) \cdot f^*(x)\]
 Como $x \to c$ se tiene que $x-c = 0$ por lo que el último término se hace cero y $\lim_{x \to c} f^*(x) = f'(c)$ y $\lim_{x \to c} g^*(x) = g'(c)$ se tiene que:
-$$(f \cdot g)'(c) = f'(c) \cdot g(c) + g'(c) \cdot f(c)$$
+\[(f \cdot g)'(c) = f'(c) \cdot g(c) + g'(c) \cdot f(c)\]
 
 \item $\left(\frac{f}{g}\right)(x) = \frac{f'(x)g(x) - g'(x)f(x)}{(g(x))^2}$
 Como $f$ y $g$ son diferenciables en $c$ y $g(c) \neq 0$ tal que $f(x) = f(c) + (x-c)f^*(x)$ y $g(x) = g(c) + (x-c)g^*(x)$, entonces:
-$$\left(\frac{f}{g}\right)(x) = \frac{f(c) + (x-c)f^*(x)}{g(c) + (x-c)g^*(x)}$$
+\[\left(\frac{f}{g}\right)(x) = \frac{f(c) + (x-c)f^*(x)}{g(c) + (x-c)g^*(x)}\]
 Aplicando la definición de la derivada:
-$$\left(\frac{f}{g}\right)'(c) = \lim_{x \to c} \frac{\frac{f(c) + (x-c)f^*(x)}{g(c) + (x-c)g^*(x)} - \frac{f(c)}{g(c)}}{x-c}$$
-$$\left(\frac{f}{g}\right)'(c) = \lim_{x \to c} \frac{\frac{f(c) \cdot g(c) + (x-c)f^*(x) \cdot g(c) - f(c) \cdot g(c) - (x-c)g^*(x) \cdot f(c)}{g^2(c) + (x-c)g^*(x) \cdot g(c)}}{x-c}$$
-$$\left(\frac{f}{g}\right)'(c) = \lim_{x \to c} \frac{\frac{(x-c)(f^*(x) \cdot g(c) - g^*(x) \cdot f(c))}{g^2(c) + (x-c)g^*(x) \cdot g(c)}}{x-c}$$
-$$\left(\frac{f}{g}\right)'(c) = \lim_{x \to c} \frac{f^*(x) \cdot g(c) - g^*(x) \cdot f(c)}{g^2(c) + (x-c)g^*(x) \cdot g(c)}$$
+\[\left(\frac{f}{g}\right)'(c) = \lim_{x \to c} \frac{\frac{f(c) + (x-c)f^*(x)}{g(c) + (x-c)g^*(x)} - \frac{f(c)}{g(c)}}{x-c}\]
+\[\left(\frac{f}{g}\right)'(c) = \lim_{x \to c} \frac{\frac{f(c) \cdot g(c) + (x-c)f^*(x) \cdot g(c) - f(c) \cdot g(c) - (x-c)g^*(x) \cdot f(c)}{g^2(c) + (x-c)g^*(x) \cdot g(c)}}{x-c}\]
+\[\left(\frac{f}{g}\right)'(c) = \lim_{x \to c} \frac{\frac{(x-c)(f^*(x) \cdot g(c) - g^*(x) \cdot f(c))}{g^2(c) + (x-c)g^*(x) \cdot g(c)}}{x-c}\]
+\[\left(\frac{f}{g}\right)'(c) = \lim_{x \to c} \frac{f^*(x) \cdot g(c) - g^*(x) \cdot f(c)}{g^2(c) + (x-c)g^*(x) \cdot g(c)}\]
 Como $x \to c$ se tiene que $(x-c)g^*(x) \cdot g(c) = 0$ por lo que el último término se hace cero y $\lim_{x \to c} f^*(x) = f'(c)$ y $\lim_{x \to c} g^*(x) = g'(c)$ se tiene que:
-$$\left(\frac{f}{g}\right)'(c) = \frac{f'(c) \cdot g(c) - g'(c) \cdot f(c)}{g^2(c)}$$
+\[\left(\frac{f}{g}\right)'(c) = \frac{f'(c) \cdot g(c) - g'(c) \cdot f(c)}{g^2(c)}\]
 
 
     \end{itemize}
 \end{prueba}
-\begin{teorema}{La Regla de la Cadena}
+\begin{teorema}[Regla de la cadena]
 Sea $f$ definida en un intervalo abierto $S$, y sea $g$ definida en $f(S)$. Consideremos la función compuesta $g \circ f$ definida en $S$ por:
-$$(g \circ f)(x) = g(f(x))$$
+\[(g \circ f)(x) = g(f(x))\]
 Si $f$ es diferenciable en $c \in S$ y $g$ es diferenciable en $f(c)$, entonces $g \circ f$ es diferenciable en $c$ y
-$$(g \circ f)'(c) = g'(f(c)) \cdot f'(c)$$
+\[(g \circ f)'(c) = g'(f(c)) \cdot f'(c)\]
 \end{teorema}
 \begin{prueba}
     Tenemos que $f$ y $g$ son diferenciables, aplicamos el teorema 1:
-$$f^*(x)(x-c) = f(x)-f(c) \quad \forall x \in S \quad \text{(1)}$$
+\[f^*(x)(x-c) = f(x)-f(c) \quad \forall x \in S \quad \text{(1)}\]
 Sabemos que $f^*$ es continua en $c$ ya que $f^*(c) = f'(c)$.
 Ahora sea $d = f(c)$. Como $g$ es diferenciable en $d$, aplicando el teorema 1 en $g$:
-$$g(y) - g(d) = (y-d) g^*(y) \quad \forall y \in f(S) \quad \text{(2)}$$
+\[g(y) - g(d) = (y-d) g^*(y) \quad \forall y \in f(S) \quad \text{(2)}\]
 Donde $g^*$ es continua en $d$ y $g^*(d) = g'(d)$.
 Sea $y \in f(S)$, existe $x \in S$ tal que $y = f(x)$ entonces de (2) se tiene que:
-$$(g \circ f)(x) - (g \circ f)(c) = g(f(x)) - g(f(c)) = (f(x) - f(c)) g^*(f(x))$$
+\[(g \circ f)(x) - (g \circ f)(c) = g(f(x)) - g(f(c)) = (f(x) - f(c)) g^*(f(x))\]
 Reemplazamos $f(x) - f(c) = (x-c) f^*(x)$ por (1), por lo que:
-$$(g \circ f)(x) - (g \circ f)(c) = [(x-c) f^*(x)] g^*(f(x))$$
-$$(g \circ f)(x) - (g \circ f)(c) = (x-c) [f^*(x) g^*(f(x))]$$
+\[(g \circ f)(x) - (g \circ f)(c) = [(x-c) f^*(x)] g^*(f(x))\]
+\[(g \circ f)(x) - (g \circ f)(c) = (x-c) [f^*(x) g^*(f(x))]\]
 Ahora definamos que $h(x) = f^*(x) g^*(f(x)) \quad \forall x \in S$, $h$ es continua en $c$:
 
 \begin{itemize}
-    \item $f^*$ es diferenciable en $c$ por el teorema 1
+    \item $f^*$ es continua en $c$ por el teorema 1
     
     \item $f$ es diferenciable en $c$, entonces $f$ es continua en $c$ por el teorema 2
     
@@ -207,15 +206,15 @@ Ahora definamos que $h(x) = f^*(x) g^*(f(x)) \quad \forall x \in S$, $h$ es cont
 \end{itemize}
 
 Como $g^*$ es continua en $d$ y $f$ es continua en $c$, por la composición $g^*(f(x))$ es continua en $c$, entonces se tiene que:
-$$h(x) = f^*(x) g^*(f(x)) \text{ es continua en } c$$
+\[h(x) = f^*(x) g^*(f(x)) \text{ es continua en } c\]
 Dado que
-$$\lim_{x \to c} f^*(x) = f^*(c) \quad \text{y} \quad \lim_{y \to d} g^*(y) = g^*(d)$$
+\[\lim_{x \to c} f^*(x) = f^*(c) \quad \text{y} \quad \lim_{y \to d} g^*(y) = g^*(d)\]
 Entonces $h(c) = f^*(c)g^*(d) = f'(c)g'(f(c))$, ya que $f^*(c) = f'(c)$ y $g^*(d) = g^*(f(c)) = g'(f(c))$.
 Como $h$ es continua en $c$, se tiene:
-$$\frac{(g \circ f)(x) - (g \circ f)(c)}{x - c} = h(x)$$
-$$\lim_{x \to c} \frac{(g \circ f)(x) - (g \circ f)(c)}{x - c} = \lim_{x \to c} h(x) = h(c) = g^*(f(c)) f^*(c) = g'(f(c)) f'(c)$$
+\[\frac{(g \circ f)(x) - (g \circ f)(c)}{x - c} = h(x)\]
+\[\lim_{x \to c} \frac{(g \circ f)(x) - (g \circ f)(c)}{x - c} = \lim_{x \to c} h(x) = h(c) = g^*(f(c)) f^*(c) = g'(f(c)) f'(c)\]
 Por el teorema 1 se concluye que:
-$$(g \circ f)'(c) = h(c) = g'(f(c)) f'(c)$$
+\[(g \circ f)'(c) = h(c) = g'(f(c)) f'(c)\]
 Por lo que $(g \circ f)$ es diferenciable en $c$.
 
 \end{prueba}
@@ -225,43 +224,43 @@ Por lo que $(g \circ f)$ es diferenciable en $c$.
 
 \begin{itemize}
     \item \textbf{$f$ posee un máximo local en $a$} si existe una bola $B(a)$ tal que:
-    $$f(x) \le f(a) \quad \forall x \in B(a) \cap S$$
+    \[f(x) \le f(a) \quad \forall x \in B(a) \cap S\]
     
     \item \textbf{$f$ posee un mínimo local en $a$} si existe una bola $B(a)$ tal que:
-    $$f(x) \ge f(a) \quad \forall x \in B(a) \cap S$$
+    \[f(x) \ge f(a) \quad \forall x \in B(a) \cap S\]
 \end{itemize}
 \end{definicion}
 \begin{teorema}
     Si $f$ posee un máximo o mínimo local en un punto interior $c$ de $(a, b)$ y posee derivada finita en $c$, entonces:
-$$f'(c) = 0$$
+\[f'(c) = 0\]
 \textbf{Nota sobre derivadas infinitas:} Si la derivada es infinita en $c$ (es decir, existe una tangente vertical), $c$ \textbf{sí puede} ser un extremo relativo.
 \end{teorema}
 \begin{prueba}
     \textbf{Caso 1:} Supongamos que $f$ posee derivada en $c$ y tiene un máximo local en $c$.
 Por definición, existe $\delta > 0$ tal que para todo $x \in (c-\delta, c+\delta)$:
-$$f(x) \le f(a)$$
+    \[f(x) \le f(c)\]
 Es decir:
-$$f(x) - f(c) \le 0$$
+\[f(x) - f(c) \le 0\]
 
 \begin{itemize}
     \item \textbf{Si $x > c$ (por derecha):}
-    $$f'(c) = \lim_{x \to c^+} \frac{f(x) - f(c)}{x-c} \le 0 \quad \text{ya que } f(x)-f(c) \le 0 \text{ y } (x-c) > 0$$
+    \[f'(c) = \lim_{x \to c^+} \frac{f(x) - f(c)}{x-c} \le 0 \quad \text{ya que } f(x)-f(c) \le 0 \text{ y } (x-c) > 0\]
     
     \item \textbf{Si $x < c$ (por izquierda):}
-    $$f'(c) = \lim_{x \to c^-} \frac{f(x) - f(c)}{x-c} \ge 0 \quad \text{ya que } f(x)-f(c) \le 0 \text{ y } (x-c) < 0$$
+    \[f'(c) = \lim_{x \to c^-} \frac{f(x) - f(c)}{x-c} \ge 0 \quad \text{ya que } f(x)-f(c) \le 0 \text{ y } (x-c) < 0\]
 \end{itemize}
 
 Tenemos que $f'(c) \le 0$ y $f'(c) \ge 0$, simultáneamente.
 Por lo que la única posibilidad es:
-$$f'(c) = 0$$
+\[f'(c) = 0\]
 Si $f'(c) = +\infty$, entonces por definición se tiene que:
-$$\lim_{x \to c} \frac{f(x) - f(c)}{x - c} = +\infty \iff \forall M > 0, \exists \delta > 0 \text{ tal que si } x \in B(c, \delta) \cap S \implies \frac{f(x) - f(c)}{x - c} > M$$
+\[\lim_{x \to c} \frac{f(x) - f(c)}{x - c} = +\infty \iff \forall M > 0, \exists \delta > 0 \text{ tal que si } x \in B(c, \delta) \cap S \implies \frac{f(x) - f(c)}{x - c} > M\]
 En particular, con $M = 1$, $\exists \delta > 0$ tal que si $x \in B(c, \delta) \cap S \implies \frac{f(x) - f(c)}{x - c} > 1$.
 Si $x > c$:
-$$f(x) - f(c) > x - c > 0 \implies f(x) > f(c) \quad \text{(2)}$$
+\[f(x) - f(c) > x - c > 0 \implies f(x) > f(c) \quad \text{(2)}\]
 Por lo anterior se tiene que $c$ no es un extremo relativo.
 
 \textbf{Caso 2:} Es análogo al caso 1, pero suponiendo que $f$ tiene un mínimo local en $c$.
 En ambos casos (máximo o mínimo local en un punto interior donde existe derivada), obtenemos que:
-$$f'(c) = 0$$
+\[f'(c) = 0\]
 \end{prueba}

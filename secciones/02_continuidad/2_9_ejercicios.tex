@@ -5,7 +5,7 @@ En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. 
 \begin{enumerate}
     \item Pruebe que $X$ es compacto si y sólo si toda función continua de $X$ en $\R$ es acotada.
     
-    \item Pruebe que $X$ es compacto si y sólo si toda función continua de $X$ en $\R$ es uniformemente continua.
+    \item Pruebe que $X$ es compacto si toda función continua de $X$ en $\R$ es uniformemente continua. ¿El recíproco es cierto?
     
     \item Sea $(X, d)$ un espacio métrico compacto. Pruebe que $(C(X), \sigma)$ no necesariamente es compacto.
     
@@ -51,13 +51,7 @@ En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. 
     \item Sea $f : \R \to \R$ definida por
     \[ f(x) = \begin{cases} \sin\left(\frac{1}{x}\right) & x \neq 0 \\ 0 & x = 0 \end{cases} \]
     Determine en qué puntos es continua.
-\end{enumerate}
 
-\vspace{0.5cm}
-En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente.
-
-\begin{enumerate}
-    \setcounter{enumi}{0}
     \item Demostrar usando la definición $\varepsilon-\delta$ que:
     \begin{enumerate}
         \item[a)] $\lim_{x \to 2} (3x + 1) = 7$.
@@ -65,9 +59,9 @@ En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. 
         \item[c)] $\lim_{x \to 2} (x^2 + 1) = 5$.
         \item[d)] $\lim_{x \to 1} (x^3) = 1$.
     \end{enumerate}
-    
-    \item \textbf{Definiciones:}
+\end{enumerate}
     \begin{definicion}
+        Sea $\{x_n\}$ una sucesión de números reales.
     \begin{enumerate}
         \item[a)] Diremos que $\{x_n\}$ es creciente si $x_n \leq x_{n+1}$ para todo $n$.
         \item[b)] Diremos que $\{x_n\}$ es decreciente si $x_n \geq x_{n+1}$ para todo $n$.
@@ -77,7 +71,9 @@ En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. 
         \item[f)] Decimos que $\{x_n\}$ es eventualmente monótona si existe un $N \in \N$ tal que $\{x_{N+n}\}_{n=0}^\infty$ es monótona.
     \end{enumerate}
     \end{definicion}
-    Pruebe:
+\begin{enumerate}
+    \setcounter{enumi}{17}
+    \item Pruebe:
     \begin{enumerate}
         \item[a)] Supongamos que $\{x_n\}$ es monótona. Entonces $\{x_n\}$ es convergente si y sólo si es acotada.
         \item[b)] Supongamos que $\{x_n\}$ es eventualmente monótona. Entonces $\{x_n\}$ es acotada si y sólo si $\{x_n\}$ es convergente.
