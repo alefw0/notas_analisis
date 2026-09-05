@@ -1,1 +1,63 @@
 \section{Regla de L'Hopital}
+\begin{teorema}
+Sean $\displaystyle f$ y $\displaystyle g$ funciones con valores reales y derivables en un intervalo abierto $\displaystyle I=( a,b)$, supongamos  que $\displaystyle \lim _{x\to a+} f( x) =\lim _{x\to a+} g( x) =0$ y  $\displaystyle \lim _{x\to a+}\frac{f'( x)}{g'( x)}$ existe. Entonces el limite $\displaystyle \lim _{x\to a+}\frac{f( x)}{g( x)}$ existe. Más aun, 
+\begin{equation}
+\lim _{x\to a+}\frac{f'( x)}{g'( x)} =\lim _{x\to a+}\frac{f( x)}{g( x)}
+\end{equation}
+ \end{teorema}
+ 
+ \begin{prueba}
+    Extendemos la definición de $\displaystyle f$ y $\displaystyle g$ hasta el punto $\displaystyle a$ al poner $\displaystyle f( a) =g( a) =0$; estas funciónes son continuas en el intervalo $\displaystyle [ a,b)$. Continuidad en todo $\displaystyle x\in [ a,b)$ se sigue de la derivabilidad y continuidad por la derecha en $\displaystyle a$ se mantiene ya que 
+    $\displaystyle \ \lim _{x\to a+} f( x) =\lim _{x\to a+} g( x) =0$.
+    Dado que  $\displaystyle \lim _{x\to a+}\frac{f'( x)}{g'( x)} =L$, tomando  $\displaystyle \epsilon  >0$ arbitrario y existe $\displaystyle \delta $, con $\displaystyle 0< \delta < b-a$ (para que $\displaystyle ( a,a+\delta ) \subset ( a,b))$ tal que $\displaystyle \left| \frac{f'( t)}{g'( t)} -L\right| < \epsilon $ y $g'( t) \neq 0$,  para todo $\displaystyle t\in ( a,a+\delta )$. Por el teorema del valor medio generalizado tenemos que existe $\displaystyle \xi \in ( a,x)$ tal que:
+    \begin{equation}
+\frac{f( x)}{g( x)} =\frac{f( x) -f( a)}{g( x) -g( a)} =\frac{f'( \xi )}{g'( \xi )} .
+\end{equation}
+
+En efecto, la primera igualdad es verdadera ya que por hipótesis $\displaystyle \ f( a) =g( a) =0$. Por lo tanto:
+\begin{equation*}
+    \left| \frac{f( x)}{g( x)} -L\right| =\left| \frac{f'( \xi )}{g'( \xi )} -L\right| < \epsilon .
+\end{equation*}
+Como $\displaystyle \epsilon  >0$ es arbitrario entonces $\displaystyle \lim _{x\to a+}\frac{f( x)}{g( x)} =L$.
+
+ \end{prueba}
+
+ 
+ \begin{remark}
+     El resultado anteior también es verdad:
+     \begin{itemize}
+         \item i $\displaystyle \lim _{x\to a+} f( x)$ y $\displaystyle \lim _{x\to a+} g( x)$ son ambos $\displaystyle \pm \infty $ en lugar de 0.  
+         \item Si los limites se toman en $\displaystyle +\infty $ en vez de $\displaystyle a^+$. En este caso $\displaystyle I\ =\ ( b,+\infty )$.
+         \item Si los limites se toman en $\displaystyle -\infty $ en vez de $\displaystyle a^+$. En este caso $\displaystyle I\ =\ ( -\infty,a )$.
+         \end{itemize}
+ \end{remark}
+ \begin{prueba}Caso: Si $\displaystyle \lim _{x\to a+} f( x)=\pm \infty$ y $\displaystyle \lim _{x\to a+} g( x)=+ \infty$.
+     Por hipótesis $\displaystyle \lim _{x\to a+}\frac{f'( x)}{g'( x)} =L$ es decir, para todo $\displaystyle \epsilon  >0$, existe un $\displaystyle \delta _{1}  >0$ tal que si $\displaystyle a< x< a+ \delta _{1}$ entonces $\displaystyle \left| \frac{f'( x)}{g'( x)} -L\right| < \epsilon $, en si $\displaystyle L-\frac{\epsilon }{2} < \frac{f'( x)}{g'( x)} < L+\frac{\epsilon }{2}$.
+     Decimos que $\displaystyle d=a+\delta _{1}$, en si, $\displaystyle a< x< d< b$, y como $\displaystyle f,g$ son derivables en $\displaystyle ( a,b)$ entonces $\displaystyle f,g$ son derivables en $\displaystyle [ x,d]$. Que por teorema nos dice que $\displaystyle f,g$ es continua en $\displaystyle [ x,d]$.
+
+Por teorema del valor medio de Cauchy. existe $\displaystyle \xi \in [ x,d]$ tal que $\displaystyle \frac{f'( \xi )}{g'( \xi )} =\frac{f( d) -f( x)}{g( d) -g( x)}$ y como $\displaystyle [ x,d] \subset ( a,b)$ entonces 	$\displaystyle \xi \in ( a,b)$ y haciendo uso de la hipotesis $\displaystyle L-\frac{\epsilon }{2} < \frac{f'( \xi )}{g'( \xi )} < L+\frac{\epsilon }{2}$ y por teorema del valor medio de Cauchy se tiene que  $\displaystyle L-\frac{\epsilon }{2} < \frac{f( d) -f( x)}{g( d) -g( x)} < L+\frac{\epsilon }{2}$ siendo $\displaystyle d=a+\delta _{1}$.
+Nota: como $\displaystyle \lim _{x\to a+} g( x) =+\infty $, entonces se tiene que, para todo $\displaystyle \epsilon ' >0$, existe $\displaystyle \delta _{1}  >0$ tal que $\displaystyle a< x< a+\delta _{2}$ entonces $\displaystyle g( x)  >\epsilon '$ en si para cierto $\displaystyle \delta _{2} ,\ g( x)  >g( d) \ \land \ f( x)  >f( d)$.
+
+Multiplicando por $\displaystyle \frac{g( x) -g( d)}{g( x)}$ obtenemos:
+\begin{equation*}
+    \left( L-\frac{\epsilon }{2}\right)\left(\frac{g( x) -g( d)}{g( x)}\right) < \frac{f( x) -f( d)}{g( x)} < \left( L+\frac{\epsilon }{2}\right)\left(\frac{g( x) -g( d)}{g( x)}\right)
+\end{equation*}
+adicionamos $\displaystyle \frac{f( d)}{g( x)}$ y restamos $\displaystyle \frac{f( d)}{g( x)}$
+\begin{equation*}
+    \left( L-\frac{\epsilon }{2}\right)\left(\frac{g( x) -g( d)}{g( x)}\right) -\frac{f( d)}{g( x)} < \frac{f( x) -f( d)}{g( x)} < \left( Lg( x) -Lg( d) +\frac{\epsilon }{2} g( x) -\frac{\epsilon }{2} g( d)\right)\frac{1}{g( x)} +\frac{f( d)}{g( x)}
+\end{equation*}
+\begin{equation*}
+    L-\frac{\epsilon }{2} +\frac{Lg( d) +\frac{\epsilon }{2} g( d) -f( d)}{g( x)} < \frac{f( x)}{g( x)} < L+\frac{\epsilon }{2} +\frac{f( d) -Lg( d) -\frac{\epsilon }{2} g( d)}{g( x)}
+\end{equation*}
+sea $\displaystyle A=\frac{Lg( d) +\frac{\epsilon }{2} g( d) -f( d)}{g( x)}$ y $\displaystyle B=\frac{f( d) -Lg( d) -\frac{\epsilon }{2} g( d)}{g( x)}$, decimos que $\displaystyle M=max\{| A| ,| B| \}$, entonces:
+\begin{equation*}
+    \left| \frac{f( x)}{g( x)} -L\right| < \frac{\epsilon }{2} +\frac{M}{| g( x)| }
+\end{equation*}
+Decimos $\displaystyle \delta _{m} =min\{\delta _{1} ,\delta _{2} ,\delta _{3}\}$ si $\displaystyle x\in ( a,a+\delta _{m})$ entonces $\displaystyle a< x< a+\delta _{m}$ implica que $\displaystyle x< a+\delta _{1} \land x< a+\delta _{2} < \land x< a+\delta _{3}$ por lo que las condiciones se cumplen de cada $\displaystyle \delta $ respectiva.
+
+Para $\displaystyle \epsilon  >0$, existe $\displaystyle \delta _{m}  >0$ tal que si $\displaystyle a< x< a+\delta _{m}$ entonces:
+\begin{equation*}
+    \left| \frac{f( x)}{g( x)} -L\right| < \frac{\epsilon }{2} +\frac{M}{| g( x)| } < \frac{\epsilon }{2} +\frac{\epsilon }{2} =\epsilon 
+\end{equation*}
+$\displaystyle \left| \frac{f( x)}{g( x)} -L\right| < \epsilon $ en si $\displaystyle \lim _{x\to a+}\frac{f( x)}{g( x)} =L.$ 
+ \end{prueba}

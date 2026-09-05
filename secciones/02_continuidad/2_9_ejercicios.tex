@@ -1,0 +1,114 @@
+\section{Ejercicios}
+
+En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente.
+
+\begin{enumerate}
+    \item Pruebe que $X$ es compacto si y sólo si toda función continua de $X$ en $\R$ es acotada.
+    
+    \item Pruebe que $X$ es compacto si y sólo si toda función continua de $X$ en $\R$ es uniformemente continua.
+    
+    \item Sea $(X, d)$ un espacio métrico compacto. Pruebe que $(C(X), \sigma)$ no necesariamente es compacto.
+    
+    \item Pruebe que $(B(x), \sigma)$ es un espacio métrico completo (aun si $X$ no es compacto).
+    
+    \item Sea $f : [0, \infty) \to (0, \infty)$ continua y $p > 0$. Defina $f^*(s) := \max_{t \in [0,s]} f(t)$.
+    \begin{itemize}
+        \item Pruebe que $f^*$ es creciente.
+        \item Demuestre que si
+        \begin{equation}
+            \lim_{s \to \infty} \frac{f(s)}{s^p} = 0,
+        \end{equation}
+        entonces
+        \begin{equation}
+            \lim_{s \to \infty} \frac{f^*(s)}{s^p} = 0.
+        \end{equation}
+    \end{itemize}
+    
+    \item Sea $(X, d)$ un espacio métrico y $f : X \to \R$ una función. Demuestre que $f$ es continua en $p \in X$ si y solo si
+    \[ \lim_{n \to \infty} f(x_n) = f(p) \]
+    para toda sucesión $\{x_n\}$ en $X$ tal que $x_n \to p$.
+    
+    \item Sea $f$ una función continua definida en un espacio métrico $X$. Demuestre que el conjunto
+    \[ \{x \in X : f(x) = 0\} \]
+    es cerrado.
+    
+    \item Sea $f, g : X \to \R$ funciones continuas. Demuestre que las funciones
+    \[ f+g, \quad fg, \quad \max\{f, g\}, \quad \min\{f, g\} \]
+    son continuas en $X$.
+    
+    \item Demuestre que si $f : X \to Y$ y $g : Y \to Z$ son funciones continuas entre espacios métricos, entonces $g \circ f$ es continua.
+    
+    \item Demuestre que si $f$ es continua en un conjunto compacto $K$, entonces $f(K)$ es compacto.
+    
+    \item Sea $f$ continua en un conjunto compacto $K \subset \R$. Demuestre que $f$ es acotada en $K$.
+    
+    \item Demuestre que si $f$ es continua en un conjunto compacto $K$, entonces $f$ alcanza su máximo y su mínimo en $K$.
+    
+    \item Demuestre el teorema del valor intermedio: si $f$ es continua en $[a, b]$ y $f(a) < 0 < f(b)$, entonces existe $c \in (a, b)$ tal que $f(c) = 0$.
+    
+    \item Dé un ejemplo de una función que sea continua en $\R \setminus \{0\}$ pero no continua en $0$.
+    
+    \item Sea $f : \R \to \R$ definida por
+    \[ f(x) = \begin{cases} \sin\left(\frac{1}{x}\right) & x \neq 0 \\ 0 & x = 0 \end{cases} \]
+    Determine en qué puntos es continua.
+\end{enumerate}
+
+\vspace{0.5cm}
+En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente.
+
+\begin{enumerate}
+    \setcounter{enumi}{0}
+    \item Demostrar usando la definición $\varepsilon-\delta$ que:
+    \begin{enumerate}
+        \item[a)] $\lim_{x \to 2} (3x + 1) = 7$.
+        \item[b)] $\lim_{x \to 1} x^2 = 1$.
+        \item[c)] $\lim_{x \to 2} (x^2 + 1) = 5$.
+        \item[d)] $\lim_{x \to 1} (x^3) = 1$.
+    \end{enumerate}
+    
+    \item \textbf{Definiciones:}
+    \begin{definicion}
+    \begin{enumerate}
+        \item[a)] Diremos que $\{x_n\}$ es creciente si $x_n \leq x_{n+1}$ para todo $n$.
+        \item[b)] Diremos que $\{x_n\}$ es decreciente si $x_n \geq x_{n+1}$ para todo $n$.
+        \item[c)] Diremos que $\{x_n\}$ es estrictamente creciente si $x_n < x_{n+1}$ para todo $n$.
+        \item[d)] Diremos que $\{x_n\}$ es estrictamente decreciente si $x_n > x_{n+1}$ para todo $n$.
+        \item[e)] Si $\{x_n\}$ está en alguna de las cuatro categorías que acabamos de definir, decimos que es monótona.
+        \item[f)] Decimos que $\{x_n\}$ es eventualmente monótona si existe un $N \in \N$ tal que $\{x_{N+n}\}_{n=0}^\infty$ es monótona.
+    \end{enumerate}
+    \end{definicion}
+    Pruebe:
+    \begin{enumerate}
+        \item[a)] Supongamos que $\{x_n\}$ es monótona. Entonces $\{x_n\}$ es convergente si y sólo si es acotada.
+        \item[b)] Supongamos que $\{x_n\}$ es eventualmente monótona. Entonces $\{x_n\}$ es acotada si y sólo si $\{x_n\}$ es convergente.
+    \end{enumerate}
+    
+    \item Sean $(Z, d_Z)$ un espacio métrico, $f : X \to Y$ y $g : f[X] \to Z$ funciones continuas. Entonces $g \circ f$ es continua.
+    
+    \item Sea $A \subseteq X$ y $f$ una función de $X$ en $Y$. Si $f$ es continua entonces $f|_A$ es continua, pero si $f|_A$ es continua, no necesariamente $f$ es continua.
+    
+    \item $f$ es continua en $x_0$ si y sólo si $f$ es secuencialmente continua en $x_0$.
+    
+    \item Si $f$ es uniformemente continua entonces $f$ es continua. El recíproco de esta afirmación no es cierto. Mostrar que $f(x) = \frac{1}{x}$ no es uniformemente continua.
+    
+    \item Sean $A$ un subconjunto de $X$ y $g : A \to Y$ una función. Decimos que $f$ es una extensión de $g$ a $X$ si $f(a) = g(a)$ para todo $a \in A$. Supongamos que $A$ es un subconjunto denso en $X$ y que $g : A \to Y$ es una función uniformemente continua. Entonces Existe una única extensión de $g$ a $X$ que es uniformemente continua.
+    
+    \item Sea $f : X \to Y$ un mapeo continuo de un espacio métrico $X$ en un espacio métrico $Y$. Demostrar que
+    \[ f(\overline{E}) \subset \overline{f(E)} \]
+    para todo conjunto $E \subset X$, donde $\overline{E}$ denota la clausura de $E$.
+    Además, mediante un ejemplo, mostrar que $f(E)$ puede ser un subconjunto propio de $\overline{f(E)}$.
+    
+    \item Sea $E$ un subconjunto compacto de un espacio métrico $X$ y sea $f : E \to Y$ una función con valores en un espacio métrico $Y$. La gráfica de $f$ se define como
+    \[ G_f = \{(x, f(x)) : x \in E\} \subset X \times Y. \]
+    Entonces:
+    \[ f \text{ es continua en } E \iff G_f \text{ es compacto.} \]
+    
+    \item Sea $f : E \to \R$ una función uniformemente continua en un conjunto acotado $E \subset \R$. Demostrar que $f$ es acotada en $E$.
+    
+    \item Supóngase que $f : X \to Y$ es una función entre espacios métricos y que $f$ no es uniformemente continua. Entonces existe $\varepsilon > 0$ y sucesiones $\{p_n\}, \{q_n\} \subset X$ tales que $d_X(p_n, q_n) \to 0$, pero
+    \[ d_Y(f(p_n), f(q_n)) \geq \varepsilon, \text{ para todo } n. \]
+    
+    \item Supóngase que $f : X \to Y$ es uniformemente continua entre espacios métricos. Demostrar que si $\{x_n\}$ es una sucesión de Cauchy en $X$, entonces $\{f(x_n)\}$ es una sucesión de Cauchy en $Y$.
+    
+    \item Sea $I = [a, b]$. Supóngase que $f : I \to I$ es una función continua. Demostrar que existe al menos un punto $x \in I$ tal que $f(x) = x$.
+\end{enumerate}

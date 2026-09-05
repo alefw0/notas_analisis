@@ -1,1 +1,601 @@
 \section{Teoremas de Rolle y del valor medio}
+\begin{teorema}[Rolle]
+Sea $f:[a,b]\to\mathbb{R}$ una función que satisface:
+
+\begin{enumerate}
+    \item $f$ es continua en $[a,b]$.
+    \item $f$ es derivable en $(a,b)$.
+    \item $f(a)=f(b)$.
+\end{enumerate}
+
+Entonces existe al menos un punto $c\in(a,b)$ tal que $f'(c)=0.$
+\end{teorema}
+
+\textbf{Interpretación geométrica}
+
+Si una curva comienza y termina a la misma altura, entonces debe existir al menos un punto interior donde la recta tangente sea horizontal.
+
+Geométricamente, la pendiente de la tangente en dicho punto es cero, es decir $f'(c)=0.$
+
+\begin{prueba}
+    Como $f$ es continua en el intervalo compacto $[a,b]$, por el
+Teorema del Valor Extremo existen puntos $x_m,x_M\in[a,b]$ tales que
+\[
+f(x_m)=\min_{x\in[a,b]}f(x),
+\qquad
+f(x_M)=\max_{x\in[a,b]}f(x).
+\]
+
+Consideremos dos casos.
+
+\medskip
+
+\noindent
+\textbf{Caso 1.} $f$ es constante en $[a,b]$.
+
+En este caso, $f(x)=k \quad \text{para todo } x\in[a,b],$ y por tanto $f'(x)=0 \quad \text{para todo } x\in(a,b).$ Cualquier punto $c\in(a,b)$ satisface la conclusión.
+
+\medskip
+
+\noindent
+\textbf{Caso 2.} $f$ no es constante.
+
+Entonces el máximo y el mínimo no pueden alcanzarse ambos en los
+extremos del intervalo. En efecto, si esto ocurriera, como
+$f(a)=f(b)$, tendríamos
+
+\[
+\max_{[a,b]}f=\min_{[a,b]}f,
+\]
+
+lo que implicaría que $f$ es constante, contradicción.
+
+Por consiguiente, al menos uno de los puntos $x_m$ o $x_M$
+pertenece al intervalo abierto $(a,b)$.
+
+\begin{itemize}
+    \item Si $x_M\in(a,b)$, entonces $f$ alcanza un máximo local en
+    $x_M$.
+    \item Si $x_m\in(a,b)$, entonces $f$ alcanza un mínimo local en
+    $x_m$.
+\end{itemize}
+
+Como $f$ es derivable en $(a,b)$, el lema de Fermat implica que la
+derivada en dicho punto interior debe anularse. Es decir,
+
+\[
+f'(x_M)=0
+\quad\text{o}\quad
+f'(x_m)=0.
+\]
+
+Tomando $c=x_M
+\quad\text{o}\quad
+c=x_m,$ según corresponda, obtenemos un punto $c\in(a,b)$ tal que $f'(c)=0.$ Por lo tanto, existe al menos un punto $c\in(a,b)$ para el cual
+$f'(c)=0$.
+\end{prueba}
+
+\begin{teorema}[Valor Medio Generalizado --- Cauchy]
+Sean $f,g$ continuas en $[a,b]$ y diferenciables en $(a,b)$. Entonces existe $c \in (a,b)$ tal que
+\[
+\boxed{
+    f'(c)\cdot\bigl[g(b)-g(a)\bigr] = g'(c)\cdot\bigl[f(b)-f(a)\bigr].
+}
+\]
+En particular, si $g'(c) \neq 0$ y $g(b) \neq g(a)$:
+\[
+    \frac{f'(c)}{g'(c)} = \frac{f(b)-f(a)}{g(b)-g(a)}.
+\]
+\end{teorema}
+\begin{prueba}
+    Para demostrar la existencia de tal $c$, se define la \textbf{funci\'on auxiliar}
+\[
+    h(x) = f(x)\cdot m_g \;-\; g(x)\cdot m_f,
+\]
+donde $m_g = g(b)-g(a)$ y $m_f = f(b)-f(a)$. Esta funci\'on satisface:
+\begin{enumerate}
+    \item $h(t)$ es continua en $[a,b]$ y diferenciable en $(a,b)$.
+    \item $h(a) = h(b)$.\\ En efecto:
+    \begin{align*}
+        h(a) &= f(a)\bigl[g(b)-g(a)\bigr] - g(a)\bigl[f(b)-f(a)\bigr],\\
+        h(b) &= f(b)\bigl[g(b)-g(a)\bigr] - g(b)\bigl[f(b)-f(a)\bigr].
+    \end{align*}
+    Expandiendo ambas:
+    \begin{align*}
+        h(a) &= f(a)g(b) - f(a)g(a) - g(a)f(b) + g(a)f(a) = f(a)g(b) - g(a)f(b),\\
+        h(b) &= f(b)g(b) - f(b)g(a) - g(b)f(b) + g(b)f(a) = f(a)g(b) - g(a)f(b).
+    \end{align*}
+    Luego $h(a) = h(b)$. 
+\end{enumerate}
+
+\medskip
+
+Como $h$ es continua en $[a,b]$,
+diferenciable en $(a,b)$ y $h(a)=h(b)$, por el Teorema de Rolle existe $c \in (a,b)$ tal que
+\[
+    h'(c) = 0.
+\]
+Notemos que :
+\[
+    h'(x) = f'(x)\cdot m_g - g'(x)\cdot m_f=0.
+\]
+Evaluando en $c$ y sustituyendo $m_g$, $m_f$:
+\[
+    f'(c)\bigl[g(b)-g(a)\bigr] - g'(c)\bigl[f(b)-f(a)\bigr] = 0.
+\]
+\end{prueba}
+
+\begin{remark}
+    Sean $f, g$ continuas en $[a,b]$ y diferenciables en $(a,b)$.
+Se define la curva parametrizada
+\[
+    \Psi(t) = \bigl(\,g(t),\; f(t)\,\bigr), \quad t \in [a,b].
+\]
+\noindent La curva $\Psi(t)=(g(t),f(t))$ traza en el plano la trayectoria
+que comienza en $\Psi(a)=(g(a),f(a))$ y termina en $\Psi(b)=(g(b),f(b))$.
+
+
+
+El vector secante entre $\Psi(t_0)$ y $\Psi(t_0 + h)$ es
+\[
+    \frac{\Psi(t_0 + h) - \Psi(t_0)}{h}.
+\]
+ La \textbf{tangente} en $t$ es $\;\Psi'(t) = \bigl(g'(t),\, f'(t)\bigr)$.
+ Queremos verificar que existe $t_0 \in (a,b)$ tal que la tangente
+$\Psi'(t_0)$ y el vector$\Psi(b)-\Psi(a)=(g(b)-g(a), f(b)-f(a))$ son \textbf{paralelos}. 
+Por teorema del valor medio generalizado, existe un $t_0 \in (a,b)$ tal que 
+\[
+\boxed{
+    f'(t_0)\cdot\bigl[g(b)-g(a)\bigr] = g'(t_0)\cdot\bigl[f(b)-f(a)\bigr].
+}
+\]
+Dos vectores en $\R^2$ son paralelos si y s\'olo si el determinante
+de la matriz que forman es cero. Sea 
+\[
+    A = \begin{pmatrix} \Psi(b)-\Psi(a) \\[4pt] \Psi'(t_0) \end{pmatrix}
+      = \begin{pmatrix} g(b)-g(a) & f(b)-f(a) \\[4pt] g'(t_0) & f'(t_0) \end{pmatrix}.
+\]
+Entonces,
+\[\det(A)=\bigl(g(b)-g(a)\bigr)\cdot f'(t_0) \;-\; \bigl(f(b)-f(a)\bigr)\cdot g'(t_0) = 0,
+\]
+Esto es precisamente lo que queremos probar.
+
+
+\end{remark} 
+
+\begin{teorema}[Teorema del Valor Medio]
+Sea $f$ una función con derivada (finita o infinita) en cada punto del
+intervalo abierto $(a,b)$ y continua en los extremos $a$ y $b$.
+
+Entonces existe un punto $c\in(a,b)$ tal que
+
+\[
+f(b)-f(a)=f'(c)(b-a).
+\]
+
+Equivalentemente,
+
+\[
+f'(c)=\frac{f(b)-f(a)}{b-a}.
+\]
+\end{teorema}
+\begin{prueba}
+Demostración a partir del Teorema del valor medio generalizado. Veamos que $f(b) - f(a) = f'(c)(b-a)$ para algún $c \in (a,b)$.  Tomemos
+
+\[
+g(x)=x.
+\]
+
+Entonces
+
+\[
+g'(x)=1
+\]
+
+para todo $x\in(a,b)$, y además
+
+\[
+g(b)-g(a)=b-a.
+\]
+
+Por el Teorema del Valor Medio Generalizado, existe un punto
+$c\in(a,b)$ tal que
+\[
+f'(c)[g(b)-g(a)] = g'(c)[f(b)-f(a)].
+\]
+
+Sustituyendo las expresiones anteriores obtenemos
+\[
+f'(c) (b-a) = 1 [f(b)-f(a)]
+\]
+
+Por lo tanto,
+\[
+f'(c)(b-a) = f(b)-f(a)
+\]
+
+Esto demuestra el Teorema del Valor Medio.
+
+\end{prueba}
+
+\begin{teorema}
+    Sean $f$ y $g$ dos funciones, cada una de ellas con derivada (finita o infinita) en cada punto de $(a,b)$.Supongamos además que existen los límites laterales
+
+\[
+f(a+), \quad g(a+), \quad f(b-), \quad g(b-),
+\]
+
+y que todos ellos son finitos. Supongamos también que no existe ningún punto $x\in(a,b)$ en el que las derivadas $f'(x)$ y $g'(x)$ sean ambas infinitas.
+
+Entonces existe un punto $c\in(a,b)$ tal que
+
+\[
+f'(c)\,[g(b-)-g(a+)]
+=
+g'(c)\,[f(b-)-f(a+)].
+\]
+
+\end{teorema}
+\begin{prueba}
+    Definamos las funciones $F$ y $G$ en $[a,b]$ por
+
+\[
+F(x)=
+\begin{cases}
+f(x), & x\in(a,b),\\
+f(a+), & x=a, \\
+f(b-), & x=b,\\
+\end{cases}
+\]
+
+y
+
+\[
+G(x)=
+\begin{cases}
+g(x), & x\in(a,b),\\
+g(a+), & x=a,\\
+g(b-), & x=b.\\
+\end{cases}
+\]
+
+Como por hipótesis existen los límites laterales
+
+\[
+f(a+), \quad f(b-), \quad g(a+), \quad g(b-),
+\]
+
+y todos ellos son finitos, se sigue que
+
+\[
+\lim_{x\to a^+}F(x)=f(a+)=F(a)
+\]
+
+y
+
+\[
+\lim_{x\to b^-}F(x)=f(b-)=F(b).
+\]
+
+Además, para todo $x\in(a,b)$, se tiene $F(x)=f(x)$, y como $f$ es derivable en $(a,b)$, es continua en dicho intervalo. Por consiguiente, $F$ es continua en $[a,b]$.
+
+De manera análoga,
+
+\[
+\lim_{x\to a^+}G(x)=g(a+)=G(a)
+\]
+
+y
+
+\[
+\lim_{x\to b^-}G(x)=g(b-)=G(b).
+\]
+
+Como $g$ es derivable en $(a,b)$, es continua en $(a,b)$, y por tanto $G$ es continua en $[a,b]$.
+
+Por otra parte, para todo $x\in(a,b)$,
+
+\[
+F'(x)=f'(x),
+\qquad
+G'(x)=g'(x).
+\]
+
+Así, $F$ y $G$ poseen derivada (finita o infinita) en cada punto de $(a,b)$. Además, la hipótesis garantiza que no existe ningún punto de $(a,b)$ en el que $F'(x)$ y $G'(x)$ sean ambas infinitas.
+
+Por lo tanto, las funciones $F$ y $G$ satisfacen todas las hipótesis del Teorema del Valor Medio Generalizado (Teorema 5.12). En consecuencia, existe un punto $c\in(a,b)$ tal que
+
+\[
+F'(c)\,[G(b)-G(a)]
+=
+G'(c)\,[F(b)-F(a)].
+\]
+
+Sustituyendo las definiciones de $F$ y $G$, obtenemos
+
+\[
+f'(c)\,[g(b-)-g(a+)]
+=
+g'(c)\,[f(b-)-f(a+)].
+\]
+
+Esta es precisamente la conclusión deseada.
+
+\end{prueba}
+
+\begin{teorema}
+    Supongamos que $f$ posee derivada en cada punto de $(a,b)$ y es continua en
+$[a,b]$.
+
+\begin{enumerate}[label=\alph*)]
+
+\item Si $f'(x)>0$ para todo $x\in(a,b)$, entonces $f$ es estrictamente creciente en $[a,b]$.
+
+\item Si $f'(x)<0$ para todo $x\in(a,b)$, entonces $f$ es estrictamente decreciente en $[a,b]$.
+
+\item Si $f'(x)=0$ para todo $x\in(a,b)$, entonces $f$ es constante en $[a,b]$.
+
+\end{enumerate}
+
+\end{teorema}
+
+\begin{prueba}
+    Sean $x,y\in[a,b]$ tales que $x<y$. Como $f$ es continua en $[a,b]$ y derivable en $(a,b)$, también es continua en el subintervalo $[x,y]$ y derivable en $(x,y)$.
+
+Por el Teorema del Valor Medio, existe un punto $c\in(x,y)$ tal que
+
+\[
+f(y)-f(x)=f'(c)(y-x).
+\]
+
+Como $y-x>0$, todas las afirmaciones del teorema se deducen del signo de $f'(c)$.
+
+\medskip
+
+\textbf{(a)} Supongamos que $f'(x)>0$ para todo $x\in(a,b)$. Como $c\in(x,y)$, se tiene $f'(c)>0.$ Multiplicando por la cantidad positiva $y-x$, obtenemos
+
+\[
+f'(c)(y-x)>0.
+\]
+
+Por la igualdad anterior, $f(y)-f(x)>0.$ Por consiguiente, $f(x)<f(y).$ Como esto ocurre para cualesquiera $x<y$ en $[a,b]$, concluimos que $f$ es estrictamente creciente en $[a,b]$.
+
+\medskip
+
+\textbf{(b)} Supongamos que $f'(x)<0$ para todo $x\in(a,b)$. Entonces $f'(c)<0.$ Como $y-x>0$, resulta
+
+\[
+f'(c)(y-x)<0.
+\]
+
+Por lo tanto, $f(y)-f(x)<0.$ Luego, $f(y)-f(x)<0.$ Como esto vale para cualesquiera $x<y$ en $[a,b]$, concluimos que $f$ es estrictamente decreciente en $[a,b]$.
+
+\medskip
+
+\textbf{(c)} Supongamos que $f'(x)=0$ para todo $x\in(a,b)$. Entonces $f'(x)=0$ Sustituyendo en la ecuación del Teorema del Valor Medio obtenemos
+
+\[
+f(y)-f(x)=0\cdot (y-x)=0.
+\]
+
+Por consiguiente, $f(y)=f(x).$
+Como esto ocurre para cualesquiera $x,y\in[a,b]$, la función $f$ es constante en $[a,b]$.
+\end{prueba}
+
+\begin{corolario}
+    Si $f$ y $g$ son continuas en $[a,b]$ y poseen derivadas iguales en
+$(a,b)$, entonces $f-g$ es constante en $[a,b]$.
+\end{corolario}
+\begin{prueba}
+    Definamos la función
+
+\[
+h:[a,b]\to\mathbb{R},
+\qquad
+h(x)=f(x)-g(x).
+\]
+
+Como $f$ y $g$ son continuas en $[a,b]$, y la diferencia de funciones continuas es continua, se sigue que $h$ es continua en $[a,b]$.Además, como $f$ y $g$ son derivables en $(a,b)$, y la diferencia de funciones derivables es derivable, se tiene que $h$ es derivable en $(a,b)$. Por la regla de derivación para diferencias,
+
+\[
+h'(x)=f'(x)-g'(x).
+\]
+
+Como por hipótesis $f'(x)=g'(x)$
+para todo $x\in(a,b)$, resulta que
+
+\[
+h'(x)=f'(x)-g'(x)=0
+\]
+
+para todo $x\in(a,b)$.
+
+Por lo tanto, la función $h$ satisface las hipótesis del Teorema anterior parte(c): es continua en $[a,b]$, derivable en $(a,b)$ y su derivada es nula en todo $(a,b)$.
+
+Aplicando dicho teorema, concluimos que $h$ es constante en $[a,b]$.
+
+Es decir, existe una constante $C\in\mathbb{R}$ tal que $h(x)=C$
+para todo $x\in[a,b]$. Sustituyendo la definición de $h$, obtenemos $f(x)-g(x)=C$
+para todo $x\in[a,b]$. Por consiguiente, $f-g$ es constante en $[a,b]$.
+
+\end{prueba}
+
+\section{Teorema del valor intermedio}
+
+Para entender lo que nos dice el teorema del valor intermedio para las derivadas y su demostración necesitamos tener muy presente lo siguiente:
+
+\begin{itemize}
+	\item \textbf{Derivadas laterales y derivadas infinitas.} En la definición de la derivada de una función en un punto \(c\) se asume que este punto se encuentra dentro cierto intervalo \([a,b]\), por lo que surge la necesidad de definir \textbf{que pasa si \(c\) es uno de los extremos del intervalo.}
+	
+	Así mismo, otro caso que no se considera en principio, es que pasa si el límite que define a la derivada en \(c\) \textbf{es igual a} \(\pm \infty\), lo que en términos geométricos \textbf{se corresponde a que la pendiente de la recta tangente a \(c\) es totalmente vertical.}
+	
+	Con esto en cuenta, tenemos lo siguiente:
+	\begin{definicion}
+	    Sea \(f\) una función definida en un intervalo cerrado \(S\) y continua en un punto \(c \in S\), decimos que: 
+		\(f\) admite derivada lateral por la derecha de \(c\) (denotada por \(f_{+}'(c)\)) si \[\lim\limits_{x \to c^+} \frac{f(x) - f(c) }{x-c}\] 
+		existe y es finito, o si es \(+\infty\) o \(-\infty\)
+		
+		Análogamente definimos la derivada lateral por la izquierda (denotada por \(f_{-}'(c)\)) con el limite lateral correspondiente.
+	\end{definicion}
+	
+	\item \textbf{Monotonía de una función. }
+	\begin{definicion}
+	    Sea $f : [a, b] \to \mathbb{R}$. Se dice que $f$ es:
+		\begin{itemize}
+			\item \textbf{Estrictamente creciente} en $[a, b]$ si para todo par $x_1, x_2 \in [a, b]$ con $x_1 < x_2$ se cumple $f(x_1) < f(x_2)$.
+			\item \textbf{Estrictamente decreciente} en $[a, b]$ si para todo par $x_1, x_2 \in [a, b]$ con $x_1 < x_2$ se cumple $f(x_1) > f(x_2)$.
+			\item \textbf{Estrictamente monótona} si $f$ satisface una de las dos condiciones anteriores.
+		\end{itemize}
+	\end{definicion}
+	
+	
+	\item \textbf{Teorema del valor intermedio para funciones continuas (T.V.I) y teorema del valor medio (T.M)}. Por supuesto, como teorema análogo al que tratamos en esta ocasión nos será útil en su demostración. Este afirma lo siguiente:
+	
+	\begin{teorema}
+	    Para \(f: [a,b] \to \R\) una función continua, si existen dos puntos \(\alpha, \beta \in [a,b]\) tales que \(f(\alpha) \neq f(\beta)\) entonces \(f\) toma todos los valores comprendidos entre \(f(\alpha)\) y \(f(\beta)\)
+	\end{teorema}
+	
+	Por otro lado, el teorema del valor medio que vimos anteriormente nos ayudara a conectar la función original con su derivada fácilmente:
+	
+	\begin{teorema}
+	Para  \(f: [a,b] \to \R\) con derivada en cada punto de \((a,b)\)  \textbf{(finita o infinita) }y continua en \([a,b]\), existe un \(c \in (a,b)\) tal que: \[f(b) - f(a) = f'(c)(b-a)\]
+	\end{teorema}
+\end{itemize}
+
+
+\begin{teorema}{(Teorema del valor intermedio para derivadas)}
+Sea \(f\) definida en \([a,b]\), tal que posee derivada (finita o infinita) en cada punto de \((a,b)\) y derivadas laterales \textbf{finitas} \(f'_{+}(a)\), \(f'_{-}(b)\) tales que \(f'_{+}(a) \neq f'_{-}(b)\). Si \(c \in \R\) es un punto comprendido entre \(f'_{+}(a)\) y \(f'_{-}(b)\) entonces existe por lo menos \(x \in (a,b)\) tal que \(f'(x) = c\)
+\end{teorema}
+
+\noindent  \textbf{Idea intuitiva}  \\
+
+\normalsize Lo que afirma el teorema, dicho de una manera geométrica, es que para\textbf{ todas las posibles pendientes 'c'} entre los extremos \(f'_{+}(a)\) y \(f'_{-}(b)\) , hay un valor \(x\) al que le corresponde dicha pendiente, a pesar de que no todo \(x\) en \([a,b]\) pueda tener una pendiente. Esto es importante tenerlo en cuenta, ya que por ello no podemos aplicar el T.V.I directamente sobre \(f'\) pues por lo anterior, esta no es \textbf{necesariamente continua}
+
+Dicho esto, lo que haremos es recorrer ese conjunto de todas las pendientes entre \(f'_{+}(a)\) y \(f'_{-}(b)\) mediante funciones auxiliares (que las construiremos continuas) y utilizar el T.V.I sobre ellas, luego el T.M, y así obtener el resultado.
+
+\begin{prueba}
+    Sea \[g_a(x) =  \begin{cases}
+		\frac{f(x)-f(a)}{x-a}  &\text{si } x \neq a \\
+		f'_{+}(a) &\text{si } x = a
+	\end{cases}\]
+	
+	entonces \(g_a\) \textbf{es continua en} \([a,b]\) pues \(f\) lo es, y \(f'_{+}(a)\)  es finita. Luego por el T.V.I, \(g_a\) toma todos los valores comprendidos entre \(g_a(a) = f'_{+}(a)\) y \(g_a(b) = \frac{f(b)-f(a)}{b-a}\) (este último siendo la cuerda que une a y b). 
+	
+	Por el T.M se sigue que para cada \(x \in (a,b)\) existe \(c \in (a,x)\) tal que \[f'(c) = \frac{f(x)-f(a)}{x-a} = g_a(x) \text{ para algún } c \in (a,x)\]
+	
+	Por lo tanto \(f'\) toma todos los valores entre \(f'_{+}(a)\) y \(\frac{f(b)-f(a)}{b-a}\). Análogamente, considerando \(g_b(x)\) con \(g_b(b) = f'_{-}(b)\) vemos que \(f'\) toma todos los valores entre \(\frac{f(b)-f(a)}{b-a}\) y \(f'_{-}(b)\). 
+	
+	Es decir que \(f'\) alcanza cada uno de los valores entre \(f'_{+}(a)\)  y \(f'_{-}(b)\) en \((a,b)\)
+\end{prueba}
+
+\begin{remark}
+    En realidad no es necesario que los extremos tengan derivadas finitas para que se cumpla el teorema, sin embargo esto nos obliga a cambiar un poco de estrategia. En efecto: 
+
+\vspace{0.5cm}
+Sea \(g(x) = f(x) - cx\) , Entonces $g$ es continua en $[a,b]$ y diferenciable en $(a,b)$, con 
+\[
+g'(x) = f'(x) - c.
+\]
+De las hipótesis se sigue que $g'(a) = f'(a) - c < 0$ y $g'(b) = f'(b) - c > 0$. Por lo tanto, $g$ decrece en un entorno de $a$ y crece en un entorno de $b$.
+
+Dado que $g$ es continua en $[a,b]$, alcanza un mínimo absoluto en algún punto 
+$d \in (a,b)$. Luego por un teorema anterior \textbf{(5.9 Apostol)} \[g'(d) = 0\]
+De la definición de $g$ se obtiene \( f'(d) = c\)
+\end{remark}
+\begin{teorema}
+    Sea $f: [a, b] \to \mathbb{R}$ una función con derivada (finita o infinita) en cada punto del intervalo abierto $(a, b)$, y continua en los extremos $a$ y $b$. \\
+	Si $f'(x) \neq 0$ para todo $x \in (a, b)$, entonces $f$ es \textbf{estrictamente monótona} en $[a, b]$.
+\end{teorema}
+\begin{prueba}
+    Para mayor claridad, dividamos la demostración en dos partes:
+	
+	\vspace{0.2cm}
+	\noindent \textbf{Parte 1. Veamos que la derivada $f'$ mantiene signo constante en $(a, b)$.}  
+	
+	Es decir, $f'$ no puede ser positiva en un punto y negativa en otro dentro de $(a, b)$. Supongamos por el contrario que existen $x_1, x_2 \in (a, b)$ tales que:
+	\begin{equation*}
+		f'(x_1) > 0 \quad \text{y} \quad f'(x_2) < 0.
+	\end{equation*}
+	
+	Como $x_1, x_2 \in (a, b)$ y $f$ es diferenciable en todo $(a, b)$, el subintervalo cerrado de extremos $x_1$ y $x_2$ está completamente contenido en $(a, b)$, y $f$ es diferenciable en él.
+	
+	El número 0 queda estrictamente comprendido entre $f'(x_1) > 0$ y $f'(x_2) < 0$. Por el teorema anterior (5.16), existe un punto $c$ estrictamente entre $x_1$ y $x_2$ tal que $f'(c) = 0$.
+	
+	Pero $c \in (a, b)$ (pues $x_1, x_2 \in (a, b)$), lo cual contradice directamente la hipótesis: $f'(x) \neq 0$ para todo $x \in (a, b)$
+	
+	\textbf{Concluimos del paso 1} que la derivada $f'$ no puede tomar valores de signos opuestos en $(a, b)$. Como además, por hipótesis tenemos que $f'(x) \neq 0$ en $(a, b)$, ocurre exactamente una de las dos alternativas excluyentes:
+	\begin{equation*}
+		\mathbf{(A)} \ f'(x) > 0 \ \forall x \in (a, b), \quad \text{o} \quad \mathbf{(B)} \ f'(x) < 0 \ \forall x \in (a, b).
+	\end{equation*}
+	
+	\vspace{0.2cm}
+	\noindent \textbf{Parte 2. Veamos que el signo constante de $f'$ implica que $f$ es estrictamente monótona.}  
+	
+	Sean $z_1, z_2 \in [a, b]$ dos puntos arbitrarios con $z_1 < z_2$.
+	
+	Revisemos que se cumplen las condiciones del TM. Por hipótesis, La función $f$ es continua en $[z_1, z_2] \subseteq [a, b]$. Además, $(z_1, z_2) \subseteq (a, b)$, y $f$ tiene derivada en cada punto de $(a, b)$, de modo que $f$ es diferenciable en $(z_1, z_2)$. Así, todas las condiciones del TM están satisfechas.
+	
+	Luego existe $c \in (z_1, z_2)$ tal que:
+	\begin{equation}
+		f(z_2) - f(z_1) = f'(c)(z_2 - z_1).
+	\end{equation}
+	
+	Como $c \in (z_1, z_2) \subset (a, b)$, la parte 1 garantiza que $f'(c)$ tiene signo definido y en particular $f'(c) \neq 0$. 
+	
+	Ahora revisemos los 2 posibles casos que tenemos para  $f'(x)$
+	
+	\textbf{Caso 1:} Si $f'(x) > 0$ para todo $x \in (a, b)$.
+	En la igualdad (1): $(z_2 - z_1) > 0$ y $f'(c) > 0$. Luego:
+	\begin{equation*}
+		f(z_2) - f(z_1) = \underbrace{f'(c)}_{>0} \cdot \underbrace{(z_2 - z_1)}_{>0} > 0 \quad \text{ luego } \quad f(z_1) < f(z_2).
+	\end{equation*}
+	Como $z_1 < z_2$ fueron arbitrarios, $f$ es \textbf{estrictamente creciente} en $[a, b]$.
+	
+	\textbf{Caso 2:} Si $f'(x) < 0$ para todo $x \in (a, b)$.
+	En la igualdad (1): $(z_2 - z_1) > 0$ y $f'(c) < 0$. Luego:
+	\begin{equation*}
+		f(z_2) - f(z_1) = \underbrace{f'(c)}_{<0} \cdot \underbrace{(z_2 - z_1)}_{>0} < 0 \quad \text{ entonces }\quad f(z_1) > f(z_2).
+	\end{equation*}
+	Como $z_1 < z_2$ fueron arbitrarios, $f$ es \textbf{estrictamente decreciente} en $[a, b]$.
+	
+	Vimos que en ambos casos, $f$ es o bien estrictamente creciente o bien estrictamente decreciente en $[a, b]$. Por tanto, $f$ es estrictamente monótona en $[a, b]$.
+
+\end{prueba}
+\begin{remark}
+    Al igual que en el teorema anterior, podemos notar algunas cosas cuando la derivada es infinita. En particular:
+
+\begin{itemize}
+	\item Si $f'(c) = +\infty$, existe una vecindad del punto $c$ en el que el cociente incremental $\frac{f(x) - f(c)}{x - c}$ es positivo para todo $x \neq c$ suficientemente cercano a $c$. La función “sube” \textbf{localmente}, igual que si la derivada fuese finita y positiva. Análogamente, $f'(c) = -\infty$ implica comportamiento localmente decreciente.
+	
+	\item \textbf{¿Y qué pasa en la demostración?} En la parte 1, si $f'(x_1) = +\infty$ y $f'(x_2) = -\infty$, el número 0 sigue estando estrictamente comprendido entre $+\infty$ y $-\infty$. El Teorema del Valor Medio (que es válido también para derivadas infinitas) garantiza la existencia de $c$ con $f'(c) = 0$, Y esto nos conduce a la misma contradicción.
+\end{itemize}
+\end{remark}
+\begin{example}
+    La función $f(x) = x^{1/3}$ es estrictamente creciente en $\mathbb{R}$. Su derivada $f'(x) = \frac{1}{3} x^{-2/3}$ tiende a $+\infty$ cuando $x \to 0$. A pesar de esta derivada infinita en el origen, $f'(x) > 0$ (o $+\infty$) en todo su dominio y nunca vale cero, de modo que el teorema anterior aplica en cualquier intervalo.
+\end{example}
+
+\begin{teorema}
+    Para \(f\) una función real definida en un intervalo [a,b], si $f'$ existe y es monótona en un intervalo abierto $(a, b)$ entonces $f'$ es continua en $(a, b)$.\\
+    
+    \textbf{Idea intuitiva}  \normalsize
+Recordemos que normalmente las derivadas no tienen por qué ser continuas, existen funciones cuya derivada existe en todas partes pero es discontinua en algunos puntos, es decir, el teorema afirma que la monotonía es una restricción tan fuerte que \textit{obliga} a la derivada a ser continua. Ademas nótese que en la hipótesis la condición de ser monótona (junto con la hipótesis de que \(f'\) existe en todo el intervalo) es suficiente para garantizar la continuidad de \(f'\); \textbf{lo que sí, es que la monotonía por sí sola no es necesaria  para la continuidad.}
+
+Para la prueba procederemos por reducción al absurdo, afirmando que existe una discontinuidad en la función,analizamos el comportamiento de la función con el supuesto y finalmente encontramos una contradicción con el teorema del valor intermedio anteriormente demostrado.
+\end{teorema}
+\begin{prueba}
+    Supongamos que $f'$ tuviese una discontinuidad en algún punto $c$ perteneciente al intervalo abierto $(a, b)$. 
+	
+	Como $c$ es un punto interior de $(a, b)$, es posible elegir un subintervalo cerrado $[\alpha, \beta] \subset (a, b)$ de tal manera que contenga a $c$ en su interior, es decir, cumpliendo la relación:
+	$$a < \alpha < c < \beta < b$$
+	
+	Dado que se asume por hipótesis que $f'$ es monótona en el intervalo abierto $(a, b)$, entonces $f'$ también es monótona en el subintervalo cerrado $[\alpha, \beta]$. De acuerdo con el \textit{Teorema 4.51}, los límites laterales de una función monótona siempre existen en cada punto, lo que implica que el único tipo de discontinuidad posible para $f'$ en el punto $c$ es una discontinuidad de salto.
+	
+	Por el tipo de discontinuidad, la función dara un salto abrupto en sus valores al pasar por $c$. Por lo tanto, $f'$ dejará de tomar alguno de los valores reales estrictamente comprendidos entre los valores extremos de los límites, y en consecuencia, omitirá algún valor comprendido entre $f'(\alpha)$ y $f'(\beta)$.
+	
+	No obstante, dado que $f'$ es la derivada de la función $f$, podemos aplicar el teorema del Valor Intermedio para Derivadas en el intervalo cerrado $[\alpha, \beta]$. Este teorema establece explícitamente que la función derivada $f'$ debe alcanzar absolutamente cada uno de los valores comprendidos entre $f'(\alpha)$ y $f'(\beta)$ en el interior del intervalo.
+	
+	De este modo, hemos llegado a una contradicción, puesto que una función no puede omitir y alcanzar simultáneamente los mismos valores en un intervalo, la hipótesis inicial de que existe una discontinuidad en el punto $c$ es necesariamente falsa.
+	
+	Por lo tanto, concluimos que $f'$ no tiene discontinuidades en $(a, b)$, lo que significa que $f'$ es continua en $(a, b)$.
+
+\end{prueba}

@@ -1,0 +1,205 @@
+\section{Ejercicios}
+
+En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente.
+
+\begin{enumerate}
+    \item Definamos la siguiente métrica en $\R^2$: $d(\x,\y) = |x_1 - x_2| + |y_1 - y_2|$, donde $\x = (x_1, y_1)$ y $\y = (x_2, y_2)$. Pruebe que, en efecto, esta función es una métrica en $\R^2$. Además, describa gráficamente en el plano cartesiano, la bola de centro $\mathbf{0} = (0,0)$ y radio 1.
+    
+    \item En $\R^2$, definamos la distancia entre dos puntos $(x_1, y_1)$ y $(x_2, y_2)$ como
+    \[ |y_1 - y_2|, \quad \text{si } x_1 = x_2, \qquad 1 + |y_1 - y_2| \quad \text{si } x_1 \neq x_2. \]
+    Pruebe que esta es una métrica.
+    
+    \item Sean $(X, d)$ un espacio métrico discreto y $p \in X$. Describa lo más claro posible los siguientes conjuntos: $B(p, \frac{1}{2})$, $B(p, 1)$ y $B(p, 2)$.
+    
+    \item Sean $A \subseteq X$ y $p \in A$. Muestre que la $\varepsilon$-bola centrada en $p$ en el subespacio $(A, d_A)$ es la intersección de $A$ con la $\varepsilon$-bola centrada en $p$ en el espacio $(X, d)$. O sea $B_A(p, \varepsilon) = A \cap B_X(p, \varepsilon)$.
+    
+    \item Muestre que $\lim_{n \to \infty} (x_n, y_n) = (x, y)$ en $\R^2$ si y sólo si $\lim_{n \to \infty} x_n = x$ y $\lim_{n \to \infty} y_n = y$ en $\R$.
+    
+    \item Establezca la convergencia o divergencia de la sucesión
+    \[ a_1 = 1, \quad a_2 = 1 + \frac{1}{2}, \quad a_3 = 1 + \frac{1}{2 + \frac{1}{2}}, \quad a_4 = 1 + \frac{1}{2 + \frac{1}{2 + \frac{1}{2}}}, \dots \]
+    
+    \item Establezca la convergencia o divergencia de la sucesión $\{x_n\}$ en $\R$ o $\R^2$ definida para $n \in \Z^+$ como:
+    \begin{enumerate}
+        \item[a)] $x_n = \frac{1}{n}$.
+        \item[b)] $x_n = 1 + \frac{(-1)^n}{n}$.
+        \item[c)] $x_n = \frac{(-1)^n n}{n+1}$.
+        \item[d)] $x_n = \frac{2n^2 + 3}{3n^2 + 1}$.
+        \item[e)] $x_n = 2n^2 - n$.
+        \item[f)] $x_n = \left(\frac{1}{n}, 1 + \frac{1}{n}\right)$.
+        \item[g)] $x_n = \left(2 + \frac{1}{n^2}, 1 + \frac{(-1)^n}{n}\right)$.
+    \end{enumerate}
+    
+    \item Sea $(X, d)$ el espacio métrico discreto. Una sucesión $\{x_n\}$ en $X$ converge si y sólo si es eventualmente constante.
+    
+    \item Muestre que la sucesión $\{\frac{1}{n}\}$ no converge en el intervalo $(0, 1]$ con la métrica relativa.
+\end{enumerate}
+
+\vspace{0.5cm}
+En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente.
+
+\begin{enumerate}
+    \setcounter{enumi}{0}
+    \item Construya una sucesión divergente que admita una subsucesión convergente.
+    
+    \item Si $0 \leq a \leq 1$, entonces la sucesión $\{a^n\}$ converge en $\R$ con la métrica usual. Sugerencia: Si $0 < a < 1$, escriba $a = \frac{1}{1+b}$, donde $b > 0$ y usando el teorema del binomio pruebe que $(1 + b)^n > 1 + nb$.
+    
+    \item Si $a > 0$ entonces la sucesión $a^{\frac{1}{n}}$ converge a $1$ en $\R$ con la métrica usual.
+    
+    \item Si $\{x_n\}$ y $\{y_n\}$ son sucesiones en $(X, d)$ y si el conjunto $\{n \in \N : x_n \neq y_n\}$ es finito, entonces ambas sucesiones convergen y tienen igual límite o ambas divergen.
+    
+    \item Sean $\{x_n\}$ una sucesión en $(X, d)$, $p \in \N$ y $y_n = x_{n+p}$ ($n \in \N$). Entonces ambas sucesiones $\{x_n\}$ y $\{y_n\}$ convergen al mismo límite o ambas divergen.
+    
+    \item Demuestre las siguientes ecuaciones de subconjuntos de $\R$.
+    \begin{enumerate}
+        \item[a)] $A' = [0,1]$ \hspace{1cm} si $A = [0,1]$.
+        \item[b)] $A' = [0,1]$ \hspace{1cm} si $A = (0,1)$.
+        \item[c)] $\N' = \emptyset$.
+    \end{enumerate}
+    
+    \item Si $A \subseteq X$ es finito, entonces $A' = \emptyset$.
+    
+    \item Si $A \subseteq X$ y $a \in A - A'$, entonces existe un algún $\varepsilon > 0$ tal que $B(a, \varepsilon) \cap A = \{a\}$.
+    
+    \item Construya un conjunto acotado en $\R$ que tenga sólo enumerables puntos de acumulación.
+    
+    \item Construya subconjuntos $A$ en $\R$ que ilustren las siguientes posibilidades:
+    \begin{enumerate}
+        \item[a)] $A' = \emptyset$.
+        \item[b)] $A' = A$.
+        \item[c)] $\emptyset \neq A' \subseteq A$.
+        \item[d)] $A' \neq A \subseteq A'$.
+    \end{enumerate}
+    
+    \item Demuestre que $\Q' = \R$.
+    
+    \item Si $B \subseteq A \subseteq X$, entonces $B' \cap A$ es el conjunto de puntos de acumulación de $B$ en $(A, d_A)$.
+    
+    \item Sea $A$ y $B$ subconjuntos de $X$. Muestre que $(A \cup B)' = A' \cup B'$ y que si $A \subseteq B$ entonces $A' \subseteq B'$.
+    
+    \item Pruebe que todo subconjunto finito de un espacio métrico es cerrado.
+    
+    \item Si $(X, d)$ es el espacio métrico discreto, entonces todo subconjunto de $X$ es cerrado.
+    
+    \item Pruebe que $\N$ es cerrado en $\R$. Por otro lado, pruebe que $\{\frac{1}{n} : n \in \N\}$ no lo es. Pruebe además que el conjunto $\{x : 0 \leq x < 1\}$ no es ni cerrado ni abierto.
+    
+    \item Muestre que cada uno de los siguientes conjuntos es cerrado en $\R^2$.
+    \begin{enumerate}
+        \item[a)] $\{(x, y) : x^2 + y^2 \leq 1\}$.
+        \item[b)] $\{(x, y) : x + y = 0\}$.
+        \item[c)] $\{(x, y) : x \geq 0, \ y \geq 0\}$.
+    \end{enumerate}
+    
+    \item Pruebe que si $A$ y $B$ son subconjuntos cerrados de $\R$, entonces $A \times B$ es cerrado en $\R^2$.
+    
+    \item Demuestre que $X$ y $\emptyset$ son ambos, abiertos y cerrados a la vez. Demuestre también que en $\R$, $\R$ y $\emptyset$ son los únicos subconjuntos que son a la vez abiertos y cerrados.
+    
+    \item Si $B \subseteq A \subseteq X$, entonces $B$ es cerrado en $(A, d_A)$ si y sólo si $B = A \cap F$ donde $F$ es algún cerrado en $(X, d)$.
+\end{enumerate}
+
+\vspace{0.5cm}
+En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente.
+
+\begin{enumerate}
+    \setcounter{enumi}{0}
+    \item Sea $(X, d)$ el espacio métrico discreto. Muestre que $A \subseteq X$ es compacto si y sólo si $A$ es finito.
+    
+    \item Pruebe que $\R$ no es compacto.
+    
+    \item Considere $\Q$ con la métrica relativa. Demuestre que $\{x \in \Q : 2 < x^2 < 3\}$ es un subconjunto cerrado y acotado de $\Q$ que no es compacto.
+    
+    \item Sea $B(\N)$ con la métrica usual. Sea $\mathbf{0}$ la sucesión cero (esto es $\mathbf{0} = \{x_n\}$, donde $x_n = 0$, para todo $x \in \N$). Demuestre que $A = \{\x \in B(\N) : d(\x, \mathbf{0}) \leq 1\}$ es cerrado y acotado pero no es compacto.
+    
+    \item Pruebe que si $A$ y $B$ son subconjuntos compactos de $\R$, entonces $A \times B$ es un subconjunto compacto de $\R^2$.
+    
+    \item Pruebe que $A \subseteq X$ es compacto si y sólo si $(A, d_A)$ es un espacio métrico compacto.
+    
+    \item Demuestre que todo espacio métrico discreto es completo.
+    
+    \item Pruebe que si $(X, d)$ es completo y $A \subseteq X$ es cerrado, entonces $(A, d_A)$ es completo.
+    
+    \item $\Q$ con la métrica usual no es completo.
+    
+    \item Una sucesión de Cauchy en $X$ es convergente si y sólo si tiene una subsucesión convergente en $X$.
+    
+    \item Si $\{x_n\}$ y $\{y_n\}$ son sucesiones de Cauchy en $X$, entonces $\{d(x_n, y_n)\}$ converge en $\R$.
+    
+    \item Sean $\{x_n\}$ y $\{y_n\}$ sucesiones en $\R$ que convergen a $x$ y $y$ respectivamente. Entonces
+    \begin{enumerate}
+        \item[a)] Si existe un $N \in \N$ tal que $x_n \leq y_n$ para todo $n > N$, entonces $x \leq y$. Muestre con un contraejemplo que no necesariamente $x < y$, aún si $x_n < y_n$ para todo $n > N$.
+        \item[b)] $x_n + y_n \to x + y$, cuando $n \to \infty$.
+        \item[c)] $x_n y_n \to xy$, cuando $n \to \infty$.
+        \item[d)] Si $k \in \R$ y si existe un $N \in \N$ tal que $x_n = k$ para todo $n > N$, entonces $x = k$.
+    \end{enumerate}
+\end{enumerate}
+
+\vspace{0.5cm}
+En los siguientes ejercicios $(X, d)$ denotará un espacio métrico arbitrario. En algunos casos éste denotará algún espacio particular el cual se especificará explícitamente. Tenga en cuenta las siguientes definiciones:
+
+\begin{definicion}
+Sean $A$ un subespacio de $X$ y $\mathcal{C}$ una familia de subconjuntos de $X$.
+\begin{enumerate}
+    \item $\mathcal{C}$ se llama un \textit{cubrimiento} de $A$ si $A \subseteq \bigcup \mathcal{C}$.
+    \item Si todos los elementos de un cubrimiento $\mathcal{C}$ son abiertos de $X$ entonces decimos que éste es un \textit{cubrimiento abierto} de $A$.
+    \item Sea $\mathcal{C}$ un cubrimiento de $A$. Entonces una subcolección $\mathcal{C}'$ de $\mathcal{C}$ se llama un \textit{subcubrimiento} si $\mathcal{C}'$ es un cubrimiento de $A$.
+\end{enumerate}
+\end{definicion}
+
+\begin{definicion}
+Sea $A \subseteq X$.
+\begin{enumerate}
+    \item La \textit{clausura} de $A$ es $\overline{A} := A \cup A'$.
+    \item Decimos que $A$ es \textit{denso} en $X$ si $\overline{A} = X$.
+\end{enumerate}
+\end{definicion}
+
+\begin{definicion}
+Se dice que un espacio métrico es \textit{separable} si contiene un subconjunto denso numerable.
+\end{definicion}
+
+\begin{definicion}
+Sea $\mathcal{T}$ una colección de subconjuntos de $X$. Decimos que $\mathcal{T}$ tiene la \textit{propiedad de la intersección finita} si toda subfamilia finita de $\mathcal{T}$ tiene intersección no vacía.
+\end{definicion}
+
+\begin{definicion}
+Sean $A$ y $B$ subconjuntos de $X$. Definimos la \textit{distancia} entre $A$ y $B$ como
+\[ \text{dist}(A, B) = \inf\{d(x, y) \mid x \in A, y \in B\}. \]
+Cuando $A = \{a\}$ es un conjunto singular, escribiremos simplemente $d(a, B)$ en lugar de $d(\{a\}, B)$.
+\end{definicion}
+
+Probar:
+
+\begin{enumerate}
+    \setcounter{enumi}{0}
+    \item $\Q$ es denso en $\R$.
+    
+    \item $\R$ es separable.
+    
+    \item El conjunto de Cantor es compacto.
+    
+    \item Construya un cubrimiento abierto de $(0, 1)$ que no admita un subcubrimiento finito.
+    
+    \item Sea $A \subseteq X$. Entonces $A$ es compacto si y sólo si todo cubrimiento abierto de $A$ admite un subcubrimiento finito.
+    
+    \item $X$ es compacto si y sólo si toda familia de subconjuntos cerrados de $X$ con la propiedad de la intersección finita tiene intersección no vacía.
+    
+    \item Si $A$ y $B$ son subconjuntos de un espacio métrico $X$, con $A$ cerrado y $B$ compacto entonces la distancia $\text{dist}(A, B) > 0$, si $A \cap B = \emptyset$.
+    
+    \item Si $a \in X$ y $B$ es subconjunto compacto de un espacio métrico $X$, entonces la distancia entre ellos se alcanza, es decir, existe $y_0 \in B$ tal que
+    \[ \text{dist}(a, B) = d(a, y_0). \]
+    
+    \item Consideren los conjuntos $A = \{(x, 1/x) \in \R^2 : x > 0\}$ y $B = \{(x, 0) \in \R^2 : x \in \R\}$, $\R^2$ con la métrica usual. Pruebe:
+    \begin{enumerate}
+        \item[a)] $A$ y $B$ son cerrados.
+        \item[b)] $\text{dist}(A, B) = 0$.
+    \end{enumerate}
+    
+    \item Considere el conjunto $A = [\sqrt{2}, 5] \cap \Q$ cerrado en $\Q$. Muestre que la distancia entre cero y $A$, ($\text{dist}(A, 0)$) no se alcanza.
+    
+    \item Sean $\{x_n\}$ y $\{y_n\}$ sucesiones en $\R$ convergentes a $x$ e $y$ respectivamente. Entonces
+    \begin{enumerate}
+        \item[a)] $\{x_n + y_n\}$ converge a $x + y$.
+        \item[b)] Si $k \in \R$, entonces $\{kx_n\}$ converge a $kx$.
+        \item[c)] Si existe un $M$ tal que $x_n \leq y_n$ para todo $n \geq M$, entonces $x \leq y$.
+        \item[d)] $\{x_n y_n\}$ converge a $xy$.
+    \end{enumerate}
+\end{enumerate}
